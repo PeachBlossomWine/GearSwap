@@ -10,7 +10,7 @@ state.Weapons:options('Ochain','Aegis','Srivatsa','None')
 
 state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None'}
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
-state.AutoEmblem = M(false, 'Auto Emblem')
+state.AutoEmblem = M(true, 'Auto Emblem')
 state.AutoTankFull = M(false, 'Auto Tank Full')
 --state.UnlockWeapons = M(true, 'Unlock Weapons')
 autows = 'Atonement'

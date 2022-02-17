@@ -14,10 +14,10 @@ sets.Enmity = {
 	legs={name="Erilaz Leg Guards +1",priority=80},								-- 7	/	11
 	feet={name="Ahosi Leggings",priority=18},									-- 4	/	7
 	neck={name="Unmoving Collar +1",priority=500},								--		/	10
-	waist={name="Silver Moogle Belt",priority=500},								-- 
+	waist={name=gear.hp_belt,priority=500},
 	left_ear={name="Cryptic Earring",priority=40},								--		/	4
 	right_ear={name="Odnowa Earring +1",priority=500},							-- 3
-	left_ring={name="Moonlight Ring",priority=500},								--		/	5
+	left_ring={name=gear.moon_ring,priority=500},								--		/	5
 	right_ring={name="Gelatinous Ring +1",priority=500},						-- 7
 	back=gear.tank_back,														-- 10	/	10
 }
@@ -42,7 +42,7 @@ sets.Enmity.SIRD = {															--SIRD	/	DT-PDT	/	Enmity
 	waist="Audumbla Sash",														-- 10	/	4
 	left_ear="Magnetic Earring",												-- 8
 	right_ear={name="Odnowa Earring +1",priority=500},							-- 			3
-	left_ring={name="Moonlight Ring",priority=500},								--		/	5
+	left_ring={name=gear.moon_ring,priority=500},								--		/	5
 	right_ring={name="Gelatinous Ring +1",priority=500},						--			7
 	back=gear.sird_back,														-- 10	/			/	10
 }
@@ -60,7 +60,7 @@ sets.precast.JA['Pflug'] = set_combine(sets.Enmity,{feet={name="Runeist's Boots 
 sets.precast.JA['Battuta'] = set_combine(sets.Enmity,{
 	head={name="Futhark Bandeau +3",priority=56}, 
 	legs={name="Erilaz Leg Guards +1",priority=80}, 
-	feet={name="Turms Leggings +1",priority=76}, 
+	feet={name=gear.run_tank_feet,priority=76}, 
 	back=gear.tank_back
 })
 sets.precast.JA['Liement'] = set_combine(sets.Enmity,{body="Futhark Coat +3",back={name="Moonlight Cape",priority=500},})
@@ -80,10 +80,10 @@ sets.precast.JA['Lunge'] = {
 	legs={name="Nyame Flanchard",priority=114},
 	feet={name="Nyame Sollerets",priority=68},
 	neck="Baetyl Pendant",
-	waist="Silver Mog. Belt",
+	waist=gear.hp_belt,
 	left_ear="Telos Earring",
 	right_ear={name="Odnowa Earring +1",priority=500},
-	left_ring={name="Moonlight Ring",priority=500},
+	left_ring={name=gear.moon_ring,priority=500},
 	right_ring={name="Gelatinous Ring +1",priority=500},
 	back=gear.tank_back,
 }
@@ -118,11 +118,11 @@ sets.precast.FC = {
 	ammo="Aqreqaq Bomblet",
 	head={name="Runeist's Bandeau +3",priority=109},																-- 14
 	body=gear.jovian_fc_body,																						-- 10
-			hands={name="Leyline Gloves",priority=25},																			-- 6-8
+		hands={name="Leyline Gloves",priority=25},																			-- 6-8
 	legs={name="Aya. Cosciales +2",priority=45},																	-- 6
 	feet={name="Carmine Greaves +1",priority=95},																	-- 8
 	neck="Baetyl Pendant",																							-- 4
-	waist={name="Silver Moogle Belt",priority=500},
+	waist={name=gear.hp_belt,priority=500},
 	left_ear={name="Etiolation Earring",priority=50},																-- 1	
 	right_ear={name="Tuisto Earring",priority=500},
 	left_ring="Weather. Ring +1",																						-- 4
@@ -157,10 +157,10 @@ sets.precast.WS = {
 sets.precast.WS['Resolution'] = {
 	ammo="Knobkierrie",
 	head={name="Nyame Helm",priority=91},
-	body={ name="Lustr. Harness +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+	body={name="Nyame Mail",priority=136},
 	hands="Nyame Gauntlets",
 	legs={name="Nyame Flanchard",priority=114},
-	feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+	feet={name="Nyame Sollerets",priority=68},
 	neck="Fotia Gorget",
 	waist="Fotia Belt",
 	left_ear="Sherida Earring",
@@ -173,10 +173,10 @@ sets.precast.WS['Resolution'] = {
 sets.precast.WS['Dimidiation'] = {
 	ammo="Knobkierrie",
 	head="Nyame Helm",
-	body={ name="Lustr. Harness +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
+	body={name="Nyame Mail",priority=136},
 	hands="Nyame Gauntlets",
-	legs={ name="Lustr. Subligar +1", augments={'Accuracy+20','DEX+8','Crit. hit rate+3%',}},
-	feet={ name="Lustra. Leggings +1", augments={'HP+65','STR+15','DEX+15',}},
+	legs={name="Nyame Flanchard",priority=114},
+	feet={name="Nyame Sollerets",priority=68},
 	neck="Fotia Gorget",
 	waist="Fotia Belt",
 	left_ear="Sherida Earring",
@@ -195,11 +195,11 @@ sets.precast.WS.Tank = {
 	hands={name="Regal Gauntlets",priority=205},
 	legs={name="Nyame Flanchard",priority=114},
 	feet={name="Nyame Sollerets",priority=68},
-	neck={name="Futhark Torque +2",priority=60},
+	neck={name=gear.run_jse_neck,priority=60},
 	waist="Flume Belt +1",
 	left_ear="Sherida Earring",
 	right_ear={name="Odnowa Earring +1",priority=500},
-	left_ring={name="Moonlight Ring",priority=500},
+	left_ring={name=gear.moon_ring,priority=500},
 	right_ring={name="Gelatinous Ring +1",priority=500},
 	back=gear.jse_wsd_back,
 }
@@ -235,7 +235,6 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic']
 	
 -- 455 Enhancing
 -- 39% PDT/DT
-
 sets.midcast['Phalanx'] = {
 	ammo="Staunch Tathlum +1",
 	head="Futhark Bandeau +3",														-- Phalanx +7
@@ -243,11 +242,11 @@ sets.midcast['Phalanx'] = {
 	hands={name="Regal Gauntlets",priority=205},									-- 20%
 	legs=gear.taeon_phalanx_legs,													-- Phalanx +3
 	feet=gear.taeon_phalanx_feet,													-- Phalanx +3
-	neck="Futhark Torque +2",
+	neck=gear.run_jse_neck,
 	waist="Flume Belt +1",
 	left_ear="Andoaa Earring",														-- 5
 	right_ear={name="Odnowa Earring +1",priority=500},
-	left_ring={name="Moonlight Ring",priority=500},
+	left_ring={name=gear.moon_ring,priority=500},
 	right_ring={name="Gelatinous Ring +1",priority=500},
 	back={name="Moonlight Cape",priority=500},
 }
@@ -362,8 +361,8 @@ sets.idle = {
 	body={name="Runeist's Coat +3",priority=218},																
 	hands={name="Regal Gauntlets",priority=205},																
 	legs={name="Nyame Flanchard",priority=114},												-- 		 	/ 9 DT	/
-	feet={name="Turms Leggings +1",priority=76},																
-	neck={name="Futhark Torque +2",priority=60},											-- 			/ 6 DT	/
+	feet={name=gear.run_tank_feet,priority=500},																
+	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
 	waist="Flume Belt +1",																	-- 4 PDT 	/		/
 	left_ear={name="Etiolation Earring",priority=50},
 	right_ear={name="Odnowa Earring +1",priority=500},										--			/		/	2 MDT
@@ -371,22 +370,6 @@ sets.idle = {
 	right_ring={name="Gelatinous Ring +1",priority=500},									-- 7  PDT	/		/	-1 MDT
 	back=gear.tank_back,																	-- 10 PDT	/		/
 }
-
--- sets.idle.Town = {
-	-- ammo="Homiliary",
-	-- head="Nyame Helm",
-	-- body="Nyame Mail",
-	-- hands="Nyame Gauntlets",
-	-- legs="Nyame Flanchard",
-	-- feet="Nyame Sollerets",														
-	-- neck="Futhark Torque +2",
-	-- waist="Flume Belt +1",
-	-- left_ear="Etiolation Earring",
-	-- right_ear="Odnowa Earring +1",
-	-- left_ring="Eihwaz Ring",
-	-- right_ring="Gelatinous Ring +1",
-	-- back=gear.tank_back,
--- }
 
 sets.idle.Refresh = set_combine(sets.idle, {head="Rawhide Mask", legs="Rawhide Trousers", feet="Nyame Sollerets"})
 sets.idle.Weak = sets.idle
@@ -413,11 +396,11 @@ sets.defense.PDT = {
 	hands={name="Nyame Gauntlets",priority=91},																
 	legs={name="Nyame Flanchard",priority=114},
 	feet="Nyame Sollerets",
-	neck={name="Futhark Torque +2",priority=60},
+	neck={name=gear.run_jse_neck,priority=60},
 	waist="Flume Belt +1",
 	left_ear={name="Etiolation Earring",priority=50},
 	right_ear={name="Odnowa Earring +1",priority=500},
-	left_ring={name="Moonlight Ring",priority=500},
+	left_ring={name=gear.moon_ring,priority=500},
 	right_ring={name="Gelatinous Ring +1",priority=500},
 	back={name="Moonlight Cape",priority=500},
 }
@@ -437,7 +420,7 @@ sets.AccMaxTP = {ear1="Telos Earring"}
 sets.engaged = {
 	ammo="Yamarang",
 	head="Nyame Helm",
-	body="Ashera Harness",
+	body=gear.run_dd_body,
 	hands="Adhemar Wrist. +1",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -456,7 +439,7 @@ sets.engaged = {
 sets.engaged.DTLite = {
 	ammo="Yamarang",
 	head={name="Nyame Helm",priority=91},
-	body={name="Ashera Harness",priority=500},
+	body={name=gear.run_dd_body,priority=500},
 	hands={name="Regal Gauntlets",priority=500},
 	legs="Nyame Flanchard",
 	feet={name="Nyame Sollerets",priority=68},
@@ -464,7 +447,7 @@ sets.engaged.DTLite = {
 	waist="Ioskeha Belt +1",
 	left_ear="Sherida Earring",
 	right_ear={name="Odnowa Earring +1",priority=500},
-	left_ring={name="Moonlight Ring",priority=500},
+	left_ring={name=gear.moon_ring,priority=500},
 	right_ring={name="Gelatinous Ring +1",priority=500},
 	back=gear.jse_da_back,
 }
@@ -483,8 +466,8 @@ sets.engaged.Tank = {
 	body={name="Runeist's Coat +3",priority=218},											--					
 	hands={name="Turms Mittens +1",priority=74},											--					
 	legs={name="Nyame Flanchard",priority=114},												--   		/ 8 DT	/
-	feet={name="Turms Leggings +1",priority=76},											--					
-	neck={name="Futhark Torque +2",priority=60},											-- 			/ 6 DT	/
+	feet={name=gear.run_tank_feet,priority=76},											--					
+	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
 	waist="Flume Belt +1",																	-- 4 PDT 	/		/
 	left_ear={name="Etiolation Earring",priority=50},
 	right_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
