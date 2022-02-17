@@ -178,7 +178,7 @@ sets.midcast.StatusRemoval.DT = set_combine(sets.midcast.FastRecast.DT, {})
 -- 60%
 sets.midcast['Enhancing Magic'] = {
 	main=gear.sch_enhancing_weapon,	 												-- 20%
-	sub="Enki Strap",	
+	sub=gear.sch_regen_sub,
 	ammo="Staunch Tathlum +1",
 	head=gear.telchine_enhancing_head,												-- 8%
 	body="Peda. Gown +3",															-- 12%
@@ -206,6 +206,7 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic']
 -- Light Arts Combined: 83HP/Tick
 sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
 	main=gear.sch_regen_weapon,
+	sub=gear.sch_regen_sub,
 	head="Arbatel Bonnet +1",		-- 15%
 	body=gear.telchine_enhancing_body,
 	back=gear.regen_jse_back,		-- +10
