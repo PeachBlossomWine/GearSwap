@@ -59,6 +59,7 @@ state.AutoSMNSCMode = M(false, 'AutoSMNSCMode')
 state.AutoOtherTargetWS = M(false, 'AutoOtherTargetWS')
 state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
 state.AutoTomahawkMode = M(false, 'AutoTomahawkMode')
+state.AutoJumpMode = M(false, 'Auto Jump Mode')
 
 data.weaponskills.mythic = {
     ["Conqueror"] = "King's Justice",

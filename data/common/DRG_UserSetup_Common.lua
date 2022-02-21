@@ -10,6 +10,7 @@ state.Weapons:options('Trishula', 'ShiningOne', 'Malignance', 'Naegling', 'None'
 state.Passive = M{['description'] = 'Passive Mode','None'}
 state.AutoBondMode = M(false, 'Auto Bond Mode')
 state.AutoZergMode = M(false, 'Auto Zerg Mode')
+state.AutoJumpMode = M(false, 'Auto Jump Mode')
 
 gear.jse_da_back ={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Accuracy+10','Phys. dmg. taken-10%',}}
 gear.jse_str_back = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}} -- 'STR+10',

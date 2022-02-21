@@ -154,7 +154,12 @@ end
 
 
 function job_aftercast(spell)
-
+	local abil_recasts = windower.ffxi.get_ability_recasts()
+	if spell.english == 'Rayke' and not spell.interrupted then
+		windower.send_command('input /p [Rayke] レイク46秒 - 残り時間; wait 16; input /p [Rayke] レイク30秒; wait 15; input /p [Rayke] レイク15秒; wait 15; input /p [Rayke] レイク終了!')
+	elseif spell.english == 'Gambit' and not spell.interrupted then
+		windower.send_command('input /p [Gambit] ガンビット96秒 - 残り時間; wait 36; input /p [Gambit] ガンビット60秒; wait 30; input /p [Gambit] ガンビット30秒; wait 30; input /p [Gambit] ガンビット終了!')
+	end
 end
 
 function job_buff_change(buff, gain)
