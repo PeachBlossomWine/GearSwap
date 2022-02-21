@@ -7,6 +7,7 @@ state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('Normal','Reraise')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 state.Passive = M{['description']='Passive Mode','None'}
+state.AutoTomahawkMode = M(false, 'AutoTomahawkMode')
 
 autows = "Upheaval"
 state.AutoZergMode = M(false, 'Auto Zerg Mode')

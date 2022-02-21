@@ -362,6 +362,16 @@ sets.midcast['Distract II'] = sets.midcast['Enfeebling Magic'].Resistant
 sets.midcast['Distract III'] = sets.midcast.SkillBasedEnfeebling
 sets.midcast['Distract III'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
 
+sets.midcast['Gravity II'] = set_combine(sets.midcast['Enfeebling Magic'], {
+	main="Bunzi's Rod",
+	body="Atrophy Tabard +3",
+})
+
+sets.midcast['Gravity'] = set_combine(sets.midcast['Gravity II'], {})
+
+sets.midcast['Gravity II'].Resistant = set_combine(sets.midcast['Gravity II'], {})
+sets.midcast['Gravity'].Resistant = set_combine(sets.midcast['Gravity II'], {})
+
 sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 
 --TH spells

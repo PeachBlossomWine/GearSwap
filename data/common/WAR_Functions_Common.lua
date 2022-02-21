@@ -302,6 +302,10 @@ function check_buff()
 			windower.chat.input('/ja "Aggressor" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
+		elseif abil_recasts[7] < latency and state.AutoTomahawkMode.value then
+			windower.chat.input('/ja "Tomahawk" <t>')
+			tickdelay = os.clock() + 1.1
+			return true
 		else
 			return false
 		end

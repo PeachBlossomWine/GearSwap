@@ -15,7 +15,7 @@ state.MainStep = M{['description']='Main Step', 'Box Step','Quickstep','Stutter 
 state.AltStep = M{['description']='Alt Step', 'Quickstep','Box Step','Stutter Step','Feather Step'}
 state.UseAltStep = M(false, 'Use Alt Step')
 state.CurrentStep = M{['description']='Current Step', 'Main', 'Alt'}
-state.AutoSambaMode = M{['description']= 'Auto Samba Mode', 'Off', 'Haste Samba'}
+state.AutoSambaMode = M{['description']= 'Auto Samba Mode', 'Off', 'Haste'}
 state.AutoContradanceMode = M(true, 'Auto Contradance Mode')
 state.AutoPrestoMode = M(true, 'Auto Presto Mode')
 

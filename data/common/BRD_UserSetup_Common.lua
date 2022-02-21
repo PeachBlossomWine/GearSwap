@@ -32,7 +32,6 @@ send_command('bind @` input /ma "Chocobo Mazurka" <me>')
 send_command('bind ^Backspace input /ma "Puppet\'s Operetta" <me>; wait 5; input /ma "Scop\'s Operetta" <me>; wait 5; input /ma "Goblin Gavotte" <me>; wait 5; input /ma "Shining Fantasia" <me>;')
 send_command('bind !Backspace input /ma "Puppet\'s Operetta" <me>;')
 send_command('bind ^\\\\ input /ma "Dispelga" <t>;')
-send_command('lua load singer; wait 0.2; singer off')
 send_command('wait 5; hb mincure 4')
 
 --Lockstyle + Dressup

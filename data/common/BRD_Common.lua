@@ -43,7 +43,7 @@ sets.precast.FC["Honor March"].Melee = set_combine(sets.precast.FC.BardSong, {ra
 
 -- Precast sets to enhance JAs
 
-sets.precast.JA['Nightingale'] = {feet="Brd. Slippers +2"}
+sets.precast.JA['Nightingale'] = {feet="Bihu Slippers +3"}
 sets.precast.JA['Troubadour'] = {body="Bihu Justaucorps +3"}
 sets.precast.JA['Soul Voice'] = {legs="Brd. Cannions +2"}
 
