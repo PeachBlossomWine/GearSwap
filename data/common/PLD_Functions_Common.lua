@@ -19,6 +19,7 @@ buff_spell_lists = {
 		{Name='Reprisal',Buff='Reprisal',SpellID=97,When='Combat'},
 		{Name='Cocoon',Buff='Defense Boost',SpellID=547,When='Always'},
 		{Name='Phalanx',Buff='Phalanx',SpellID=106,When='Always'},
+		{Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
 	},
 	
 	Default = {
@@ -30,7 +31,8 @@ buff_spell_lists = {
 		{Name='Aquaveil',Buff='Aquaveil',SpellID=55,Reapply=false},
 		{Name='Stoneskin',Buff='Stoneskin',SpellID=54,Reapply=false},
 		{Name='Blink',Buff='Blink',SpellID=53,Reapply=false},
-		{Name='Regen',Buff='Regen',SpellID=108,Reapply=false},
+		{Name='Regen II',Buff='Regen',SpellID=110,Reapply=false},
+		{Name='Enlight II',Buff='Enlight',SpellID=855,Reapply=false},
 	},
 }
 
@@ -266,7 +268,7 @@ function check_buff()
 				return true
 			end
 			
-			if abil_recasts[79] < latency and (player.mpp < 30 and player.tp > 1500) and not silent_check_amnesia() then
+			if abil_recasts[79] < latency and (player.mpp < 30 and player.tp > 1300) and not silent_check_amnesia() then
 				windower.chat.input('/ja "Chivalry" <me>')
 				tickdelay = os.clock() + 2.0
 				return true

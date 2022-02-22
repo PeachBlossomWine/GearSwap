@@ -112,6 +112,13 @@ function job_precast(spell, spellMap, eventArgs)
 			windower.chat.input('/ja "Divine Emblem" <me>')
 			windower.chat.input:schedule(1,'/ma "Flash" '..spell.target.raw..'')
 		end
+	elseif spell.english:contains('Cure') or spell.english:contains('Protect') then
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+		if abil_recasts[150] < latency and not buffactive['Majesty'] and not silent_check_amnesia() then
+			eventArgs.cancel = true
+			windower.chat.input('/ja "Majesty" <me>')
+			windower.chat.input:schedule(1,'/ma ' ..spell.english.. ' ' ..spell.target.raw..'')
+		end
 	end
 
 end
