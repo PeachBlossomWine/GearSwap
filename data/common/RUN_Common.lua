@@ -113,9 +113,9 @@ sets.precast.JA['Tenebrae'] = set_combine(sets.Enmity, {})
 
 -- Fast cast sets for spells
 -- Insipiration: 26% [2/5]
--- FC: 68%
+-- FC: 67%
 sets.precast.FC = {
-	ammo="Aqreqaq Bomblet",
+	ammo="Sapience Orb",																							-- 2
 	head={name="Runeist's Bandeau +3",priority=109},																-- 14
 	body=gear.jovian_fc_body,																						-- 10
 		hands={name="Leyline Gloves",priority=25},																			-- 6-8
@@ -125,7 +125,7 @@ sets.precast.FC = {
 	waist={name=gear.hp_belt,priority=500},
 	left_ear={name="Etiolation Earring",priority=50},																-- 1	
 	right_ear={name="Tuisto Earring",priority=500},
-	left_ring="Weather. Ring +1",																						-- 4
+	left_ring="Weather. Ring +1",																					-- 6
 	right_ring={name="Gelatinous Ring +1",priority=500},
 	back=gear.fc_back,																								-- 10
 }
