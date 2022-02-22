@@ -255,7 +255,6 @@ sets.engaged = {
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,
 }	
-sets.engaged.Acc = set_combine(sets.engaged, {})
 
 sets.engaged.DT = {
 	ammo="Coiste Bodhar",
@@ -272,7 +271,6 @@ sets.engaged.DT = {
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,
 }
-sets.engaged.Acc.DT = set_combine(sets.engaged.DT, {})
 
 sets.engaged.SubtleBlow ={
 	ammo="Staunch Tathlum +1",
@@ -289,7 +287,8 @@ sets.engaged.SubtleBlow ={
 	right_ring="Niqmaddu Ring",											-- 5 II
 	back=gear.jse_da_back,		
 }
-sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {})
+
+sets.engaged.Enmity = set_combine(sets.engaged.DT, {right_ear="Schere Earring"})
 
 sets.engaged.Proc = set_combine(sets.engaged.DT, {neck="Combatant's Torque"})
 

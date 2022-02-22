@@ -1676,7 +1676,7 @@ function is_party_member(playerid)
 end
 
 function get_usable_item(name)--returns time that you can use the item again
-	for _,n in pairs({"inventory","wardrobe","wardrobe2","wardrobe3","wardrobe4","satchel"}) do
+	for _,n in pairs({"inventory","wardrobe","wardrobe2","wardrobe3","wardrobe4","wardrobe5","wardrobe6","wardrobe7","wardrobe8","satchel"}) do
         for _,v in pairs(gearswap.items[n]) do
             if type(v) == "table" and v.id ~= 0 and res.items[v.id].english:lower() == name:lower() then
                 return extdata.decode(v)
