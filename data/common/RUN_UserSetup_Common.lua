@@ -1,5 +1,5 @@
 state.OffenseMode:options('Normal')
-state.HybridMode:options('Tank','DTLite','Normal')
+state.HybridMode:options('Tank','MEVA','DTLite','Ongo','Normal')
 state.WeaponskillMode:options('Tank','Normal')
 state.CastingMode:options('Normal','SIRD','DT')
 state.PhysicalDefenseMode:options('PDT')

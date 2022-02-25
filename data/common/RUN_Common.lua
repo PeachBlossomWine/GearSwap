@@ -452,13 +452,19 @@ sets.engaged.DTLite = {
 	back=gear.jse_da_back,
 }
 
+-- Special ONGO set
+sets.engaged.Ongo =  set_combine(sets.engaged.DTLite , {
+	hands={name="Nyame Gauntlets",priority=500},
+	neck={name=gear.run_jse_neck,priority=60},
+})
+
 --	PDT:	36
 --	PDT II:	5
 --	DT:		19
 --	MDT:	19
 --	Total:	55+5 [Overcap]
 --  MEVA: 665
---  3122 HP
+--  3452 HP
 
 sets.engaged.Tank = {
 	ammo="Staunch Tathlum +1",																-- 			/ 3 DT	/			
@@ -466,12 +472,28 @@ sets.engaged.Tank = {
 	body={name="Runeist's Coat +3",priority=218},											--					
 	hands={name="Turms Mittens +1",priority=74},											--					
 	legs={name="Nyame Flanchard",priority=114},												--   		/ 8 DT	/
-	feet={name=gear.run_tank_feet,priority=76},											--					
+	feet={name=gear.run_tank_feet,priority=76},												--					
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
 	waist="Flume Belt +1",																	-- 4 PDT 	/		/
 	left_ear={name="Etiolation Earring",priority=50},
 	right_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
 	left_ring="Eihwaz Ring",
+	right_ring={name="Gelatinous Ring +1",priority=500},									-- 7  PDT	/		/	-1 MDT
+	back=gear.tank_back,																	-- 10 PDT	/		/
+}
+
+sets.engaged.MEVA = {
+	ammo="Staunch Tathlum +1",																-- 			/ 3 DT	/			
+	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
+	body={name="Runeist's Coat +3",priority=218},											--					
+	hands={name="Nyame Gauntlets",priority=91},												--					
+	legs={name="Nyame Flanchard",priority=114},												--   		/ 8 DT	/
+	feet={name="Nyame Sollerets",priority=68},												--					
+	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
+	waist="Carrier's Sash",																	-- 4 PDT 	/		/
+	left_ear={name="Etiolation Earring",priority=50},
+	right_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
+	left_ring={name=gear.moon_ring,priority=500},
 	right_ring={name="Gelatinous Ring +1",priority=500},									-- 7  PDT	/		/	-1 MDT
 	back=gear.tank_back,																	-- 10 PDT	/		/
 }

@@ -91,6 +91,17 @@ sets.precast.WS["Ascetic's Fury"]  = set_combine(sets.precast.WS.Multi, {})
 sets.precast.WS['Dragon Kick']     = set_combine(sets.precast.WS.Multi, {legs="Mpaca's Hose", feet="Anch. Gaiters +3"})
 sets.precast.WS['Tornado Kick']    = set_combine(sets.precast.WS.Multi, {legs="Mpaca's Hose", feet="Anch. Gaiters +3"})
 sets.precast.WS['Spinning Attack'] = set_combine(sets.precast.WS.Multi, {back=gear.jse_da_back,})
+sets.precast.WS['Shell Crusher']   = set_combine(sets.precast.WS.Multi, {
+	ammo="Pemphredo Tathlum",
+	neck="Sanctity Necklace",
+	waist="Luminary Sash",
+	left_ear="Digni. Earring",
+	right_ear="Crep. Earring",
+	left_ring="Weather. Ring +1",
+	right_ring="Metamor. Ring +1",
+	back=gear.jse_da_back,
+})
+
 
 -- Enmity
 sets.precast.WS["Raging Fists"].Emnity = set_combine(sets.precast.WS["Raging Fists"], {left_ear="Schere Earring"})
@@ -101,6 +112,7 @@ sets.precast.WS["Victory Smite"].Emnity = set_combine(sets.precast.WS["Victory S
 sets.precast.WS["Shijin Spiral"].Emnity = set_combine(sets.precast.WS["Shijin Spiral"], {left_ear="Schere Earring"})
 sets.precast.WS["Dragon Kick"].Emnity = set_combine(sets.precast.WS["Dragon Kick"], {left_ear="Schere Earring"})
 sets.precast.WS["Tornado Kick"].Emnity = set_combine(sets.precast.WS["Tornado Kick"], {left_ear="Schere Earring"})
+sets.precast.WS["Shell Crusher"].Emnity = set_combine(sets.precast.WS["Shell Crusher"], {})
 
 -- Tank
 sets.precast.WS["Raging Fists"].Tank = set_combine(sets.precast.WS["Raging Fists"], sets.precast.WS.Tank)
@@ -111,8 +123,7 @@ sets.precast.WS["Victory Smite"].Tank = set_combine(sets.precast.WS["Victory Smi
 sets.precast.WS["Shijin Spiral"].Tank = set_combine(sets.precast.WS["Shijin Spiral"], sets.precast.WS.Tank)
 sets.precast.WS["Dragon Kick"].Tank = set_combine(sets.precast.WS["Dragon Kick"], sets.precast.WS.Tank)
 sets.precast.WS["Tornado Kick"].Tank = set_combine(sets.precast.WS["Tornado Kick"], sets.precast.WS.Tank)
-
-sets.precast.WS['Cataclysm'] = {}
+sets.precast.WS["Shell Crusher"].Tank = set_combine(sets.precast.WS["Shell Crusher"], {})
 
 -- Swap to these on Moonshade using WS if at 3000 TP
 sets.MaxTP = {ear1="Sherida Earring",ear2="Telos Earring",}

@@ -364,7 +364,6 @@ sets.midcast['Distract III'].Resistant = sets.midcast['Enfeebling Magic'].Resist
 
 sets.midcast['Gravity II'] = set_combine(sets.midcast['Enfeebling Magic'], {
 	main="Bunzi's Rod",
-	body="Atrophy Tabard +3",
 })
 
 sets.midcast['Gravity'] = set_combine(sets.midcast['Gravity II'], {})

@@ -455,7 +455,7 @@ function check_rune()
 		elseif not player.in_combat then
 			return false
 			
-		elseif not buffactive['Vallation'] and not buffactive['Liement'] and buffactive[state.RuneElement.value] then
+		elseif not buffactive['Vallation'] and not buffactive['Liement'] and buffactive[state.RuneElement.value] and state.HybridMode.value ~= 'Ongo' then
 			if player.main_job == 'RUN' and abil_recasts[23] < latency then
 				send_command('input /ja "Vallation" <me>')
 				tickdelay = os.clock() + 2.5

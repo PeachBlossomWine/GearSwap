@@ -152,13 +152,14 @@ function job_post_midcast(spell, spellMap, eventArgs)
     end
 end
 
-
 function job_aftercast(spell)
 	local abil_recasts = windower.ffxi.get_ability_recasts()
 	if spell.english == 'Rayke' and not spell.interrupted then
-		windower.send_command('input /p [Rayke] レイク46秒 - 残り時間; wait 16; input /p [Rayke] レイク30秒; wait 15; input /p [Rayke] レイク15秒; wait 15; input /p [Rayke] レイク終了!')
+		windower.send_command('input /p ' ..auto_translate('Rayke').. ' レイク46秒 - 残り時間; wait 16; input /p ' ..auto_translate('Rayke').. ' レイク30秒; wait 15; input /p ' ..auto_translate('Rayke').. ' レイク15秒; wait 15; input /p ' ..auto_translate('Rayke').. ' レイク終了!')
 	elseif spell.english == 'Gambit' and not spell.interrupted then
-		windower.send_command('input /p [Gambit] ガンビット96秒 - 残り時間; wait 36; input /p [Gambit] ガンビット60秒; wait 30; input /p [Gambit] ガンビット30秒; wait 30; input /p [Gambit] ガンビット終了!')
+		windower.send_command('input /p ' ..auto_translate('Gambit').. ' ガンビット96秒 - 残り時間; wait 36; input /p ' ..auto_translate('Gambit').. ' ガンビット60秒; wait 30; input /p ' ..auto_translate('Gambit').. ' ガンビット30秒; wait 30; input /p ' ..auto_translate('Gambit').. ' ガンビット終了!')
+	elseif spell.english == 'Steel Cyclone' and not spell.interrupted then
+		windower.chat.input('/p を使用して ' ..auto_translate('Steel Cyclone').. ' -<t>-')
 	end
 end
 

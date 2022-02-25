@@ -12,7 +12,7 @@ state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None'}
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
 state.AutoEmblem = M(true, 'Auto Emblem')
 state.AutoTankFull = M(false, 'Auto Tank Full')
-state.UnlockWeapons = M(true, 'Unlock Weapons')
+--state.UnlockWeapons = M(true, 'Unlock Weapons')
 autows = 'Atonement'
 
 gear.tank_fc_back = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','HP+20','"Fast Cast"+10','Phys. dmg. taken-10%',}, priority=80}
