@@ -96,11 +96,18 @@ else
 	gear.impact_body = "Twilight Cloak"
 end
 
+if item_available('Maxentius') then
+	gear.ambu_club = "Maxentius"
+else
+	gear.ambu_club = "Kaja Rod"
+end
+
+
 -- Weapons sets
 sets.weapons.Yagrush = {main="Yagrush",sub="Genmei Shield"}
 sets.weapons.Tishtrya = {main="Tishtrya",sub="Genmei Shield"}
 sets.weapons.DualWeapons = {main="Tishtrya",sub="Daybreak"}
-sets.weapons.Blue = {main="Kaja Rod",sub="Genmei Shield"}
+sets.weapons.Blue = {main=gear.ambu_club,sub="Genmei Shield"}
 	
 -- Precast Sets
 -- 83%
@@ -513,7 +520,7 @@ sets.midcast['Enfeebling Magic'] = {
 	--legs="Th. Pant. +3",
 	legs=gear.chironic_enfeeble_legs,
 	feet="Theo. Duckbills +3",
-	neck="Incanter's Torque",
+	neck="Erra Pendant",
 	waist="Obstin. Sash",
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",

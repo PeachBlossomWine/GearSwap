@@ -5,6 +5,7 @@ sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 -- Weapons sets
 sets.weapons.Aeneas = {main="Aeneas",sub="Gleti's Knife"}
 sets.weapons.Terpsichore = {main="Terpsichore",sub="Gleti's Knife"}
+sets.weapons.Karambit = {main="Karambit",sub=empty}
 
 -- Precast Sets
 

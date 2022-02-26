@@ -119,7 +119,7 @@ function check_flash_foil()
 		add_to_chat(262,'WS -> ' .. autows)
 		tickdelay = os.clock() + 4.6
 		return true
-	elseif spell_recasts[112] <  spell_latency and not silent_check_silence() and player.mp > res.spells[112].mp_cost then
+	elseif spell_recasts[112] < spell_latency and not silent_check_silence() and player.mp > res.spells[112].mp_cost then
 		if flashflag == true then
 			flashflag = false
 			enmitydelay = os.clock() + 4
