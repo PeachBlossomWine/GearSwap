@@ -1,5 +1,5 @@
 state.OffenseMode:options('Normal')
-state.WeaponskillMode:options('Normal','Enmity')
+state.WeaponskillMode:options('Normal','Enmity','SubtleBlow')
 state.HybridMode:options('DT','Normal','SubtleBlow','Enmity')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
@@ -8,6 +8,7 @@ state.IdleMode:options('Normal','Reraise')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 state.Passive = M{['description']='Passive Mode','None'}
 state.AutoTomahawkMode = M(false, 'AutoTomahawkMode')
+state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
 
 autows = "Upheaval"
 state.AutoZergMode = M(false, 'Auto Zerg Mode')
@@ -22,6 +23,7 @@ gear.jse_vit_back ={ name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Att
 
 send_command('bind !` input /ja "Hasso" <me>')
 send_command('bind ^` input /ja "Seigan" <me>')
+send_command('bind @f7 gs c toggle AutoTPReductionMode')
 send_command('bind ^backspace input /ja "Third Eye" <me>')
 send_command('bind !@^` gs c cycle Stance')
 send_command('bind @\\\\ gs c set toggle weapons Chango')

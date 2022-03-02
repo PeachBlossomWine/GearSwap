@@ -116,7 +116,7 @@ sets.precast.WS = {
 	head="Nyame Helm",
 	body="Ignominy Cuirass +3",															-- 10
 	hands="Nyame Gauntlets",															-- 5
-	legs="Fall. Flanchard +3",															-- 10
+	legs="Nyame Flanchard",																-- 9
 	feet="Nyame Sollerets",																-- 7
 	neck="Abyssal Beads +2",
 	waist="Sailfi Belt +1",
@@ -137,18 +137,18 @@ sets.precast.WS.Enmity = set_combine(sets.precast.WS, {left_ear="Schere Earring"
 
 -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.	
 sets.precast.WS['Torcleaver'] = set_combine(sets.precast.WS, {
-	ammo="Knobkierrie",																	-- 6
+	ammo="Crepuscular Pebble",															-- 3
 	head="Nyame Helm",
 	body="Ignominy Cuirass +3",															-- 10
 	hands="Nyame Gauntlets",
-	legs="Fall. Flanchard +3",															-- 10
+	legs="Nyame Flanchard",																-- 9
 	feet="Nyame Sollerets",																-- 7
 	neck="Abyssal Beads +2",
 	waist="Fotia Belt",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear="Thrud Earring",															-- 3
 	left_ring="Regal Ring",
-	right_ring="Beithir Ring",															-- 3
+	right_ring="Niqmaddu Ring",															-- 3
 	back=gear.jse_VIT_Back,																-- 10
 })
 sets.precast.WS['Torcleaver'].Enmity = set_combine(sets.precast.WS['Torcleaver'], {right_ear="Schere Earring"})

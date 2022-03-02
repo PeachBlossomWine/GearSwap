@@ -54,15 +54,6 @@ function job_precast(spell, spellMap, eventArgs)
 			end
 		end
 	end
-	if spell.type == 'WeaponSkill' then
-		if state.AutoTPReductionMode.value then
-			windower.add_to_chat(6, 'Auto TP Reduction')
-			local self_vector = windower.ffxi.get_mob_by_id(player.id)
-			local angle = (math.atan2((player.target.y - self_vector.y), (player.target.x - self_vector.x))*180/math.pi)*-1
-			windower.ffxi.turn((getAngle()+180):radian()+math.pi)
-			windower.ffxi.turn:schedule(5.3,((angle):radian()))
-		end
-	end
 end
 
 function job_filtered_action(spell, eventArgs)
@@ -80,9 +71,8 @@ function job_filtered_action(spell, eventArgs)
             end
 		-- Great Axe
 		elseif available_ws:contains(80) then
-			 if spell.english == "Torcleaver" then
+			if spell.english == "Torcleaver" then
 				windower.chat.input('/ws "Armor Break" '..spell.target.raw)
-				windower.send_command:schedule(1.2,'gs c set weapons Caladbolg;')
                 cancel_spell()
 				eventArgs.cancel = true
 			end

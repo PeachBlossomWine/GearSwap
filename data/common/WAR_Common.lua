@@ -81,6 +81,12 @@ sets.precast.WS.PDL = set_combine(sets.precast.WS, {
 	feet="Sakpata's Leggings",	
 })
 
+sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
+	hands="Sakpata's Gauntlets",
+	feet="Sakpata's Leggings",
+	right_ring="Niqmaddu Ring",
+})
+
 sets.precast.WS.Proc = {
 	ammo="Staunch Tathlum +1",
 	head="Agoge Mask +3",
@@ -99,6 +105,7 @@ sets.precast.WS.Proc = {
 
 sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS.PDL, {})
+sets.precast.WS['Savage Blade'].SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {})
 
 sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS.PDL, {})

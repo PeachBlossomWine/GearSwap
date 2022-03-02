@@ -34,12 +34,13 @@ function job_post_precast(spell, spellMap, eventArgs)
 		local WSset = standardize_set(get_precast_set(spell, spellMap))
 		local wsacc = check_ws_acc()
 		
-		--test
-		-- if player.attack > 5000 then
-			-- equip(sets.precast.WS[spell.english].PDL)
+		-- if state.AutoTPReductionMode.value then
+			-- windower.add_to_chat(6, 'Auto TP Reduction')
+			-- local self_vector = windower.ffxi.get_mob_by_id(player.id)
+			-- local angle = (math.atan2((player.target.y - self_vector.y), (player.target.x - self_vector.x))*180/math.pi)*-1
+			-- windower.ffxi.turn((getAngle()+180):radian()+math.pi)
+			-- windower.ffxi.turn:schedule(5.3,((angle):radian()))
 		-- end
-		--test
-
 		
 		if (WSset.ear1 == "Moonshade Earring" or WSset.ear2 == "Moonshade Earring") then
 			-- Replace Moonshade Earring if we're at cap TP
@@ -147,6 +148,13 @@ function job_filtered_action(spell, eventArgs)
                 cancel_spell()
 				eventArgs.cancel = true
             end
+		--GAXE
+		elseif available_ws:contains(80) then
+			if spell.english == "Savage Blade" then
+				windower.chat.input('/ws "Armor Break" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
 		-- Polearm
 		elseif available_ws:contains(112) then
 			if spell.english == "Upheaval" then

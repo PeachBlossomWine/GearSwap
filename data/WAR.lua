@@ -217,6 +217,15 @@ function job_aftercast(spell, spellMap, eventArgs)
 	if not spell.interrupted then
 		if spell.english == 'Warcry' then
 			lastwarcry = player.name
+		elseif spell.english == 'Armor Break' then
+			windower.send_command('gs c set weapons Naegling;')
+		end
+		if state.AutoTPReductionMode.value and spell.type == 'WeaponSkill' then
+			windower.add_to_chat(6, 'Auto TP Reduction')
+			local self_vector = windower.ffxi.get_mob_by_id(player.id)
+			local angle = (math.atan2((player.target.y - self_vector.y), (player.target.x - self_vector.x))*180/math.pi)*-1
+			windower.ffxi.turn((getAngle()+180):radian()+math.pi)
+			windower.ffxi.turn:schedule(3.9,((angle):radian()))
 		end
 	end
 end
