@@ -256,6 +256,13 @@ sets.midcast['Blue Magic'].Magical.Resistant = {
 	right_ring="Weather. Ring +1",			-- 6% FC
 	back=gear.jse_macc_fc_back,				-- 10% FC
 }
+sets.midcast['Tenebral Crush'] = set_combine(sets.midcast['Blue Magic'].Magical, {})
+
+sets.midcast['Tenebral Crush'].Resistant = set_combine(sets.midcast['Blue Magic'].Magical.Resistant, {
+	head="Assim. Keffiyeh +3",
+	back="Aurist's Cape +1",
+})
+
 
 sets.midcast['Blue Magic'].MagicalMnd = set_combine(sets.midcast['Blue Magic'].Magical, {})
 sets.midcast['Blue Magic'].MagicalChr = set_combine(sets.midcast['Blue Magic'].Magical, {})
@@ -321,6 +328,7 @@ sets.midcast.Helix = sets.midcast['Elemental Magic']
 sets.midcast.Helix.Resistant = sets.midcast['Elemental Magic'].Resistant
 
 sets.element.Dark = {head="Pixie Hairpin +1",ring2="Archon Ring"}
+
 sets.element.Light = {}
 
 sets.midcast.Cure = {
@@ -369,6 +377,7 @@ sets.midcast['Blue Magic'].Stun.Resistant = set_combine(sets.midcast['Blue Magic
 
 
 -- Other Specific Spells --
+
 
 sets.midcast['Blue Magic']['White Wind'] = {
 	ammo="Hydrocera",

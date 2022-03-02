@@ -40,7 +40,7 @@ function job_precast(spell, spellMap, eventArgs)
 			gear.default.obi_back = gear.obi_cure_back
 			gear.default.obi_waist = gear.obi_cure_waist
 		elseif spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' then
-			if spell.english:endswith('helix') then
+			if spell.english:contains('helix') then
 				gear.default.obi_back = gear.obi_high_nuke_back
 				gear.default.obi_waist = gear.obi_high_nuke_waist
 				local abil_recasts = windower.ffxi.get_ability_recasts()

@@ -369,7 +369,7 @@ function job_post_midcast(spell, spellMap, eventArgs)
 				end
 			end
 			
-			if spell.element and sets.element[spell.element] then
+			if spell.element and sets.element[spell.element] and (spell.english ~= 'Tenebral Crush' or state.CastingMode.value ~= 'Resistant') then
 				equip(sets.element[spell.element])
 			end
 			

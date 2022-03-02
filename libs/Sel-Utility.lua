@@ -470,6 +470,16 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Elemental gear utility functions.
 -------------------------------------------------------------------------------------------------------------------
+-- Specific exceptions not to use obi
+function check_exceptions(spell)
+	if player.main_job == 'BLU' and state.CastingMode.value == 'Resistant' and spell.english == 'Tenebral Crush' then
+		return false
+	elseif player.main_job == 'RUN' or player.main_job == 'PLD' then
+		return false
+	else
+		return true
+	end
+end
 
 -- Function to get an appropriate obi/cape/ring for the current action.
 function set_elemental_obi_cape_ring(spell, spellMap)
@@ -492,7 +502,7 @@ function set_elemental_obi_cape_ring(spell, spellMap)
 					equip({waist="Orpheus's Sash"})
 				end
 			end
-	elseif is_nuke(spell, spellMap) then
+	elseif is_nuke(spell, spellMap) and check_exceptions(spell) then
 		local distance = spell.target.distance - spell.target.model_size
 		local single_obi_intensity = 0
 		local orpheus_intensity = 0
