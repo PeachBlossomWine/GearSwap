@@ -307,6 +307,7 @@ function init_include()
     -- Used for all self-command handling.
     include('Sel-SelfCommands')
 	include('Sel-TreasureHunter')
+	include('Kate-DefenseDown')
 	
 	-- User based files.
     optional_include('user-globals.lua')
