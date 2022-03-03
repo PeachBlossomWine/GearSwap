@@ -67,9 +67,11 @@ sets.precast.WS = {
 	back=gear.ws_jse_back,																	-- 10
 }
 sets.precast.WS.Emnity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
+sets.precast.WS.KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
 
 sets.precast.WS['Tachi: Fudo'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Tachi: Fudo'].Emnity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
+sets.precast.WS['Tachi: Fudo'].KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
 
 sets.precast.WS['Tachi: Shoha'] = {
 	ammo="Knobkierrie",
@@ -124,10 +126,11 @@ sets.precast.WS['Tachi: Ageha'] = {
 	feet="Mpaca's Boots",
 	neck="Sanctity Necklace",
 	waist="Eschan Stone",
-	left_ear="Telos Earring",
-	right_ear="Crep. Earring",
-	left_ring="Crepuscular Ring",
-	right_ring="Metamorph Ring +1",
+	left_ear="Digni. Earring",
+	--right_ear="Crep. Earring",
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ring="Metamor. Ring +1",
+	right_ring="Weather. Ring +1",
 	back=gear.ws_jse_back,
 }
 
