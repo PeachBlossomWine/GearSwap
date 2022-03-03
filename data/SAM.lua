@@ -76,23 +76,32 @@ end
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
 
+function select_default_macro_book()
+    -- Default macro set/book
+    if player.sub_job == 'WAR' then
+        set_macro_page(1, 12)
+    else
+        set_macro_page(1, 12)
+    end
+end
+
 function job_precast(spell, spellMap, eventArgs)
 
 	if spell.type == 'WeaponSkill' and state.AutoBuffMode.value ~= 'Off' then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
-		if player.tp > 1850 and abil_recasts[140] < latency then
+		if player.tp > 1850 and abil_recasts[140] < latency and not silent_check_amnesia() then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Sekkanoki" <me>')
 			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
 			tickdelay = os.clock() + 1.25
 			return
-		elseif abil_recasts[134] < latency then
+		elseif abil_recasts[134] < latency and not silent_check_amnesia() then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Meditate" <me>')
 			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
 			tickdelay = os.clock() + 1.25
 			return
-		elseif player.tp < 1500 and not buffactive['Sekkanoki'] and abil_recasts[54] < latency then
+		elseif player.tp < 1500 and not buffactive['Sekkanoki'] and abil_recasts[54] < latency and not silent_check_amnesia() then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Hagakure" <me>')
 			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
@@ -100,7 +109,6 @@ function job_precast(spell, spellMap, eventArgs)
 			return
 		end
 	end
-
 end
 
 function job_filtered_action(spell, eventArgs)
@@ -109,19 +117,15 @@ function job_filtered_action(spell, eventArgs)
 		-- WS 112 is Double Thrust, meaning a Spear is equipped.
 		if available_ws:contains(112) then
             if spell.english == "Tachi: Fudo" then
-				windower.chat.input('/ws "Stardiver" '..spell.target.raw)
+				windower.chat.input('/ws "Impulse Drive" '..spell.target.raw)
                 cancel_spell()
 				eventArgs.cancel = true
             elseif spell.english == "Tachi: Shoha" then
-                send_command('@input /ws "Impulse Drive" '..spell.target.raw)
+                send_command('@input /ws "Sonic Thrust" '..spell.target.raw)
                 cancel_spell()
 				eventArgs.cancel = true
             elseif spell.english == "Tachi: Rana" then
                 send_command('@input /ws "Penta Thrust" '..spell.target.raw)
-                cancel_spell()
-				eventArgs.cancel = true
-            elseif spell.english == "Tachi: Gekko" then
-                send_command('@input /ws "Sonic Thrust" '..spell.target.raw)
                 cancel_spell()
 				eventArgs.cancel = true
             elseif spell.english == "Tachi: Hobaku" then
@@ -129,6 +133,13 @@ function job_filtered_action(spell, eventArgs)
                 cancel_spell()
 				eventArgs.cancel = true
             end
+		-- Club
+		elseif available_ws:contains(160) then
+			 if spell.english == "Tachi: Fudo" then
+				windower.chat.input('/ws "Judgement" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
         end
 	end
 end
@@ -139,6 +150,10 @@ function job_post_precast(spell, spellMap, eventArgs)
 
 		local WSset = standardize_set(get_precast_set(spell, spellMap))
 		local wsacc = check_ws_acc()
+		
+		if buffactive['Killer Instinct'] then
+			equip(sets.precast.WS[spell.english].KI)
+		end
 		
 		if (WSset.ear1 == "Moonshade Earring" or WSset.ear2 == "Moonshade Earring") then
 			-- Replace Moonshade Earring if we're at cap TP
@@ -190,9 +205,15 @@ function job_post_precast(spell, spellMap, eventArgs)
         if state.Buff.Sengikori then
             equip(sets.buff.Sengikori)
         end
-
+	elseif spell.type == 'JobAbility' then
+		if spell.english:endswith('Jump') then
+			if sets.precast.JA[spell.english] then
+				if sets.precast.JA[spell.english][state.OffenseMode.value] then
+					equip(sets.precast.JA[spell.english][state.OffenseMode.value])
+				end
+			end
+		end
 	end
-
 end
 
 -- Modify the default melee set after it was constructed.
@@ -223,6 +244,10 @@ function job_aftercast(spell, spellMap, eventArgs)
 		if player.tp < 750 and state.Buff['Meikyo Shisui'] then
 			send_command('cancel Meikyo Shisui')
 		end
+		if spell.english == 'Tachi: Ageha' and not spell.interrupted then
+			windower.chat.input('/p ‚ðŽg—p‚µ‚Ä ' ..auto_translate('Tachi: Ageha').. ' -<t>-')
+			windower.send_command('gs c autows Tachi: Fudo; gs c autows tp 1000;')
+		end
     elseif spell.english == "Meikyo Shisui" and not spell.interrupted and sets.buff['Meikyo Shisui'] then
 		equip(sets.buff['Meikyo Shisui'])
 		disable('feet')
@@ -235,6 +260,7 @@ end
 
 function job_tick()
 	if check_hasso() then return true end
+	if check_jump() then return true end
 	if check_buff() then return true end
 	return false
 end
@@ -281,16 +307,39 @@ function update_melee_groups()
 	end	
 end
 
+function check_jump()
+    if state.AutoJumpMode.value and player.status == 'Engaged' and player.sub_job == 'DRG' and not buffactive['SJ Restriction'] and not silent_check_amnesia() then
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if player.hpp < 65 and abil_recasts[160] < latency then
+			windower.chat.input('/ja "Super Jump" <t>')
+            tickdelay = os.clock() + 1.1
+            return true
+		elseif player.tp < 901 and abil_recasts[158] < latency then
+            windower.chat.input('/ja "Jump" <t>')
+            tickdelay = os.clock() + 1.1
+            return true
+        elseif player.tp < 901 and abil_recasts[159] < latency then
+            windower.chat.input('/ja "High Jump" <t>')
+            tickdelay = os.clock() + 1.1
+            return true
+        else
+            return false
+        end
+    end
+end
+
 function check_hasso()
 	if player.status == 'Engaged' and not (state.Stance.value == 'None' or state.Buff.Hasso or state.Buff.Seigan or main_weapon_is_one_handed() or silent_check_amnesia()) then
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
+		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
 		
-		if state.Stance.value == 'Hasso' and abil_recasts[138] < latency then
+		if state.Stance.value == 'Hasso' and abil_recasts[138] < latency and (available_ws:contains(112) or available_ws:contains(144)) then
 			windower.chat.input('/ja "Hasso" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
-		elseif state.Stance.value == 'Seigan' and abil_recasts[139] < latency then
+		elseif state.Stance.value == 'Seigan' and abil_recasts[139] < latency and (available_ws:contains(112) or available_ws:contains(144)) then
 			windower.chat.input('/ja "Seigan" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
@@ -303,20 +352,16 @@ function check_hasso()
 end
 
 function check_buff()
-	if state.AutoBuffMode.value ~= 'Off' and player.in_combat and not state.Buff['SJ Restriction'] then
+	if state.AutoBuffMode.value ~= 'Off' and player.in_combat and not silent_check_amnesia() then
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		if player.sub_job == 'DRK' and not buffactive['Last Resort'] and abil_recasts[87] < latency then
-			windower.chat.input('/ja "Last Resort" <me>')
-			tickdelay = os.clock() + 1.1
-			return true
-		elseif player.sub_job == 'WAR' and not buffactive.Berserk and abil_recasts[1] < latency then
-			windower.chat.input('/ja "Berserk" <me>')
-			tickdelay = os.clock() + 1.1
-			return true
-		elseif player.sub_job == 'WAR' and not buffactive.Aggressor and abil_recasts[4] < latency then
+		if player.sub_job == 'WAR' and not buffactive['SJ Restriction'] and not buffactive.Aggressor and abil_recasts[4] < latency then
 			windower.chat.input('/ja "Aggressor" <me>')
+			tickdelay = os.clock() + 1.1
+			return true
+		elseif player.sub_job == 'WAR' and not buffactive['SJ Restriction'] and not buffactive.Berserk and abil_recasts[1] < latency then
+			windower.chat.input('/ja "Berserk" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
 		else
