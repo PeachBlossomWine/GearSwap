@@ -6,7 +6,7 @@
 sets.weapons.Caladbolg = {main="Caladbolg",sub="Utu Grip"}
 sets.weapons.Apocalypse = {main="Apocalypse",sub="Utu Grip"}
 sets.weapons.Anguta = {main="Anguta",sub="Utu Grip"}
-sets.weapons.KajaChopper = {main="Kaja Chopper",sub="Utu Grip"}
+sets.weapons.KajaChopper = {main="Kaja Chopper",sub="Khonsu"}
 sets.weapons.Loxotic = {main="Loxotic Mace +1",sub="Blurred Shield +1"}
 
 -- Precast Sets
@@ -134,6 +134,7 @@ sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
 })
 
 sets.precast.WS.Enmity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
+sets.precast.WS.KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
 
 -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.	
 sets.precast.WS['Torcleaver'] = set_combine(sets.precast.WS, {
@@ -157,6 +158,7 @@ sets.precast.WS['Torcleaver'].SubtleBlow = set_combine(sets.precast.WS['Torcleav
 	feet="Sakpata's Leggings",		-- 10
 	right_ring="Niqmaddu Ring",		-- 5
 })
+sets.precast.WS['Torcleaver'].KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
 
 sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Catastrophe'] = set_combine(sets.precast.WS, {})
@@ -181,15 +183,16 @@ sets.precast.WS['Shadow of Death'] = {
 
 sets.precast.WS['Armor Break'] = {
 	ammo="Pemphredo Tathlum",
-	head="Carmine Mask +1",
-	body="Sakpata's Plate",
 	head="Sakpata's Helm",
+	body="Sakpata's Plate",
 	hands="Sakpata's Gauntlets",
+	legs="Sakpata's Cuisses",
 	feet="Sakpata's Leggings",	
 	neck="Erra Pendant",
 	waist="Eschan Stone",
 	left_ear="Malignance Earring",
-	right_ear="Digni. Earring",
+	--right_ear="Digni. Earring",
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	left_ring="Metamor. Ring +1",
 	right_ring="Weather. Ring +1",
 	back=gear.jse_FC_Back,
@@ -315,8 +318,8 @@ sets.engaged.SubtleBlow ={
 	feet="Sakpata's Leggings",											-- 6
 	neck={ name="Abyssal Beads +2", augments={'Path: A',}},
 	waist="Ioskeha Belt +1",
-	left_ear="Telos Earring",
-	right_ear="Digni. Earring",											-- 5
+	left_ear={name="Digni. Earring",priority=500},
+	right_ear="Telos Earring",											-- 5
 	left_ring="Chirich Ring +1",										-- 10
 	right_ring="Niqmaddu Ring",											-- 5 II
 	back=gear.jse_TP_Back;			

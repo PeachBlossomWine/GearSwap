@@ -75,32 +75,94 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
+function select_default_macro_book()
+    -- Default macro set/book
+    if player.sub_job == 'WAR' then
+        set_macro_page(1, 8)
+    elseif player.sub_job == 'SAM' then
+        set_macro_page(1, 8)
+    else
+        set_macro_page(1, 8)
+    end
+end
 	
 function job_precast(spell, spellMap, eventArgs)
 
 	if spell.type == 'WeaponSkill' and state.AutoBuffMode.value ~= 'Off' then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
-		if spell.english == 'Entropy' and not buffactive['Sekkanoki'] and abil_recasts[95] < latency then
+		
+		if spell.english == 'Entropy' and not buffactive['Sekkanoki'] and abil_recasts[95] < latency and not silent_check_amnesia() then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Consume Mana" <me>')
 			windower.chat.input:schedule(1,'/ws "Entropy" <t>')
 			tickdelay = os.clock() + 1.25
 			return
-		elseif player.sub_job == 'SAM' and not buffactive['Consume Mana'] and player.tp > 1850 and abil_recasts[140] < latency then
+		elseif player.sub_job == 'SAM' and not buffactive['SJ Restriction'] and not buffactive['Consume Mana'] and player.tp > 1850 and abil_recasts[140] < latency and not silent_check_amnesia() then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Sekkanoki" <me>')
 			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
 			tickdelay = os.clock() + 1.25
 			return
-		elseif player.sub_job == 'SAM' and abil_recasts[134] < latency then
+		elseif player.sub_job == 'SAM' and not buffactive['SJ Restriction'] and abil_recasts[134] < latency and not silent_check_amnesia() then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Meditate" <me>')
 			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
 			tickdelay = os.clock() + 1.25
 			return
 		end
+	elseif spell.action_type == 'Magic' then
+		if spell.english == 'Drain III' then
+			local abil_recasts = windower.ffxi.get_ability_recasts()
+			local drainspell = "Drain III"
+			if (abil_recasts[89] < latency and abil_recasts[91] < latency ) then
+				eventArgs.cancel = true
+				windower.chat.input('/ja "Dark Seal" <me>;')
+				windower.chat.input:schedule(1.5,'/ja "Nether Void" <me>')
+				windower.chat.input:schedule(2.6,'/ma "'..drainspell..'" '..spell.target.raw..'')
+				add_to_chat(122,'DS+NV - Drain III')
+			end
+		elseif spell.english:contains('Absorb') then
+			local abil_recasts = windower.ffxi.get_ability_recasts()
+			if (abil_recasts[89] < latency and abil_recasts[91] < latency ) then
+				eventArgs.cancel = true
+				windower.chat.input('/ja "Dark Seal" <me>;')
+				windower.chat.input:schedule(1.5,'/ja "Nether Void" <me>')
+				windower.chat.input:schedule(2.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
+				add_to_chat(122,'DS+NV Absorb')
+			end
+		end
 	end
+end
 
+function job_filtered_action(spell, eventArgs)
+	if spell.type == 'WeaponSkill' then
+		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
+		if available_ws:contains(96) then
+            if spell.english == "Torcleaver" then
+				windower.chat.input('/ws "Cross Reaper" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Resolution" then
+				windower.chat.input('/ws "Catastrophe" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+            end
+		-- Great Axe
+		elseif available_ws:contains(80) then
+			if spell.english == "Torcleaver" then
+				windower.chat.input('/ws "Armor Break" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- Club
+		elseif available_ws:contains(160) then
+			 if spell.english == "Torcleaver" then
+				windower.chat.input('/ws "Judgment" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		end
+	end
 end
 
 function job_aftercast(spell, spellMap, eventArgs)
@@ -114,8 +176,6 @@ function job_aftercast(spell, spellMap, eventArgs)
         elseif spell.skill == 'Elemental Magic' and state.MagicBurstMode.value == 'Single' then
             state.MagicBurstMode:reset()
 			if state.DisplayMode.value then update_job_states()	end
-		elseif spell.english == "Armor Break" then
-			windower.send_command:schedule(1.2,'gs c set weapons Caladbolg;')
         end
 		if state.AutoTPReductionMode.value and spell.type == 'WeaponSkill' then
 			windower.add_to_chat(6, 'Auto TP Reduction')
@@ -125,6 +185,12 @@ function job_aftercast(spell, spellMap, eventArgs)
 			windower.ffxi.turn:schedule(3.9,((angle):radian()))
 		end
     end
+	if spell.type == 'WeaponSkill' and not spell.interrupted then
+		if spell.english == 'Armor Break' then
+			windower.chat.input('/p ‚ðŽg—p‚µ‚Ä ' ..auto_translate('Armor Break').. ' -<t>-')
+			windower.send_command('gs c set weapons Caladbolg; gs c autows tp 1000;')	
+		end
+	end
 end
 
 -- Modify the default idle set after it was constructed.
@@ -156,6 +222,10 @@ function job_post_precast(spell, spellMap, eventArgs)
 
 		local WSset = standardize_set(get_precast_set(spell, spellMap))
 		local wsacc = check_ws_acc()
+		
+		if buffactive['Killer Instinct'] then
+			equip(sets.precast.WS[spell.english].KI)
+		end
 		
 		if (WSset.ear1 == "Moonshade Earring" or WSset.ear2 == "Moonshade Earring") then
 			-- Replace Moonshade Earring if we're at cap TP
@@ -194,6 +264,14 @@ function job_post_precast(spell, spellMap, eventArgs)
 		
 		if state.Buff.Souleater then   
 			equip(sets.buff.Souleater)
+		end
+	elseif spell.type == 'JobAbility' then
+		if spell.english:endswith('Jump') then
+			if sets.precast.JA[spell.english] then
+				if sets.precast.JA[spell.english][state.OffenseMode.value] then
+					equip(sets.precast.JA[spell.english][state.OffenseMode.value])
+				end
+			end
 		end
 	end
 end
@@ -235,6 +313,7 @@ function job_tick()
 	if check_hasso() then return true end
 	if check_buff() then return true end
 	if check_buffup() then return true end
+	if check_jump() then return true end
 	return false
 end
 
@@ -264,10 +343,33 @@ function update_melee_groups()
 	
 end
 
+function check_jump()
+    if state.AutoJumpMode.value and player.status == 'Engaged' and player.sub_job == 'DRG' and not buffactive['SJ Restriction'] then
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if player.hpp < 65 and abil_recasts[160] < latency then
+			windower.chat.input('/ja "Super Jump" <t>')
+            tickdelay = os.clock() + 1.1
+            return true
+		elseif player.tp < 901 and abil_recasts[158] < latency then
+            windower.chat.input('/ja "Jump" <t>')
+            tickdelay = os.clock() + 1.1
+            return true
+        elseif player.tp < 901 and abil_recasts[159] < latency then
+            windower.chat.input('/ja "High Jump" <t>')
+            tickdelay = os.clock() + 1.1
+            return true
+        else
+            return false
+        end
+    end
+end
+
 function check_hasso()
-if player.sub_job == 'SAM' and player.status == 'Engaged' and not (state.Stance.value == 'None' or state.Buff.Hasso or state.Buff.Seigan or state.Buff['SJ Restriction'] or main_weapon_is_one_handed() or silent_check_amnesia()) then
+	if player.sub_job == 'SAM' and player.status == 'Engaged' and not (state.Stance.value == 'None' or state.Buff.Hasso or state.Buff.Seigan or state.Buff['SJ Restriction'] or main_weapon_is_one_handed() or silent_check_amnesia()) then
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
+		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
 		
 		if state.Stance.value == 'Hasso' and abil_recasts[138] < latency then
 			windower.chat.input('/ja "Hasso" <me>')
@@ -357,7 +459,7 @@ end
 
 buff_spell_lists = {
 	Auto = {	
-		{Name='Dread Spikes',Buff='Dread Spikes',SpellID=277,When='Combat'},
+		{Name='Dread Spikes',Buff='Dread Spikes',SpellID=277,When='Idle'},
 	},
 	
 	Default = {
