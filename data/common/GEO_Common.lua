@@ -209,6 +209,8 @@ sets.midcast.Geomancy.Indi = {
 }
 
 sets.midcast.Geomancy.Indi.DT = set_combine(sets.midcast.Geomancy.Indi, {hands={name="Nyame Gauntlets",priority=1},left_ear={name="Odnowa Earring +1",priority=1}})
+
+sets.midcast.Entrust = set_combine(sets.midcast.Geomancy.Indi, {main="Solstice"})
 	
 -- Cure Potency: 48%
 sets.midcast.Cure = {
