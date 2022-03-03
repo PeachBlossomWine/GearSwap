@@ -62,9 +62,9 @@ function job_precast(spell, spellMap, eventArgs)
 						end
 					end
 				end
-			else
-				gear.default.obi_back = gear.obi_high_nuke_back
-				gear.default.obi_waist = gear.obi_high_nuke_waist
+			-- else
+				-- gear.default.obi_back = gear.obi_high_nuke_back
+				-- gear.default.obi_waist = gear.obi_high_nuke_waist
 			end
 		-- Accession + Perpetuance
 		elseif (spell.english == 'Regen V' or spell.english == 'Animus Minuo') and state.AutoAPMode.value then
