@@ -197,18 +197,18 @@ end
 function job_aftercast(spell)
 	local abil_recasts = windower.ffxi.get_ability_recasts()
 	if spell.english == 'Rayke' and not spell.interrupted then
-		windower.send_command('input /p ' ..auto_translate('Rayke').. ' ƒŒƒCƒN46•b - c‚èŠÔ; wait 16; input /p ' ..auto_translate('Rayke').. ' ƒŒƒCƒN30•b; wait 15; input /p ' ..auto_translate('Rayke').. ' ƒŒƒCƒN15•b; wait 15; input /p ' ..auto_translate('Rayke').. ' ƒŒƒCƒNI—¹!')
+		windower.send_command('input /p ' ..auto_translate('Rayke').. ' ãƒ¬ã‚¤ã‚¯46ç§’ - æ®‹ã‚Šæ™‚é–“; wait 16; input /p ' ..auto_translate('Rayke').. ' ãƒ¬ã‚¤ã‚¯30ç§’; wait 15; input /p ' ..auto_translate('Rayke').. ' ãƒ¬ã‚¤ã‚¯15ç§’; wait 15; input /p ' ..auto_translate('Rayke').. ' ãƒ¬ã‚¤ã‚¯çµ‚äº†!')
 	elseif spell.english == 'Gambit' and not spell.interrupted then
-		windower.send_command('input /p ' ..auto_translate('Gambit').. ' ƒKƒ“ƒrƒbƒg96•b - c‚èŠÔ; wait 36; input /p ' ..auto_translate('Gambit').. ' ƒKƒ“ƒrƒbƒg60•b; wait 30; input /p ' ..auto_translate('Gambit').. ' ƒKƒ“ƒrƒbƒg30•b; wait 30; input /p ' ..auto_translate('Gambit').. ' ƒKƒ“ƒrƒbƒgI—¹!')
+		windower.send_command('input /p ' ..auto_translate('Gambit').. ' ã‚¬ãƒ³ãƒ“ãƒƒãƒˆ96ç§’ - æ®‹ã‚Šæ™‚é–“; wait 36; input /p ' ..auto_translate('Gambit').. ' ã‚¬ãƒ³ãƒ“ãƒƒãƒˆ60ç§’; wait 30; input /p ' ..auto_translate('Gambit').. ' ã‚¬ãƒ³ãƒ“ãƒƒãƒˆ30ç§’; wait 30; input /p ' ..auto_translate('Gambit').. ' ã‚¬ãƒ³ãƒ“ãƒƒãƒˆçµ‚äº†!')
 	elseif spell.english == 'Steel Cyclone' and not spell.interrupted then
-		windower.chat.input('/p ‚ğg—p‚µ‚Ä ' ..auto_translate('Steel Cyclone').. ' -<t>-')
+		windower.chat.input('/p ã‚’ä½¿ç”¨ã—ã¦ ' ..auto_translate('Steel Cyclone').. ' -<t>-')
 	elseif spell.english == 'Freezebite' then
 		windower.send_command:schedule(1.2, 'mc autosc Freezebite')
 	elseif spell.english == 'Frostbite' then
 		windower.send_command:schedule(1.2, 'mc autosc Frostbite')
 	elseif spell.english == 'Upheaval' then
 		windower.send_command:schedule(1.2, 'mc autosc Upheaval')
-		windower.chat.input('/p ‚ğg—p‚µ‚Ä ' ..auto_translate('Upheaval').. ' -<t>-')
+		windower.chat.input('/p ã‚’ä½¿ç”¨ã—ã¦ ' ..auto_translate('Upheaval').. ' -<t>-')
 	end
 end
 

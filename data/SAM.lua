@@ -245,7 +245,7 @@ function job_aftercast(spell, spellMap, eventArgs)
 			send_command('cancel Meikyo Shisui')
 		end
 		if spell.english == 'Tachi: Ageha' and not spell.interrupted then
-			windower.chat.input('/p ‚ğg—p‚µ‚Ä ' ..auto_translate('Tachi: Ageha').. ' -<t>-')
+			windower.chat.input('/p ã‚’ä½¿ç”¨ã—ã¦ ' ..auto_translate('Tachi: Ageha').. ' -<t>-')
 			windower.send_command('gs c autows Tachi: Fudo; gs c autows tp 1000;')
 		end
     elseif spell.english == "Meikyo Shisui" and not spell.interrupted and sets.buff['Meikyo Shisui'] then

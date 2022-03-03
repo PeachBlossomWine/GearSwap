@@ -187,7 +187,7 @@ function job_aftercast(spell, spellMap, eventArgs)
     end
 	if spell.type == 'WeaponSkill' and not spell.interrupted then
 		if spell.english == 'Armor Break' then
-			windower.chat.input('/p ‚ğg—p‚µ‚Ä ' ..auto_translate('Armor Break').. ' -<t>-')
+			windower.chat.input('/p ã‚’ä½¿ç”¨ã—ã¦ ' ..auto_translate('Armor Break').. ' -<t>-')
 			windower.send_command('gs c set weapons Caladbolg; gs c autows tp 1000;')	
 		end
 	end
