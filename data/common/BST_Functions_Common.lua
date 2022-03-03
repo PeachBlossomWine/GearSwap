@@ -44,9 +44,6 @@ function check_ready()
 					return true
 				elseif pet.status == "Engaged" then 
 					windower.send_command('gs c ready')
-					if state.JugMode.value == 'FatsoFargann' then
-						windower.send_command('input /p TP Drainkiss!; wait 15; input /p Drainkiss 15s remaining;')
-					end
 					tickdelay = os.clock() + 2
 					return true
 				end

@@ -299,9 +299,17 @@ function job_precast(spell, spellMap, eventArgs)
 				if state.JugMode.value == 'DroopyDortwin' and item_available('Vis. Broth') then
 					equip(sets.precast.JA['Bestial Loyalty'].PonderingPeter)
 				elseif state.JugMode.value == 'SunburstMalfik' and item_available('Ferm. Broth') then
+
 					equip(sets.precast.JA['Bestial Loyalty'].AgedAngus)
 				elseif state.JugMode.value == 'ScissorlegXerin' and item_available('Bubbly Broth') then
 					equip(sets.precast.JA['Bestial Loyalty'].BouncingBertha)
+				elseif state.JugMode.value == 'FatsoFargann' and item_available('C. Plasma Broth') then
+					equip(sets.precast.JA['Bestial Loyalty'].FatsoFargann)
+				elseif state.JugMode.value == 'SweetCaroline' and item_available('Aged Humus') then
+					equip(sets.precast.JA['Bestial Loyalty'].SweetCaroline)
+				elseif state.JugMode.value == 'GenerousArthur' and item_available('Dire Broth') then
+					equip(sets.precast.JA['Bestial Loyalty'].GenerousArthur)
+					
 				elseif state.JugMode.value == 'AttentiveIbuki' and item_available('Windy Greens') then
 					equip(sets.precast.JA['Bestial Loyalty'].SwoopingZhivago)
 				elseif state.JugMode.value == 'RedolentCandi' and item_available('Bug-Ridden Broth') then
@@ -406,6 +414,9 @@ end
 
 function job_pet_aftercast(spell, action, spellMap, eventArgs)
 	windower.add_to_chat:schedule(.5,204,'~~~Current Ready Charges Available: ['..get_current_ready_count()..']~~~')
+	if spell.english == 'Sic' and not spell.interrupted and state.JugMode.value == 'FatsoFargann' then
+		windower.send_command('input /p を使用して ' ..auto_translate('Sic').. ' TP Drainkiss! -<t>-; wait 15; input /p ' ..auto_translate('Sic').. ' TP Drainkiss! レイク15秒;')
+	end
 end
 
 -- Return true if we handled the aftercast work.  Otherwise it will fall back
@@ -474,10 +485,12 @@ end
 function job_state_change(stateField, newValue, oldValue)
 	if stateField == 'PetMode' then
 		update_pet_groups()
+		windower.send_command('gs c update auto')
 	end
 	
-	if 	pet_info[state.JugMode.value] then
-		send_command('wait .001;gs c DisplayPetInfo')
+	if pet_info[state.JugMode.value] then
+		windower.send_command('gs c update auto')
+		send_command('wait 0.5; gs c DisplayPetInfo')
 	end
 end
 
