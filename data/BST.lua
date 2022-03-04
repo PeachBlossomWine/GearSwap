@@ -430,6 +430,10 @@ function job_midcast(spell, spellMap, eventArgs)
 
 end
 
+str_seconds = string.char(149,98)
+str_remaining = string.char(144,99,130,232)
+str_using = string.char(130,240,142,103,151,112,130,181,130,196)
+
 function job_aftercast(spell, spellMap, eventArgs)
 	if spell.type == 'Monster' then
 		equip(get_pet_midcast_set(spell, spellMap))
@@ -466,7 +470,7 @@ function job_aftercast(spell, spellMap, eventArgs)
         end
 		
 		if not spell.interrupted and spell.english == 'TP Drainkiss' then
-			windower.send_command('input /p を使用して -' ..auto_translate('Ready').. ' ' ..spell.english.. '! -<t>-; wait 15; input /p ' ..auto_translate('Ready').. ' ' ..spell.english.. '! レイク15秒;')
+			windower.send_command('input /p '..str_using..' -'..auto_translate('Sic')..' '..spell.english..'! -<t>-; wait 15; input /p '..auto_translate('Sic').. ' ' ..spell.english.. '! '..str_remaining..'15'..str_seconds..';')
 		end
 		
 		if state.Buff["Unleash"] and UnleashLock and not UnleashLocked then

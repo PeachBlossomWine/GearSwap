@@ -239,14 +239,17 @@ function job_post_midcast(spell, spellMap, eventArgs)
     end
 end
 
+str_using = string.char(130,240,142,103,151,112,130,181,130,196)
+
 function job_aftercast(spell, spellMap, eventArgs)
 	if spell.type == 'WeaponSkill' then
 		if player.tp < 750 and state.Buff['Meikyo Shisui'] then
 			send_command('cancel Meikyo Shisui')
 		end
 		if spell.english == 'Tachi: Ageha' and not spell.interrupted then
-			windower.chat.input('/p を使用して ' ..auto_translate('Tachi: Ageha').. ' -<t>-')
+			windower.chat.input('/p '..str_using..' '..auto_translate('Tachi: Ageha').. ' -<t>-')
 			windower.send_command('gs c autows Tachi: Fudo; gs c autows tp 1000;')
+			update_melee_groups()
 		end
     elseif spell.english == "Meikyo Shisui" and not spell.interrupted and sets.buff['Meikyo Shisui'] then
 		equip(sets.buff['Meikyo Shisui'])

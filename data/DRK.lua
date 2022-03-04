@@ -165,6 +165,8 @@ function job_filtered_action(spell, eventArgs)
 	end
 end
 
+str_using = string.char(130,240,142,103,151,112,130,181,130,196)
+
 function job_aftercast(spell, spellMap, eventArgs)
     if not spell.interrupted then
 		if (spell.english == 'Drain II' or spell.english == 'Drain III') and state.DrainSwapWeaponMode.value ~= 'Never' then
@@ -187,8 +189,9 @@ function job_aftercast(spell, spellMap, eventArgs)
     end
 	if spell.type == 'WeaponSkill' and not spell.interrupted then
 		if spell.english == 'Armor Break' then
-			windower.chat.input('/p を使用して ' ..auto_translate('Armor Break').. ' -<t>-')
+			windower.chat.input('/p '..str_using..' '..auto_translate('Armor Break').. ' -<t>-')
 			windower.send_command('gs c set weapons Caladbolg; gs c autows tp 1000;')	
+			update_melee_groups()
 		end
 	end
 end

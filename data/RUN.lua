@@ -194,21 +194,29 @@ function job_post_midcast(spell, spellMap, eventArgs)
     end
 end
 
+str_rayke = string.char(131,140,131,67,131,78)
+str_gambit = string.char(131,75,131,147,131,114,131,98,131,103)
+str_seconds = string.char(149,98)
+str_remaining = string.char(144,99,130,232)
+str_end = string.char(143,73,130,237,130,232)
+str_duration = string.char(142,157,145,177,142,158,138,212)
+str_using = string.char(130,240,142,103,151,112,130,181,130,196)
+
 function job_aftercast(spell)
 	local abil_recasts = windower.ffxi.get_ability_recasts()
 	if spell.english == 'Rayke' and not spell.interrupted then
-		windower.send_command('input /p ' ..auto_translate('Rayke').. ' レイク46秒 - 残り時間; wait 16; input /p ' ..auto_translate('Rayke').. ' レイク30秒; wait 15; input /p ' ..auto_translate('Rayke').. ' レイク15秒; wait 15; input /p ' ..auto_translate('Rayke').. ' レイク終了!')
+		windower.send_command('input /p ' ..auto_translate('Rayke')..' '..str_rayke..str_duration..'46'..str_seconds..'; wait 16; input /p '..auto_translate('Rayke')..' '..str_rayke..str_remaining..'30'..str_seconds..'; wait 15; input /p '..auto_translate('Rayke')..' '..str_rayke..str_remaining..'15'..str_seconds..'; wait 15; input /p '..auto_translate('Rayke').. ' '..str_rayke..str_end..'!')
 	elseif spell.english == 'Gambit' and not spell.interrupted then
-		windower.send_command('input /p ' ..auto_translate('Gambit').. ' ガンビット96秒 - 残り時間; wait 36; input /p ' ..auto_translate('Gambit').. ' ガンビット60秒; wait 30; input /p ' ..auto_translate('Gambit').. ' ガンビット30秒; wait 30; input /p ' ..auto_translate('Gambit').. ' ガンビット終了!')
+		windower.send_command('input /p ' ..auto_translate('Gambit')..' '..str_gambit..str_duration..'96'..str_seconds..'; wait 36; input /p '..auto_translate('Gambit')..' '..str_gambit..'60'..str_seconds..'; wait 30; input /p '..auto_translate('Gambit')..' '..str_gambit..'30'..str_seconds..'; wait 30; input /p '..auto_translate('Gambit')..' '..str_gambit..str_end..'!')
 	elseif spell.english == 'Steel Cyclone' and not spell.interrupted then
-		windower.chat.input('/p を使用して ' ..auto_translate('Steel Cyclone').. ' -<t>-')
-	elseif spell.english == 'Freezebite' then
+		windower.chat.input('/p '..str_using..' '..auto_translate('Steel Cyclone')..' -<t>-')
+	elseif spell.english == 'Freezebite' and not spell.interrupted then
 		windower.send_command:schedule(1.2, 'mc autosc Freezebite')
-	elseif spell.english == 'Frostbite' then
+	elseif spell.english == 'Frostbite' and not spell.interrupted then
 		windower.send_command:schedule(1.2, 'mc autosc Frostbite')
-	elseif spell.english == 'Upheaval' then
+	elseif spell.english == 'Upheaval' and not spell.interrupted then
 		windower.send_command:schedule(1.2, 'mc autosc Upheaval')
-		windower.chat.input('/p を使用して ' ..auto_translate('Upheaval').. ' -<t>-')
+		windower.chat.input('/p '..str_using..' '..auto_translate('Upheaval')..' -<t>-')
 	end
 end
 

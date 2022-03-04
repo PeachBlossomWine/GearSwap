@@ -158,7 +158,7 @@ sets.precast.WS['Torcleaver'].SubtleBlow = set_combine(sets.precast.WS['Torcleav
 	feet="Sakpata's Leggings",		-- 10
 	right_ring="Niqmaddu Ring",		-- 5
 })
-sets.precast.WS['Torcleaver'].KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
+sets.precast.WS['Torcleaver'].KI = set_combine(sets.precast.WS['Torcleaver'], {body="Found. Breastplate"})
 
 sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Catastrophe'] = set_combine(sets.precast.WS, {})
