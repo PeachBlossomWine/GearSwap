@@ -184,7 +184,7 @@ function job_aftercast(spell, spellMap, eventArgs)
 			local self_vector = windower.ffxi.get_mob_by_id(player.id)
 			local angle = (math.atan2((player.target.y - self_vector.y), (player.target.x - self_vector.x))*180/math.pi)*-1
 			windower.ffxi.turn((getAngle()+180):radian()+math.pi)
-			windower.ffxi.turn:schedule(3.6,((angle):radian()))
+			windower.ffxi.turn:schedule(3.3,((angle):radian()))
 		end
     end
 	if spell.type == 'WeaponSkill' and not spell.interrupted then
@@ -232,9 +232,17 @@ function job_post_precast(spell, spellMap, eventArgs)
 		local WSset = standardize_set(get_precast_set(spell, spellMap))
 		local wsacc = check_ws_acc()
 		
+		-- Killer / Mboze handling
 		if buffactive['Killer Instinct'] then
-			equip(sets.precast.WS[spell.english].KI)
+			if player.target and player.target.name == 'Mboze' and player.target.hpp > 25 then
+				equip(sets.precast.WS[spell.english].KI)
+			else
+				equip(sets.precast.WS[spell.english].KI.SubtleBlow)
+			end
+		elseif player.target and player.target.name == 'Mboze' and player.target.hpp < 25 then
+			equip(sets.precast.WS[spell.english].SubtleBlow)
 		end
+		
 		
 		if (WSset.ear1 == "Moonshade Earring" or WSset.ear2 == "Moonshade Earring") then
 			-- Replace Moonshade Earring if we're at cap TP
@@ -347,7 +355,11 @@ function update_melee_groups()
     end
 	
 	if (player.equipment.main == "Liberator" and buffactive['Aftermath: Lv.3']) then
-			classes.CustomMeleeGroups:append('AM')
+		classes.CustomMeleeGroups:append('AM')
+	end
+	
+	if state.HybridMode.value == 'SubtleBlow' and buffactive['Auspice'] then
+		classes.CustomMeleeGroups:append('Auspice')
 	end
 	
 end

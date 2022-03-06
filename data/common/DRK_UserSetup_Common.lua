@@ -1,4 +1,4 @@
-state.OffenseMode:options('Normal','Acc')
+state.OffenseMode:options('Normal')
 state.WeaponskillMode:options('Normal','Enmity','SubtleBlow')
 state.HybridMode:options('DT','Normal','SubtleBlow')
 state.PhysicalDefenseMode:options('PDT')

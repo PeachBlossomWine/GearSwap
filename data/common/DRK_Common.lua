@@ -135,6 +135,7 @@ sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
 
 sets.precast.WS.Enmity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
 sets.precast.WS.KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
+sets.precast.WS.KI.SubtleBlow = set_combine(sets.precast.WS.KI, {body="Found. Breastplate"})
 
 -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.	
 sets.precast.WS['Torcleaver'] = set_combine(sets.precast.WS, {
@@ -155,10 +156,11 @@ sets.precast.WS['Torcleaver'] = set_combine(sets.precast.WS, {
 sets.precast.WS['Torcleaver'].Enmity = set_combine(sets.precast.WS['Torcleaver'], {right_ear="Schere Earring"})
 sets.precast.WS['Torcleaver'].SubtleBlow = set_combine(sets.precast.WS['Torcleaver'], {
 	hands="Sakpata's Gauntlets",	-- 8
-	feet="Sakpata's Leggings",		-- 10
+	feet="Sakpata's Leggings",		-- 13
 	right_ring="Niqmaddu Ring",		-- 5
 })
 sets.precast.WS['Torcleaver'].KI = set_combine(sets.precast.WS['Torcleaver'], {body="Found. Breastplate"})
+sets.precast.WS['Torcleaver'].KI.SubtleBlow = set_combine(sets.precast.WS['Torcleaver'].KI, {body="Found. Breastplate"})
 
 sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Catastrophe'] = set_combine(sets.precast.WS, {})
@@ -290,22 +292,6 @@ sets.engaged = {
 	back=gear.jse_TP_Back;
 }
 	
-sets.engaged.Acc = {
-	ammo="Coiste Bodhar",
-	head="Flam. Zucchetto +2",
-	body="Hjarrandi Breast.",
-	hands="Sakpata's Gauntlets",
-	legs="Ig. Flanchard +3",
-	feet="Flam. Gambieras +2",
-	neck="Abyssal Beads +2",
-	waist="Ioskeha Belt +1",
-	left_ear="Telos Earring",
-	right_ear="Cessance Earring",
-	left_ring="Chirich Ring +1",
-	right_ring="Niqmaddu Ring",
-	back=gear.jse_TP_Back;
-}
-
 sets.engaged.DT ={
 	ammo="Coiste Bodhar",				-- 3
 	head="Sakpata's Helm",				-- 7
@@ -322,8 +308,8 @@ sets.engaged.DT ={
 	back=gear.jse_TP_Back;				-- 10
 }
 
-sets.engaged.Acc.HybridDT = set_combine(sets.engaged.HybridDT, {})
-
+-- I - 31
+-- II - 15
 sets.engaged.SubtleBlow ={
 	ammo="Staunch Tathlum +1",
 	head="Sakpata's Helm",
@@ -332,13 +318,17 @@ sets.engaged.SubtleBlow ={
 	legs="Sakpata's Cuisses",
 	feet="Sakpata's Leggings",											-- 13
 	neck={ name="Abyssal Beads +2", augments={'Path: A',}},
-	waist="Ioskeha Belt +1",
-	left_ear={name="Digni. Earring",priority=500},						-- 5
-	right_ear="Telos Earring",											
+	waist="Sarissapho. Belt",
+	left_ear="Digni. Earring",
+	right_ear="Schere Earring",											
 	left_ring="Chirich Ring +1",										-- 10
 	right_ring="Niqmaddu Ring",											-- 5 II
 	back=gear.jse_TP_Back;			
 }
-sets.engaged.Acc.SubtleBlow = set_combine(sets.engaged.SubtleBlow, {})
+sets.engaged.SubtleBlow.Auspice = set_combine(sets.engaged.SubtleBlow, {
+	waist="Ioskeha Belt +1",
+	left_ear="Crep. Earring",
+	right_ear="Telos Earring",
+})
 
 sets.idle.Town = sets.engaged.DT
