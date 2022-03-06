@@ -184,7 +184,7 @@ function job_aftercast(spell, spellMap, eventArgs)
 			local self_vector = windower.ffxi.get_mob_by_id(player.id)
 			local angle = (math.atan2((player.target.y - self_vector.y), (player.target.x - self_vector.x))*180/math.pi)*-1
 			windower.ffxi.turn((getAngle()+180):radian()+math.pi)
-			windower.ffxi.turn:schedule(3.9,((angle):radian()))
+			windower.ffxi.turn:schedule(3.6,((angle):radian()))
 		end
     end
 	if spell.type == 'WeaponSkill' and not spell.interrupted then
@@ -210,6 +210,12 @@ function job_customize_melee_set(meleeSet)
     if state.Buff.Souleater and state.DefenseMode.current == 'None' then
         meleeSet = set_combine(meleeSet, sets.buff.Souleater)
     end
+	if buffactive[479] then
+		if buffactive['Stoneskin'] then
+			windower.send_command('cancel stoneskin')
+		end
+	    meleeSet = set_combine(meleeSet, sets.buff.ScarletDelirium)
+	end
 
     return meleeSet
 end

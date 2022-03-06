@@ -70,7 +70,7 @@ sets.midcast['Dark Magic'] = {
 	right_ear="Malignance Earring",
 	left_ring="Archon Ring",
 	right_ring="Evanescence Ring",
-	back=gear.jse_FC_Back_Back,
+	back=gear.jse_FC_Back,
 }
 	   
 sets.midcast['Enfeebling Magic'] = {
@@ -86,7 +86,7 @@ sets.midcast['Enfeebling Magic'] = {
 	right_ear="Malignance Earring",
 	left_ring="Archon Ring",
 	right_ring="Evanescence Ring",
-	back=gear.jse_FC_Back_Back,
+	back=gear.jse_FC_Back,
 }
 	   
 sets.midcast['Dread Spikes'] = set_combine(sets.midcast['Dark Magic'], {})
@@ -255,6 +255,21 @@ sets.buff['Dark Seal'] = {head="Fallen's Burgeonet +3"}
 
 --Extra Special Sets
 sets.buff.Souleater = {}
+sets.buff.ScarletDelirium = {
+    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
+    head="Flam. Zucchetto +2",
+    body="Ignominy Cuirass +3",
+    hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+    legs="Ig. Flanchard +3",
+    feet="Flam. Gambieras +2",
+    neck="Coatl Gorget +1",
+    waist="Ioskeha Belt +1",
+    left_ear="Infused Earring",
+    right_ear="Etiolation Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Niqmaddu Ring",
+	back=gear.Drain_back,
+}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
 sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
  
@@ -315,11 +330,11 @@ sets.engaged.SubtleBlow ={
 	body="Dagon Breast.",												-- 10 II
 	hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},			-- 8
 	legs="Sakpata's Cuisses",
-	feet="Sakpata's Leggings",											-- 6
+	feet="Sakpata's Leggings",											-- 13
 	neck={ name="Abyssal Beads +2", augments={'Path: A',}},
 	waist="Ioskeha Belt +1",
-	left_ear={name="Digni. Earring",priority=500},
-	right_ear="Telos Earring",											-- 5
+	left_ear={name="Digni. Earring",priority=500},						-- 5
+	right_ear="Telos Earring",											
 	left_ring="Chirich Ring +1",										-- 10
 	right_ring="Niqmaddu Ring",											-- 5 II
 	back=gear.jse_TP_Back;			
