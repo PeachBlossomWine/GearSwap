@@ -70,6 +70,18 @@ function job_setup()
 	init_job_states({"Capacity","AutoRuneMode","AutoTrustMode","AutoJumpMode","AutoWSMode","AutoShadowMode","AutoFoodMode","AutoStunMode","AutoDefenseMode",},{"AutoBuffMode","AutoSambaMode","Weapons","OffenseMode","WeaponskillMode","Stance","IdleMode","Passive","RuneElement","TreasureMode",})
 end
 
+-- Select default macro book on initial load or subjob change.
+function select_default_macro_book()
+    -- Default macro set/book
+    if player.sub_job == 'WAR' then
+        set_macro_page(2, 14)
+    elseif player.sub_job == 'SAM' then
+        set_macro_page(1, 14)
+    else
+        set_macro_page(3, 14)
+    end
+end
+
 function job_precast(spell, spellMap, eventArgs)
 
 	if spell.type == 'WeaponSkill' and state.AutoBuffMode.value ~= 'Off' then
@@ -105,6 +117,12 @@ function job_post_precast(spell, spellMap, eventArgs)
 	if spell.type == 'WeaponSkill' then
 		local WSset = standardize_set(get_precast_set(spell, spellMap))
 		local wsacc = check_ws_acc()
+
+		--test
+		if player.attack > 5000 then
+			equip(sets.precast.WS[spell.english].PDL)
+		end
+		--test
 		
 		if (WSset.ear1 == "Moonshade Earring" or WSset.ear2 == "Moonshade Earring") then
 			-- Replace Moonshade Earring if we're at cap TP
@@ -177,6 +195,20 @@ function job_update(cmdParams, eventArgs)
 	end
 end
 
+function job_filtered_action(spell, eventArgs)
+	if spell.type == 'WeaponSkill' then
+		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
+		
+		if available_ws:contains(32) then
+			if spell.english == "Stardiver" then
+				send_command('@input /ws "Savage Blade" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		end
+	end
+end
+
 function update_melee_groups()
     classes.CustomMeleeGroups:clear()
     
@@ -205,6 +237,7 @@ end
 
 function job_tick()
 	if check_hasso() then return true end
+	if check_zerg_sp() then return true end
 	if check_jump() then return true end
 	if check_buff() then return true end
 	return false
@@ -216,7 +249,7 @@ function job_customize_melee_set(meleeSet)
 end
 
 function check_hasso()
-if player.sub_job == 'SAM' and player.status == 'Engaged' and not (state.Stance.value == 'None' or state.Buff.Hasso or state.Buff.Seigan or state.Buff['SJ Restriction'] or main_weapon_is_one_handed() or silent_check_amnesia()) then
+	if player.sub_job == 'SAM' and player.status == 'Engaged' and not (state.Stance.value == 'None' or state.Buff.Hasso or state.Buff.Seigan or state.Buff['SJ Restriction'] or main_weapon_is_one_handed() or silent_check_amnesia()) then
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 		
@@ -256,8 +289,8 @@ function check_jump()
             windower.chat.input('/ja "High Jump" <t>')
             tickdelay = os.clock() + 1.1
             return true
-        elseif pet.isvalid and abil_recasts[162] < latency and pet.tp > 350 then
-            windower.chat.input('/ja "Spirit Link" <me>')
+		elseif abil_recasts[160] < latency and (player.hpp < 70 or state.AutoZergMode.value) then
+            windower.chat.input('/ja "Super Jump" <t>')
             tickdelay = os.clock() + 1.1
             return true
         else
@@ -275,17 +308,27 @@ function check_buff()
 			windower.chat.input('/ja "Call Wyvern" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
-		elseif state.Buff['SJ Restriction'] then
-			return false
-		elseif player.sub_job == 'DRK' and not buffactive['Last Resort'] and abil_recasts[87] < latency then
+		elseif pet.isvalid and abil_recasts[70] < latency then
+            windower.chat.input('/ja "Steady Wing" <me>')
+            tickdelay = os.clock() + 1.1
+            return true
+        elseif pet.isvalid and abil_recasts[162] < latency and pet.hpp < 55 then
+            windower.chat.input('/ja "Spirit Link" <me>')
+            tickdelay = os.clock() + 1.1
+            return true
+	    elseif pet.isvalid and abil_recasts[239] < latency and (pet.hpp < 40 or player.hpp < 65) then
+            windower.chat.input('/ja "Restoring Breath" <me>')
+            tickdelay = os.clock() + 1.1
+            return true
+		elseif player.sub_job == 'DRK' and not state.Buff['SJ Restriction'] and not buffactive['Last Resort'] and abil_recasts[87] < latency then
 			windower.chat.input('/ja "Last Resort" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
-		elseif player.sub_job == 'WAR' and not buffactive.Berserk and abil_recasts[1] < latency then
+		elseif player.sub_job == 'WAR' and not state.Buff['SJ Restriction'] and not buffactive.Berserk and abil_recasts[1] < latency then
 			windower.chat.input('/ja "Berserk" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
-		elseif player.sub_job == 'WAR' and not buffactive.Aggressor and abil_recasts[4] < latency then
+		elseif player.sub_job == 'WAR' and not state.Buff['SJ Restriction'] and not buffactive.Aggressor and abil_recasts[4] < latency then
 			windower.chat.input('/ja "Aggressor" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
@@ -311,4 +354,31 @@ function find_breath_hpp()
 			Breath_HPP = 35
 		end
 	end
+end
+
+function check_zerg_sp()
+    if state.AutoZergMode.value and player.status == 'Engaged' and player.in_combat then
+
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+
+        if abil_recasts[165] < latency then
+            windower.chat.input('/ja "Angon" <t>')
+            tickdelay = os.clock() + 1.1
+            return true
+        elseif abil_recasts[58] < latency and player.target.name == 'Bumba' then
+            windower.chat.input('/ja "Dragon Breaker" <t>')
+            tickdelay = os.clock() + 1.1
+            return true
+        elseif abil_recasts[157] < latency and player.target.name == 'Bumba' then
+            windower.chat.input('/ja "Ancient Circle" <me>')
+            tickdelay = os.clock() + 1.1
+            return true
+		elseif (abil_recasts[254] < latency) and (abil_recasts[166] > latency and abil_recasts[167] > latency and abil_recasts[158] > latency and abil_recasts[159] > latency and abil_recasts[160] > latency) then
+			windower.chat.input('/ja "Fly High" <me>')
+            tickdelay = os.clock() + 1.1
+            return true
+        else
+            return false
+        end
+    end
 end

@@ -77,9 +77,142 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
+function select_default_macro_book()
+    -- Default macro set/book
+    if player.sub_job == 'WAR' then
+        set_macro_page(1, 13)
+    else
+        set_macro_page(1, 13)
+    end
+end
 
 function job_filtered_action(spell, eventArgs)
 
+end
+
+function user_job_filtered_action(spell, eventArgs)
+	if spell.type == 'WeaponSkill' then
+		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
+		local named_ones = S{	'Volte Cleaver','Volte Fistfighter','Volte Incanter','Volte Priest','Volte Duelist',
+								'Volte Vagabond','Volte Crusader','Volte Reaper','Volte Trainer','Volte Conductor',
+								'Volte Sniper','Volte Mononofu','Volte Shinobi','Volte Highwind','Volte Controler',
+								'Volte Joiner','Volte Sailor','Volte Manipulator','Volte Twirler','Volte Erudite',
+								'Volte Communer','Volte Illusionist'}
+
+		if available_ws:contains(32) then
+			if spell.english == "Blade: Metsu" then
+				send_command('@input /ws "Savage Blade" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Blade: Ten" then
+				send_command('@input /ws "Savage Blade" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Blade: Chi" then
+				send_command('@input /ws "Savage Blade" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			-- Proc WS Sword
+			elseif spell.english == "Combo" then
+				windower.chat.input('/ws "Seraph Blade" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Raging Axe" then
+				windower.chat.input('/ws "Red Lotus Blade" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		--Dynamis W3 exclusive override
+		elseif available_ws:contains(128) then
+			if spell.english == "Fast Blade" and named_ones:contains(player.target.name) then 
+				windower.add_to_chat('Named One: ' ..player.target.name)
+				send_command('@input /ws "Blade: Ten" '..spell.target.raw)
+				cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Fast Blade" and not named_ones:contains(player.target.name) then 
+				windower.add_to_chat('Regular: ' ..player.target.name)
+				send_command('@input /ws "Blade: Chi" '..spell.target.raw)
+				cancel_spell()
+				eventArgs.cancel = true
+			-- Proc WS Katana
+			elseif spell.english == "Combo" then
+				windower.chat.input('/ws "Blade: Ei" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			-- If AutoWS is Metsu, and equipped Kikoku
+			elseif spell.english == "Blade: Metsu" and available_ws:contains(137) then
+				send_command('@input /ws "Blade: Metsu" '..spell.target.raw)
+				cancel_spell()
+				eventArgs.cancel = true
+			-- If AutoWS is Metsu, and equipped other katana
+			elseif spell.english == "Blade: Metsu" and not available_ws:contains(137) then
+				send_command('@input /ws "Blade: Ten" '..spell.target.raw)
+				cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- GS
+		elseif available_ws:contains(48) then
+			if spell.english == "Combo" then
+				send_command('@input /ws "Freezebite" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+            end
+		-- Polearm
+		elseif available_ws:contains(112) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Raiden Thrust" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end	
+		-- Dagger
+		elseif available_ws:contains(16) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Energy Drain" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Raging Axe" then
+				windower.chat.input('/ws "Cyclone" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- GK
+		elseif available_ws:contains(144) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Tachi: Koki" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Raging Axe" then
+				windower.chat.input('/ws "Tachi: Jinpu" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- Scythe
+		elseif available_ws:contains(96) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Shadow of Death" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- Club
+		elseif available_ws:contains(160) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Seraph Strike" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- Staff
+		elseif available_ws:contains(176) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Sunburst" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Raging Axe" then
+				windower.chat.input('/ws "Earth Crusher" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		end
+	end
 end
 
 function job_pretarget(spell, spellMap, eventArgs)
@@ -261,6 +394,10 @@ function job_customize_melee_set(meleeSet)
 	if state.Buff.Migawari then
         meleeSet = set_combine(meleeSet, sets.buff.Migawari)
     end
+	
+	if world.area:contains('Abyssea') or data.areas.proc:contains(world.area) then
+		meleeSet = set_combine(meleeSet, {ammo="Staunch Tathlum +1"})--, neck="Combatant's Torque"})
+	end
 
     return meleeSet
 end
@@ -323,7 +460,7 @@ function job_self_command(commandArgs, eventArgs)
 		handle_elemental(commandArgs)
 		eventArgs.handled = true
 
-	elseif commandArgs[1] == 'SubJobEnmity' then
+	elseif commandArgs[1] == 'SubJobEnmity' and not state.Buff['SJ Restriction'] then
 
 		if player.target.type ~= "MONSTER" then
 			add_to_chat(123,'Abort: You are not targeting a monster.')
@@ -339,7 +476,7 @@ function job_self_command(commandArgs, eventArgs)
 		
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 			
-			if abil_recasts[24] < latency then
+			if abil_recasts[24] < latency and not silent_check_amnesia() then
 				send_command('input /ja "Swordplay" <me>')
 			end
 			
@@ -348,8 +485,6 @@ function job_self_command(commandArgs, eventArgs)
 					
 			if spell_recasts[584] < spell_latency then
 				windower.chat.input('/ma "Sheep Song" <t>')
-			elseif spell_recasts[598] < spell_latency then
-				windower.chat.input('/ma "Soporific" <t>')
 			elseif spell_recasts[605] < spell_latency then
 				windower.chat.input('/ma "Geist Wall" <t>')
 			elseif spell_recasts[575] < spell_latency then
@@ -376,12 +511,6 @@ function job_self_command(commandArgs, eventArgs)
 			
 			if spell_recasts[252] < spell_latency and not silent_check_silence() then
 				windower.chat.input('/ma "Stun" <t>')
-			elseif abil_recasts[85] < latency then
-				windower.chat.input('/ja "Souleater" <me>')
-			elseif abil_recasts[87] < latency then
-				windower.chat.input('/ja "Last Resort" <me>')
-			elseif abil_recasts[86] < latency then
-				windower.chat.input('/ja "Arcane Circle" <me>')
 			elseif not check_auto_tank_ws() then
 				if not state.AutoTankMode.value then add_to_chat(123,'All Enmity Dark Knight abillities on cooldown.') end
 			end
@@ -395,21 +524,17 @@ function job_self_command(commandArgs, eventArgs)
 				if buffactive['Berserk'] then send_command('cancel berserk') end
 			end
 			
-			if abil_recasts[5] < latency then
+			if abil_recasts[5] < latency and not silent_check_amnesia() then
 				send_command('input /ja "Provoke" <t>')
-			elseif abil_recasts[2] < latency then
-				send_command('input /ja "Warcry" <me>')
-			elseif abil_recasts[3] < latency then
-				send_command('input /ja "Defender" <me>')
-			elseif abil_recasts[4] < latency then
+			elseif abil_recasts[4] < latency and not silent_check_amnesia() then
 				send_command('input /ja "Aggressor" <me>')
-			elseif abil_recasts[1] < latency then
+			elseif abil_recasts[1] < latency and not silent_check_amnesia() then
 				send_command('input /ja "Berserk" <me>')
 			elseif not check_auto_tank_ws() then
 				if not state.AutoTankMode.value then add_to_chat(123,'All Enmity Warrior Job Abilities on cooldown.') end
 			end
 			
-		elseif player.sub_job == 'DNC' then
+		elseif player.sub_job == 'DNC' and not silent_check_amnesia() then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 			local under3FMs = not buffactive['Finishing Move 3'] and not buffactive['Finishing Move 4'] and not buffactive['Finishing Move 5']
         
@@ -525,11 +650,11 @@ function check_buff()
 		if player.in_combat and not state.Buff['SJ Restriction'] then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 
-			if player.sub_job == 'WAR' and not buffactive.Berserk and not is_defensive() and abil_recasts[1] < latency then
+			if player.sub_job == 'WAR' and not buffactive.Berserk and abil_recasts[1] < latency and not silent_check_amnesia() then
 				windower.chat.input('/ja "Berserk" <me>')
 				tickdelay = os.clock() + 1.1
 				return true
-			elseif player.sub_job == 'WAR' and not buffactive.Aggressor and not is_defensive() and abil_recasts[4] < latency then
+			elseif player.sub_job == 'WAR' and not buffactive.Aggressor and abil_recasts[4] < latency and not silent_check_amnesia() then
 				windower.chat.input('/ja "Aggressor" <me>')
 				tickdelay = os.clock() + 1.1
 				return true
@@ -576,7 +701,8 @@ end
 
 buff_spell_lists = {
 	Auto = {	
-		{Name='Migawari: Ichi',Buff='Migawari',SpellID=510,When='Combat'},
+		--{Name='Migawari: Ichi',Buff='Migawari',SpellID=510,When='Combat'},
+
 	},
 	
 	Default = {
