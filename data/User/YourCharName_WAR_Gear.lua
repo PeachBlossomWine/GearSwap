@@ -9,5 +9,3 @@ function init_gear_sets()
 	include('Common/WAR_Common.lua')
 	
 end
-
-include('Common/WAR_Functions_Common.lua')

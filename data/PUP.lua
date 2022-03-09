@@ -310,6 +310,7 @@ function job_tick()
 	if check_repair() then return true end
 	if check_auto_pet() then return true end
 	if check_maneuver() then return true end
+	if check_buff() then return true end
 
 	if state.PetWSGear.value and pet.isvalid and pet.tp and pet.tp ~= lastpettp then
 		if (pet.tp > 999 and lastpettp < 1000) or (pet.tp < 1000 and lastpettp > 999) then
@@ -468,6 +469,28 @@ function check_maneuver()
             end
         end
     end
+
+	return false
+end
+
+function check_buff()
+	if state.AutoBuffMode.value ~= 'Off' and player.in_combat and player.status == 'Engaged' then
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if player.sub_job == 'WAR' and not state.Buff['SJ Restriction'] then
+			if not (buffactive.Aggressor or buffactive.Focus) and abil_recasts[4] < latency then
+				windower.chat.input('/ja "Aggressor" <me>')
+				tickdelay = os.clock() + 3.1
+				return true
+			elseif not buffactive.Berserk and abil_recasts[1] < latency then
+				windower.chat.input('/ja "Berserk" <me>')
+				tickdelay = os.clock() + 3.1
+				return true
+			else
+				return false
+			end
+		end
+	end
 
 	return false
 end

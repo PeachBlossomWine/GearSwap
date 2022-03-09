@@ -258,18 +258,18 @@ sets.buff['Dark Seal'] = {head="Fallen's Burgeonet +3"}
 --Extra Special Sets
 sets.buff.Souleater = {}
 sets.buff.ScarletDelirium = {
-    ammo={ name="Coiste Bodhar", augments={'Path: A',}},
-    head="Flam. Zucchetto +2",
-    body="Ignominy Cuirass +3",
-    hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},
+    ammo="Coiste Bodhar",
+    head=empty,
+    body="Dagon Breast.",			-- 10 II
+    hands=empty,
     legs="Ig. Flanchard +3",
-    feet="Flam. Gambieras +2",
+    feet=empty,
     neck="Coatl Gorget +1",
-    waist="Ioskeha Belt +1",
-    left_ear="Infused Earring",
-    right_ear="Etiolation Earring",
-    left_ring="Chirich Ring +1",
-    right_ring="Niqmaddu Ring",
+    waist="Sarissapho. Belt",		-- 5
+	left_ear="Digni. Earring",		-- 5
+	right_ear="Telos Earring",
+    left_ring="Chirich Ring +1",	-- 10
+    right_ring="Niqmaddu Ring",		-- 5 II
 	back=gear.Drain_back,
 }
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
@@ -285,8 +285,8 @@ sets.engaged = {
 	feet="Flam. Gambieras +2",
 	neck="Abyssal Beads +2",
 	waist="Ioskeha Belt +1",
-	left_ear="Telos Earring",
-	right_ear="Cessance Earring",
+	left_ear="Cessance Earring",
+	right_ear="Telos Earring",
 	left_ring="Chirich Ring +1",
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_TP_Back;
@@ -301,14 +301,14 @@ sets.engaged.DT ={
 	feet="Sakpata's Leggings",
 	neck="Abyssal Beads +2",
 	waist="Ioskeha Belt +1",
-	left_ear="Telos Earring",
-	right_ear="Crep. Earring",
+	left_ear="Crep. Earring",
+	right_ear="Telos Earring",
 	left_ring="Chirich Ring +1",		-- 10
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_TP_Back;				-- 10
 }
 
--- I - 31
+-- I - 41
 -- II - 15
 sets.engaged.SubtleBlow ={
 	ammo="Staunch Tathlum +1",
@@ -318,9 +318,9 @@ sets.engaged.SubtleBlow ={
 	legs="Sakpata's Cuisses",
 	feet="Sakpata's Leggings",											-- 13
 	neck={ name="Abyssal Beads +2", augments={'Path: A',}},
-	waist="Sarissapho. Belt",
-	left_ear="Digni. Earring",
-	right_ear="Schere Earring",											
+	waist="Sarissapho. Belt",											-- 5
+	left_ear="Digni. Earring",											-- 5
+	right_ear="Telos Earring",											
 	left_ring="Chirich Ring +1",										-- 10
 	right_ring="Niqmaddu Ring",											-- 5 II
 	back=gear.jse_TP_Back;			

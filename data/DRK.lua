@@ -52,13 +52,13 @@ end
     -- Setup vars that are user-independent.
 function job_setup()
 
-    state.Buff.Souleater = buffactive.Souleater or false
+    state.Buff.Souleater = buffactive.souleater or false
     state.Buff['Dark Seal'] = buffactive['Dark Seal'] or false
 	state.Buff['Nether Void'] = buffactive['Nether Void'] or false
     state.Buff['Aftermath'] = buffactive['Aftermath'] or false
     state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
-    state.Buff.Hasso = buffactive.Hasso or false
-    state.Buff.Seigan = buffactive.Seigan or false
+    state.Buff.Hasso = buffactive.hasso or false
+    state.Buff.Seigan = buffactive.seigan or false
 	state.Stance = M{['description']='Stance','Hasso','Seigan','None'}
 	state.DrainSwapWeaponMode = M{'Never','300','1000','Always'}
 	
@@ -216,7 +216,6 @@ function job_customize_melee_set(meleeSet)
 		end
 	    meleeSet = set_combine(meleeSet, sets.buff.ScarletDelirium)
 	end
-
     return meleeSet
 end
 
@@ -242,7 +241,6 @@ function job_post_precast(spell, spellMap, eventArgs)
 		elseif player.target and player.target.name == 'Mboze' and player.target.hpp < 25 then
 			equip(sets.precast.WS[spell.english].SubtleBlow)
 		end
-		
 		
 		if (WSset.ear1 == "Moonshade Earring" or WSset.ear2 == "Moonshade Earring") then
 			-- Replace Moonshade Earring if we're at cap TP
@@ -282,6 +280,7 @@ function job_post_precast(spell, spellMap, eventArgs)
 		if state.Buff.Souleater then   
 			equip(sets.buff.Souleater)
 		end
+
 	elseif spell.type == 'JobAbility' then
 		if spell.english:endswith('Jump') then
 			if sets.precast.JA[spell.english] then
@@ -346,7 +345,7 @@ end
 function job_buff_change(buff, gain)
 	update_melee_groups()
 end
-	
+
 function update_melee_groups()
     classes.CustomMeleeGroups:clear()
 	
@@ -362,6 +361,9 @@ function update_melee_groups()
 		classes.CustomMeleeGroups:append('Auspice')
 	end
 	
+	if buffactive[479] then
+        classes.CustomMeleeGroups:append('ScarletDelirium')
+    end
 end
 
 function check_jump()
@@ -412,7 +414,7 @@ function check_buff()
 	if state.AutoBuffMode.value ~= 'Off' and not data.areas.cities:contains(world.area) then
 		local spell_recasts = windower.ffxi.get_spell_recasts()
 		for i in pairs(buff_spell_lists[state.AutoBuffMode.Value]) do
-			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < latency and silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) then
+			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < latency and silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost then
 				windower.chat.input('/ma "'..buff_spell_lists[state.AutoBuffMode.Value][i].Name..'" <me>')
 				tickdelay = os.clock() + 2
 				return true

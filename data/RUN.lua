@@ -209,7 +209,7 @@ function job_aftercast(spell)
 	elseif spell.english == 'Gambit' and not spell.interrupted then
 		windower.send_command('input /p ' ..auto_translate('Gambit')..' '..str_gambit..str_duration..'96'..str_seconds..'; wait 36; input /p '..auto_translate('Gambit')..' '..str_gambit..'60'..str_seconds..'; wait 30; input /p '..auto_translate('Gambit')..' '..str_gambit..'30'..str_seconds..'; wait 30; input /p '..auto_translate('Gambit')..' '..str_gambit..str_end..'!')
 	elseif spell.english == 'Steel Cyclone' and not spell.interrupted then
-		windower.chat.input('/p '..str_using..' '..auto_translate('Steel Cyclone')..' -<t>-')
+		windower.chat.input('/p '..str_using..' '..auto_translate('Steel Cyclone')..' -<t>- <scall17>')
 	elseif spell.english == 'Freezebite' and not spell.interrupted then
 		windower.send_command:schedule(1.2, 'mc autosc Freezebite')
 	elseif spell.english == 'Frostbite' and not spell.interrupted then

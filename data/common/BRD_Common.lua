@@ -183,24 +183,24 @@ sets.midcast.SongEffect.Melee = {
 }
 
 -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
-sets.midcast.Ballad = set_combine(sets.midcast.SongEffect, {legs="Fili Rhingrave +1"})
+sets.midcast.Ballad = set_combine(sets.midcast.SongEffect, {})
 sets.midcast.Madrigal = set_combine(sets.midcast.SongEffect, {head="Fili Calot +1"})
 sets.midcast.March = set_combine(sets.midcast.SongEffect, {hands="Fili Manchettes +1"})
 sets.midcast.Minuet = set_combine(sets.midcast.SongEffect, {body="Fili Hongreline +1"})
-sets.midcast.Minne = set_combine(sets.midcast.SongEffect, {legs="Mousai Seraweels"})
-sets.midcast.Etude = set_combine(sets.midcast.SongEffect, {head="Mousai Turban +1", legs="Fili Rhingrave +1", feet="Fili Cothurnes +1"})
+sets.midcast.Minne = set_combine(sets.midcast.SongEffect, {})
+sets.midcast.Etude = set_combine(sets.midcast.SongEffect, {head="Mousai Turban +1", feet="Fili Cothurnes +1"})
 sets.midcast.Paeon = set_combine(sets.midcast.SongEffect, {head="Brioso Roundlet +3"})
 sets.midcast.Carol = set_combine(sets.midcast.SongEffect, {head="Fili Calot +1", hands="Mousai Gages"})
 sets.midcast["Sentinel's Scherzo"] = set_combine(sets.midcast.SongEffect, {feet="Fili Cothurnes +1"})
 sets.midcast.Mazurka = {range=info.ExtraSongInstrument}
 sets.midcast["Honor March"] = set_combine(sets.midcast.SongEffect, {range="Marsyas"})
 
-sets.midcast.Ballad.Melee = set_combine(sets.midcast.SongEffect.Melee, {legs="Fili Rhingrave +1"})
+sets.midcast.Ballad.Melee = set_combine(sets.midcast.SongEffect.Melee, {})
 sets.midcast.Madrigal.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Fili Calot +1"})
 sets.midcast.March.Melee = set_combine(sets.midcast.SongEffect.Melee, {hands="Fili Manchettes +1"})
 sets.midcast.Minuet.Melee = set_combine(sets.midcast.SongEffect.Melee, {body="Fili Hongreline +1"})
-sets.midcast.Minne.Melee = set_combine(sets.midcast.SongEffect.Melee, {legs="Mousai Seraweels"})
-sets.midcast.Etude.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Mousai Turban +1", legs="Fili Rhingrave +1", feet="Fili Cothurnes +1"})
+sets.midcast.Minne.Melee = set_combine(sets.midcast.SongEffect.Melee, {})
+sets.midcast.Etude.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Mousai Turban +1", feet="Fili Cothurnes +1"})
 sets.midcast.Paeon.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Brioso Roundlet +3"})
 sets.midcast.Carol.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Fili Calot +1", hands="Mousai Gages"})
 sets.midcast["Sentinel's Scherzo"].Melee = set_combine(sets.midcast.SongEffect.Melee, {feet="Fili Cothurnes +1"})

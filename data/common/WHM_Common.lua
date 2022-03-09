@@ -296,22 +296,22 @@ sets.midcast.LightDayCuraga = set_combine(sets.midcast.Cure, { main=gear.cure_we
 
 --	Cure:	50% + 9% II
 -- 	PDT/DT:	-50%
-sets.midcast.Cure.DT = {																							-- Cure 	/	PDT/DT
-	main="Bunzi's Rod",																									-- 30%
-	sub="Genmei Shield",																								-- 			/	10
-	ammo=gear.whm_dt_ammo,																							--			/	3
-	head="Ebers Cap +1",																								-- 16%
+sets.midcast.Cure.DT = {											-- Cure 	/	PDT/DT
+	main="Bunzi's Rod",												-- 30%
+	sub="Genmei Shield",											-- 			/	10
+	ammo=gear.whm_dt_ammo,											--			/	3
+	head="Ebers Cap +1",											-- 16%
 	body="Theo. Bliaut +3",
-	hands="Theophany Mitts +3",																							-- 4% II
+	hands="Theophany Mitts +3",										-- 4% II
 	legs="Ebers Pantaloons +1",
-	feet="Nyame Sollerets",																								--			/	7
-	neck="Cleric's Torque",																								-- 6%
+	feet="Nyame Sollerets",											--			/	7
+	neck="Cleric's Torque",											-- 6%
 	waist="Porous Rope",
-	left_ear={name="Odnowa Earring +1",priority=1},																		--   			3
-	right_ear="Glorious Earring",																						-- 5% II
-	left_ring="Defending Ring",																							--				10
-	right_ring={name="Gelatinous Ring +1",priority=1},																	--				7
-	back=gear.jse_cure_back,																							--				10
+	left_ear={name="Odnowa Earring +1",priority=1},					--   			3
+	right_ear="Glorious Earring",									-- 5% II
+	left_ring="Defending Ring",										--				10
+	right_ring={name="Gelatinous Ring +1",priority=1},				--				7
+	back=gear.jse_cure_back,										--				10
 }
 
 sets.midcast.CureSolace.DT = set_combine(sets.midcast.Cure.DT, { body="Ebers Bliaut +1" } )
