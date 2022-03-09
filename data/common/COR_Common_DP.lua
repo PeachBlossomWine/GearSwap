@@ -276,6 +276,22 @@ sets.midcast.RA = {
 	back=gear.jse_midshot_back,
 }
 
+sets.midcast.RA.AM = {
+	ammo=gear.RAbullet,
+	head="Meghanada Visor +2",
+	body="Meg. Cuirie +2",
+	hands="Malignance Gloves",
+	legs="Malignance Tights",
+	feet="Osh. Leggings +1",
+	neck="Scout's Gorget +2",
+	waist="K. Kachina Belt +1",
+	left_ear="Telos Earring",
+	right_ear="Odr Earring",
+	left_ring="Dingir Ring",
+	right_ring="Ilabrat Ring",
+	back=gear.jse_crit_back,
+}
+
 sets.buff['Triple Shot'] = {hands="Lanun Gants +3", body="Chasseur's Frac +1", legs="Osh. Trousers +1", feet="Osh. Leggings +1", back=gear.jse_midshot_back}
 
 -- Sets to return to when not performing an action.

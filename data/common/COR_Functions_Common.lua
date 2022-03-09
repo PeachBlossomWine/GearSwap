@@ -79,7 +79,8 @@ function job_buff_change(buff, gain)
 	
 	if player.equipment.Ranged and buff:contains('Aftermath') then
 		classes.CustomRangedGroups:clear()
-		if (player.equipment.Ranged == 'Death Penalty' and buffactive['Aftermath: Lv.3']) then
+		if (player.equipment.range == 'Armageddon' and (buffactive['Aftermath: Lv.1'] or buffactive['Aftermath: Lv.2'] or buffactive['Aftermath: Lv.3']))
+		or (player.equipment.Ranged == 'Death Penalty' and buffactive['Aftermath: Lv.3']) then
 			classes.CustomRangedGroups:append('AM')
 		end
 	end
@@ -114,7 +115,8 @@ function check_buff()
 			windower.chat.input('/ja "Aggressor" <me>')
 			tickdelay = os.clock() + 5.1
 			return true
-		elseif state.Weapons.value:contains("Ranged") and abil_recasts[84] < latency and not buffactive['Triple Shot'] then
+		elseif (player.equipment.range == 'Armageddon' and (buffactive['Aftermath: Lv.1'] or buffactive['Aftermath: Lv.2'] or buffactive['Aftermath: Lv.3'])) and abil_recasts[84] < latency and not buffactive['Triple Shot'] then
+--		elseif state.Weapons.value:contains("Ranged") and abil_recasts[84] < latency and not buffactive['Triple Shot'] then
 			windower.chat.input('/ja "Triple Shot" <me>')
 			tickdelay = os.clock() + 5.1
 			return true

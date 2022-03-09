@@ -27,9 +27,9 @@ send_command('bind !scrolllock gs c toggle AutoArts')
 send_command('bind @f7 gs c set toggle CastingMode DT; gs c set toggle IdleMode DT')
 send_command('bind @f6 gs c set toggle AutoAPMode')
 
-send_command('bind !@^` input /ja "Enlightenment" <me>')
+send_command('bind !@^backspace input /ja "Enlightenment" <me>')
 
---send_command('bind @backspace gs c elemental helix')
+send_command('bind @backspace gs c scholar cost')
 send_command('bind ^backspace gs c scholar aoe')
 send_command('bind !backspace gs c scholar duration')
 
