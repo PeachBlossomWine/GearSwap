@@ -174,23 +174,11 @@ spell_stepdown = {
 	['Thunder V'] = 'Thunder IV',
 	['Thunder IV'] = 'Thunder III',
 	
-	-- ['Entomb'] = 'Scouring Spate',
-	-- ['Scouring Spate'] = 'Spectral Floe',
-	-- ['Spectral Floe'] = 'Tenebral Crush',
-	-- ['Tenebral Crush'] = 'Anvil Lightning',
-	
-	-- ['Searing Tempest'] = 'Blinding Fulgor',
-	-- ['Blinding Fulgor'] = 'Anvil Lightning',
-	-- ['Anvil Lightning'] = 'Silent Storm',
-	-- ['Silent Storm'] = 'Spectral Floe',
-	
 	['Spectral Floe'] = 'Tenebral Crush',
-	--['Tenebral Crush'] = 'Anvil Lightning',
 	['Anvil Lightning'] = 'Silent Storm',
 	
 	['Utsusemi: San'] = 'Utsusemi: Ni',
 	['Utsusemi: Ni'] = 'Utsusemi: Ichi',
-
 }
 
 
@@ -198,7 +186,7 @@ function user_unload()
 	currentPC=windower.ffxi.get_player()
 
 	if currentPC.main_job == "BRD" then
-		send_command('singer off')
+		send_command('sing off')
 		send_command('lua u singer')
 	elseif currentPC.main_job == "COR" or currentPC.sub_job == "COR" then
 		send_command('lua u roller')
@@ -218,96 +206,7 @@ function user_unload()
 	send_command('lua u healbot')
 end
 
-function check_trust()
-	if not moving then
-		if state.AutoTrustMode.value and not data.areas.cities:contains(world.area) and (buffactive['Elvorseal'] or buffactive['Reive Mark'] or not player.in_combat) then
-			local party = windower.ffxi.get_party()
-			if party.p5 == nil then
-				local spell_recasts = windower.ffxi.get_spell_recasts()
-
-				if spell_recasts[998] < spell_latency and not have_trust("Ygnas") then
-					windower.chat.input('/ma "Ygnas" <me>')
-					tickdelay = os.clock() + 3
-					return true
-				elseif spell_recasts[981] < spell_latency and not have_trust("Sylvie") then
-					windower.chat.input('/ma "Sylvie (UC)" <me>')
-					tickdelay = os.clock() + 3
-					return true
-				elseif spell_recasts[952] < spell_latency and not have_trust("Koru-Moru") then
-					windower.chat.input('/ma "Koru-Moru" <me>')
-					tickdelay = os.clock() + 3
-					return true
-				elseif spell_recasts[914] < spell_latency and not have_trust("Ulmia") then
-					windower.chat.input('/ma "Ulmia" <me>')
-					tickdelay = os.clock() + 3
-					return true
-				elseif spell_recasts[900] < spell_latency and not have_trust("Ayame") then
-					windower.chat.input('/ma "Ayame" <me>')
-					tickdelay = os.clock() + 3
-					return true
-				else
-					return false
-				end
-			end
-		end
-	end
-	return false
-end
-
-function check_sub()
-	local abil_recasts = windower.ffxi.get_ability_recasts()
-	if state.AutoSubMode.value and not data.areas.cities:contains(world.area) then
-		if player.mpp < 70 and player.tp > 999 then
-			local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
-			
-			if available_ws:contains(190) then
-				windower.chat.input('/ws Myrkr <me>')
-				tickdelay = os.clock() + 1.5
-				return true
-			elseif available_ws:contains(173) then
-				windower.chat.input('/ws Dagan <me>')
-				tickdelay = os.clock() + 1.5
-				return true
-			end
-		end
-		-- 143 157
-		if (player.main_job == 'SCH' or player.sub_job == 'SCH' and not buffactive['SJ Restriction']) then
-			if abil_recasts[234] < latency then
-				if state.AutoSubMode.value == 'Sleep' then
-					if buffactive['Sublimation: Complete'] then
-						windower.chat.input('/ja Sublimation <me>')
-						tickdelay = os.clock() + 1.5
-						return true
-					elseif not buffactive['Sublimation: Activated'] then
-						windower.chat.input('/ja Sublimation <me>')
-						tickdelay = os.clock() + 1.5
-						return true
-					end
-				elseif state.AutoSubMode.value == 'On' then
-					if buffactive['Sublimation: Complete'] then
-						if player.mpp < 70 then
-							windower.chat.input('/ja Sublimation <me>')
-							tickdelay = os.clock() + 1.5
-							return true
-						end
-					elseif not buffactive['Sublimation: Activated'] then
-						windower.chat.input('/ja Sublimation <me>')
-						tickdelay = os.clock() + 1.5
-						return true
-					end
-				end
-			end
-		end
-	elseif state.AutoSubMode.value == 'Off' and data.areas.cities:contains(world.area) then
-		if (player.main_job == 'SCH' or player.sub_job == 'SCH' and not buffactive['SJ Restriction']) and buffactive['Sublimation: Activated'] and abil_recasts[234] < latency then
-			windower.chat.input('/ja Sublimation <me>')
-			tickdelay = os.clock() + 1.5
-			return true
-		end
-	end
-	return false
-end
-
+--Recover HP if very low, using items
 function check_recover_hp()
 	if moving or data.areas.cities:contains(world.area) then return false end
 	
@@ -437,8 +336,6 @@ function check_shadows()
 		return false
 	end
 end
-
-
 
 
 step_timer = 0

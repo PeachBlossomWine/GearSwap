@@ -165,6 +165,13 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
+function select_default_macro_book(reset)
+    if reset == 'reset' then
+        -- lost pet, or tried to use pact when pet is gone
+    end
+    -- Default macro set/book
+    set_macro_page(1, 15)
+end
 
 function job_filtered_action(spell, eventArgs)
 
@@ -232,8 +239,12 @@ function job_midcast(spell, spellMap, eventArgs)
 end
 
 function job_post_midcast(spell, spellMap, eventArgs)
-
-	if spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' and spell.english ~= 'Impact' then
+	--Cure with OBI
+	if spell.skill == 'Healing Magic' then
+		if (spell.element == world.day_element or spell.element == world.weather_element) then
+            equip(sets.CureObi)
+        end
+	elseif spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' and spell.english ~= 'Impact' then
         if state.MagicBurstMode.value ~= 'Off' then equip(sets.MagicBurst) end
 		if spell.element == world.weather_element or spell.element == world.day_element then
 			if state.CastingMode.value == 'Fodder' then
@@ -422,38 +433,28 @@ function job_customize_idle_set(idleSet)
 			if sets.latent_refresh then
 				idleSet = set_combine(idleSet, sets.latent_refresh)
 			end
-			
-			if (state.Weapons.value == 'None' or state.UnlockWeapons.value) and idleSet.main then
-				local main_table = get_item_table(idleSet.main)
-
-				if  main_table and main_table.skill == 12 and sets.latent_refresh_grip then
-					idleSet = set_combine(idleSet, sets.latent_refresh_grip)
-				end
-				
-				if player.tp > 10 and sets.TPEat then
-					idleSet = set_combine(idleSet, sets.TPEat)
-				end
-			end
 		end
-   end
+	end
 
     if pet.isvalid then
-        if pet.element == world.day_element then
-            idleSet = set_combine(idleSet, sets.perp.Day)
+	
+        if sets.perp[pet.name] and state.IdleMode.value:contains('DT') then
+            idleSet = set_combine(idleSet, sets.perp[pet.name].DT)
+		else
+			idleSet = set_combine(idleSet, sets.perp[pet.name])
         end
-        if pet.element == world.weather_element then
-            idleSet = set_combine(idleSet, sets.perp.Weather)
-        end
-        if sets.perp[pet.name] then
-            idleSet = set_combine(idleSet, sets.perp[pet.name])
-        end
-        if state.Buff["Avatar's Favor"] and avatars:contains(pet.name) then
-            idleSet = set_combine(idleSet, sets.idle.Avatar.Favor)
-        end
+		
         if pet.status == 'Engaged' then
-            idleSet = set_combine(idleSet, sets.idle.Avatar.Engaged)
-			if sets.idle.Avatar.Engaged[pet.name] then
-				idleSet = set_combine(idleSet, sets.idle.Avatar.Engaged[pet.name])
+			if state.IdleMode.value:contains('DT') then
+				idleSet = sets.idle.DT.Avatar.Engaged
+				if sets.idle.Avatar.Engaged[pet.name] then
+					idleSet = sets.idle.DT.Avatar.Engaged[pet.name]
+				end
+			else
+				idleSet = set_combine(idleSet, sets.idle.Avatar.Engaged)
+				if sets.idle.Avatar.Engaged[pet.name] then
+					idleSet = set_combine(idleSet, sets.idle.Avatar.Engaged[pet.name])
+				end
 			end
         end
     end
@@ -678,108 +679,12 @@ function handle_pacts(commandArgs)
     end
 end
 
-
-
---[[ Pact buffs now handled by timers plugin, no need for this code.
-
-    -- Flags for code to get around the issue of slow skill updates.
-    wards.flag = false
-    wards.spell = ''
-
-    -- Wards table for creating custom timers   
-    wards = {}
-    -- Base duration for ward pacts.
-    wards.durations = {
-        ['Crimson Howl'] = 60, ['Earthen Armor'] = 60, ['Inferno Howl'] = 60, ['Heavenward Howl'] = 60,
-        ['Rolling Thunder'] = 120, ['Fleet Wind'] = 120,
-        ['Shining Ruby'] = 180, ['Frost Armor'] = 180, ['Lightning Armor'] = 180, ['Ecliptic Growl'] = 180,
-        ['Glittering Ruby'] = 180, ['Hastega'] = 180, ['Noctoshield'] = 180, ['Ecliptic Howl'] = 180,
-        ['Dream Shroud'] = 180,
-        ['Reraise II'] = 3600
-    }
-    -- Icons to use when creating the custom timer.
-    wards.icons = {
-        ['Earthen Armor']   = 'spells/00299.png', -- 00299 for Titan
-        ['Shining Ruby']    = 'spells/00043.png', -- 00043 for Protect
-        ['Dream Shroud']    = 'spells/00304.png', -- 00304 for Diabolos
-        ['Noctoshield']     = 'spells/00106.png', -- 00106 for Phalanx
-        ['Inferno Howl']    = 'spells/00298.png', -- 00298 for Ifrit
-        ['Hastega']         = 'spells/00358.png', -- 00358 for Hastega
-        ['Rolling Thunder'] = 'spells/00104.png', -- 00358 for Enthunder
-        ['Frost Armor']     = 'spells/00250.png', -- 00250 for Ice Spikes
-        ['Lightning Armor'] = 'spells/00251.png', -- 00251 for Shock Spikes
-        ['Reraise II']      = 'spells/00135.png', -- 00135 for Reraise
-        ['Fleet Wind']      = 'abilities/00074.png', -- 
-    }
-
-windower.raw_register_event('incoming chunk',
-    function (id)
-        if id == 0x62 then
-            if wards.flag then
-                create_pact_timer(wards.spell)
-                wards.flag = false
-                wards.spell = ''
-            end
-        end
-    end)
-
--- Function to create custom timers using the Timers addon.  Calculates ward duration
--- based on player skill and base pact duration (defined in job_setup).
-function create_pact_timer(spell_name)
-    -- Create custom timers for ward pacts.
-    if wards.durations[spell_name] then
-        local ward_duration = wards.durations[spell_name]
-        if ward_duration < 181 then
-            local skill = player.skills.summoning_magic
-            if skill > 300 then
-                skill = skill - 300
-                if skill > 200 then skill = 200 end
-                ward_duration = ward_duration + skill
-            end
-        end
-        
-        local timer_cmd = 'timers c "'..spell_name..'" '..tostring(ward_duration)..' down'
-        
-        if wards.icons[spell_name] then
-            timer_cmd = timer_cmd..' '..wards.icons[spell_name]
-        end
-
-        send_command(timer_cmd)
-    end
-end
-
--- Runs when pet completes an action.
-function job_pet_aftercast(spell, spellMap, eventArgs)
-    if not spell.interrupted and spell.type == 'BloodPactWard' and spellMap ~= 'DebuffBloodPactWard' then
-        wards.flag = true
-        wards.spell = spell.english
-        send_command('wait 4; gs c reset_ward_flag')
-    end
-end
-
--- Called for custom player commands.
-function job_self_command(commandArgs, eventArgs)
-    if commandArgs[1]:lower() == 'petweather' then
-        handle_petweather()
-        eventArgs.handled = true
-    elseif commandArgs[1]:lower() == 'siphon' then
-        handle_siphoning()
-        eventArgs.handled = true
-    elseif commandArgs[1]:lower() == 'pact' then
-        handle_pacts(commandArgs)
-        eventArgs.handled = true
-    elseif commandArgs[1] == 'reset_ward_flag' then
-        wards.flag = false
-        wards.spell = ''
-        eventArgs.handled = true
-    end
-end
---]]
-
 function job_tick()
 	if check_favor() then return true end
 	if check_buff() then return true end
 	if check_buffup() then return true end
+	if check_auto_ward_mode() then return true end
+	if check_auto_avatar_mode() then return true end
 	return false
 end
 
@@ -922,22 +827,155 @@ function check_buffup()
 	end
 end
 
+function check_auto_avatar_mode()
+
+	if not (state.AutoBPMode.value or state.AutoAvatarMode.value) and not state.BPWardToggle.value or data.areas.cities:contains(world.area) then return false end
+	
+	local abil_recasts = windower.ffxi.get_ability_recasts()
+	local spell_recasts = windower.ffxi.get_spell_recasts()
+	
+	local avatar_map = {['Carbuncle']=296,['Fenrir']=297,['Ifrit']=298,['Titan']=299,
+		['Leviathan']=300,['Garuda']=301,['Shiva']=302,['Ramuh']=303,['Diabolos']=304,
+		['Cait Sith']=307,['Siren']=355}
+	
+	-- Summon
+	if not pet.isvalid and (state.AutoBPMode.value or state.AutoAvatarMode.value) and state.BPWardToggle.value and not moving and not silent_check_silence() then
+		if spell_recasts[avatar_map[state.Avatar.value]] < spell_latency then
+			windower.add_to_chat(261, '[AutoSMN] -BP/Avatar- Summon: ' .. state.Avatar.value)
+			windower.chat.input('/ma "' .. state.Avatar.value .. '" <me>')
+			tickdelay = os.clock() + 5.0
+			return true
+		end
+	end
+	
+	-- Check correct avatar + Low HP
+	if (state.AutoBPMode.value or state.AutoAvatarMode.value) and state.BPWardToggle.value and pet.isvalid and abil_recasts[172] < latency and not silent_check_amnesia() and (pet.name ~= state.Avatar.value or pet.hpp < 25) then
+		windower.add_to_chat(261, '[AutoSMN] -BP/Avatar- Release HP/incorrect avatar.')
+		windower.chat.input('/ja "Release" <me>')
+		tickdelay = os.clock() + 5.0
+		return true
+	end
+	
+	-- Assault
+	if (state.AutoBPMode.value or state.AutoAvatarMode.value) and state.BPWardToggle.value and pet.isvalid and pet.status == "Idle" and player.target.type == "MONSTER" and player.in_combat and abil_recasts[170] < latency and not silent_check_amnesia() and pet.name ~= "Cait Sith" then
+		windower.add_to_chat(261, '[AutoSMN] -BP/Avatar- Assault.')
+		windower.chat.input('/pet "Assault" <t>')
+		tickdelay = os.clock() + 4.5
+		return true
+	elseif (state.AutoBPMode.value or state.AutoAvatarMode.value) and state.BPWardToggle.value and pet.isvalid and pet.name == "Cait Sith" and pet.status == "Engaged" then
+		windower.add_to_chat(261, '[AutoSMN] -BP/Avatar- HEEL - Cait Sith ONLY -')
+		windower.chat.input('/pet "Retreat" <me>')
+		tickdelay = os.clock() + 4.5
+		return true
+	end
+	
+	-- BP mode
+	if state.AutoBPMode.value and state.BPWardToggle.value and pet.isvalid and player.in_combat and abil_recasts[174] < latency and player.target.type == "MONSTER" and not silent_check_amnesia() and (pet.name == "Leviathan" or pet.name == "Cait Sith") then -- and pet.status == "Engaged" 
+		windower.add_to_chat(261, '[AutoSMN] -BP- BloodPact: ' .. pacts.autobp[pet.name])
+		windower.chat.input('/pet "'..pacts.autobp[pet.name]..'"')
+		tickdelay = os.clock() + 4.5
+		return true
+	elseif state.AutoBPMode.value and state.BPWardToggle.value and pet.isvalid and player.in_combat and pet.status == "Engaged" and abil_recasts[173] < latency and player.target.type == "MONSTER" and not silent_check_amnesia() then
+		windower.add_to_chat(261, '[AutoSMN] -BP- BloodPact: ' .. pacts.autobp[pet.name])
+		if state.AutoSMNSCMode.value then
+			windower.send_command('wait 2.1; input /pet "'..pacts.autobp[pet.name]..'"')
+		else
+			windower.chat.input('/pet "'..pacts.autobp[pet.name]..'"')
+		end
+		if pet.name == "Ramuh" then
+			windower.send_command('wait 1.5; mc smn VS')
+		elseif pet.name == "Ifrit" then
+			windower.send_command('wait 1.5; mc smn FC')
+		end
+		tickdelay = os.clock() + 5.5
+		return true
+	end
+	
+end
+
+function check_auto_ward_mode()
+
+	if state.AutoWardMode.value == 'Off' or data.areas.cities:contains(world.area) then 
+		state.BPWardToggle.value = true
+		return false 
+	end
+	
+	local abil_recasts = windower.ffxi.get_ability_recasts()
+	local spell_recasts = windower.ffxi.get_spell_recasts()
+	
+	local avatar_map = {['Carbuncle']=296,['Fenrir']=297,['Ifrit']=298,['Titan']=299,
+		['Leviathan']=300,['Garuda']=301,['Shiva']=302,['Ramuh']=303,['Diabolos']=304,
+		['Cait Sith']=307,['Siren']=355}
+
+	-- Full wards for BPWardToggle flag
+	needsbuff = false
+	for i in pairs(AutoWards[state.AutoWardMode.value]) do
+		if not buffactive[AutoWards[state.AutoWardMode.value][i].Buff] then
+			needsbuff = true
+			state.BPWardToggle.value = false
+			tickdelay = os.clock() + 2.1
+			break
+		end
+	end
+
+	-- All ward buffs up, toggles BPWardToggle
+	if not needsbuff and state.AutoBPMode.value then
+		state.BPWardToggle.value = true
+		tickdelay = os.clock() + 2.5
+		return false
+	elseif not needsbuff then
+		if not (state.AutoBPMode.value or state.AutoAvatarMode.value) and pet.isvalid and abil_recasts[172] < latency and not silent_check_amnesia() then
+			windower.add_to_chat(261, '[AutoSMN] -Ward-: All ward buffs up, releasing current avatar!')
+			windower.chat.input('/ja "Release" <me>')
+		end
+		tickdelay = os.clock() + 4.5
+		return false
+	end
+
+	for i in pairs(AutoWards[state.AutoWardMode.value]) do
+
+		if not buffactive[AutoWards[state.AutoWardMode.value][i].Buff] and state.AutoWardMode.value ~= 'Off' and spell_recasts[avatar_map[AutoWards[state.AutoWardMode.value][i].Name]] < spell_latency then 
+			-- Summon Avatar
+			if not pet.isvalid or (pet.isvalid and pet.name ~= AutoWards[state.AutoWardMode.value][i].Name) and not moving and not silent_check_silence() then
+				windower.add_to_chat(261, '[AutoSMN] -Ward- Summon: ' .. AutoWards[state.AutoWardMode.value][i].Name)
+				windower.chat.input('/ma ' ..AutoWards[state.AutoWardMode.value][i].Name.. ' <me>')
+				tickdelay = os.clock() + 9.5
+				return true
+			-- Ward BP
+			elseif pet.isvalid and pet.name == AutoWards[state.AutoWardMode.value][i].Name and abil_recasts[174] < latency and not silent_check_amnesia() then --and not player.in_combat then
+				windower.add_to_chat(261, '[AutoSMN] -Ward- BP: ' ..AutoWards[state.AutoWardMode.value][i].BP)
+				if not player.in_combat then
+					windower.chat.input('/pet "'..AutoWards[state.AutoWardMode.value][i].BP..'"')
+					tickdelay = os.clock() + 7.0
+					return true
+				else
+					if player.target.type == "MONSTER" then
+						windower.chat.input('/pet "Assault" <t>')
+						windower.chat.input:schedule(3.2,'/pet "'..AutoWards[state.AutoWardMode.value][i].BP..'"')
+					else
+						windower.chat.input('/pet "'..AutoWards[state.AutoWardMode.value][i].BP..'"')
+					end
+					tickdelay = os.clock() + 9.0
+					return true
+				end
+			else
+				tickdelay = os.clock() + 2.5
+				return false
+			end
+		end
+	end
+	
+end
+
 buff_spell_lists = {
 	Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
-		{Name='Reraise',	Buff='Reraise',		SpellID=113,	When='Always'},
-		{Name='Haste',		Buff='Haste',		SpellID=57,		When='Always'},
-		{Name='Refresh',	Buff='Refresh',		SpellID=109,	When='Always'},
-		{Name='Stoneskin',	Buff='Stoneskin',	SpellID=54,		When='Always'},
+		{Name='Refresh',		Buff='Refresh',		SpellID=109,	When='Idle'},
 	},
-	
 	Default = {
-		{Name='Reraise',	Buff='Reraise',		SpellID=113,	Reapply=false},
-		{Name='Haste',		Buff='Haste',		SpellID=57,		Reapply=false},
-		{Name='Refresh',	Buff='Refresh',		SpellID=109,	Reapply=false},
-		{Name='Aquaveil',	Buff='Aquaveil',	SpellID=55,		Reapply=false},
-		{Name='Stoneskin',	Buff='Stoneskin',	SpellID=54,		Reapply=false},
-		{Name='Blink',		Buff='Blink',		SpellID=53,		Reapply=false},
-		{Name='Regen',		Buff='Regen',		SpellID=108,	Reapply=false},
-		{Name='Phalanx',	Buff='Phalanx',		SpellID=106,	Reapply=false},
+		{Name='Refresh',		Buff='Refresh',		SpellID=109,	Reapply=false},
+		{Name='Haste',			Buff='Haste',		SpellID=57,		Reapply=false},
+		{Name='Stoneskin',		Buff='Stoneskin',	SpellID=54,		Reapply=false},
+		{Name='Blink',			Buff='Blink',		SpellID=53,		Reapply=false},
+		{Name='Regen',			Buff='Regen',		SpellID=52,		Reapply=false},
 	},
 }

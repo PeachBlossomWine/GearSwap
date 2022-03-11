@@ -74,11 +74,21 @@ end
 -------------------------------------------------------------------------------------------------------------------
 -- Set eventArgs.handled to true if we don't want any automatic gear equipping to be done.
 -- Set eventArgs.useMidcastGear to true if we want midcast gear equipped on precast.
+function select_default_macro_book()
+    -- Default macro set/book
+    if player.sub_job == 'SAM' then
+        set_macro_page(1, 1)
+    elseif player.sub_job == 'NIN' then
+        set_macro_page(1, 1)
+    else
+        set_macro_page(1, 1)
+    end
+end
 
 function job_filtered_action(spell, eventArgs)
 	if spell.type == 'WeaponSkill' then
 		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
-		-- WS 112 is Double Thrust, meaning a Spear is equipped.
+		-- WS 48 - GS is equipped.
 		if available_ws:contains(48) then
             if spell.english == "Upheaval" then
 				windower.chat.input('/ws "Resolution" '..spell.target.raw)
@@ -88,29 +98,126 @@ function job_filtered_action(spell, eventArgs)
                 send_command('@input /ws "Ground Strike" '..spell.target.raw)
                 cancel_spell()
 				eventArgs.cancel = true
+			elseif spell.english == "Combo" then
+				send_command('@input /ws "Freezebite" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
             end
-        end
+		--GAXE
+		elseif available_ws:contains(80) then
+			if spell.english == "Savage Blade" then
+				windower.chat.input('/ws "Armor Break" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- Polearm
+		elseif available_ws:contains(112) then
+			if spell.english == "Upheaval" then
+				windower.chat.input('/ws "Impulse Drive" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Ukko's Fury" then
+				windower.chat.input('/ws "Sonic Thrust" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true	
+			elseif spell.english == "Combo" then
+				windower.chat.input('/ws "Raiden Thrust" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end	
+		-- Dagger
+		elseif available_ws:contains(16) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Energy Drain" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Raging Axe" then
+				windower.chat.input('/ws "Cyclone" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- GK
+		elseif available_ws:contains(144) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Tachi: Koki" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Raging Axe" then
+				windower.chat.input('/ws "Tachi: Jinpu" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- Sword
+        elseif available_ws:contains(32) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Seraph Blade" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Raging Axe" then
+				windower.chat.input('/ws "Red Lotus Blade" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Upheaval" then
+				send_command('@input /ws "Savage Blade" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- Scythe
+		elseif available_ws:contains(96) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Shadow of Death" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- Katana
+		elseif available_ws:contains(128) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Blade: Ei" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- Club
+		elseif available_ws:contains(160) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Seraph Strike" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Upheaval" then
+				windower.chat.input('/ws "Judgment" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		-- Staff
+		elseif available_ws:contains(176) then
+			if spell.english == "Combo" then
+				windower.chat.input('/ws "Sunburst" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			elseif spell.english == "Raging Axe" then
+				windower.chat.input('/ws "Earth Crusher" '..spell.target.raw)
+                cancel_spell()
+				eventArgs.cancel = true
+			end
+		end
 	end
 end
 
 function job_precast(spell, spellMap, eventArgs)
 	if spell.type == 'WeaponSkill' and state.AutoBuffMode.value ~= 'Off' then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
-		if player.tp < 2250 and not buffactive['Blood Rage'] and abil_recasts[2] < latency then
+		if player.tp < 2250 and not buffactive['Blood Rage'] and not buffactive['Warcry'] and abil_recasts[2] < latency then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Warcry" <me>')
 			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
 			tickdelay = os.clock() + 1.25
 			return
-		elseif state.Buff['SJ Restriction'] then
-			return
-		elseif player.sub_job == 'SAM' and player.tp > 1850 and abil_recasts[140] < latency then
+		elseif player.sub_job == 'SAM' and not buffactive['SJ Restriction'] and player.tp > 1850 and abil_recasts[140] < latency then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Sekkanoki" <me>')
 			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
 			tickdelay = os.clock() + 1.25
 			return
-		elseif player.sub_job == 'SAM' and abil_recasts[134] < latency then
+		elseif player.sub_job == 'SAM' and not buffactive['SJ Restriction'] and abil_recasts[134] < latency then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Meditate" <me>')
 			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
@@ -129,6 +236,10 @@ function job_customize_melee_set(meleeSet)
 	
 	if not state.OffenseMode.value:contains('Acc') and state.HybridMode.value == 'Normal' and buffactive['Restraint'] then
 		meleeSet = set_combine(meleeSet, sets.buff.Restraint)
+	end
+	
+	if world.area:contains('Abyssea') or data.areas.proc:contains(world.area) then
+		meleeSet = set_combine(meleeSet, {neck="Combatant's Torque"})
 	end
 	
     return meleeSet
@@ -201,6 +312,9 @@ end
 function job_tick()
 	if check_hasso() then return true end
 	if check_buff() then return true end
+	if check_jump() then return true end
+	if check_zerg_sp() then return true end
+	if check_steps_subjob() then return true end
 	return false
 end
 
@@ -263,6 +377,28 @@ function update_melee_groups()
 	end
 end
 
+function check_jump()
+    if state.AutoJumpMode.value and player.status == 'Engaged' and player.sub_job == 'DRG' and not buffactive['SJ Restriction'] then
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if player.hpp < 65 and abil_recasts[160] < latency then
+			windower.chat.input('/ja "Super Jump" <t>')
+            tickdelay = os.clock() + 1.1
+            return true
+		elseif player.tp < 901 and abil_recasts[158] < latency then
+            windower.chat.input('/ja "Jump" <t>')
+            tickdelay = os.clock() + 1.1
+            return true
+        elseif player.tp < 901 and abil_recasts[159] < latency then
+            windower.chat.input('/ja "High Jump" <t>')
+            tickdelay = os.clock() + 1.1
+            return true
+        else
+            return false
+        end
+    end
+end
+
 function check_hasso()
 	if player.sub_job == 'SAM' and player.status == 'Engaged' and not (state.Stance.value == 'None' or state.Buff.Hasso or state.Buff.Seigan or state.Buff['SJ Restriction'] or main_weapon_is_one_handed() or silent_check_amnesia()) then
 		
@@ -285,28 +421,45 @@ function check_hasso()
 end
 
 function check_buff()
-	if state.AutoBuffMode.value ~= 'Off' and player.in_combat then
+	if state.AutoBuffMode.value ~= 'Off' and player.in_combat and player.status == 'Engaged' then
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		if not buffactive.Retaliation and abil_recasts[8] < latency then
-			windower.chat.input('/ja "Retaliation" <me>')
-			tickdelay = os.clock() + 1.1
-			return true		
-		elseif not buffactive.Restraint and abil_recasts[9] < latency then
+		if not buffactive.Restraint and abil_recasts[9] < latency and not state.AutoZergMode.value then
 			windower.chat.input('/ja "Restraint" <me>')
-			tickdelay = os.clock() + 1.1
-			return true
-		elseif not buffactive['Blood Rage'] and abil_recasts[11] < latency then
-			windower.chat.input('/ja "Blood Rage" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
 		elseif not buffactive.Berserk and abil_recasts[1] < latency then
 			windower.chat.input('/ja "Berserk" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
-		elseif not buffactive.Aggressor and abil_recasts[4] < latency then
+		elseif not buffactive.Aggressor and abil_recasts[4] < latency and not state.AutoZergMode.value then
 			windower.chat.input('/ja "Aggressor" <me>')
+			tickdelay = os.clock() + 1.1
+			return true
+		elseif abil_recasts[7] < latency and state.AutoTomahawkMode.value then
+			windower.chat.input('/ja "Tomahawk" <t>')
+			tickdelay = os.clock() + 1.1
+			return true
+		else
+			return false
+		end
+	end
+		
+	return false
+end
+
+function check_zerg_sp()
+	if state.AutoZergMode.value and player.status == 'Engaged' and player.in_combat then
+		
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if not buffactive['Brazen Rush'] and abil_recasts[254] < latency then
+			windower.chat.input('/ja "Brazen Rush" <me>')
+			tickdelay = os.clock() + 1.1
+			return true		
+		elseif not buffactive['Mighty Strikes'] and abil_recasts[0] < latency then
+			windower.chat.input('/ja "Mighty Strikes" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
 		else

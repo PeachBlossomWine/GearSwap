@@ -1330,6 +1330,7 @@ function check_samba()
 end
 
 function check_sub()
+	local abil_recasts = windower.ffxi.get_ability_recasts()
 	if state.AutoSubMode.value and not data.areas.cities:contains(world.area) then
 		if player.mpp < 70 and player.tp > 999 then
 			local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
@@ -1344,22 +1345,39 @@ function check_sub()
 				return true
 			end
 		end
-		if (player.main_job == 'SCH' or player.sub_job == 'SCH') then
-			local abil_recasts = windower.ffxi.get_ability_recasts()
+		-- 143 157
+		if (player.main_job == 'SCH' or player.sub_job == 'SCH' and not buffactive['SJ Restriction']) then
 			if abil_recasts[234] < latency then
-				if buffactive['Sublimation: Complete'] then
-					if player.mpp < 70 then
+				if state.AutoSubMode.value == 'Sleep' then
+					if buffactive['Sublimation: Complete'] then
+						windower.chat.input('/ja Sublimation <me>')
+						tickdelay = os.clock() + 1.5
+						return true
+					elseif not buffactive['Sublimation: Activated'] then
 						windower.chat.input('/ja Sublimation <me>')
 						tickdelay = os.clock() + 1.5
 						return true
 					end
-					
-				elseif not buffactive['Sublimation: Activated'] then
-					windower.chat.input('/ja Sublimation <me>')
-					tickdelay = os.clock() + 1.5
-					return true
+				elseif state.AutoSubMode.value == 'On' then
+					if buffactive['Sublimation: Complete'] then
+						if player.mpp < 70 then
+							windower.chat.input('/ja Sublimation <me>')
+							tickdelay = os.clock() + 1.5
+							return true
+						end
+					elseif not buffactive['Sublimation: Activated'] then
+						windower.chat.input('/ja Sublimation <me>')
+						tickdelay = os.clock() + 1.5
+						return true
+					end
 				end
 			end
+		end
+	elseif state.AutoSubMode.value == 'Off' and data.areas.cities:contains(world.area) then
+		if (player.main_job == 'SCH' or player.sub_job == 'SCH' and not buffactive['SJ Restriction']) and buffactive['Sublimation: Activated'] and abil_recasts[234] < latency then
+			windower.chat.input('/ja Sublimation <me>')
+			tickdelay = os.clock() + 1.5
+			return true
 		end
 	end
 	return false
@@ -1429,40 +1447,38 @@ function check_cleanup()
 end
 
 function check_trust()
-	if not moving and state.AutoTrustMode.value and not data.areas.cities:contains(world.area) and (buffactive['Reive Mark'] or buffactive['Elvorseal'] or not player.in_combat) then
-		local party = windower.ffxi.get_party()
-		if party.p5 == nil then
-			local spell_recasts = windower.ffxi.get_spell_recasts()
-		
-			if spell_recasts[979] < spell_latency and not have_trust("Selh'teus") then
-				windower.chat.input('/ma "Selh\'teus" <me>')
-				tickdelay = os.clock() + 4.5
-				return true
-			elseif spell_recasts[1012] < spell_latency and not have_trust("Nashmeira") then
-				windower.chat.input('/ma "Nashmeira II" <me>')
-				tickdelay = os.clock() + 4.5
-				return true
-			elseif spell_recasts[1018] < spell_latency and not have_trust("Iroha") then
-				windower.chat.input('/ma "Iroha II" <me>')
-				tickdelay = os.clock() + 4.5
-				return true
-			elseif spell_recasts[1017] < spell_latency and not have_trust("Arciela") then
-				windower.chat.input('/ma "Arciela II" <me>')
-				tickdelay = os.clock() + 4.5
-				return true
-			elseif spell_recasts[947] < spell_latency and not have_trust("UkaTotlihn") then
-				windower.chat.input('/ma "Uka Totlihn" <me>')
-				tickdelay = os.clock() + 4.5
-				return true
-			elseif spell_recasts[1013] < spell_latency and not have_trust("Lilisette") then
-				windower.chat.input('/ma "Lilisette II" <me>')
-				tickdelay = os.clock() + 4.5
-				return true
-			else
-				return false
+	if not moving then
+		if state.AutoTrustMode.value and not data.areas.cities:contains(world.area) and (buffactive['Elvorseal'] or buffactive['Reive Mark'] or not player.in_combat) then
+			local party = windower.ffxi.get_party()
+			if party.p5 == nil then
+				local spell_recasts = windower.ffxi.get_spell_recasts()
+				local available_spells = windower.ffxi.get_spells()
+
+				if spell_recasts[998] < spell_latency and available_spells[998] and not have_trust("Ygnas") then
+					windower.chat.input('/ma "Ygnas" <me>')
+					tickdelay = os.clock() + 3
+					return true
+				elseif spell_recasts[981] < spell_latency and available_spells[981] and not have_trust("Sylvie") then
+					windower.chat.input('/ma "Sylvie (UC)" <me>')
+					tickdelay = os.clock() + 3
+					return true
+				elseif spell_recasts[952] < spell_latency and available_spells[952] and not have_trust("Koru-Moru") then
+					windower.chat.input('/ma "Koru-Moru" <me>')
+					tickdelay = os.clock() + 3
+					return true
+				elseif spell_recasts[914] < spell_latency and available_spells[914] and not have_trust("Ulmia") then
+					windower.chat.input('/ma "Ulmia" <me>')
+					tickdelay = os.clock() + 3
+					return true
+				elseif spell_recasts[900] < spell_latency and available_spells[900] and not have_trust("Ayame") then
+					windower.chat.input('/ma "Ayame" <me>')
+					tickdelay = os.clock() + 3
+					return true
+				else
+					return false
+				end
 			end
 		end
-	
 	end
 	return false
 end

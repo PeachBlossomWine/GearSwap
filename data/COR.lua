@@ -51,6 +51,9 @@
     
     Weaponskill mode, if set to 'Normal', is handled separately for melee and ranged weaponskills.
 --]]
+rd_status = false
+wc_status = false
+wildcard_failsafe = os.clock() + 900000
 
 
 -- Initialization function for this job file.
@@ -116,11 +119,18 @@ function job_precast(spell, spellMap, eventArgs)
 		state.CombatWeapon:set(player.equipment.range)
     -- Check that proper ammo is available if we're using ranged attacks or similar.
     elseif spell.type == 'CorsairShot' then
-		if not player.inventory['Trump Card'] and player.satchel['Trump Card'] then
-			send_command('get "Trump Card" satchel')
-			eventArgs.cancel = true
-			windower.chat.input:schedule(1,'/ja "'..spell.english..'" '..spell.target.raw..'')
-			return
+		if not player.inventory['Trump Card'] and player.inventory['Trump Card Case'] then
+				windower.chat.input('/item "Trump Card Case" <me>')
+				eventArgs.cancel = true
+				windower.chat.input:schedule(1,'/ja "'..spell.english..'" '..spell.target.raw..'')
+				return
+			elseif not player.inventory['Trump Card Case'] then
+				windower.send_command('get "Trump Card Case"')
+				eventArgs.cancel = true
+				windower.chat.input:schedule(1.5,'/item "Trump Card Case" <me>')
+				windower.chat.input:schedule(2.5,'/ja "'..spell.english..'" '..spell.target.raw..'')
+				return
+			end
 		end
     end
 	
@@ -190,11 +200,29 @@ end
 -------------------------------------------------------------------------------------------------------------------
 
 function job_buff_change(buff, gain)
+	local abil_recasts = windower.ffxi.get_ability_recasts()
+	
 	if player.equipment.Ranged and buff:contains('Aftermath') then
 		classes.CustomRangedGroups:clear()
-		if (player.equipment.Ranged == 'Death Penalty' and buffactive['Aftermath: Lv.3']) then
+		if (player.equipment.range == 'Armageddon' and (buffactive['Aftermath: Lv.1'] or buffactive['Aftermath: Lv.2'] or buffactive['Aftermath: Lv.3']))
+		or (player.equipment.Ranged == 'Death Penalty' and buffactive['Aftermath: Lv.3']) then
 			classes.CustomRangedGroups:append('AM')
 		end
+	end
+
+	-- Gain
+	if buff == 'Warcry' and gain and state.AutoZergMode.value then
+		if abil_recasts[196] > latency then
+			wc_status = true
+		else
+			rd_status = true
+		end
+	end
+	-- Loss
+	if buff == 'Warcry' and not gain and state.AutoZergMode.value then
+		rd_status = false
+		wc_status = false
+		wildcard_failsafe = os.clock() + 20
 	end
 end
 
@@ -241,7 +269,9 @@ function job_post_precast(spell, spellMap, eventArgs)
 			end
 		end
 	elseif spell.type == 'CorsairShot' and not (spell.english == 'Light Shot' or spell.english == 'Dark Shot') then
-		if (state.WeaponskillMode.value == "Proc" or state.CastingMode.value == "Proc") and sets.precast.CorsairShot.Proc then
+		if state.CastingMode.value == 'Resistant' and sets.precast.CorsairShot then
+			equip(sets.precast.CorsairShot.Resistant)
+		elseif (state.WeaponskillMode.value == "Proc" or state.CastingMode.value == "Proc") and sets.precast.CorsairShot.Proc then
 			equip(sets.precast.CorsairShot.Proc)
 		elseif state.CastingMode.value == 'Fodder' and sets.precast.CorsairShot.Damage then
 			equip(sets.precast.CorsairShot.Damage)
@@ -450,7 +480,77 @@ function do_bullet_checks(spell, spellMap, eventArgs)
     end
 end
 
+function check_buff()
+	if state.AutoBuffMode.value ~= 'Off' and player.in_combat then
+		
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
+
+		if player.sub_job == 'WAR' and not state.Buff['SJ Restriction'] and not buffactive.Berserk and abil_recasts[1] < latency and player.status == 'Engaged' then
+			windower.chat.input('/ja "Berserk" <me>')
+			tickdelay = os.clock() + 5.1
+			return true
+		elseif player.sub_job == 'WAR' and not state.Buff['SJ Restriction'] and not buffactive.Aggressor and abil_recasts[4] < latency and player.status == 'Engaged' then
+			windower.chat.input('/ja "Aggressor" <me>')
+			tickdelay = os.clock() + 5.1
+			return true
+		elseif (player.equipment.range == 'Armageddon' and not (buffactive['Aftermath: Lv.1'] or buffactive['Aftermath: Lv.2'] or buffactive['Aftermath: Lv.3'])) and abil_recasts[84] < latency and not buffactive['Triple Shot'] then
+--		elseif state.Weapons.value:contains("Ranged") and abil_recasts[84] < latency and not buffactive['Triple Shot'] then
+			windower.chat.input('/ja "Triple Shot" <me>')
+			tickdelay = os.clock() + 5.1
+			return true
+		else
+			return false
+		end
+	end
+		
+	return false
+end
+
+function check_zerg_sp()
+	if state.AutoZergMode.value and player.status == 'Engaged' and player.in_combat then
+	
+		local now = os.clock()
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if buffactive['Warcry'] and abil_recasts[196] < latency and rd_status == true then
+			windower.chat.input('/p Random Deal! <scall20>')
+			windower.chat.input('/ja "Random Deal" <me>')
+			if abil_recasts[196] > latency then
+				rd_status = false
+			end
+			tickdelay = os.clock() + 4.5
+			return true		
+		elseif buffactive['Warcry'] and abil_recasts[196] > latency and abil_recasts[0] < latency and wc_status == true then
+			windower.chat.input('/p Wild Card! <scall20>')
+			windower.chat.input('/ja "Wild Card" <me>')
+			if abil_recasts[0] > latency then
+				wc_status = false
+			end
+			tickdelay = os.clock() + 4.5
+			return true		
+		-- If RD fails, to force WC
+		elseif not buffactive['Warcry'] and abil_recasts[196] > latency and abil_recasts[0] < latency and rd_status == false then
+			if now > wildcard_failsafe then
+				wildcard_failsafe = os.clock() + 900000
+				windower.chat.input('/p Wild Card - Failsafe! <scall20>')
+				windower.chat.input('/ja "Wild Card" <me>')
+				tickdelay = os.clock() + 4.5
+				return true
+			end
+			return false
+		else
+			return false
+		end
+	end
+		
+	return false
+end
+
 function job_tick()
 	if check_ammo() then return true end
+	if check_buff() then return true end
+	if check_zerg_sp() then return true end
+	if check_steps_subjob() then return true end
 	return false
 end
