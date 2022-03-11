@@ -60,6 +60,7 @@ state.AutoOtherTargetWS = M(false, 'AutoOtherTargetWS')
 state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
 state.AutoTomahawkMode = M(false, 'AutoTomahawkMode')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
+state.AutoRecoverHPMode = M(false, 'Auto Recover HP Mode')
 
 data.weaponskills.mythic = {
     ["Conqueror"] = "King's Justice",
@@ -307,6 +308,26 @@ function check_sub()
 	return false
 end
 
+function check_recover_hp()
+	if moving or data.areas.cities:contains(world.area) then return false end
+	
+	if state.AutoRecoverHPMode.value and player.hpp < 27 and (player.inventory['Vile Elixir +1'] or player.inventory['Vile Elixir']) then
+		if player.inventory['Vile Elixir +1'] then
+			windower.chat.input('/item "Vile Elixir +1" <me>')
+			tickdelay = os.clock() + 1.5
+			return true
+		elseif player.inventory['Vile Elixir'] then
+			windower.chat.input('/item "Vile Elixir" <me>')
+			tickdelay = os.clock() + 1.5
+			return true
+		else
+			return false
+		end
+	else
+		return false
+	end
+end
+
 function check_shadows()
 	if moving or data.areas.cities:contains(world.area) then return false end
 	
@@ -417,108 +438,8 @@ function check_shadows()
 	end
 end
 
-function check_rune()
 
-	if state.AutoRuneMode.value and (player.main_job == 'RUN' or player.sub_job == 'RUN') and not silent_check_amnesia() and not data.areas.cities:contains(world.area) then
-		local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		--AutoRuneMode Normal
-		if player.main_job == 'RUN' and (not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 3) and not state.MaintainTenebrae.value then
-			if abil_recasts[92] > 0 then return false end		
-			send_command('input /ja "'..state.RuneElement.value..'" <me>')
-			tickdelay = os.clock() + 1.8
-			return true
-
-		--Keep 1 Tenebrae
-		elseif player.main_job == 'RUN' and (not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 2 or not buffactive['Tenebrae']) and state.MaintainTenebrae.value then
-			if abil_recasts[92] > 0 then return false end
-			if not buffactive['Tenebrae'] then
-				send_command('input /ja "Tenebrae" <me>')
-			else
-				send_command('input /ja "'..state.RuneElement.value..'" <me>')
-			end
-			tickdelay = os.clock() + 1.8
-			return true
-		-- Sub RUN
-		elseif player.sub_job == 'RUN' and not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 2 and not buffactive['SJ Restriction'] then
-			if abil_recasts[92] > 0 then return false end		
-			windower.chat.input('/ja "'..state.RuneElement.value..'" <me>')
-			tickdelay = os.clock() + 1.8
-			return true
-		
-		-- Auto MP or HP recovery
-		elseif player.main_job == 'RUN' and abil_recasts[242] < latency and (player.hpp < 50 or (buffactive['Tenebrae'] and player.mpp < 40)) then
-			windower.chat.input('/ja "Vivacious Pulse" <me>')
-			tickdelay = os.clock() + 1.8
-			return true
-			
-		elseif not player.in_combat then
-			return false
-			
-		elseif not buffactive['Vallation'] and not buffactive['Liement'] and buffactive[state.RuneElement.value] and state.HybridMode.value ~= 'Ongo' then
-			if player.main_job == 'RUN' and abil_recasts[23] < latency then
-				send_command('input /ja "Vallation" <me>')
-				tickdelay = os.clock() + 2.5
-				return true
-			else
-				return false
-			end
-		else
-			return false
-		end
-	
-	end
-	
-	return false
-end
-
-function check_ws()
-	if state.AutoWSMode.value and not state.RngHelper.value and player.status == 'Engaged' and player.target and player.target.type == "MONSTER" and player.tp > 999 and not silent_check_amnesia() and not (player.target.distance > (19.7 + player.target.model_size)) then
-
-	local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
-		
-		if player.hpp < 41 and state.AutoWSRestore.value and available_ws:contains(47) and player.target.distance < (3.2 + player.target.model_size) then
-			windower.chat.input('/ws "Sanguine Blade" <t>')
-			tickdelay = os.clock() + 2.8
-			return true
-		elseif player.hpp < 41 and state.AutoWSRestore.value and available_ws:contains(105) and player.target.distance < (3.2 + player.target.model_size) then
-			windower.chat.input('/ws "Catastrophe" <t>')
-			tickdelay = os.clock() + 2.8
-			return true
-		elseif player.mpp < 31 and state.AutoWSRestore.value and available_ws:contains(109) and player.target.distance < (3.2 + player.target.model_size) then
-			windower.chat.input('/ws "Entropy" <t>')
-			tickdelay = os.clock() + 2.8
-			return true
-		elseif player.mpp < 31 and state.AutoWSRestore.value and available_ws:contains(171) and player.target.distance < (3.2 + player.target.model_size) then
-			windower.chat.input('/ws "Mystic Boon" <t>')
-			tickdelay = os.clock() + 2.8
-			return true
-		elseif player.target.distance > (3.2 + player.target.model_size) and not data.weaponskills.ranged:contains(autows) then
-			return false
-		elseif data.equipment.relic_weapons:contains(player.equipment.main) and state.MaintainAftermath.value and (not buffactive['Aftermath']) then
-			windower.chat.input('/ws "'..data.weaponskills.relic[player.equipment.main]..'" <t>')
-			tickdelay = os.clock() + 2.8
-			return true
-		elseif (buffactive['Aftermath: Lv.3'] or not state.MaintainAftermath.value or not data.equipment.mythic_weapons:contains(player.equipment.main)) and player.tp >= autowstp then
-			if state.AutoOtherTargetWS.value then
-				windower.send_command('gs c smartws Arebati')
-				tickdelay = os.clock() + 2.8
-				return true
-			else
-				windower.chat.input('/ws "'..autows..'" <t>')
-				tickdelay = os.clock() + 2.8
-			end
-		elseif player.tp == 3000 then
-			windower.chat.input('/ws "'..data.weaponskills.mythic[player.equipment.main]..'" <t>')
-			tickdelay = os.clock() + 2.8
-			return true
-		else
-			return false
-		end
-	else
-		return false
-	end
-end
 
 step_timer = 0
 
@@ -571,6 +492,7 @@ function default_zone_change(new_id,old_id)
 	state.AutoSMNSCMode:reset()
 	state.AutoOtherTargetWS:reset()
 	state.AutoTPReductionMode:reset()
+	state.AutoRecoverHPMode:reset()
 	--state.MaintainTenebrae:reset()
 	if state.CraftingMode.value ~= 'None' then
 		enable('main','sub','range','ammo','head','neck','lear','rear','body','hands','lring','rring','back','waist','legs','feet')

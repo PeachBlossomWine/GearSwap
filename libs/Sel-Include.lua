@@ -233,6 +233,7 @@ function init_include()
 	petWillAct = 0
 	autonuke = 'Fire'
 	autows = ''
+	othertargetws = ''
 	autows_list = {}
 	smartws = nil
 	rangedautows = ''
@@ -1414,6 +1415,7 @@ function pre_tick()
 	if check_rune() then return true end
 	if check_shadows() then return true end
 	if check_use_item() then return true end
+	if check_recover_hp() then return true end
 	return false
 end
 

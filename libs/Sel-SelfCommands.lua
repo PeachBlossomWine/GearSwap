@@ -138,6 +138,7 @@ function handle_set(cmdParams)
         
         add_to_chat(122, msg)
         handle_update({'auto'})
+		
     else
         add_to_chat(123,'Sel-Libs: Set: Unknown field ['..cmdParams[1]..']')
     end
@@ -264,6 +265,12 @@ function handle_toggle(cmdParams)
             state_change(descrip, newVal, oldVal)
         end
 
+		if descrip:lower() == 'autoothertargetws' and state_var.current == 'on' then
+			windower.send_command('gaze ap off') 	-- Handling for gazecheck autopoint
+		elseif descrip:lower() == 'autoothertargetws' and state_var.current == 'off' then
+			windower.send_command('gaze ap on') 	-- Handling for gazecheck autopoint
+		end
+		
         add_to_chat(122,descrip..' is now '..state_var.current..'.')
         handle_update({'auto'})
     else
@@ -658,6 +665,16 @@ function handle_shadows()
 		else
 			add_to_chat(123,"No shadows available!")
 		end
+	end
+end
+
+function handle_othertargetws(cmdParams)
+	if #cmdParams == 0 then
+		add_to_chat(122,'You must specify a mob name to smart-weaponskill with.')
+	else
+		othertargetws = table.concat(cmdParams, ' '):ucfirst()
+		add_to_chat(122,'Your smartws target is set to '..othertargetws..'.')
+		if state.DisplayMode.value then update_job_states()	end
 	end
 end
 
@@ -1099,4 +1116,5 @@ selfCommandMaps = {
 	['runeelement']		= handle_runeelement,
 	['killstatue']		= handle_killstatue,
 	['smartws']			= handle_smartws,
+	['othertargetws']	= handle_othertargetws,
 	}

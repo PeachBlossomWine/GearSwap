@@ -1642,9 +1642,14 @@ function check_ws()
 			tickdelay = os.clock() + 2.8
 			return true
 		elseif (buffactive['Aftermath: Lv.3'] or not state.MaintainAftermath.value or not data.equipment.mythic_weapons:contains(player.equipment.main)) and player.tp >= autowstp then
-			windower.chat.input('/ws "'..autows..'" <t>')
-			tickdelay = os.clock() + 2.8
-			return true
+			if state.AutoOtherTargetWS.value and othertargetws then
+				windower.send_command('gs c smartws ' ..othertargetws)
+				tickdelay = os.clock() + 2.8
+				return true
+			else
+				windower.chat.input('/ws "'..autows..'" <t>')
+				tickdelay = os.clock() + 2.8
+			end
 		elseif player.tp == 3000 then
 			windower.chat.input('/ws "'..data.weaponskills.mythic[player.equipment.main]..'" <t>')
 			tickdelay = os.clock() + 2.8
@@ -2212,22 +2217,35 @@ end
 
 function check_rune()
 
-	if state.AutoRuneMode.value and (player.main_job == 'RUN' or player.sub_job == 'RUN') then
+	if state.AutoRuneMode.value and (player.main_job == 'RUN' or player.sub_job == 'RUN') and not silent_check_amnesia() and not data.areas.cities:contains(world.area) then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		if player.main_job == 'RUN' and (not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 3) then
+		--AutoRuneMode Normal
+		if player.main_job == 'RUN' and (not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 3) and not state.MaintainTenebrae.value then
+			if abil_recasts[92] > 0 then return false end		
+			send_command('input /ja "'..state.RuneElement.value..'" <me>')
+			tickdelay = os.clock() + 1.8
+			return true
+
+		--Keep 1 Tenebrae
+		elseif player.main_job == 'RUN' and (not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 2 or not buffactive['Tenebrae']) and state.MaintainTenebrae.value then
+			if abil_recasts[92] > 0 then return false end
+			if not buffactive['Tenebrae'] then
+				send_command('input /ja "Tenebrae" <me>')
+			else
+				send_command('input /ja "'..state.RuneElement.value..'" <me>')
+			end
+			tickdelay = os.clock() + 1.8
+			return true
+		-- Sub RUN
+		elseif player.sub_job == 'RUN' and not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 2 and not buffactive['SJ Restriction'] then
 			if abil_recasts[92] > 0 then return false end		
 			windower.chat.input('/ja "'..state.RuneElement.value..'" <me>')
 			tickdelay = os.clock() + 1.8
 			return true
-
-		elseif not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 2 then
-			if abil_recasts[92] > 0 then return false end		
-			windower.chat.input('/ja "'..state.RuneElement.value..'" <me>')
-			tickdelay = os.clock() + 1.8
-			return true
-
-		elseif player.main_job == 'RUN' and abil_recasts[242] < latency and (player.hpp < 50 or (state.RuneElement.Value == 'Tenebrae' and player.mpp < 75)) then
+		
+		-- Auto MP or HP recovery
+		elseif player.main_job == 'RUN' and abil_recasts[242] < latency and (player.hpp < 50 or (buffactive['Tenebrae'] and player.mpp < 40)) then
 			windower.chat.input('/ja "Vivacious Pulse" <me>')
 			tickdelay = os.clock() + 1.8
 			return true
@@ -2235,29 +2253,18 @@ function check_rune()
 		elseif not player.in_combat then
 			return false
 			
-		elseif not buffactive['Pflug'] and abil_recasts[59] < latency then
-			windower.chat.input('/ja "Pflug" <me>')
-			tickdelay = os.clock() + 1.8
-			return true
-		elseif player.main_job == 'RUN' then
-			if not (state.Buff['Vallation'] or state.Buff['Valiance']) then
-				if abil_recasts[113] < latency then
-					windower.chat.input('/ja "Valiance" <me>')
-					tickdelay = os.clock() + 2.5
-					return true
-				elseif abil_recasts[23] < latency then
-					windower.chat.input('/ja "Vallation" <me>')
-					tickdelay = os.clock() + 2.5
-					return true
-				end
-			end
-		elseif not (buffactive['Vallation'] or buffactive['Valiance']) then
-			if abil_recasts[23] < latency then
-				windower.chat.input('/ja "Vallation" <me>')
+		elseif not buffactive['Vallation'] and not buffactive['Liement'] and buffactive[state.RuneElement.value] and state.HybridMode.value ~= 'Ongo' then
+			if player.main_job == 'RUN' and abil_recasts[23] < latency then
+				send_command('input /ja "Vallation" <me>')
 				tickdelay = os.clock() + 2.5
 				return true
+			else
+				return false
 			end
+		else
+			return false
 		end
+	
 	end
 	
 	return false
