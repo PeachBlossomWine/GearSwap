@@ -120,17 +120,16 @@ function job_precast(spell, spellMap, eventArgs)
     -- Check that proper ammo is available if we're using ranged attacks or similar.
     elseif spell.type == 'CorsairShot' then
 		if not player.inventory['Trump Card'] and player.inventory['Trump Card Case'] then
-				windower.chat.input('/item "Trump Card Case" <me>')
-				eventArgs.cancel = true
-				windower.chat.input:schedule(1,'/ja "'..spell.english..'" '..spell.target.raw..'')
-				return
-			elseif not player.inventory['Trump Card Case'] then
-				windower.send_command('get "Trump Card Case"')
-				eventArgs.cancel = true
-				windower.chat.input:schedule(1.5,'/item "Trump Card Case" <me>')
-				windower.chat.input:schedule(2.5,'/ja "'..spell.english..'" '..spell.target.raw..'')
-				return
-			end
+			windower.chat.input('/item "Trump Card Case" <me>')
+			eventArgs.cancel = true
+			windower.chat.input:schedule(1,'/ja "'..spell.english..'" '..spell.target.raw..'')
+			return
+		elseif not player.inventory['Trump Card Case'] then
+			windower.send_command('get "Trump Card Case"')
+			eventArgs.cancel = true
+			windower.chat.input:schedule(1.5,'/item "Trump Card Case" <me>')
+			windower.chat.input:schedule(2.5,'/ja "'..spell.english..'" '..spell.target.raw..'')
+			return
 		end
     end
 	
