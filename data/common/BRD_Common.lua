@@ -187,7 +187,7 @@ sets.midcast.Ballad = set_combine(sets.midcast.SongEffect, {})
 sets.midcast.Madrigal = set_combine(sets.midcast.SongEffect, {head="Fili Calot +1"})
 sets.midcast.March = set_combine(sets.midcast.SongEffect, {hands="Fili Manchettes +1"})
 sets.midcast.Minuet = set_combine(sets.midcast.SongEffect, {body="Fili Hongreline +1"})
-sets.midcast.Minne = set_combine(sets.midcast.SongEffect, {})
+sets.midcast.Minne = set_combine(sets.midcast.SongEffect, {legs="Mousai Seraweels +1"})
 sets.midcast.Etude = set_combine(sets.midcast.SongEffect, {head="Mousai Turban +1", feet="Fili Cothurnes +1"})
 sets.midcast.Paeon = set_combine(sets.midcast.SongEffect, {head="Brioso Roundlet +3"})
 sets.midcast.Carol = set_combine(sets.midcast.SongEffect, {head="Fili Calot +1", hands="Mousai Gages +1"})
@@ -199,7 +199,7 @@ sets.midcast.Ballad.Melee = set_combine(sets.midcast.SongEffect.Melee, {})
 sets.midcast.Madrigal.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Fili Calot +1"})
 sets.midcast.March.Melee = set_combine(sets.midcast.SongEffect.Melee, {hands="Fili Manchettes +1"})
 sets.midcast.Minuet.Melee = set_combine(sets.midcast.SongEffect.Melee, {body="Fili Hongreline +1"})
-sets.midcast.Minne.Melee = set_combine(sets.midcast.SongEffect.Melee, {})
+sets.midcast.Minne.Melee = set_combine(sets.midcast.SongEffect.Melee, {legs="Mousai Seraweels +1"})
 sets.midcast.Etude.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Mousai Turban +1", feet="Fili Cothurnes +1"})
 sets.midcast.Paeon.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Brioso Roundlet +3"})
 sets.midcast.Carol.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Fili Calot +1", hands="Mousai Gages +1"})
@@ -232,7 +232,7 @@ sets.midcast.Lullaby = set_combine(sets.midcast.SongDebuff, {
 })
 
 sets.midcast.Threnody = set_combine(sets.midcast.SongDebuff, {
-	body="Mousai Manteel",
+	body="Mousai Manteel +1",
 })
 
 sets.midcast.SongDebuff.Melee = {
@@ -258,7 +258,7 @@ sets.midcast.Lullaby.Melee = set_combine(sets.midcast.SongDebuff.Melee, {
 })
 
 sets.midcast.Threnody.Melee = set_combine(sets.midcast.SongDebuff.Melee, {
-	body="Mousai Manteel",
+	body="Mousai Manteel +1",
 })
 
 -- Song-specific recast reduction

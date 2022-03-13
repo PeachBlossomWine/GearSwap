@@ -147,6 +147,7 @@ end
 function job_filter_precast(spell, spellMap, eventArgs)
     if spell.type == 'BardSong' and not spell.targets.Enemy then
 		local spell_recasts = windower.ffxi.get_spell_recasts()
+		local abil_recasts = windower.ffxi.get_ability_recasts()
 		
         -- Auto-Pianissimo
         if ((spell.target.type == 'PLAYER' and not spell.target.charmed) or (spell.target.type == 'NPC')) and spell.target.in_party and not state.Buff['Pianissimo'] then
@@ -155,6 +156,12 @@ function job_filter_precast(spell, spellMap, eventArgs)
                 eventArgs.cancel = true
             end
         end
+		if spell.english:contains('Minne') and not buffactive['Tenuto'] and abil_recasts[47] < latency then
+			if spell_recasts[spell.recast_id] < 1.5 then
+				send_command('@input /ja "Tenuto" <me>; wait 1.2; input /ma "'..spell.name..'" <me>')
+				eventArgs.cancel = true
+			end
+		end
     end
 end
 

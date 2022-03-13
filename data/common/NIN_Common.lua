@@ -143,6 +143,7 @@ sets.precast.WS['Blade: Chi'] ={
 	right_ring={name="Beithir Ring",priority=500},
 	back=gear.jse_str_back,
 }
+sets.precast.WS['Blade: To'] = set_combine(sets.precast.WS['Blade: Chi'], {})
 
 -- Swap to these on Moonshade using WS if at 3000 TP
 sets.MaxTP = {head="Nyame Helm",ear1="Lugra Earring +1",ear2="Crep. Earring"}
