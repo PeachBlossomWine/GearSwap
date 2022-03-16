@@ -234,8 +234,8 @@ local function execute_pending_action()
 			windower.chat.input:schedule(.8, "%s \"%s\" %d":format(pending.prefix, pending.english, pending.target))
 			cooldown = cooldowns[pending.prefix] + .8
 		else
-			windower.chat.input("%s \"%s\" %d":format(pending.prefix, pending.english, pending.target))
-			cooldown = cooldowns[pending.prefix]
+			windower.chat.input:schedule(.8, "%s \"%s\" %d":format(pending.prefix, pending.english, pending.target))
+			cooldown = cooldowns[pending.prefix] + .8
 		end	
 	else
 		cooldown = cooldowns[pending.prefix]
