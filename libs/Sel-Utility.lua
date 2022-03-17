@@ -846,8 +846,9 @@ function can_use(spell)
 			elseif spell.type == 'CorsairShot' and not player.inventory['Trump Card'] then
 				if player.inventory['Trump Card Case'] then
 					windower.chat.input('/item "Trump Card Case" <me>')
+                    return false
 				elseif player.satchel['Trump Card Case'] then
-					windower.send_command('get "Trump Card Case" satchel')
+					windower.send_command('get "Trump Card Case"')
 					windower.chat.input:schedule(1.5,'/item "Trump Card Case" <me>')
 				end
 				return false
