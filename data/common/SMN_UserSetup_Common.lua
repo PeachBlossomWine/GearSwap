@@ -10,46 +10,42 @@ state.AutoWardMode =  M{['description']='AutoWardMode','Off','Ward_Defense','War
 
 state.Avatar = M{['description']='Avatar','Carbuncle','Fenrir','Ifrit','Titan','Leviathan','Garuda','Shiva','Ramuh','Diabolos','Cait Sith','Siren'}
 
-pacts.autobp = {['Carbuncle']='Meteorite',['Fenrir']='Impact',['Ifrit']='Flaming Crush',['Titan']='Mountain Buster',
-		['Leviathan']='Tidal Roar',['Garuda']='Predator Claws',['Shiva']='Rush',['Ramuh']='Volt Strike',['Diabolos']='Nether Blast',
-		['Cait Sith']='Mewing Lullaby',['Siren']='Hysteric Assault'}
-		
-pacts.autoward = {
-	Carbuncle = {Name='Carbuncle', BP='Shining Ruby', Buff='Shining Ruby'},
-	Fenrir = {Name='Fenrir', BP='Ecliptic Howl', Buff='Accuracy Boost'},
-	Ifrit = {Name='Ifrit', BP='Crimson Howl', Buff='Warcry'},
-	Titan = {Name='Titan', BP='Earthen Armor', Buff='Earthen Armor'},
-	Leviathan = {Name='Leviathan', BP='Soothing Current', Buff='Curing Conduit'},
-	Garuda = {Name='Garuda', BP='Hastega II', Buff='Haste'},
-	Shiva = {Name='Shiva', BP='Crystal Blessing', Buff='TP Bonus'},
-	Ramuh = {Name='Ramuh', BP='Rolling Thunder', Buff='Enthunder'},
-	Diabolos = {Name='Diabolos', BP='Dream Shroud', Buff='Magic Def. Boost'},
-	['Cait Sith'] = {Name='Cait Sith', BP='Reraise II', Buff='Reraise'},
-	Siren = {Name='Siren', BP='Wind\'s Blessing', Buff='Wind\'s Blessing'},
+pacts.autobp = {
+        ['Carbuncle']=  {BP='Meteorite',        SpellID=516},
+        ['Fenrir']=     {BP='Impact',           SpellID=539},
+        ['Ifrit']=      {BP='Flaming Crush',    SpellID=550},
+        ['Titan']=      {BP='Mountain Buster',  SpellID=566},
+		['Leviathan']=  {BP='Tidal Roar',       SpellID=585},
+        ['Garuda']=     {BP='Predator Claws',   SpellID=598},
+        ['Shiva']=      {BP='Rush',             SpellID=614},
+        ['Ramuh']=      {BP='Volt Strike',      SpellID=634},
+        ['Diabolos']=   {BP='Nether Blast',     SpellID=662},
+		['Cait Sith']=  {BP='Mewing Lullaby',   SpellID=522},
+        ['Siren']=      {BP='Hysteric Assault', SpellID=970},
 }
-
+		
 AutoWards = {
 	Ward_Defense = {
-		Titan = {Name='Titan', BP='Earthen Armor', Buff='Earthen Armor'},
-		Siren = {Name='Siren', BP='Wind\'s Blessing', Buff='Wind\'s Blessing'},
-		Diabolos = {Name='Diabolos', BP='Dream Shroud', Buff='Magic Def. Boost'},
-		['Cait Sith'] = {Name='Cait Sith', BP='Reraise II', Buff='Reraise'},
+		Titan =         {Name='Titan',      BP='Earthen Armor',     Buff='Earthen Armor',       SpellID=569},
+		Siren =         {Name='Siren',      BP='Wind\'s Blessing',  Buff='Wind\'s Blessing',    SpellID=969},
+		Diabolos =      {Name='Diabolos',   BP='Dream Shroud',      Buff='Magic Def. Boost',    SpellID=661},
+		['Cait Sith'] = {Name='Cait Sith',  BP='Reraise II',        Buff='Reraise',             SpellID=526},
 	},
 
 	Ward_Offense = {
-		Garuda = {Name='Garuda', BP='Hastega II', Buff='Haste'},
-		Shiva = {Name='Shiva', BP='Crystal Blessing', Buff='TP Bonus'},
-		Ifrit = {Name='Ifrit', BP='Crimson Howl', Buff='Warcry'},
+		Garuda =        {Name='Garuda',     BP='Hastega II',        Buff='Haste',               SpellID=602},
+		Shiva =         {Name='Shiva',      BP='Crystal Blessing',  Buff='TP Bonus',            SpellID=618},
+		Ifrit =         {Name='Ifrit',      BP='Crimson Howl',      Buff='Warcry',              SpellID=548},
 	},
 	
 	Ward_Full = {
-		Garuda = {Name='Garuda', BP='Hastega II', Buff='Haste'},
-		Shiva = {Name='Shiva', BP='Crystal Blessing', Buff='TP Bonus'},
-		Ifrit = {Name='Ifrit', BP='Crimson Howl', Buff='Warcry'},
-		Titan = {Name='Titan', BP='Earthen Armor', Buff='Earthen Armor'},
-		Siren = {Name='Siren', BP='Wind\'s Blessing', Buff='Wind\'s Blessing'},
-		Diabolos = {Name='Diabolos', BP='Dream Shroud', Buff='Magic Def. Boost'},
-		['Cait Sith'] = {Name='Cait Sith', BP='Reraise II', Buff='Reraise'},
+		Garuda =        {Name='Garuda',     BP='Hastega II',        Buff='Haste',               SpellID=602},
+		Shiva =         {Name='Shiva',      BP='Crystal Blessing',  Buff='TP Bonus',            SpellID=618},
+		Ifrit =         {Name='Ifrit',      BP='Crimson Howl',      Buff='Warcry',              SpellID=548},
+		Titan =         {Name='Titan',      BP='Earthen Armor',     Buff='Earthen Armor',       SpellID=569},
+		Siren =         {Name='Siren',      BP='Wind\'s Blessing',  Buff='Wind\'s Blessing',    SpellID=969},
+		Diabolos =      {Name='Diabolos',   BP='Dream Shroud',      Buff='Magic Def. Boost',    SpellID=661},
+		['Cait Sith'] = {Name='Cait Sith',  BP='Reraise II',        Buff='Reraise',             SpellID=526},
 	},
 }
 

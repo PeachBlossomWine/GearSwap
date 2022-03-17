@@ -839,7 +839,7 @@ function check_auto_avatar_mode()
 		['Cait Sith']=307,['Siren']=355}
 	
 	-- Summon
-	if not pet.isvalid and (state.AutoBPMode.value or state.AutoAvatarMode.value) and state.BPWardToggle.value and not moving and not silent_check_silence() then
+	if not pet.isvalid and (state.AutoBPMode.value or state.AutoAvatarMode.value) and state.BPWardToggle.value and not moving and not silent_check_silence() and player.mp > res.spells[avatar_map[state.Avatar.value]].mp_cost then
 		if spell_recasts[avatar_map[state.Avatar.value]] < spell_latency then
 			windower.add_to_chat(261, '[AutoSMN] -BP/Avatar- Summon: ' .. state.Avatar.value)
 			windower.chat.input('/ma "' .. state.Avatar.value .. '" <me>')
@@ -862,7 +862,7 @@ function check_auto_avatar_mode()
 		windower.chat.input('/pet "Assault" <t>')
 		tickdelay = os.clock() + 4.5
 		return true
-	elseif (state.AutoBPMode.value or state.AutoAvatarMode.value) and state.BPWardToggle.value and pet.isvalid and pet.name == "Cait Sith" and pet.status == "Engaged" then
+	elseif (state.AutoBPMode.value or state.AutoAvatarMode.value) and state.BPWardToggle.value and pet.isvalid and (pet.name == "Leviathan" or pet.name == "Cait Sith") and pet.status == "Engaged" then
 		windower.add_to_chat(261, '[AutoSMN] -BP/Avatar- HEEL - Cait Sith ONLY -')
 		windower.chat.input('/pet "Retreat" <me>')
 		tickdelay = os.clock() + 4.5
@@ -870,17 +870,17 @@ function check_auto_avatar_mode()
 	end
 	
 	-- BP mode
-	if state.AutoBPMode.value and state.BPWardToggle.value and pet.isvalid and player.in_combat and abil_recasts[174] < latency and player.target.type == "MONSTER" and not silent_check_amnesia() and (pet.name == "Leviathan" or pet.name == "Cait Sith") then -- and pet.status == "Engaged" 
-		windower.add_to_chat(261, '[AutoSMN] -BP- BloodPact: ' .. pacts.autobp[pet.name])
-		windower.chat.input('/pet "'..pacts.autobp[pet.name]..'"')
+	if state.AutoBPMode.value and state.BPWardToggle.value and pet.isvalid and player.in_combat and abil_recasts[174] < latency and player.target.type == "MONSTER" and not silent_check_amnesia() and (pet.name == "Leviathan" or pet.name == "Cait Sith") and player.mp > (res.job_abilities[pacts.autobp[pet.name].SpellID].mp_cost + 20) then
+		windower.add_to_chat(261, '[AutoSMN] -BP- BloodPact: ' .. pacts.autobp[pet.name].BP)
+		windower.chat.input('/pet "'..pacts.autobp[pet.name].BP..'"')
 		tickdelay = os.clock() + 4.5
 		return true
-	elseif state.AutoBPMode.value and state.BPWardToggle.value and pet.isvalid and player.in_combat and pet.status == "Engaged" and abil_recasts[173] < latency and player.target.type == "MONSTER" and not silent_check_amnesia() then
-		windower.add_to_chat(261, '[AutoSMN] -BP- BloodPact: ' .. pacts.autobp[pet.name])
+	elseif state.AutoBPMode.value and state.BPWardToggle.value and pet.isvalid and player.in_combat and pet.status == "Engaged" and abil_recasts[173] < latency and player.target.type == "MONSTER" and not silent_check_amnesia() and player.mp > (res.job_abilities[pacts.autobp[pet.name].SpellID].mp_cost + 20) then
+		windower.add_to_chat(261, '[AutoSMN] -BP- BloodPact: ' .. pacts.autobp[pet.name].BP)
 		if state.AutoSMNSCMode.value then
-			windower.send_command('wait 2.1; input /pet "'..pacts.autobp[pet.name]..'"')
+			windower.send_command('wait 2.1; input /pet "'..pacts.autobp[pet.name].BP..'"')
 		else
-			windower.chat.input('/pet "'..pacts.autobp[pet.name]..'"')
+			windower.chat.input('/pet "'..pacts.autobp[pet.name].BP..'"')
 		end
 		if pet.name == "Ramuh" then
 			windower.send_command('wait 1.5; mc smn VS')
@@ -934,7 +934,7 @@ function check_auto_ward_mode()
 
 	for i in pairs(AutoWards[state.AutoWardMode.value]) do
 
-		if not buffactive[AutoWards[state.AutoWardMode.value][i].Buff] and state.AutoWardMode.value ~= 'Off' and spell_recasts[avatar_map[AutoWards[state.AutoWardMode.value][i].Name]] < spell_latency then 
+		if not buffactive[AutoWards[state.AutoWardMode.value][i].Buff] and state.AutoWardMode.value ~= 'Off' and spell_recasts[avatar_map[AutoWards[state.AutoWardMode.value][i].Name]] < spell_latency and player.mp > (res.job_abilities[AutoWards[state.AutoWardMode.Value][i].SpellID].mp_cost + 20) then 
 			-- Summon Avatar
 			if not pet.isvalid or (pet.isvalid and pet.name ~= AutoWards[state.AutoWardMode.value][i].Name) and not moving and not silent_check_silence() then
 				windower.add_to_chat(261, '[AutoSMN] -Ward- Summon: ' .. AutoWards[state.AutoWardMode.value][i].Name)
