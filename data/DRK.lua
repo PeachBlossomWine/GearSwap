@@ -169,8 +169,12 @@ str_using = string.char(130,240,142,103,151,112,130,181,130,196)
 
 function job_aftercast(spell, spellMap, eventArgs)
     if not spell.interrupted then
-		if (spell.english == 'Drain II' or spell.english == 'Drain III') and state.DrainSwapWeaponMode.value ~= 'Never' then
+		if (spell.english == 'Drain II' or spell.english == 'Drain III') and state.DrainAbsSwapMode.value ~= 'Never' then
 			if player.equipment.main and sets.DrainWeapon and player.equipment.main == sets.DrainWeapon.main and player.equipment.main ~= sets.weapons[state.Weapons.value].main then
+				equip_weaponset(state.Weapons.value)
+			end
+        elseif spell.english:contains('Absorb') and state.DrainAbsSwapMode.value ~= 'Never' then
+            if player.equipment.main and sets.AbsorbWeapon and player.equipment.main == sets.AbsorbWeapon.main and player.equipment.main ~= sets.weapons[state.Weapons.value].main then
 				equip_weaponset(state.Weapons.value)
 			end
         elseif state.UseCustomTimers.value and (spell.english == 'Sleep' or spell.english == 'Sleepga') then
@@ -316,10 +320,15 @@ function job_post_midcast(spell, spellMap, eventArgs)
 		if state.Buff['Dark Seal'] and sets.buff['Dark Seal'] and (spell.english:startswith('Absorb') or spell.english == 'Dread Spikes' or spell.english == 'Drain II' or spell.english == 'Drain III') then
 			equip(sets.buff['Dark Seal'])
 		end
-		if (spell.english == 'Drain II' or spell.english == 'Drain III') and state.DrainSwapWeaponMode.value ~= 'Never' then
-			if sets.DrainWeapon and (state.DrainSwapWeaponMode.value == 'Always' or tonumber(state.DrainSwapWeaponMode.value) > player.tp) then
+		if (spell.english == 'Drain II' or spell.english == 'Drain III') and state.DrainAbsSwapMode.value ~= 'Never' then
+			if sets.DrainWeapon and (state.DrainAbsSwapMode.value == 'Always' or tonumber(state.DrainAbsSwapMode.value) > player.tp) then
 				enable('main','sub','range','ammo')
 				equip(sets.DrainWeapon)
+			end
+        elseif spell.english:contains('Absorb') and state.DrainAbsSwapMode.value ~= 'Never' then
+			if sets.DrainWeapon and (state.DrainAbsSwapMode.value == 'Always' or tonumber(state.DrainAbsSwapMode.value) > player.tp) then
+				enable('main','sub','range','ammo')
+				equip(sets.AbsorbWeapon)
 			end
 		end
     end

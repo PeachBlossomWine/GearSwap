@@ -2,8 +2,11 @@
 -- Start defining the sets
 --------------------------------------
 
+autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Repaer',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['KajaChopper']='Armor Break'}
+
 -- Weapons sets
 sets.weapons.Caladbolg = {main="Caladbolg",sub="Utu Grip"}
+sets.weapons.Liberator = {main="Liberator",sub="Utu Grip"}
 sets.weapons.Apocalypse = {main="Apocalypse",sub="Utu Grip"}
 sets.weapons.Anguta = {main="Anguta",sub="Utu Grip"}
 sets.weapons.KajaChopper = {main="Kaja Chopper",sub="Khonsu"}
@@ -96,8 +99,8 @@ sets.midcast.Stun = {}
 			   
 sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {ring1="Evanescence Ring",ring2="Archon Ring", back=gear.Drain_back}) -- feet="Ratri Sollerets +1", 
 
---sets.DrainWeapon.FC = {main="Shukuyu's Scythe"}
-sets.DrainWeapon = {main="Misanthropy",sub="Utu Grip"} --sub="Alber Strap"
+sets.DrainWeapon = {main="Misanthropy",sub="Utu Grip"}
+sets.AbsorbWeapon = {main="Liberator",sub="Utu Grip"}
 			   
 sets.midcast.Aspir = sets.midcast.Drain
 
@@ -166,6 +169,22 @@ sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Catastrophe'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Cross Reaper'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Entropy'] = set_combine(sets.precast.WS, {})
+
+sets.precast.WS['Insurgency'] = {
+	ammo="Knobkierrie",																		
+	head="Nyame Helm",
+	body="Ignominy Cuirass +3",															-- 10
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck="Abyssal Beads +2",
+	waist="Sailfi Belt +1",
+	left_ear="Thrud Earring",
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ring="Regal Ring",
+	right_ring="Niqmaddu Ring",
+	back=gear.jse_STR_Back,
+}
 
 sets.precast.WS['Shadow of Death'] = {
 	ammo="Knobkierrie",																		

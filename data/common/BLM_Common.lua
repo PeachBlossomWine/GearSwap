@@ -30,7 +30,7 @@ sets.precast.JA.Convert = {}
 -- Fast cast sets for spells
 
 sets.precast.FC = {
-	main="Sucellus",																									-- 5
+        main="Daybreak",																									-- 5
 	sub="Chanter's Shield",																								-- 3
 	ammo="Impatiens",																									-- QC
 	head=gear.merlinic_fc_head,																			 				-- 15
@@ -42,7 +42,7 @@ sets.precast.FC = {
 	waist="Embla Sash",																									-- 5
 	left_ear="Loquac. Earring",																							-- 2
 	right_ear="Malignance Earring",																						-- 4
-	left_ring="Weather. Ring +1",																							-- 4
+	left_ring="Weather. Ring +1",																						-- 6
 	right_ring="Lebeche Ring",																							-- QC
 	back=gear.fc_back,																									-- 4
 }
@@ -98,7 +98,7 @@ sets.MagicBurst = {
 	legs="Ea Slops +1",					-- 8												
 	feet="Arch. Sabots +3",
 	neck=gear.blm_jse_neck,				-- 10/8
-	waist=gear.ElementalObi,
+    waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
 	left_ring="Mujin Band",
@@ -251,7 +251,7 @@ sets.midcast['Elemental Magic'] = {
 	legs="Arch. Tonban +3",
 	feet="Arch. Sabots +3",
 	neck=gear.blm_jse_neck,
-	waist=gear.ElementalObi,
+	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
 	left_ring="Metamor. Ring +1",

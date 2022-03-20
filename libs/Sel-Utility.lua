@@ -845,11 +845,13 @@ function can_use(spell)
 				return false
 			elseif spell.type == 'CorsairShot' and not player.inventory['Trump Card'] then
 				if player.inventory['Trump Card Case'] then
-					windower.chat.input('/item "Trump Card Case" <me>')
+					--send_command.schedule(0.42, 'input /item "Trump Card Case" <me>')
+                    --send_command:schedule(1.53, 'input /item antidote <me>')
                     return false
 				elseif player.satchel['Trump Card Case'] then
 					windower.send_command('get "Trump Card Case"')
-					windower.chat.input:schedule(1.5,'/item "Trump Card Case" <me>')
+					send_command.schedule(1.52,'input /item "Trump Card Case" <me>')
+                    return false
 				end
 				return false
 			end
@@ -2234,7 +2236,7 @@ end
 
 function check_rune()
 
-	if state.AutoRuneMode.value and (player.main_job == 'RUN' or player.sub_job == 'RUN') and not silent_check_amnesia() and not data.areas.cities:contains(world.area) then
+	if state.AutoRuneMode.value and (player.main_job == 'RUN' or (player.sub_job == 'RUN' and not buffactive['SJ Restriction'])) and not silent_check_amnesia() and not data.areas.cities:contains(world.area) then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
 		--AutoRuneMode Normal
@@ -2255,7 +2257,8 @@ function check_rune()
 			tickdelay = os.clock() + 1.8
 			return true
 		-- Sub RUN
-		elseif player.sub_job == 'RUN' and not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 2 and not buffactive['SJ Restriction'] then
+		elseif player.sub_job == 'RUN' and not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 2 then
+            windower.add_to_chat(6,'here')
 			if abil_recasts[92] > 0 then return false end		
 			windower.chat.input('/ja "'..state.RuneElement.value..'" <me>')
 			tickdelay = os.clock() + 1.8

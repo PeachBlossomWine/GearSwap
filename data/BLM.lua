@@ -100,19 +100,6 @@ end
 function job_precast(spell, spellMap, eventArgs)
 
 	if spell.action_type == 'Magic' then
-		if spellMap == 'Cure' or spellMap == 'Curaga' then
-			gear.default.obi_back = gear.obi_cure_back
-			gear.default.obi_waist = gear.obi_cure_waist
-		elseif (spell.english == 'Death' or spell.english == 'Comet') or (spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble') then
-			if LowTierNukes:contains(spell.english) or spell.english:endswith('helix') then
-				gear.default.obi_back = gear.obi_low_nuke_back
-				gear.default.obi_waist = gear.obi_low_nuke_waist
-			else
-				gear.default.obi_back = gear.obi_high_nuke_back
-				gear.default.obi_waist = gear.obi_high_nuke_waist
-			end
-		end
-
         if state.DeathMode.value ~= 'Off' then
             classes.CustomClass = 'Death'		
         elseif state.CastingMode.value == 'Proc' then

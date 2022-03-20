@@ -360,11 +360,11 @@ function job_self_command(commandArgs, eventArgs)
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 			local spell_recasts = windower.ffxi.get_spell_recasts()
 			
-			if state.HybridMode.value == 'Tank' and buffactive['Souleater'] then
+			if state.HybridMode.value:contains('Tank','MEVA','Ongo') and buffactive['Souleater'] then
 				send_command('cancel souleater')
 			end
 			
-			if state.HybridMode.value == 'Tank' and buffactive['Last Resort'] then
+			if state.HybridMode.value:contains('Tank','MEVA','Ongo') and buffactive['Last Resort'] then
 				send_command('cancel last resort')
 			end
 			
@@ -598,6 +598,10 @@ function check_buff()
 				return true
 			elseif player.sub_job == 'WAR' and not buffactive.Aggressor and abil_recasts[4] < latency and not state.Buff['SJ Restriction'] then
 				windower.chat.input('/ja "Aggressor" <me>')
+				tickdelay = os.clock() + 1.1
+				return true
+            elseif player.sub_job == 'DRK' and not buffactive.Aggressor and abil_recasts[87] < latency and not state.Buff['SJ Restriction'] and state.HybridMode.value:contains('DTLite','Normal') then
+				windower.chat.input('/ja "Last Resort" <me>')
 				tickdelay = os.clock() + 1.1
 				return true
 			else

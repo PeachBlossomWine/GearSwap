@@ -5,10 +5,10 @@ state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('Normal','Reraise')
-state.Weapons:options('KajaChopper','Caladbolg','Apocalypse','Anguta','Loxotic','None')
+state.Weapons:options('KajaChopper','Caladbolg','Liberator','Apocalypse','Anguta','Loxotic','None')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 state.Passive = M{['description'] = 'Passive Mode','None'}
-state.DrainSwapWeaponMode = M{'300','Always','Never','1000'}
+state.DrainAbsSwapMode = M{'300','Always','Never'}
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
 
@@ -21,6 +21,7 @@ send_command('bind ^` input /ja "Seigan" <me>')
 send_command('bind @` input /ma "Stun" <t>')
 send_command('bind @f7 gs c toggle AutoTPReductionMode')
 send_command('bind ^backspace input /ja "Third Eye" <me>')
+send_command('bind !backspace gs c toggle DrainAbsSwapMode')
 send_command('bind ^\\\\ input /ja "Weapon Bash" <t>')
 send_command('bind @\\\\ gs c set toggle weapons KajaChopper')
 

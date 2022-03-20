@@ -298,11 +298,11 @@ function check_shadows()
 				windower.chat.input('/ja "Third Eye" <me>')
 				tickdelay = os.clock() + 1.1
 				return true
-			elseif silent_can_use(679) and spell_recasts[679] < spell_latency and not buffactive['Blink'] then
+			elseif silent_can_use(679) and spell_recasts[679] < spell_latency and not buffactive['Blink'] and player.mp > res.spells[679].mp_cost then
 				windower.chat.input('/ma "Occultation" <me>')
 				tickdelay = os.clock() + 2
 				return true
-			elseif silent_can_use(53) and spell_recasts[53] < spell_latency and not buffactive['Blink'] then
+			elseif silent_can_use(53) and spell_recasts[53] < spell_latency and not buffactive['Blink'] and player.mp > res.spells[53].mp_cost then
 				windower.chat.input('/ma "Blink" <me>')
 				tickdelay = os.clock() + 2
 				return true
@@ -318,7 +318,7 @@ function check_shadows()
 				windower.chat.input('/ja "Third Eye" <me>')
 				tickdelay = os.clock() + 1.1
 				return true
-			elseif silent_can_use(679) and spell_recasts[679] < spell_latency and not buffactive['Blink'] then
+			elseif silent_can_use(679) and spell_recasts[679] < spell_latency and not buffactive['Blink'] and player.mp > res.spells[679].mp_cost then
 				windower.chat.input('/ma "Occultation" <me>')
 				tickdelay = os.clock() + 2
 				return true
