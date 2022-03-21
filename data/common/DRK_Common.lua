@@ -138,7 +138,7 @@ sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
 
 sets.precast.WS.Enmity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
 sets.precast.WS.KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
-sets.precast.WS.KI.SubtleBlow = set_combine(sets.precast.WS.KI, {body="Found. Breastplate"})
+sets.precast.WS.KI.SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {body="Found. Breastplate"})
 
 -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.	
 sets.precast.WS['Torcleaver'] = set_combine(sets.precast.WS, {
@@ -163,7 +163,7 @@ sets.precast.WS['Torcleaver'].SubtleBlow = set_combine(sets.precast.WS['Torcleav
 	right_ring="Niqmaddu Ring",		-- 5
 })
 sets.precast.WS['Torcleaver'].KI = set_combine(sets.precast.WS['Torcleaver'], {body="Found. Breastplate"})
-sets.precast.WS['Torcleaver'].KI.SubtleBlow = set_combine(sets.precast.WS['Torcleaver'].KI, {body="Found. Breastplate"})
+sets.precast.WS['Torcleaver'].KI.SubtleBlow = set_combine(sets.precast.WS['Torcleaver'].SubtleBlow, {body="Found. Breastplate"})
 
 sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Catastrophe'] = set_combine(sets.precast.WS, {})
@@ -173,7 +173,7 @@ sets.precast.WS['Entropy'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Insurgency'] = {
 	ammo="Knobkierrie",																		
 	head="Nyame Helm",
-	body="Ignominy Cuirass +3",															-- 10
+	body="Ignominy Cuirass +3",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",

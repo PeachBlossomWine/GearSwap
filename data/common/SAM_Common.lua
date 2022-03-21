@@ -67,11 +67,16 @@ sets.precast.WS = {
 	back=gear.ws_jse_back,																	-- 10
 }
 sets.precast.WS.Emnity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
+sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
+	right_ring="Niqmaddu Ring",
+})
 sets.precast.WS.KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
+sets.precast.WS.KI.SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {body="Found. Breastplate"})
 
 sets.precast.WS['Tachi: Fudo'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Tachi: Fudo'].Emnity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
-sets.precast.WS['Tachi: Fudo'].KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
+sets.precast.WS['Tachi: Fudo'].KI = set_combine(sets.precast.WS.KI, {})
+sets.precast.WS['Tachi: Fudo'].KI.SubtleBlow = set_combine(sets.precast.WS.KI.SubtleBlow, {})
 
 sets.precast.WS['Tachi: Shoha'] = {
 	ammo="Knobkierrie",

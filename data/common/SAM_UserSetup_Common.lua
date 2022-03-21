@@ -1,6 +1,6 @@
 state.OffenseMode:options('Normal')
 state.HybridMode:options('DT','Normal','SubtleBlow')
-state.WeaponskillMode:options('Normal','Emnity')
+state.WeaponskillMode:options('Normal','Enmity','SubtleBlow')
 state.RangedMode:options('Normal')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')

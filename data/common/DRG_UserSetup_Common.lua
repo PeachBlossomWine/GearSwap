@@ -1,5 +1,5 @@
 state.OffenseMode:options('Normal','Acc')
-state.WeaponskillMode:options('Normal','Acc')
+state.WeaponskillMode:options('Normal','SubtleBlow')
 state.HybridMode:options('DT','Normal')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
@@ -13,8 +13,8 @@ state.AutoZergMode = M(false, 'Auto Zerg Mode')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 
 gear.jse_da_back ={ name="Brigantia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Accuracy+10','Phys. dmg. taken-10%',}}
-gear.jse_str_back = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10',}} -- 'STR+10',
-gear.jse_wsd_back ={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}}, -- 'STR+10',
+gear.jse_str_back = { name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','STR+10','Phys. dmg. taken-10%',}}
+gear.jse_wsd_back ={ name="Brigantia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','STR+10','Phys. dmg. taken-10%',}}
 
 
 -- Additional local binds

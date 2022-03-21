@@ -91,13 +91,17 @@ sets.precast.WS = {
 	back=gear.jse_wsd_back,
 }
 	
-sets.precast.WS.Acc = set_combine(sets.precast.WS, {})	
+sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
+    left_ear="Sherida Earring",
+	right_ring="Niqmaddu Ring",
+})
+sets.precast.WS.KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
+sets.precast.WS.KI.SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {body="Found. Breastplate"})
 
 sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS['Savage Blade'], {
-	head="Gleti's Mask",
-	body="Gleti's Cuirass",	
-})
+sets.precast.WS['Savage Blade'].SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {})
+sets.precast.WS['Savage Blade'].KI = set_combine(sets.precast.WS.KI, {})
+sets.precast.WS['Savage Blade'].KI.SubtleBlow = set_combine(sets.precast.WS.KI.SubtleBlow, {})
 
 -- Stardiver - DA%
 sets.precast.WS['Stardiver'] = {
@@ -116,22 +120,11 @@ sets.precast.WS['Stardiver'] = {
 	back=gear.jse_str_back,	
 }
 
-sets.precast.WS['Stardiver'].Acc = set_combine(sets.precast.WS.Acc, {})
-
-sets.precast.WS['Camlann\'s Torment'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Camlann\'s Torment'].Acc = set_combine(sets.precast.WS.Acc, {})
-
 sets.precast.WS['Sonic Thrust'] = set_combine(sets.precast.WS, {
 	left_ring="Regal Ring",
 	right_ring="Niqmaddu Ring",
 })
-sets.precast.WS['Sonic Thrust'].Acc = set_combine(sets.precast.WS['Sonic Thrust'], {})
 
-sets.precast.WS['Drakesbane'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Drakesbane'].Acc = set_combine(sets.precast.WS.Acc, {})
-
-sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Impulse Drive'].Acc = set_combine(sets.precast.WS.Acc, {})
 
 -- Idle sets
 -- 40% DT/PDT

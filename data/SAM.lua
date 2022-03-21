@@ -151,9 +151,22 @@ function job_post_precast(spell, spellMap, eventArgs)
 		local WSset = standardize_set(get_precast_set(spell, spellMap))
 		local wsacc = check_ws_acc()
 		
+		-- Killer handling
 		if buffactive['Killer Instinct'] then
-			equip(sets.precast.WS[spell.english].KI)
+			if player.target and player.target.hpp > 25 then
+				equip(sets.precast.WS[spell.english].KI)
+			else
+				equip(sets.precast.WS[spell.english].KI.SubtleBlow)
+			end
+		elseif player.target and player.target.hpp < 25 then
+			equip(sets.precast.WS[spell.english].SubtleBlow)
 		end
+        
+        if buffactive['Ancient Circle'] or buffactive['Warding Circle'] or buffactive['Holy Circle'] or buffactive['Arcane Circle'] then
+            if player.target then
+				equip(sets.precast.WS[spell.english].KI)
+			end
+        end
 		
 		if (WSset.ear1 == "Moonshade Earring" or WSset.ear2 == "Moonshade Earring") then
 			-- Replace Moonshade Earring if we're at cap TP

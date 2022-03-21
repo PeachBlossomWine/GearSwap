@@ -75,17 +75,14 @@ sets.precast.WS.Enmity = set_combine(sets.precast.WS, {
 	left_ear="Schere Earring",	
 })
 
-sets.precast.WS.PDL = set_combine(sets.precast.WS, {
-	hands="Sakpata's Gauntlets",
-	legs="Sakpata's Cuisses",
-	feet="Sakpata's Leggings",	
-})
-
 sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
 	hands="Sakpata's Gauntlets",
 	feet="Sakpata's Leggings",
 	right_ring="Niqmaddu Ring",
 })
+
+sets.precast.WS.KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
+sets.precast.WS.KI.SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {body="Found. Breastplate"})
 
 sets.precast.WS.Proc = {
 	ammo="Staunch Tathlum +1",
@@ -104,11 +101,14 @@ sets.precast.WS.Proc = {
 }
 
 sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Savage Blade'].PDL = set_combine(sets.precast.WS.PDL, {})
 sets.precast.WS['Savage Blade'].SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {})
+sets.precast.WS['Savage Blade'].KI = set_combine(sets.precast.WS.KI, {})
+sets.precast.WS['Savage Blade'].KI.SubtleBlow = set_combine(sets.precast.WS.KI.SubtleBlow, {})
 
 sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Impulse Drive'].PDL = set_combine(sets.precast.WS.PDL, {})
+sets.precast.WS['Impulse Drive'].SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {})
+sets.precast.WS['Impulse Drive'].KI = set_combine(sets.precast.WS.KI, {})
+sets.precast.WS['Impulse Drive'].KI.SubtleBlow = set_combine(sets.precast.WS.KI.SubtleBlow, {})
 
 sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS, {
 	waist="Fotia Belt",
@@ -119,16 +119,6 @@ sets.precast.WS['Upheaval'].Enmity = set_combine(sets.precast.WS, {
 	left_ear="Schere Earring",	
 })
 
-sets.precast.WS['Upheaval'].PDL = set_combine(sets.precast.WS.PDL, {
-	waist="Fotia Belt",
-	back=gear.jse_vit_back,
-})
-
-sets.precast.WS['Ukko\'s Fury'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Ukko\'s Fury'].PDL = set_combine(sets.precast.WS.PDL, {})
-
-sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Resolution'].PDL = set_combine(sets.precast.WS.PDL, {})
 
 -- Proc WS
 sets.precast.WS['Freezebite'] = set_combine(sets.precast.WS.Proc, {})
