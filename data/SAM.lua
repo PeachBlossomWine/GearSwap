@@ -161,12 +161,10 @@ function job_post_precast(spell, spellMap, eventArgs)
             else
             	equip(sets.precast.WS[spell.english].KI)
 			end
-        end
-
         -- SB mobs
-		if player.target and player.target.hpp <= 25 and subtle_mobs:contains(player.target.name) then
+        elseif player.target and player.target.hpp <= 25 and subtle_mobs:contains(player.target.name) then
 			equip(sets.precast.WS[spell.english].SubtleBlow)
-		end
+        end
         
         if buffactive['Ancient Circle'] or buffactive['Warding Circle'] or buffactive['Holy Circle'] or buffactive['Arcane Circle'] then
             if player.target then
