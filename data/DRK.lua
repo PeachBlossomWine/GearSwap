@@ -218,7 +218,11 @@ function job_customize_melee_set(meleeSet)
 		if buffactive['Stoneskin'] then
 			windower.send_command('cancel stoneskin')
 		end
-	    meleeSet = set_combine(meleeSet, sets.buff.ScarletDelirium)
+        if player.target and player.target.name == 'Mboze' then
+            meleeSet = set_combine(meleeSet, sets.buff.ScarletDelirium.Mboze)
+        else
+            meleeSet = set_combine(meleeSet, sets.buff.ScarletDelirium)
+        end
 	end
     return meleeSet
 end
@@ -234,15 +238,21 @@ function job_post_precast(spell, spellMap, eventArgs)
 
 		local WSset = standardize_set(get_precast_set(spell, spellMap))
 		local wsacc = check_ws_acc()
-		
-		-- Killer handling
+        local subtle_mobs = S{'Mboze','Arebati'}
+        
+		-- Killer handling + SB mobs
 		if buffactive['Killer Instinct'] then
-			if player.target and player.target.hpp > 25 then
+			if player.target and player.target.hpp > 25 and subtle_mobs:contains(player.target.name) then
 				equip(sets.precast.WS[spell.english].KI)
-			else
+			elseif player.target and player.target.hpp <= 25 and subtle_mobs:contains(player.target.name) then
 				equip(sets.precast.WS[spell.english].KI.SubtleBlow)
+            else
+            	equip(sets.precast.WS[spell.english].KI)
 			end
-		elseif player.target and player.target.hpp < 25 then
+        end
+
+        -- SB mobs
+		if player.target and player.target.hpp <= 25 and subtle_mobs:contains(player.target.name) then
 			equip(sets.precast.WS[spell.english].SubtleBlow)
 		end
         
@@ -377,7 +387,11 @@ function update_melee_groups()
 	end
 	
 	if buffactive[479] then
-        classes.CustomMeleeGroups:append('ScarletDelirium')
+        if player.target and player.target.name == 'Mboze' then
+            classes.CustomMeleeGroups:append('ScarletDelirium.Mboze')
+        else
+            classes.CustomMeleeGroups:append('ScarletDelirium')
+        end
     end
 end
 

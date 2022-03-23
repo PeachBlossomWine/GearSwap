@@ -245,7 +245,7 @@ sets.engaged = {
 	ammo="Coiste Bodhar",
 	head="Mpaca's Cap",
 	body="Mpaca's Doublet",
-	hands="Wakido Kote +3",
+	hands="Mpaca's Gloves",
 	legs="Mpaca's Hose",
 	feet="Mpaca's Boots",
 	neck="Sam. Nodowa +2",
@@ -263,7 +263,7 @@ sets.engaged.DT = {
 	Ammo="Coiste Bodhar",
 	head="Nyame Helm",
 	body="Mpaca's Doublet",
-	hands="Wakido Kote +3",
+	hands="Mpaca's Gloves",
 	legs="Mpaca's Hose",
 	feet="Nyame Sollerets",
 	neck="Sam. Nodowa +2",
@@ -296,6 +296,7 @@ sets.engaged.SubtleBlow = {
 sets.Cure_Received = {waist="Gishdubar Sash"}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
 sets.buff.Hasso = {hands="Wakido Kote +3"}
+sets.buff.LastResort = {hands="Mpaca's Gloves", right_ear="Crep. Earring"}
 sets.buff['Third Eye'] = {}
 sets.buff.Sekkanoki = {} --{hands="Kasuga Kote +1"}
 sets.buff.Sengikori = {} --{feet="Kas. Sune-Ate +1"}

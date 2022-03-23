@@ -150,15 +150,21 @@ function job_post_precast(spell, spellMap, eventArgs)
 
 		local WSset = standardize_set(get_precast_set(spell, spellMap))
 		local wsacc = check_ws_acc()
-		
-		-- Killer handling
+        local subtle_mobs = S{'Mboze','Arebati'}
+        
+		-- Killer handling + SB mobs
 		if buffactive['Killer Instinct'] then
-			if player.target and player.target.hpp > 25 then
+			if player.target and player.target.hpp > 25 and subtle_mobs:contains(player.target.name) then
 				equip(sets.precast.WS[spell.english].KI)
-			else
+			elseif player.target and player.target.hpp <= 25 and subtle_mobs:contains(player.target.name) then
 				equip(sets.precast.WS[spell.english].KI.SubtleBlow)
+            else
+            	equip(sets.precast.WS[spell.english].KI)
 			end
-		elseif player.target and player.target.hpp < 25 then
+        end
+
+        -- SB mobs
+		if player.target and player.target.hpp <= 25 and subtle_mobs:contains(player.target.name) then
 			equip(sets.precast.WS[spell.english].SubtleBlow)
 		end
         
@@ -232,10 +238,12 @@ end
 -- Modify the default melee set after it was constructed.
 function job_customize_melee_set(meleeSet)
 
-    if state.Buff.Hasso and state.DefenseMode.value == 'None' and state.OffenseMode.value ~= 'FullAcc' then
+    if state.Buff.Hasso and state.DefenseMode.value == 'None' and state.OffenseMode.value ~= 'FullAcc' and not buffactive['Last Resort'] then
 		meleeSet = set_combine(meleeSet, sets.buff.Hasso)
 	elseif state.Buff.Seigan and state.Buff['Third Eye'] and not state.OffenseMode.value:contains('Acc') then
 		meleeSet = set_combine(meleeSet, sets.buff['Third Eye'])
+    elseif state.Buff.Hasso and buffactive['Last Resort'] and state.DefenseMode.value == 'None' then
+    	meleeSet = set_combine(meleeSet, sets.buff.LastResort)
     end
 
     return meleeSet

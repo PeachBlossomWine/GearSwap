@@ -251,15 +251,21 @@ function job_post_precast(spell, spellMap, eventArgs)
 
 		local WSset = standardize_set(get_precast_set(spell, spellMap))
 		local wsacc = check_ws_acc()
+        local subtle_mobs = S{'Mboze','Arebati'}
         
-        -- Killer handling
+		-- Killer handling + SB mobs
 		if buffactive['Killer Instinct'] then
-			if player.target and player.target.hpp > 25 then
+			if player.target and player.target.hpp > 25 and subtle_mobs:contains(player.target.name) then
 				equip(sets.precast.WS[spell.english].KI)
-			else
+			elseif player.target and player.target.hpp <= 25 and subtle_mobs:contains(player.target.name) then
 				equip(sets.precast.WS[spell.english].KI.SubtleBlow)
+            else
+            	equip(sets.precast.WS[spell.english].KI)
 			end
-		elseif player.target and player.target.hpp < 25 then
+        end
+
+        -- SB mobs
+		if player.target and player.target.hpp <= 25 and subtle_mobs:contains(player.target.name) then
 			equip(sets.precast.WS[spell.english].SubtleBlow)
 		end
         
