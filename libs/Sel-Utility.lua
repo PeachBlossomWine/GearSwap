@@ -2258,7 +2258,6 @@ function check_rune()
 			return true
 		-- Sub RUN
 		elseif player.sub_job == 'RUN' and not buffactive[state.RuneElement.value] or buffactive[state.RuneElement.value] < 2 then
-            windower.add_to_chat(6,'here')
 			if abil_recasts[92] > 0 then return false end		
 			windower.chat.input('/ja "'..state.RuneElement.value..'" <me>')
 			tickdelay = os.clock() + 1.8
