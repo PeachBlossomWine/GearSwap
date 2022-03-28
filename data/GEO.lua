@@ -71,11 +71,15 @@ function job_setup()
 	last_geo = nil
 	blazelocked = false
 	used_ecliptic = false
+    autogeotar = 'none'
 
 	state.ShowDistance = M(true, 'Show Geomancy Buff/Debuff distance')
 	state.AutoEntrust = M(false, 'AutoEntrust Mode')
 	state.CombatEntrustOnly = M(true, 'Combat Entrust Only Mode')
 	state.AutoGeoAbilities = M(true, 'Use Geo Abilities Automatically')
+    state.AutoBubble = M(false, 'Auto Replace Luopan')
+    
+    bubble_too_far = false
 
     indi_timer = ''
     indi_duration = 180
@@ -203,10 +207,6 @@ function job_post_midcast(spell, spellMap, eventArgs)
 		end
 		if spell.element == world.weather_element or spell.element == world.day_element then
 			if state.CastingMode.value == 'Fodder' then
-				-- if item_available('Twilight Cape') and not LowTierNukes:contains(spell.english) and not state.Capacity.value then
-					-- sets.TwilightCape = {back="Twilight Cape"}
-					-- equip(sets.TwilightCape)
-				-- end
 				if spell.element == world.day_element then
 					if item_available('Zodiac Ring') then
 						sets.ZodiacRing = {ring2="Zodiac Ring"}
@@ -580,7 +580,14 @@ end
 function check_geo()
 
 	local PlayerBubbles = S{'Fury','Refresh','Regen','Haste','Barrier','Acumen','Fend','Precision','Voidance','Focus','Attunement','STR','DEX','VIT','AGI','INT','MND','CHR'}
-
+    local battle_target = windower.ffxi.get_mob_by_target('bt') or false
+    local myluopan = windower.ffxi.get_mob_by_target('pet') or false
+    
+    if autogeotar:lower() ~= 'none' then
+        local geo_target = windower.ffxi.get_mob_by_name(autogeotar)
+        target_distance = myluopan and geo_target and (((myluopan.x - geo_target.x)*(myluopan.x-geo_target.x) + (myluopan.y-geo_target.y)*(myluopan.y-geo_target.y)):sqrt())
+    end
+    
 	if state.AutoBuffMode.value ~= 'Off' and not data.areas.cities:contains(world.area) then
 		if not pet.isvalid then
 			used_ecliptic = false
@@ -596,19 +603,25 @@ function check_geo()
 			return true
 		elseif pet.isvalid then
 			local pet = windower.ffxi.get_mob_by_target("pet")
-			if pet.distance:sqrt() > 50 then 		--If pet is greater than detectable.
+            --If pet is greater than detectable.
+			if pet.distance:sqrt() > 50 and abil_recasts[243] < latency then 
 				windower.chat.input('/ja "Full Circle" <me>')
 				tickdelay = os.clock() + 1.1
 				return true
-						-- --extra	
-						-- elseif toofarfrommob == true then
-							-- windower.chat.input('/ja "Full Circle" <me>')
-							-- tickdelay = os.clock() + 1.1
-							-- return true
-						-- --extra	
-				
+            --Auto remove party bubbles
+            elseif PlayerBubbles:contains(autogeo) and state.AutoBubble.value and abil_recasts[243] < latency and ((autogeotar:lower() ~= 'none' and target_distance and target_distance > 7) or (autogeotar:lower() == 'none' and pet.distance:sqrt() > 7)) then
+                local formatted_distance = string.format("%.2f",  target_distance)
+                windower.add_to_chat(6,'Removing luopan -> Luopan distance: [' ..formatted_distance..']')
+                windower.chat.input('/ja "Full Circle" <me>')
+                tickdelay = os.clock() + 1.1
+                return true
+            --Auto remove offensive bubbles
+            elseif not (PlayerBubbles:contains(autogeo)) and state.AutoBubble.value and bubble_too_far == true and abil_recasts[243] < latency then
+                windower.add_to_chat(6,'Luopan too far from: [' .. battle_target.name.. '] Index: ['..battle_target.index..']')
+                windower.chat.input('/ja "Full Circle" <me>')
+                tickdelay = os.clock() + 1.1
+                return true
 			elseif state.AutoGeoAbilities.value and abil_recasts[244] < latency and not used_ecliptic and not buffactive.Bolster then
-			
 				-- ZergMode is ON
 				if state.AutoZergMode.value then 
 					-- Bolster has been used.
@@ -646,14 +659,14 @@ function check_geo()
 					tickdelay = os.clock() + 1.1
 					return true
 				end
-			-- Make a toggle for this?
 			elseif player.in_combat then
-				if autogeotar == 'None' then
+				if autogeotar:lower() == 'none' then
 					windower.chat.input('/ma "Geo-'..autogeo..'" <bt>')
 					tickdelay = os.clock() + 3.1
 					return true
 				else
-					if PlayerBubbles:contains(autogeo) then
+                    local bubble_target = windower.ffxi.get_mob_by_name(autogeotar) or false
+					if PlayerBubbles:contains(autogeo) and autogeotar:lower() ~= 'none' and (bubble_target and bubble_target.distance:sqrt() < 20.4 and bubble_target.valid_target) then
 						windower.chat.input('/ma "Geo-'..autogeo..'" '..autogeotar..'')
 						tickdelay = os.clock() + 3.1
 						return true
@@ -677,7 +690,7 @@ luopantxt.pos.x = -200
 luopantxt.pos.y = 175
 luopantxt.text = {}
 luopantxt.text.font = 'Arial'
-luopantxt.text.size = 12
+luopantxt.text.size = 11
 luopantxt.flags = {}
 luopantxt.flags.right = true
 
@@ -701,6 +714,14 @@ windower.raw_register_event('prerender', function()
     local indi_count = 0
     local geo_count = 0
     local battle_target = windower.ffxi.get_mob_by_target('bt') or false
+    local AutoBubbleDistance = (myluopan and battle_target) and (((myluopan.x - battle_target.x)*(myluopan.x-battle_target.x) + (myluopan.y-battle_target.y)*(myluopan.y-battle_target.y)):sqrt())
+    
+    if battle_target and (AutoBubbleDistance and (AutoBubbleDistance > (6 + battle_target.model_size) and (battle_target.status == 1) and battle_target.valid_target and battle_target.model_size > 0)) then
+        bubble_too_far = true
+    else
+        bubble_too_far = false
+    end
+    
     if myluopan and last_geo then
         luopan_txtbox = luopan_txtbox..' \\cs(0,255,0)Geo-'..last_geo..':\\cs(255,255,255)\n'
         for i,v in pairs(windower.ffxi.get_mob_array()) do
