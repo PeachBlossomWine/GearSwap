@@ -77,7 +77,7 @@ function job_setup()
 	state.AutoEntrust = M(false, 'AutoEntrust Mode')
 	state.CombatEntrustOnly = M(true, 'Combat Entrust Only Mode')
 	state.AutoGeoAbilities = M(true, 'Use Geo Abilities Automatically')
-    state.AutoBubble = M(false, 'Auto Replace Luopan')
+    state.AutoBubble = M(true, 'Auto Replace Luopan')
     
     bubble_too_far = false
 
