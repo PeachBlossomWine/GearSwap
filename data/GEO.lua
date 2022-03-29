@@ -604,7 +604,7 @@ function check_geo()
 		elseif pet.isvalid then
 			local pet = windower.ffxi.get_mob_by_target("pet")
             --If pet is greater than detectable.
-			if pet.distance:sqrt() > 50 and abil_recasts[243] < latency then 
+			if pet and pet.distance:sqrt() > 50 and abil_recasts[243] < latency then 
 				windower.chat.input('/ja "Full Circle" <me>')
 				tickdelay = os.clock() + 1.1
 				return true
@@ -660,7 +660,7 @@ function check_geo()
 					return true
 				end
 			elseif player.in_combat then
-				if autogeotar:lower() == 'none' then
+				if autogeotar:lower() == 'none' or not (PlayerBubbles:contains(autogeo)) then
 					windower.chat.input('/ma "Geo-'..autogeo..'" <bt>')
 					tickdelay = os.clock() + 3.1
 					return true
