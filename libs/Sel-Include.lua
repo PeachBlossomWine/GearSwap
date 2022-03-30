@@ -948,14 +948,8 @@ function default_filtered_action(spell, eventArgs)
 		if player.main_job == 'DNC' or player.sub_job == 'DNC' then
 			windower.chat.input('/ja "Spectral Jig" <me>')
 			add_to_chat(217,"You can't cast Invisible, attempting to use Spectral Jig instead.")
-		elseif player.main_job == 'NIN' or player.sub_job == 'NIN' then
-			windower.chat.input('/ma "Tonko: Ni" <me>')
-			add_to_chat(217,"You can't cast Invisible, attempting to use Tonko: Ni instead.")
 		elseif item_available('Prism Powder') then
 			windower.chat.input('/item "Prism Powder" <me>')
-			add_to_chat(217,"You can't cast Invisible, attempting to use Prism Powder instead.")
-		elseif item_available('Rainbow Powder') then
-			windower.chat.input('/item "Rainbow Powder" <me>')
 			add_to_chat(217,"You can't cast Invisible, attempting to use Prism Powder instead.")
 		end
 		cancel_spell()
@@ -964,9 +958,6 @@ function default_filtered_action(spell, eventArgs)
 		if player.main_job == 'DNC' or player.sub_job == 'DNC' then
 			windower.chat.input('/ja "Spectral Jig" <me>')
 			add_to_chat(217,"You can't cast Sneak, attempting to use Spectral Jig instead.")
-		elseif player.main_job == 'NIN' or player.sub_job == 'NIN' then
-			windower.chat.input('/ma "Monomi: Ichi" <me>')
-			add_to_chat(217,"You can't cast Sneak, attempting to use Monomi: Ichi instead.")
 		elseif item_available('Silent Oil') then
 			windower.chat.input('/item "Silent Oil" <me>')
 			add_to_chat(217,"You can't cast Sneak, attempting to use Silent Oil instead.")
@@ -1272,7 +1263,7 @@ function default_aftercast(spell, spellMap, eventArgs)
 		elseif spell.action_type == 'Item' and useItem and (spell.english == useItemName or useItemSlot == 'set') then
 			useItem = false
 			if useItemSlot == 'item' then
-				windower.send_command('put '..useItemName..' satchel')
+				windower.send_command('put '..useItemName..' sack')
 			elseif useItemSlot == 'set' then
 				local slots = T{}
 				for slot,item in pairs(sets[useItemName]) do
@@ -1280,12 +1271,12 @@ function default_aftercast(spell, spellMap, eventArgs)
 				end
 				enable(slots)
 				if player.inventory[useItemName] then
-					windower.send_command('wait 1;put '..set_to_item(useItemName)..' satchel')
+					windower.send_command('wait 1;put '..set_to_item(useItemName)..' sack')
 				end
 			else 
 				enable(useItemSlot)
 				if player.inventory[useItemName] then
-					windower.send_command('wait 1;put '..useItemName..' satchel')
+					windower.send_command('wait 1;put '..useItemName..' sack')
 				end
 			end
 			useItemName = ''
@@ -2232,7 +2223,7 @@ function status_change(newStatus, oldStatus)
 		if useItem then
 			useItem = false
 			if useItemSlot == 'item' then
-				windower.send_command('put '..useItemName..' satchel')
+				windower.send_command('put '..useItemName..' sack')
 			elseif useItemSlot == 'set' then
 				local slots = T{}
 				for slot,item in pairs(sets[useItemName]) do
@@ -2240,12 +2231,12 @@ function status_change(newStatus, oldStatus)
 				end
 				enable(slots)
 				if player.inventory[useItemName] then
-					windower.send_command('wait 1;put '..set_to_item(useItemName)..' satchel')
+					windower.send_command('wait 1;put '..set_to_item(useItemName)..' sack')
 				end
 			else 
 				enable(useItemSlot)
 				if player.inventory[useItemName] then
-					windower.send_command('wait 1;put '..useItemName..' satchel')
+					windower.send_command('wait 1;put '..useItemName..' sack')
 				end
 			end
 			add_to_chat(217,"Cancelling using "..useItemName..".")
@@ -2345,6 +2336,10 @@ function state_change(stateField, newValue, oldValue)
 		else
 			send_command('wait .001;gs c DisplayElement')
 		end
+    elseif stateField == 'Jug Mode' then
+        if player.main_job == 'BST' then
+            send_command('wait .001; gs c DisplayPetInfo')
+        end
 	elseif stateField == 'Capacity' and newValue == 'false' and data.equipment.cprings:contains(player.equipment.left_ring) then
             enable("ring1")
 	elseif stateField == 'Crafting Mode' then

@@ -263,8 +263,11 @@ function update_job_states()
 				if player.main_job == 'GEO' then
 					stateBox:append(string.format("%sAuto Buff: Indi-"..autoindi.." Geo-"..autogeo.."%s  ", clr.h, clr.n))
 					if autoentrust ~= 'None' then
-						stateBox:append(string.format("%sAuto Entrust: "..autoentrust.."  Entrustee: "..autoentrustee.."%s  ", clr.h, clr.n))
+						stateBox:append(string.format("%sEntrust: "..autoentrust.."  Entrustee: "..autoentrustee.."%s  ", clr.h, clr.n))
 					end
+                    if autogeotar ~= 'None' then
+                        stateBox:append(string.format("%sGEO Target: "..autogeotar.."%s  ", clr.h, clr.n))
+                    end
 				end
 				stateBox:append(string.format("%sAuto Buff: %s%s", clr.w, clr.h, state.AutoBuffMode.value))
 				stateBox:append(spc)
@@ -308,7 +311,7 @@ function update_job_states()
 			end
 		elseif n == 'AutoSambaMode' then
 			if state.AutoSambaMode.value ~= 'Off' then
-				stateBox:append(string.format("%sAuto Samba: %s%s    ", clr.w, clr.h, state.AutoSambaMode.value))
+				stateBox:append(string.format("%sSamba: %s%s    ", clr.w, clr.h, state.AutoSambaMode.value))
 			end
 		elseif n == 'IdleMode' then
 			if state.IdleMode.value ~= 'Normal' and state.DefenseMode.value == 'None' then
@@ -323,19 +326,19 @@ function update_job_states()
 			end
 		elseif n == 'TreasureMode' then
 			if (state.TreasureMode.value ~= 'None' or player.main_job == 'THF') and state.DefenseMode.value == 'None' then
-				stateBox:append(string.format("%sTreasure: %s%s    ", clr.w, clr.h, state.TreasureMode.value))
+				stateBox:append(string.format("%sTH: %s%s    ", clr.w, clr.h, state.TreasureMode.value))
 			end
 		elseif n == 'CastingMode' then
 			stateBox:append(string.format("%s%s: ${%s}    ", clr.w, labels[n], n))
 			if state.MagicBurstMode.value ~= 'Off' then
-				stateBox:append(string.format("%sMagic Burst: %s%s    ", clr.w, clr.h, state.MagicBurstMode.value))
+				stateBox:append(string.format("%sBurst: %s%s    ", clr.w, clr.h, state.MagicBurstMode.value))
 			end
 			if state.DeathMode and state.DeathMode.value ~= 'Off' then
 				stateBox:append(string.format("%sDeath Mode: %s%s    ", clr.w, clr.h, state.DeathMode.value))
 			end
 		elseif n == 'WeaponskillMode' then
 			if state.WeaponskillMode.value ~= 'Match' then
-				stateBox:append(string.format("%sWeaponskill: %s%s    ", clr.w, clr.h, state.WeaponskillMode.value))
+				stateBox:append(string.format("%sWS Mode: %s%s    ", clr.w, clr.h, state.WeaponskillMode.value))
 			end
 			if state.SkillchainMode.value ~= 'Off' and state.DefenseMode.value == 'None' then
 				stateBox:append(string.format("%sSkillchain Mode: %s%s    ", clr.w, clr.h, state.SkillchainMode.value))

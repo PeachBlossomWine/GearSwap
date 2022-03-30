@@ -709,24 +709,24 @@ function can_use(spell)
                 add_to_chat(123,"Abort: You don't have access to ["..(spell[language] or spell.id).."].")
                 return false
             elseif not player.inventory[data.tools.tool_map[spell.english][language]] and not (player.main_job_id == 13 and player.inventory[data.tools.universal_tool_map[spell.english][language]]) then
-				if player.main_job == 'NIN' and player.satchel[data.tools.universal_tool_map[spell.english][language]] then
-					windower.send_command('get "'..data.tools.universal_tool_map[spell.english][language]..'" satchel 99')
+				if player.main_job == 'NIN' and (player.satchel[data.tools.universal_tool_map[spell.english][language]] or player.sack[data.tools.universal_tool_map[spell.english][language]] or player.case[data.tools.universal_tool_map[spell.english][language]]) then
+					windower.send_command('get "'..data.tools.universal_tool_map[spell.english][language]..'" 99')
 					windower.chat.input:schedule(1.5,'/ma "'..spell.english..'" '..spell.target.raw..'')
-				elseif player.satchel[data.tools.tool_map[spell.english][language]] then
-					windower.send_command('get "'..data.tools.tool_map[spell.english][language]..'" satchel 99')
+				elseif (player.satchel[data.tools.universal_tool_map[spell.english][language]] or player.sack[data.tools.universal_tool_map[spell.english][language]] or player.case[data.tools.universal_tool_map[spell.english][language]])  then
+					windower.send_command('get "'..data.tools.tool_map[spell.english][language]..'" 99')
 					windower.chat.input:schedule(1.5,'/ma "'..spell.english..'" '..spell.target.raw..'')
 				elseif player.main_job == 'NIN' and player.inventory[data.tools.universal_toolbag_map[spell.english][language]] then
 					windower.chat.input('/item "'..data.tools.universal_toolbag_map[spell.english][language]..'" <me>')
 					windower.chat.input:schedule(4,'/ma "'..spell.english..'" '..spell.target.raw..'')
-				elseif player.main_job == 'NIN' and player.satchel[data.tools.universal_toolbag_map[spell.english][language]] then
-					windower.send_command('get "'..data.tools.universal_toolbag_map[spell.english][language]..'" satchel 1')
+				elseif player.main_job == 'NIN' and (player.satchel[data.tools.universal_tool_map[spell.english][language]] or player.sack[data.tools.universal_tool_map[spell.english][language]] or player.case[data.tools.universal_tool_map[spell.english][language]])  then
+					windower.send_command('get "'..data.tools.universal_toolbag_map[spell.english][language]..'" 1')
 					windower.chat.input:schedule(2,'/item "'..data.tools.universal_toolbag_map[spell.english][language]..'" <me>')
 					windower.chat.input:schedule(6,'/ma "'..spell.english..'" '..spell.target.raw..'')
 				elseif player.inventory[data.tools.toolbag_map[spell.english][language]] then
 					windower.chat.input('/item "'..data.tools.toolbag_map[spell.english][language]..'" <me>')
 					windower.chat.input:schedule(4,'/ma "'..spell.english..'" '..spell.target.raw..'')
-				elseif player.satchel[data.tools.toolbag_map[spell.english][language]] then
-					windower.send_command('get "'..data.tools.toolbag_map[spell.english][language]..'" satchel 1')
+				elseif (player.satchel[data.tools.universal_tool_map[spell.english][language]] or player.sack[data.tools.universal_tool_map[spell.english][language]] or player.case[data.tools.universal_tool_map[spell.english][language]])  then
+					windower.send_command('get "'..data.tools.toolbag_map[spell.english][language]..'" 1')
 					windower.chat.input:schedule(2,'/item "'..data.tools.universal_toolbag_map[spell.english][language]..'" <me>')
 					windower.chat.input:schedule(6,'/ma "'..spell.english..'" '..spell.target.raw..'')
 				else
@@ -922,7 +922,7 @@ end
 -- Variables it sets: classes.Daytime, and classes.DuskToDawn.  They are set to true
 
 function item_available(item)
-	if player.inventory[item] or player.wardrobe[item] or player.wardrobe2[item] or player.wardrobe3[item] or player.wardrobe4[item] or player.wardrobe5[item] or player.wardrobe6[item] or player.wardrobe7[item] or player.wardrobe8[item] or player.satchel[item] then
+	if player.inventory[item] or player.wardrobe[item] or player.wardrobe2[item] or player.wardrobe3[item] or player.wardrobe4[item] or player.wardrobe5[item] or player.wardrobe6[item] or player.wardrobe7[item] or player.wardrobe8[item] or player.satchel[item] or player.sack[item] or player.case[item] then
 		return true
 	else
 		return false
@@ -986,13 +986,13 @@ function check_doom(spell, spellMap, eventArgs)
 					add_to_chat(123,'Abort: You are doomed, using Hallowed Water instead.')
 					eventArgs.cancel = true
 					return true
-				elseif player.inventory['Holy Water'] or player.satchel['Holy Water'] then
+				elseif player.inventory['Holy Water'] or (player.satchel['Holy Water'] or player.sack['Holy Water'] or player.case['Holy Water']) then
 					windower.chat.input('/item "Holy Water" <me>')
 					add_to_chat(123,'Abort: You are doomed, using Holy Water instead.')
 					eventArgs.cancel = true
 					return true
 				elseif buffactive.silence then
-					if player.inventory['Echo Drops'] or player.satchel['Echo Drops'] then
+					if player.inventory['Echo Drops'] or (player.satchel['Echo Drops'] or player.sack['Echo Drops'] or player.case['Echo Drops']) then
 						windower.chat.input('/item "Echo Drops" <me>')
 						eventArgs.cancel = true
 						return true
@@ -1079,13 +1079,13 @@ function check_silence(spell, spellMap, eventArgs)
 			if buffactive.paralysis then
 				if player.inventory["Remedy"] then
 					send_command('input /item "Remedy" <me>')
-				elseif player.inventory['Echo Drops'] or player.satchel['Echo Drops'] then
+				elseif player.inventory['Echo Drops'] or (player.satchel['Echo Drops'] or player.sack['Echo Drops'] or player.case['Echo Drops']) then
 					send_command('input /item "Echo Drops" <me>')
 				else
 					add_to_chat(123,'Abort: You are silenced.')
 				end
 			else
-				if player.inventory['Echo Drops'] or player.satchel['Echo Drops'] then
+				if player.inventory['Echo Drops'] or (player.satchel['Echo Drops'] or player.sack['Echo Drops'] or player.case['Echo Drops']) then
 					send_command('input /item "Echo Drops" <me>')
 				elseif player.inventory["Remedy"] then
 					send_command('input /item "Remedy" <me>')
@@ -1111,7 +1111,7 @@ function silent_check_silence()
 		return true
 
 	elseif buffactive.silence then
-			if player.inventory['Echo Drops'] or player.satchel['Echo Drops'] then
+			if player.inventory['Echo Drops'] or (player.satchel['Echo Drops'] or player.sack['Echo Drops'] or player.case['Echo Drops']) then
 				windower.chat.input('/item "Echo Drops" <me>')
 			elseif player.inventory["Remedy"] then
 				windower.chat.input('/item "Remedy" <me>')
@@ -1419,13 +1419,13 @@ function check_cleanup()
 		end
 		
 		if not state.Capacity.value then
-			if player.inventory['Mecisto. Mantle'] then send_command('put "Mecisto. Mantle" satchel') moveditem = true end
-			if player.inventory['Endorsement Ring'] then send_command('put "Endorsement Ring" satchel')  moveditem = true end
-			if player.inventory['Trizek Ring'] then send_command('put "Trizek Ring" satchel')  moveditem = true end
-			if player.inventory['Capacity Ring'] then send_command('put "Capacity Ring" satchel') moveditem = true end
-			if player.inventory['Vocation Ring'] then send_command('put "Vocation Ring" satchel')  moveditem = true end
-			if player.inventory['Facility Ring'] then send_command('put "Facility Ring" satchel') moveditem = true end
-			if player.inventory['Guide Beret'] then send_command('put "Guide Beret" satchel') moveditem = true end
+			if player.inventory['Mecisto. Mantle'] then send_command('put "Mecisto. Mantle" case') moveditem = true end
+			if player.inventory['Endorsement Ring'] then send_command('put "Endorsement Ring" case')  moveditem = true end
+			if player.inventory['Trizek Ring'] then send_command('put "Trizek Ring" case')  moveditem = true end
+			if player.inventory['Capacity Ring'] then send_command('put "Capacity Ring" case') moveditem = true end
+			if player.inventory['Vocation Ring'] then send_command('put "Vocation Ring" case')  moveditem = true end
+			if player.inventory['Facility Ring'] then send_command('put "Facility Ring" case') moveditem = true end
+			if player.inventory['Guide Beret'] then send_command('put "Guide Beret" case') moveditem = true end
 		end
 		
 		if moveditem then tickdelay = os.clock() + 2.3 return true end
@@ -1527,8 +1527,8 @@ function check_use_item()
 				windower.send_command('gs c forceequip '..useItemSlot..' '..useItemName..'')
 				tickdelay = os.clock() + 2
 				return true
-			elseif player.satchel[set_to_item(useItemName)] then
-				windower.send_command('get "'..set_to_item(useItemName)..'" satchel')
+			elseif player.satchel[set_to_item(useItemName)] or player.sack[set_to_item(useItemName)] or player.case[set_to_item(useItemName)] then
+				windower.send_command('get "'..set_to_item(useItemName))
 				tickdelay = os.clock() + 2
 				return true
 			else
@@ -1540,8 +1540,8 @@ function check_use_item()
 			windower.chat.input('/item "'..useItemName..'" <me>')
 			tickdelay = os.clock() + 3
 			return true
-		elseif player.satchel[useItemName] then
-			windower.send_command('get "'..useItemName..'" satchel')
+		elseif player.satchel[useItemName] or player.sack[useItemName] or player.case[useItemName] then
+			windower.send_command('get "'..useItemName)
 			tickdelay = os.clock() + 2
 			return true
 		elseif item_available(useItemName) and ((get_usable_item(useItemName).next_use_time) + Offset) < 10 then
@@ -1584,8 +1584,8 @@ function check_food()
 			windower.chat.input('/item "'..autofood..'" <me>')
 			tickdelay = os.clock() + 1.5
 			return true
-		elseif player.satchel[''..autofood..''] then
-			windower.send_command('get "'..autofood..'" satchel')
+		elseif player.satchel[''..autofood..''] or player.sack[''..autofood..''] or player.case[''..autofood..''] then
+			windower.send_command('get "'..autofood)
 			tickdelay = os.clock() + 1.5
 			return true
 		else
@@ -1607,13 +1607,13 @@ function check_doomed()
 					add_to_chat(123,'You are doomed, using Hallowed Water.')
 					tickdelay = os.clock() + 1.5
 					return true
-				elseif player.inventory['Holy Water'] or player.satchel['Holy Water'] then
+				elseif player.inventory['Holy Water'] or player.satchel['Holy Water'] or player.sack['Holy Water'] or player.case['Holy Water'] then
 					windower.chat.input('/item "Holy Water" <me>')
 					add_to_chat(123,'You are doomed, using Holy Water.')
 					tickdelay = os.clock() + 1.5
 					return true
 				elseif buffactive.silence then
-						if player.inventory['Echo Drops'] or player.satchel['Echo Drops'] then
+						if player.inventory['Echo Drops'] or player.satchel['Echo Drops'] or player.sack['Echo Drops'] or player.case['Echo Drops'] then
 							windower.chat.input('/item "Echo Drops" <me>')
 						elseif player.inventory["Remedy"] then
 							windower.chat.input('/item "Remedy" <me>')
@@ -1710,7 +1710,7 @@ function is_party_member(playerid)
 end
 
 function get_usable_item(name)--returns time that you can use the item again
-	for _,n in pairs({"inventory","wardrobe","wardrobe2","wardrobe3","wardrobe4","wardrobe5","wardrobe6","wardrobe7","wardrobe8","satchel"}) do
+	for _,n in pairs({"inventory","wardrobe","wardrobe2","wardrobe3","wardrobe4","wardrobe5","wardrobe6","wardrobe7","wardrobe8","satchel","sack","case"}) do
         for _,v in pairs(gearswap.items[n]) do
             if type(v) == "table" and v.id ~= 0 and res.items[v.id].english:lower() == name:lower() then
                 return extdata.decode(v)
