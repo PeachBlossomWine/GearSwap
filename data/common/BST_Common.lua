@@ -1,6 +1,7 @@
 -- Weapons sets
-sets.weapons.Agwu = {main ="Agwu's Axe", sub="Adapa Shield"}
-sets.weapons.Dolichenus = {main ="Dolichenus", sub="Adapa Shield"}
+sets.weapons.Guttler =      {main="Guttler", sub="Adapa Shield"}
+sets.weapons.Agwu =         {main="Agwu's Axe", sub="Adapa Shield"}
+sets.weapons.Dolichenus =   {main="Dolichenus", sub="Adapa Shield"}
 
 -- PRECAST SETS
 sets.precast.JA['Killer Instinct'] = {head="Ankusa Helm +1"}
@@ -91,13 +92,13 @@ sets.midcast.Helix.Resistant = sets.midcast['Elemental Magic']
 
 -- Default weaponskill sets.
 sets.precast.WS = {
-	ammo="Voluspa Tathlum",
+	ammo="Coiste Bodhar",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
-	neck="Fotia Torque",
+	neck="Fotia Gorget",
 	waist="Fotia Belt",
 	left_ear="Sherida Earring",
 	right_ear="Moonshade Earring",
@@ -250,7 +251,7 @@ sets.NightIdle = {}
 
 -- MELEE (SINGLE-WIELD) SETS
 sets.engaged = {
-	ammo="Ginsen",
+	ammo="Coiste Bodhar",
 	head="Malignance Chapeau",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
@@ -269,7 +270,7 @@ sets.engaged.Acc = set_combine(sets.engaged, {})
 
 -- MELEE (SINGLE-WIELD) HYBRID SETS
 sets.engaged.DT = {
-	ammo="Staunch Tathlum +1",
+	ammo="Coiste Bodhar",
 	head="Malignance Chapeau",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
@@ -279,7 +280,7 @@ sets.engaged.DT = {
 	waist="Windbuffet Belt +1",
 	left_ear="Sherida Earring",
 	right_ear="Telos Earring",
-	left_ring="Petrov Ring",
+	left_ring="Chirich Ring +1",
 	right_ring="Gere Ring",
 	back=gear.jse_tp_back,
 }
@@ -287,12 +288,12 @@ sets.engaged.DT = {
 sets.engaged.Acc.DT = set_combine(sets.engaged.DT, {})
 
 -- MELEE (DUAL-WIELD) SETS FOR DNC AND NIN SUBJOB
-sets.engaged.DW = set_combine(sets.engaged, {right_ear="Suppanomimi",})
-sets.engaged.DW.Acc = set_combine(sets.engaged.Acc, {right_ear="Suppanomimi",})
+sets.engaged.DW = set_combine(sets.engaged, {waist="Reiki Yotai", right_ear="Suppanomimi",})
+sets.engaged.DW.Acc = set_combine(sets.engaged.Acc, {waist="Reiki Yotai", right_ear="Suppanomimi",})
 
 -- MELEE (DUAL-WIELD) HYBRID SETS
-sets.engaged.DW.DT = set_combine(sets.engaged.DT, {right_ear="Suppanomimi"})
-sets.engaged.DW.Acc.DT = set_combine(sets.engaged.Acc.DT, {right_ear="Suppanomimi"})
+sets.engaged.DW.DT = set_combine(sets.engaged.DT, {waist="Reiki Yotai", right_ear="Suppanomimi"})
+sets.engaged.DW.Acc.DT = set_combine(sets.engaged.Acc.DT, {waist="Reiki Yotai", right_ear="Suppanomimi"})
 
 -- GEARSETS FOR MASTER ENGAGED (SINGLE-WIELD) & PET TANKING
 sets.engaged.HybridPet = set_combine(sets.engaged,{})

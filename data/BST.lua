@@ -504,7 +504,6 @@ function job_state_change(stateField, newValue, oldValue)
 	
 	if pet_info[state.JugMode.value] then
 		windower.send_command('gs c update auto')
-		send_command('wait 0.5; gs c DisplayPetInfo')
 	end
 end
 
@@ -640,6 +639,7 @@ end
 function job_tick()
 	if check_pet() then return true end
 	if check_ready() then return true end
+    if check_buff() then return true end
 	return false
 end
 
@@ -791,4 +791,29 @@ function get_ready_charge_timer()
 	else
 		return charge_timer
 	end
+end
+
+function check_buff()
+	if state.AutoBuffMode.value ~= 'Off' and player.in_combat and not silent_check_amnesia() then
+		
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if player.sub_job == 'WAR' and not buffactive['SJ Restriction'] and not buffactive.Aggressor and abil_recasts[4] < latency then
+			windower.chat.input('/ja "Aggressor" <me>')
+			tickdelay = os.clock() + 1.1
+			return true
+		elseif player.sub_job == 'WAR' and not buffactive['SJ Restriction'] and not buffactive.Berserk and abil_recasts[1] < latency then
+			windower.chat.input('/ja "Berserk" <me>')
+			tickdelay = os.clock() + 1.1
+			return true
+        elseif player.sub_job == 'DRK' and not buffactive['SJ Restriction'] and not buffactive.Berserk and abil_recasts[87] < latency then
+			windower.chat.input('/ja "Last Resort" <me>')
+			tickdelay = os.clock() + 1.1
+			return true
+		else
+			return false
+		end
+	end
+		
+	return false
 end
