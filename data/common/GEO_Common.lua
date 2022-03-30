@@ -28,6 +28,8 @@ end
 
 if item_available('Bagua Mitaines +3') then
 	gear.geo_hand_idle = 'Bagua Mitaines +3'
+elseif item_available('Bagua Mitaines +2') then
+    gear.geo_hand_idle = 'Bagua Mitaines +2'
 elseif item_available('Bagua Mitaines +1') then
 	gear.geo_hand_idle = 'Bagua Mitaines +1'
 end
@@ -236,7 +238,7 @@ sets.midcast.Cure.DT = set_combine(sets.midcast.Cure, {
 	legs="Nyame Flanchard", 
 	feet="Nyame Sollerets", 
 	left_ring="Defending Ring", 
-	back={name="Moonbeam Cape",priority=1},
+	back={name=gear.dt_moon_back,priority=500},
 })
 	
 sets.midcast.LightWeatherCure = {waist="Korin Obi"}
