@@ -106,16 +106,16 @@ sets.precast.FC = {
 	hands=gear.merlinic_fc_hands,																					-- 6
 	legs="Geomancy Pants +3",																						-- 15
 	feet=gear.merlinic_fc_feet,																						-- 11
-	neck="Voltsurge Torque",																						-- 4
+	neck="Baetyl Pendant",	    																					-- 4
 	waist="Embla Sash",																								-- 5
 	left_ear="Loquac. Earring",																						-- 2
 	right_ear="Etiolation Earring",																					-- 1
-	left_ring="Weather. Ring +1",																						-- 4
+	left_ring="Weather. Ring +1",																					-- 4
 	right_ring="Lebeche Ring",																						-- QC
 	back=gear.jse_skill_back,																						-- 7
 }
 
-sets.precast.FC.DT = set_combine(sets.precast.FC, {back={name="Moonbeam Cape",priority=1},left_ear={name="Odnowa Earring +1",priority=1},})
+sets.precast.FC.DT = set_combine(sets.precast.FC, {back={name=gear.dt_moon_back,priority=1},left_ear={name="Odnowa Earring +1",priority=1},})
 
 sets.precast.FC.Geomancy = set_combine(sets.precast.FC, { neck="Bagua Charm +1"	})
 sets.precast.FC.Geomancy.Indi = sets.precast.FC.Geomancy		
@@ -127,11 +127,6 @@ sets.precast.FC.Geomancy.Indi.DT = sets.precast.FC.Geomancy.DT
 sets.precast.FC.Cure.DT = set_combine(sets.precast.FC.DT, {})
 sets.precast.FC.Curaga.DT = sets.precast.FC.Cure.DT
 
-
-sets.Self_Healing = {}
-sets.Cure_Received = {}
-sets.Self_Refresh = {}
-
 sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {right_ring="Gelatinous Ring +1",})
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})
 sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {})
@@ -141,6 +136,10 @@ sets.precast.FC['Elemental Magic'].DT = set_combine(sets.precast.FC.DT, {right_r
 sets.precast.FC['Enhancing Magic'].DT = set_combine(sets.precast.FC.DT, {})
 sets.precast.FC.Stoneskin.DT = set_combine(sets.precast.FC['Enhancing Magic'].DT, {})
 sets.precast.FC.Impact.DT = set_combine(sets.precast.FC.DT, {head=empty,body=gear.impact_body})
+
+sets.Self_Healing = {}
+sets.Cure_Received = {}
+sets.Self_Refresh = {}
 
 -- Weaponskill sets
 -- Default set for any weaponskill that isn't any more specifically defined
@@ -157,7 +156,7 @@ sets.precast.WS = {
     right_ear="Moonshade Earring",
     left_ring="Vertigo Ring",
     right_ring="Rufescent Ring",
-	back="Moonbeam Cape",
+	back=gear.dt_moon_back,
 }
 
 --------------------------------------
@@ -188,7 +187,7 @@ sets.midcast.Geomancy = {
 	back="Solemnity Cape",															-- CMP 5
 }
 
-sets.midcast.Geomancy.DT = set_combine(sets.midcast.Geomancy, {back={name="Moonbeam Cape",priority=1},left_ear={name="Odnowa Earring +1",priority=1},feet="Nyame Sollerets",})
+sets.midcast.Geomancy.DT = set_combine(sets.midcast.Geomancy, {back={name=gear.dt_moon_back,priority=1},left_ear={name="Odnowa Earring +1",priority=1},feet="Nyame Sollerets",})
 -- Indi Duration gear + Skill + Conserve MP
 -- 180 Base + 40s JP + 35s + 20% = 324s
 
@@ -248,7 +247,7 @@ sets.midcast.Cursna = set_combine(sets.midcast.Cure, {neck="Debilis Medallion",r
 sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {})
 
 --DT
-sets.midcast.LightWeatherCure.DT = {back={name="Moonbeam Cape",priority=1},waist="Korin Obi"}
+sets.midcast.LightWeatherCure.DT = {back={name=gear.dt_moon_back,priority=1},waist="Korin Obi"}
 sets.midcast.LightDayCure.DT = sets.midcast.LightWeatherCure.DT
 sets.midcast.Curaga.DT = sets.midcast.Cure.DT
 sets.midcast.Cursna.DT = set_combine(sets.midcast.Cure.DT, {neck="Debilis Medallion",ring1="Haoma's Ring",ring2="Menelaus's Ring"})
@@ -312,8 +311,8 @@ sets.midcast['Dark Magic'] = {
 	head="Pixie Hairpin +1",
 	body=gear.geo_body_enfeebling,
 	hands="Geomancy Mitaines +3",
-		legs=gear.merlinic_mab_legs,
-		feet=gear.merlinic_fc_feet,
+	legs="Geomancy Pants +3",
+	feet="Geomancy Sandals +3",
 	neck="Erra Pendant",
 	waist="Fucho-no-obi",
 	left_ear="Regal Earring",
@@ -323,7 +322,7 @@ sets.midcast['Dark Magic'] = {
 	back=gear.nuke_jse_back,
 }
 
-sets.midcast['Dark Magic'].DT = set_combine(sets.midcast['Dark Magic'], {back={name="Moonbeam Cape",priority=1},})
+sets.midcast['Dark Magic'].DT = set_combine(sets.midcast['Dark Magic'], {back={name=gear.dt_moon_back,priority=1},})
 		
 sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {})
 sets.midcast.Aspir = sets.midcast.Drain
@@ -354,7 +353,7 @@ sets.midcast['Enfeebling Magic'] = {
 	back=gear.jse_mab_back,
 }
 
-sets.midcast['Enfeebling Magic'].DT = set_combine(sets.midcast['Enfeebling Magic'], {back={name="Moonbeam Cape",priority=1},})
+sets.midcast['Enfeebling Magic'].DT = set_combine(sets.midcast['Enfeebling Magic'], {back={name=gear.dt_moon_back,priority=1},})
 	
 sets.midcast['Enfeebling Magic'].Resistant = {
 	main="Daybreak",
@@ -426,7 +425,7 @@ sets.midcast['Enhancing Magic'] = {
 	right_ring="Gelatinous Ring +1",
 }
 
-sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic'], {neck="Loricate Torque +1",left_ear="Odnowa Earring +1",back={name="Moonbeam Cape",priority=1},})
+sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic'], {neck="Loricate Torque +1",left_ear="Odnowa Earring +1",back={name=gear.dt_moon_back,priority=1},})
 	
 sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {neck="Nodens Gorget", waist="Siegel Sash"})
 sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {head="Amalric Coif +1",feet="Inspirited Boots", waist="Gishdubar Sash"})
@@ -579,7 +578,7 @@ sets.defense.PDT = {
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
-	back="Moonbeam Cape",
+	back=gear.dt_moon_back,
 }
 
 sets.defense.MDT = sets.defense.PDT

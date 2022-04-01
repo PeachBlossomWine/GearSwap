@@ -19,12 +19,12 @@ sets.precast.JA.Reward = {
 	hands="Malignance Gloves",
 	legs="Ankusa Trousers +3",
 	feet="Ankusa Gaiters +3",
-		neck={ name="Loricate Torque +1", augments={'Path: A',}},
-		waist="Flume Belt +1",
-		left_ear="Infused Earring",
-		right_ear="Etiolation Earring",
-	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-	right_ring="Vertigo Ring",
+	neck={ name="Loricate Torque +1", augments={'Path: A',}},
+	waist="Flume Belt +1",
+    left_ear="Odnowa Earring +1",
+	right_ear="Enmerkar Earring",
+	left_ring="Regal Ring",
+	right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 	back=gear.jse_tp_back,
 }
 
@@ -65,12 +65,22 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 	-- MIDCAST SETS
 sets.midcast.FastRecast = sets.precast.FC
 
-sets.midcast.Utsusemi = set_combine(sets.midcast.FastRecast, {back="Mujin Mantle"})
+sets.midcast.Utsusemi = set_combine(sets.midcast.FastRecast, {})
 
 sets.midcast.Cure = {
-	head="Gavialis Helm",neck="Phalaina Locket",ear1="Enmerkar Earring",ear2="Handler's Earring +1",
-	body="Jumalik Mail",hands="Macabre Gaunt. +1",ring1="Lebeche Ring",ring2="Janniston Ring",
-	back="Pastoralist's Mantle",waist="Klouskap Sash",legs="Tali'ah Sera. +2",feet="Tot. Gaiters +1"}
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck="Loricate Torque +1",
+	waist=gear.dt_waist,
+	left_ear="Calamitous Earring",
+	right_ear="Mendi. Earring",
+	left_ring="Regal Ring",
+	right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
+	back="Solemnity Cape",
+}
 
 sets.midcast.Curaga = sets.midcast.Cure
 
@@ -79,7 +89,7 @@ sets.Cure_Received = {waist="Gishdubar Sash"}
 sets.Self_Refresh = {waist="Gishdubar Sash"}
 
 sets.midcast.Stoneskin = sets.midcast.FastRecast
-sets.midcast.Cursna = set_combine(sets.midcast.FastRecast, {neck="Debilis Medallion",ring1="Haoma's Ring",ring2="Menelaus's Ring"})
+sets.midcast.Cursna = set_combine(sets.midcast.FastRecast, {})
 sets.midcast.Protect = set_combine(sets.midcast.FastRecast, {})
 sets.midcast.Protectra = sets.midcast.Protect
 sets.midcast.Shell = set_combine(sets.midcast.FastRecast, {})
@@ -121,13 +131,24 @@ sets.AccDayWSEars = {ear1="Lugra Earring +1",ear2="Moonshade Earring"}
 sets.DayWSEars = {ear1="Lugra Earring +1",ear2="Moonshade Earring",}
 
 -- PET SIC & READY MOVES
-sets.midcast.Pet.WS = {ammo="Voluspa Tathlum",
-	head="Totemic Helm +1",neck="Shulmanu Collar",ear1="Enmerkar Earring",ear2="Domesticator's Earring",
-	body="Taeon Tabard",hands="Nukumi Manoplas +1",ring1="Varar Ring +1",ring2="C. Palug Ring",
-	back="Artio's Mantle",waist="Incarnation Sash",legs=gear.valorous_physical_pet_legs,feet="Totemic Gaiters +1"}
+sets.midcast.Pet.WS = {
+	ammo="Hesperiidae",
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Gleti's Breeches",
+	feet="Gleti's Boots",
+	neck="Adad Amulet",
+	waist="Incarnation Sash",
+	left_ear="Crep. Earring",
+	right_ear="Enmerkar Earring",
+	left_ring="Tali'Ah Ring",
+	right_ring="C. Palug Ring",
+	back=gear.jse_petmacc_back,
+}
 			
 sets.midcast.Pet.MagicReady = {
-		ammo="Voluspa Tathlum",
+	ammo="Hesperiidae",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
@@ -142,32 +163,14 @@ sets.midcast.Pet.MagicReady = {
 	back=gear.jse_petmacc_back,
 }
 	
-sets.midcast.Pet.DebuffReady = {
-		ammo="Voluspa Tathlum",
-	head="Nyame Helm",
-	body="Nyame Mail",
-	hands="Nyame Gauntlets",
-	legs="Gleti's Breeches",
-	feet="Gleti's Boots",
-	neck="Adad Amulet",
-	waist="Incarnation Sash",
-	left_ear="Crep. Earring",
-	right_ear="Enmerkar Earring",
-	left_ring="Tali'Ah Ring",
-	right_ring="C. Palug Ring",
-	back=gear.jse_petmacc_back,
-}
-	
-sets.midcast.Pet.PhysicalDebuffReady = {ammo="Voluspa Tathlum",
-	head=gear.valorous_pet_head,neck="Adad Amulet",ear1="Enmerkar Earring",ear2="Domesticator's Earring",
-	body=gear.valorous_pet_body,hands="Nukumi Manoplas +1",ring1="Varar Ring +1",ring2="Varar Ring +1",
-	back="Artio's Mantle",waist="Incarnation Sash",legs=gear.valorous_magical_pet_legs,feet=gear.valorous_magical_pet_feet}
+sets.midcast.Pet.DebuffReady = set_combine(sets.midcast.Pet.MagicReady, {})
+sets.midcast.Pet.PhysicalDebuffReady = set_combine(sets.midcast.Pet.DebuffReady, {})
 
 sets.midcast.Pet.ReadyRecast = {legs="Gleti's Breeches"}
 sets.midcast.Pet.ReadyRecastDW = sets.midcast.Pet.ReadyRecast
-sets.midcast.Pet.Neutral = {head="Totemic Helm +1"}
-sets.midcast.Pet.Favorable = {head="Nukumi Cabasset"}
-sets.midcast.Pet.TPBonus = {hands="Nukumi Manoplas +1"}
+sets.midcast.Pet.Neutral = {}
+sets.midcast.Pet.Favorable = {} --{head="Nukumi Cabasset"}
+sets.midcast.Pet.TPBonus = {} --{hands="Nukumi Manoplas +1"}
 
 -- RESTING
 sets.resting = {}
@@ -205,22 +208,24 @@ sets.idle.Town = {
 }
 
 sets.idle.Refresh = set_combine(sets.idle, {})
-sets.idle.Reraise = set_combine(sets.idle, {head="Twilight Helm",body="Twilight Mail"})
+sets.idle.Reraise = set_combine(sets.idle, {})
 
-sets.idle.Pet = {
-	ammo="Staunch Tathlum +1",
-	head="Nyame Helm",
-	body="Tot. Jackcoat +3",
-	hands="Gleti's Gauntlets",
-	legs="Tali'ah Sera. +2",
-	feet="Gleti's Boots",
-	neck="Loricate Torque +1",
-	waist="Isa Belt",
-	left_ear="Handler's Earring +1",
-	right_ear="Enmerkar Earring",
-	left_ring="Defending Ring",
-	right_ring="C. Palug Ring",
-	back=gear.jse_petmacc_back,
+--Master 43
+--Pet 43
+sets.idle.Pet = {                       -- Master   -- Pet
+	ammo="Staunch Tathlum +1",          -- 3
+	head="Nyame Helm",                  -- 7
+	body="Tot. Jackcoat +3",            --          10
+	hands="Gleti's Gauntlets",          -- 7        8
+	legs="Tali'ah Sera. +2",            --          5
+	feet="Gleti's Boots",               -- 5
+	neck="Loricate Torque +1",          -- 6
+	waist="Isa Belt",                   --          3
+	left_ear="Handler's Earring +1",    --          4
+	right_ear="Enmerkar Earring",       --          3             
+	left_ring="Defending Ring",         -- 10
+	right_ring="C. Palug Ring",         -- 5
+	back=gear.jse_petmacc_back,         --          10
 }
 
 sets.idle.Pet.Engaged = set_combine(sets.idle.Pet , {})
@@ -303,7 +308,7 @@ sets.engaged.HybridPet.Acc = set_combine(sets.engaged.Acc, {})
 sets.engaged.DW.HybridPet = set_combine(sets.engaged.DW,{})
 sets.engaged.DW.HybridPet.Acc = set_combine(sets.engaged.DW.Acc, {})
 
-sets.buff['Killer Instinct'] = {body="Nukumi Gausape +1"}
+sets.buff['Killer Instinct'] = {} --{body="Nukumi Gausape +1"}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
 sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 

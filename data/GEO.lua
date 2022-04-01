@@ -584,7 +584,7 @@ function check_geo()
     local myluopan = windower.ffxi.get_mob_by_target('pet') or false
     
     if autogeotar:lower() ~= 'none' then
-        local geo_target = windower.ffxi.get_mob_by_name(autogeotar)
+        local geo_target = windower.ffxi.get_mob_by_name(autogeotar)    
         target_distance = myluopan and geo_target and (((myluopan.x - geo_target.x)*(myluopan.x-geo_target.x) + (myluopan.y-geo_target.y)*(myluopan.y-geo_target.y)):sqrt())
     end
     
@@ -593,7 +593,11 @@ function check_geo()
 			used_ecliptic = false
 		end
 		local abil_recasts = windower.ffxi.get_ability_recasts()
-		if autoindi ~= 'None' and ((not player.indi) or last_indi ~= autoindi) then
+
+        local indi_spell_data = autoindi and autoindi ~= 'None' and res.spells:with('english', 'Indi-'..autoindi)       
+        local geo_spell_data = autogeo and autogeo ~= 'None' and res.spells:with('english', 'Geo-'..autogeo)  
+        
+		if autoindi ~= 'None' and ((not player.indi) or last_indi ~= autoindi) and player.mp > indi_spell_data.mp_cost then
 			windower.chat.input('/ma "Indi-'..autoindi..'" <me>')
 			tickdelay = os.clock() + 2.1
 			return true
@@ -609,8 +613,8 @@ function check_geo()
 				tickdelay = os.clock() + 1.1
 				return true
             --Auto remove party bubbles
-            elseif PlayerBubbles:contains(autogeo) and state.AutoBubble.value and abil_recasts[243] < latency and ((autogeotar:lower() ~= 'none' and target_distance and target_distance > 7) or (autogeotar:lower() == 'none' and pet.distance:sqrt() > 7)) then
-                local formatted_distance = string.format("%.2f",  target_distance)
+            elseif PlayerBubbles:contains(autogeo) and state.AutoBubble.value and abil_recasts[243] < latency and ((autogeotar:lower() ~= 'none' and target_distance and target_distance > 7) or (autogeotar:lower() == 'none' and pet and pet.distance:sqrt() > 7)) then
+                local formatted_distance = (target_distance and string.format("%.2f",  target_distance)) or (pet and  string.format("%.2f", pet.distance:sqrt()))
                 windower.add_to_chat(6,'Removing luopan -> Luopan distance: [' ..formatted_distance..']')
                 windower.chat.input('/ja "Full Circle" <me>')
                 tickdelay = os.clock() + 1.1
@@ -641,7 +645,7 @@ function check_geo()
 			else
 				return false
 			end
-		elseif autogeo ~= 'None' and (windower.ffxi.get_mob_by_target('bt') or data.spells.geo_buffs:contains(autogeo)) then
+		elseif autogeo ~= 'None' and player.mp > geo_spell_data.mp_cost and (windower.ffxi.get_mob_by_target('bt') or data.spells.geo_buffs:contains(autogeo)) then
 			if player.in_combat and state.AutoGeoAbilities.value and abil_recasts[247] < latency and not buffactive.Bolster then
 			
 				-- ZergMode is ON
@@ -786,7 +790,7 @@ function check_buff()
 	if state.AutoBuffMode.value ~= 'Off' and not data.areas.cities:contains(world.area) then
 		local spell_recasts = windower.ffxi.get_spell_recasts()
 		for i in pairs(buff_spell_lists[state.AutoBuffMode.Value]) do
-			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) then
+			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost then
 				windower.chat.input('/ma "'..buff_spell_lists[state.AutoBuffMode.Value][i].Name..'" <me>')
 				tickdelay = os.clock() + 2
 				return true
@@ -869,4 +873,37 @@ buff_spell_lists = {
 		{Name='Regen',		Buff='Regen',		SpellID=108,	Reapply=false},
 		{Name='Phalanx',	Buff='Phalanx',		SpellID=106,	Reapply=false},
 	},
+}
+
+geo_spell_lists = {
+	{Name='Regen',	SpellID=54},
+    {Name='Poison',	SpellID=54},
+    {Name='Refresh',	SpellID=54},
+    {Name='Haste',	SpellID=54},
+	{Name='STR',		SpellID=53},
+	{Name='DEX',		SpellID=108},
+	{Name='VIT',	SpellID=106},
+    {Name='AGI',	SpellID=106},
+    {Name='INT',	SpellID=106},
+    {Name='MND',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='Fury',	SpellID=106},
+    {Name='Barrier',	SpellID=106},
+    {Name='Acumen',	SpellID=106},
+    {Name='Fend',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
+    {Name='CHR',	SpellID=106},
 }
