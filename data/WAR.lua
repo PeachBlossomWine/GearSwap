@@ -63,8 +63,10 @@ function job_setup()
     state.Buff.Seigan = buffactive.Seigan or false
 	state.Stance = M{['description']='Stance','Hasso','Seigan','None'}
 
-	autows = "Ukko's Fury"
+	autows = "Upheaval"
 	autofood = 'Soy Ramen'
+    original_autows = autows
+	original_weapon = 'Chango'
 	
 	init_job_states({"Capacity","AutoRuneMode","AutoTrustMode","AutoWSMode","AutoShadowMode","AutoFoodMode","AutoStunMode","AutoDefenseMode",},{"AutoBuffMode","AutoSambaMode","Weapons","OffenseMode","WeaponskillMode","Stance","IdleMode","Passive","RuneElement","TreasureMode",})
 end
@@ -348,12 +350,12 @@ function job_update(cmdParams, eventArgs)
 	end
 end
 
+str_using = string.char(130,240,142,103,151,112,130,181,130,196)
+
 function job_aftercast(spell, spellMap, eventArgs)
 	if not spell.interrupted then
 		if spell.english == 'Warcry' then
 			lastwarcry = player.name
-		elseif spell.english == 'Armor Break' then
-			windower.send_command('gs c set weapons Naegling;')
 		end
 		if state.AutoTPReductionMode.value and spell.type == 'WeaponSkill' then
 			windower.add_to_chat(6, 'Auto TP Reduction')
@@ -361,6 +363,13 @@ function job_aftercast(spell, spellMap, eventArgs)
 			local angle = (math.atan2((player.target.y - self_vector.y), (player.target.x - self_vector.x))*180/math.pi)*-1
 			windower.ffxi.turn((getAngle()+180):radian()+math.pi)
 			windower.ffxi.turn:schedule(3.9,((angle):radian()))
+		end
+		if spell.type == 'WeaponSkill' and not spell.interrupted then
+			if spell.english == 'Armor Break' then
+				windower.chat.input('/p '..str_using..' '..auto_translate('Armor Break').. ' -<t>-')
+				windower.send_command('gs c set weapons '..original_weapon..'; gs c autows tp 1000; gs c autows ' ..original_autows)	
+				update_melee_groups()
+			end
 		end
 	end
 end

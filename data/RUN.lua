@@ -80,9 +80,11 @@ function job_setup()
 	state.Stance = M{['description']='Stance','Hasso','Seigan','None'}
     state.Steps = M{['description']='Current Step', 'Quickstep','Box Step','Stutter Step'}
 	
-	autows = 'Resolution'
+	autows = 'Dimidiation'
 	autofood = 'Miso Ramen'
-	
+	original_autows = autows
+	original_weapon = 'Epeolatry'
+     
 	update_melee_groups()
 	init_job_states({"Capacity","AutoRuneMode","AutoTrustMode","AutoTankMode","AutoWSMode","AutoShadowMode","AutoFoodMode","AutoNukeMode","AutoStunMode","AutoDefenseMode",},{"AutoBuffMode","AutoSambaMode","Weapons","OffenseMode","WeaponskillMode","Stance","IdleMode","Passive","RuneElement","PhysicalDefenseMode","MagicalDefenseMode","ResistDefenseMode","TreasureMode",})
 end
@@ -114,13 +116,7 @@ function job_precast(spell, spellMap, eventArgs)
 
 	if spell.type == 'WeaponSkill' and state.AutoBuffMode.value ~= 'Off' and not state.Buff['SJ Restriction'] then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
-		if player.sub_job == 'SAM' and player.tp > 1850 and abil_recasts[140] < latency then
-			eventArgs.cancel = true
-			windower.chat.input('/ja "Sekkanoki" <me>')
-			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
-			tickdelay = os.clock() + 1.25
-			return
-		elseif player.sub_job == 'SAM' and abil_recasts[134] < latency then
+		if player.sub_job == 'SAM' and abil_recasts[134] < latency then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Meditate" <me>')
 			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
@@ -173,7 +169,8 @@ function job_filtered_action(spell, eventArgs)
 	if spell.type == 'WeaponSkill' then
 		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
 		if available_ws:contains(80) then
-			 if spell.english == "Dimidiation" then
+			local other_ws = S{'dimidiation','ground strike'}
+			if other_ws:contains(spell.english:lower()) then
 				windower.chat.input('/ws "Armor Break" '..spell.target.raw)
                 cancel_spell()
 				eventArgs.cancel = true
@@ -217,6 +214,13 @@ function job_aftercast(spell)
 	elseif spell.english == 'Upheaval' and not spell.interrupted then
 		windower.send_command:schedule(1.2, 'mc autosc Upheaval')
 		windower.chat.input('/p '..str_using..' '..auto_translate('Upheaval')..' -<t>-')
+	end
+	if spell.type == 'WeaponSkill' and not spell.interrupted then
+		if spell.english == 'Armor Break' then
+			windower.chat.input('/p '..str_using..' '..auto_translate('Armor Break').. ' -<t>-')
+			windower.send_command('gs c set weapons '..original_weapon..'; gs c autows tp 1000;')	
+			update_melee_groups()
+		end
 	end
 end
 

@@ -1,5 +1,7 @@
 if item_available("Chango") then
 	gear.war_greataxe = "Chango"
+elseif item_available("Lycurgos") then
+    gear.war_greataxe = "Lycurgos"
 else
 	gear.war_greataxe = "Kaja Chopper"
 end

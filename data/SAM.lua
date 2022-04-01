@@ -63,6 +63,7 @@ function job_setup()
 	state.Stance = M{['description']='Stance','Hasso','Seigan','None'}
 
 	autows = 'Tachi: Fudo'
+    original_autows = autows
 	rangedautows = "Apex Arrow"
 	autofood = 'Soy Ramen'
 
@@ -267,7 +268,7 @@ function job_aftercast(spell, spellMap, eventArgs)
 		end
 		if spell.english == 'Tachi: Ageha' and not spell.interrupted then
 			windower.chat.input('/p '..str_using..' '..auto_translate('Tachi: Ageha').. ' -<t>-')
-			windower.send_command('gs c autows Tachi: Fudo; gs c autows tp 1000;')
+			windower.send_command('gs c autows ' ..original_autows)
 			update_melee_groups()
 		end
     elseif spell.english == "Meikyo Shisui" and not spell.interrupted and sets.buff['Meikyo Shisui'] then

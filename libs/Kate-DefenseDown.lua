@@ -69,7 +69,7 @@ function DD_for_first_hit()
 			if player.main_job == 'SAM' then
 				windower.send_command('gs c autows Tachi: Ageha')
 			elseif player.main_job == 'DRK' then
-				windower.send_command('gs c set weapons KajaChopper; gs c autows tp 1750;')
+				windower.send_command('gs c set weapons Lycurgos; gs c autows tp 1750;')
 			elseif player.main_job == 'WAR' then
 				windower.send_command('gs c autows Armor Break; gs c set weapons Chango; gs c autows tp 1750;')
 			end
@@ -175,7 +175,7 @@ function on_incoming_chunk_for_dd(id, data, original, modified, injected, blocke
 				if player.main_job == 'SAM' then
 					windower.send_command('gs c autows Tachi: Ageha')
 				elseif player.main_job == 'DRK' then
-					windower.send_command('gs c set weapons KajaChopper; gs c autows tp 1750;')
+					windower.send_command('gs c set weapons Lycurgos; gs c autows tp 1750;')
 				elseif player.main_job == 'WAR' then
 					windower.send_command('gs c autows Armor Break; gs c set weapons Chango; gs c autows tp 1750;')
 				end

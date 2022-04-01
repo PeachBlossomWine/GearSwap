@@ -125,6 +125,13 @@ function handle_set(cmdParams)
 			return
 		end
 		
+		local defense_jobs = S{'DRK','WAR','RUN'}
+		if defense_jobs:contains(player.main_job) and (newVal ~= oldVal) then --((state.Weapons.value ~= 'Lycurgos' and state.Weapons.value ~= 'Chango')) then
+			original_weapon = oldVal
+		elseif (newVal == oldVal) then
+			original_weapon = newVal
+		end
+		
         local descrip = state_var.description or cmdParams[1]
         if state_change then
             state_change(descrip, newVal, oldVal)
@@ -697,6 +704,10 @@ function handle_autows(cmdParams)
 		if state.DisplayMode.value then update_job_states()	end
 	else
 		autows = table.concat(cmdParams, ' '):ucfirst()
+        defense_ws = S{'tachi: ageha','armor break','full break','shell crusher'}
+        if not(defense_ws:contains(autows:lower())) then
+            original_autows = autows
+        end
 		add_to_chat(122,'Your autows weaponskill is set to '..autows..'.')
 		if state.DisplayMode.value then update_job_states()	end
 	end

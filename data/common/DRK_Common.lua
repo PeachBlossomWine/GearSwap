@@ -2,14 +2,14 @@
 -- Start defining the sets
 --------------------------------------
 
-autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Repaer',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['KajaChopper']='Armor Break'}
+autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['KajaChopper']='Armor Break'}
 
 -- Weapons sets
 sets.weapons.Caladbolg = {main="Caladbolg",sub="Utu Grip"}
 sets.weapons.Liberator = {main="Liberator",sub="Utu Grip"}
 sets.weapons.Apocalypse = {main="Apocalypse",sub="Utu Grip"}
 sets.weapons.Anguta = {main="Anguta",sub="Utu Grip"}
-sets.weapons.KajaChopper = {main="Kaja Chopper",sub="Khonsu"}
+sets.weapons.Lycurgos = {main="Lycurgos",sub="Khonsu"}
 sets.weapons.Loxotic = {main="Loxotic Mace +1",sub="Blurred Shield +1"}
 
 -- Precast Sets

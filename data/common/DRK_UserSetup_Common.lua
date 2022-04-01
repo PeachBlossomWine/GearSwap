@@ -5,7 +5,7 @@ state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('Normal','Reraise')
-state.Weapons:options('KajaChopper','Caladbolg','Liberator','Apocalypse','Anguta','Loxotic','None')
+state.Weapons:options('Lycurgos','Caladbolg','Liberator','Apocalypse','Anguta','Loxotic','None')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 state.Passive = M{['description'] = 'Passive Mode','None'}
 state.DrainAbsSwapMode = M{'300','Always','Never'}

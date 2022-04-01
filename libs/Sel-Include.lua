@@ -233,6 +233,8 @@ function init_include()
 	petWillAct = 0
 	autonuke = 'Fire'
 	autows = ''
+    original_autows = ''
+    original_weapon = ''
 	othertargetws = ''
 	autows_list = {}
 	smartws = nil

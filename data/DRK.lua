@@ -62,9 +62,11 @@ function job_setup()
 	state.Stance = M{['description']='Stance','Hasso','Seigan','None'}
 	state.DrainSwapWeaponMode = M{'Never','300','1000','Always'}
 	
-	autows = 'Resolution'
+	autows = 'Torcleaver'
 	autofood = 'Soy Ramen'
-	
+	original_autows = autows
+	original_weapon = 'Caladbolg'
+     
 	update_melee_groups()
 
 	init_job_states({"Capacity","AutoRuneMode","AutoTrustMode","AutoWSMode","AutoShadowMode","AutoFoodMode","AutoNukeMode","AutoStunMode","AutoDefenseMode",},{"AutoBuffMode","AutoSambaMode","Weapons","OffenseMode","WeaponskillMode","Stance","IdleMode","Passive","RuneElement","DrainSwapWeaponMode","CastingMode","TreasureMode",})
@@ -95,12 +97,6 @@ function job_precast(spell, spellMap, eventArgs)
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Consume Mana" <me>')
 			windower.chat.input:schedule(1,'/ws "Entropy" <t>')
-			tickdelay = os.clock() + 1.25
-			return
-		elseif player.sub_job == 'SAM' and not buffactive['SJ Restriction'] and not buffactive['Consume Mana'] and player.tp > 1850 and abil_recasts[140] < latency and not silent_check_amnesia() then
-			eventArgs.cancel = true
-			windower.chat.input('/ja "Sekkanoki" <me>')
-			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
 			tickdelay = os.clock() + 1.25
 			return
 		elseif player.sub_job == 'SAM' and not buffactive['SJ Restriction'] and abil_recasts[134] < latency and not silent_check_amnesia() then
@@ -149,7 +145,8 @@ function job_filtered_action(spell, eventArgs)
             end
 		-- Great Axe
 		elseif available_ws:contains(80) then
-			if spell.english == "Torcleaver" then
+			local other_ws = S{'resolution','cross reaper','insurgency','catastrophe','shadow of death','torcleaver'}
+			if other_ws:contains(spell.english:lower()) then
 				windower.chat.input('/ws "Armor Break" '..spell.target.raw)
                 cancel_spell()
 				eventArgs.cancel = true
@@ -194,7 +191,7 @@ function job_aftercast(spell, spellMap, eventArgs)
 	if spell.type == 'WeaponSkill' and not spell.interrupted then
 		if spell.english == 'Armor Break' then
 			windower.chat.input('/p '..str_using..' '..auto_translate('Armor Break').. ' -<t>-')
-			windower.send_command('gs c set weapons Caladbolg; gs c autows tp 1000;')	
+			windower.send_command('gs c set weapons '..original_weapon..'; gs c autows tp 1000;')	
 			update_melee_groups()
 		end
 	end
