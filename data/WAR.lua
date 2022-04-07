@@ -362,7 +362,7 @@ function job_aftercast(spell, spellMap, eventArgs)
 			local self_vector = windower.ffxi.get_mob_by_id(player.id)
 			local angle = (math.atan2((player.target.y - self_vector.y), (player.target.x - self_vector.x))*180/math.pi)*-1
 			windower.ffxi.turn((getAngle()+180):radian()+math.pi)
-			windower.ffxi.turn:schedule(3.9,((angle):radian()))
+			windower.ffxi.turn:schedule(3.5,((angle):radian()))
 		end
 		if spell.type == 'WeaponSkill' and not spell.interrupted then
 			if spell.english == 'Armor Break' then
@@ -400,6 +400,10 @@ function update_melee_groups()
 		if state.Buff['Mighty Strikes'] then
 			classes.CustomMeleeGroups:append('Mighty')
 		end
+        
+        if state.HybridMode.value == 'SubtleBlow' and buffactive['Auspice'] then
+            classes.CustomMeleeGroups:append('Auspice')
+        end
 		
 		if (player.equipment.main == "Conqueror" and buffactive['Aftermath: Lv.3']) or ((player.equipment.main == "Bravura" or player.equipment.main == "Ragnarok") and state.Buff['Aftermath']) then
 				classes.CustomMeleeGroups:append('AM')

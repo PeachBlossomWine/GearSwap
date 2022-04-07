@@ -2,8 +2,6 @@ if item_available("Chango") then
 	gear.war_greataxe = "Chango"
 elseif item_available("Lycurgos") then
     gear.war_greataxe = "Lycurgos"
-else
-	gear.war_greataxe = "Kaja Chopper"
 end
 
 if item_available("Mutsunokami +1") then
@@ -277,15 +275,21 @@ sets.engaged.SubtleBlow ={
 	body="Dagon Breast.",												-- 10 II
 	hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},			-- 8
 	legs="Sakpata's Cuisses",
-	feet="Sakpata's Leggings",											-- 6
+	feet="Sakpata's Leggings",											-- 13
 	neck=gear.war_jse_neck,
-	waist="Ioskeha Belt +1",
-	left_ear="Telos Earring",
+	waist="Sarissapho. Belt",	                                        -- 5
+	left_ear="Schere Earring",                                          -- 3
 	right_ear="Digni. Earring",											-- 5
 	left_ring="Chirich Ring +1",										-- 10
 	right_ring="Niqmaddu Ring",											-- 5 II
 	back=gear.jse_da_back,		
 }
+
+sets.engaged.SubtleBlow.Auspice = set_combine(sets.engaged.SubtleBlow, {
+	waist="Ioskeha Belt +1",
+	left_ear="Telos Earring",
+	right_ear="Cessance Earring",
+})
 
 sets.engaged.Enmity = set_combine(sets.engaged.DT, {right_ear="Schere Earring"})
 
