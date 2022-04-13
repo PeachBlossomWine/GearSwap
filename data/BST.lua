@@ -227,7 +227,7 @@ function job_setup()
 	state.AutoReadyMode = M(false, 'Auto Ready Mode')
 	state.AutoCallPet = M(false, 'Auto Call Pet')
 	state.PetMode = M{['description']='Pet Mode','Tank','DD'}
-	state.RewardMode = M{['description']='Reward Mode', 'Theta', 'Zeta', 'Eta'}
+	state.RewardMode = M{['description']='Reward Mode', 'Theta'}
     state.JugMode = M{['description']='Jug Mode', 'ScissorlegXerin', 'BlackbeardRandy', 'AttentiveIbuki', 'AgedAngus',
                 'RedolentCandi','DroopyDortwin','WarlikePatrick','HeraldHenry','AlluringHoney','SwoopingZhivago','AcuexFamiliar'}
 
@@ -469,14 +469,15 @@ function job_aftercast(spell, spellMap, eventArgs)
 			end
         end
 		
-		if not spell.interrupted and spell.english == 'TP Drainkiss' then
-			windower.send_command('input /p '..str_using..' -'..auto_translate('Sic')..' '..spell.english..'! -<t>-; wait 15; input /p '..auto_translate('Sic').. ' ' ..spell.english.. '! '..str_remaining..'15'..str_seconds..';')
+		if not spell.interrupted and spell.english == 'TP Drainkiss' and not state.Buff["Unleash"] then
+			windower.send_command('input /p '..str_using..' -'..auto_translate('Sic')..' '..spell.english..'! -<t>-; wait 20; input /p '..auto_translate('Sic').. ' ' ..spell.english.. '! '..str_remaining..'10'..str_seconds..';')
 		end
 		
 		if state.Buff["Unleash"] and UnleashLock and not UnleashLocked then
 			UnleashLocked = true
 			disable('main','sub','range','ammo','head','neck','lear','rear','body','hands','lring','rring','back','waist','legs','feet')
 			add_to_chat(217, "Unleash is on, locking your current Ready set.")
+            windower.send_command('input /p '..str_using..' -'..auto_translate('Unleash')..'; wait 50; input /p '..auto_translate('Unleash')..' 10s remaining! <scall19>; wait 10; input /p '..auto_translate('Unleash')..'is OFF! <scall17>')
 		end
 		eventArgs.handled = true
 	elseif spell.english == "Bestial Loyalty" or spell.english == 'Call Beast' then
