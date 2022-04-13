@@ -1349,7 +1349,7 @@ function check_sub()
 			end
 		end
 		-- 143 157
-		if (player.main_job == 'SCH' or player.sub_job == 'SCH' and not buffactive['SJ Restriction']) then
+		if (player.main_job == 'SCH' or player.sub_job == 'SCH' and not buffactive['SJ Restriction']) and not buffactive['impairment'] then
 			if abil_recasts[234] < latency then
 				if state.AutoSubMode.value == 'Sleep' then
 					if buffactive['Sublimation: Complete'] then
