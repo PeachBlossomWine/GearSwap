@@ -410,12 +410,11 @@ function check_arts()
 	if buffup ~= '' or (not data.areas.cities:contains(world.area) and ((state.AutoArts.value and player.in_combat) or state.AutoBuffMode.value ~= 'Off')) then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		if abil_recasts[29] < latency and not state.Buff['Afflatus Solace'] and not state.Buff['Afflatus Misery'] then
+		if abil_recasts[29] < latency and not state.Buff['Afflatus Solace'] and not state.Buff['Afflatus Misery'] and not buffactive['impairment'] then
 			send_command('@input /ja "Afflatus Solace" <me>')
 			tickdelay = os.clock() + 1
 			return true
-
-		elseif player.sub_job == 'SCH' and not (state.Buff['SJ Restriction'] or arts_active()) and abil_recasts[228] < latency then
+		elseif player.sub_job == 'SCH' and not buffactive['impairment'] and not (state.Buff['SJ Restriction'] or arts_active()) and abil_recasts[228] < latency then
 			send_command('@input /ja "Light Arts" <me>')
 			tickdelay = os.clock() + 1
 			return true

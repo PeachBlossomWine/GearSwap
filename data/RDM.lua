@@ -104,7 +104,7 @@ function job_pretarget(spell, spellMap, eventArgs)
 end
 
 function job_precast(spell, spellMap, eventArgs)
-
+    local abil_recasts = windower.ffxi.get_ability_recasts()
 	if spell.action_type == 'Magic' then
 		if state.Buff.Chainspell then
 			eventArgs.handled = true
@@ -124,6 +124,12 @@ function job_precast(spell, spellMap, eventArgs)
 			windower.chat.input('/ma "Phalanx II" '..spell.target.raw)
 			cancel_spell()
 			eventArgs.cancel = true
+        elseif (spell.english == 'Silence' or spell.english:contains('Gravity')) and abil_recasts[36] < latency and not buffactive['Saboteur'] and not silent_check_amnesia() then
+            add_to_chat(122,'Using - Saboteur!')
+			windower.chat.input('/ja Saboteur <me>')
+            windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
+			eventArgs.cancel = true
+            tickdelay = os.clock() + 4.6
 		end
 		
         if state.CastingMode.value == 'Proc' then

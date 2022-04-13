@@ -7,7 +7,7 @@ sets.weapons.Lycurgos = {main="Lycurgos", sub="Utu Grip"}
 -- 62 + 23 Weapon = 85
 
 sets.Enmity = {
-	ammo="Staunch Tathlum +1",													-- 3
+	ammo=gear.dt_ammo,													        -- 3
 	head={name="Halitus Helm",priority=88},										-- 			8
 	body={name="Nyame Mail",priority=136},										-- 10
 	hands={name="Kurys Gloves",priority=25},									-- 2	/	9
@@ -32,13 +32,13 @@ sets.Enmity.DT = sets.Enmity
 -- Enmity: 	25 + 23 Weapon = 48
 
 sets.Enmity.SIRD = {															--SIRD	/	DT-PDT	/	Enmity
-	ammo="Staunch Tathlum +1",													-- 11	/	3
+	ammo=gear.dt_ammo,											        		-- 11	/	3
 	head={name="Agwu's Cap",priority=38},										-- 10				/	
 	body={name="Nyame Mail",priority=136},										--		/	9
 	hands={name="Regal Gauntlets",priority=500},								-- 10
 	legs={name="Carmine Cuisses +1",priority=50},								-- 20
-	feet={name="Nyame Sollerets",priority=68},									--		/	7
-	neck="Moonlight Necklace",													-- 15				/	15
+	feet=gear.sird_feet,	                					    			--		/	7
+	neck=gear.sird_neck,    													-- 15				/	15
 	waist="Audumbla Sash",														-- 10	/	4
 	left_ear="Magnetic Earring",												-- 8
 	right_ear={name="Odnowa Earring +1",priority=500},							-- 			3
@@ -63,7 +63,7 @@ sets.precast.JA['Battuta'] = set_combine(sets.Enmity,{
 	feet={name=gear.run_tank_feet,priority=76}, 
 	back=gear.tank_back
 })
-sets.precast.JA['Liement'] = set_combine(sets.Enmity,{body="Futhark Coat +3",back={name="Moonlight Cape",priority=500},})
+sets.precast.JA['Liement'] = set_combine(sets.Enmity,{body="Futhark Coat +3",back={name=gear.dt_moon_back,priority=500},})
 sets.precast.JA['Gambit'] = set_combine(sets.Enmity,{hands={name="Runeist's Mitons +3",priority=85},})
 sets.precast.JA['Rayke'] = set_combine(sets.Enmity,{feet="Futhark Boots +1"})
 sets.precast.JA['Elemental Sforzo'] = set_combine(sets.Enmity,{body={name="Futhark Coat +3",priority=119},})
@@ -196,7 +196,7 @@ sets.precast.WS.Tank = {
 	legs={name="Nyame Flanchard",priority=114},
 	feet={name="Nyame Sollerets",priority=68},
 	neck={name=gear.run_jse_neck,priority=60},
-	waist="Flume Belt +1",
+	waist=gear.dt_waist,
 	left_ear="Sherida Earring",
 	right_ear={name="Odnowa Earring +1",priority=500},
 	left_ring={name=gear.moon_ring,priority=500},
@@ -216,14 +216,14 @@ sets.midcast.FastRecast.DT = sets.precast.FC
 
 -- Enhancing duration
 sets.midcast['Enhancing Magic'] = {
-	ammo="Staunch Tathlum +1",
+	ammo=gear.dt_ammo,
 	head="Erilaz Galea +1",															-- 15%
 	body={name="Runeist's Coat +3",priority=218},
 	hands={name="Regal Gauntlets",priority=205},									-- 20%
 	legs={ name="Futhark Trousers +3",priority=107},								-- 30%
 	feet={name="Nyame Sollerets",priority=500},
 	neck="Incanter's Torque",
-	waist="Flume Belt +1",
+	waist=gear.dt_waist,
 	left_ear="Andoaa Earring",
 	right_ear={name="Odnowa Earring +1",priority=500},
 	left_ring="Defending Ring",
@@ -236,38 +236,38 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic']
 -- 455 Enhancing
 -- 39% PDT/DT
 sets.midcast['Phalanx'] = {
-	ammo="Staunch Tathlum +1",
+	ammo=gear.dt_ammo,
 	head="Futhark Bandeau +3",														-- Phalanx +7
 	body=gear.taeon_phalanx_body,													-- Phalanx +3
 	hands={name="Regal Gauntlets",priority=205},									-- 20%
 	legs=gear.taeon_phalanx_legs,													-- Phalanx +3
 	feet=gear.taeon_phalanx_feet,													-- Phalanx +3
 	neck=gear.run_jse_neck,
-	waist="Flume Belt +1",
+	waist=gear.dt_waist,
 	left_ear="Andoaa Earring",														-- 5
 	right_ear={name="Odnowa Earring +1",priority=500},
 	left_ring={name=gear.moon_ring,priority=500},
 	right_ring={name="Gelatinous Ring +1",priority=500},
-	back={name="Moonlight Cape",priority=500},
+	back={name=gear.dt_moon_back,priority=500},
 }
 
 sets.midcast['Phalanx'].DT = set_combine(sets.midcast['Phalanx'], {})
 
 -- 503 Skill
 sets.midcast['Temper'] = {
-	ammo="Staunch Tathlum +1",
+	ammo=gear.dt_ammo,
 	head="Carmine Mask +1",																			-- 11
 	body={name="Runeist's Coat +3",priority=218},
 	hands="Runeist's Mitons +3",																	-- 19
 	legs={name="Carmine Cuisses +1",priority=50},													-- 18
 	feet={name="Nyame Sollerets",priority=68},
 	neck="Incanter's Torque",																		-- 10
-	waist="Flume Belt +1",
+	waist=gear.dt_waist,
 	left_ear="Andoaa Earring",																		-- 5
 	right_ear={name="Odnowa Earring +1",priority=500},
 	left_ring="Defending Ring",
 	right_ring={name="Gelatinous Ring +1",priority=500},
-	back={name="Moonlight Cape",priority=500},
+	back={name=gear.dt_moon_back,priority=500},
 }
 sets.midcast['Temper'].SIRD = set_combine(sets.midcast['Temper'], {})
 sets.midcast['Temper'].DT = set_combine(sets.midcast['Temper'], {})
@@ -342,9 +342,9 @@ sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Shell.SIRD = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Shell.DT = set_combine(sets.midcast['Enhancing Magic'], {})
 
--- sets.midcast.Cure = set_combine(sets.Enmity.SIRD, {})
--- sets.midcast.Cure.SIRD = set_combine(sets.Enmity.SIRD, {})
--- sets.midcast.Cure.DT = set_combine(sets.Enmity.SIRD, {})
+sets.midcast['Raise'] = set_combine(sets.Enmity.SIRD, {})
+sets.midcast['Raise'].SIRD = set_combine(sets.Enmity.SIRD, {})
+sets.midcast['Raise'].DT = set_combine(sets.Enmity.SIRD, {})
 
 sets.midcast['Healing Magic'] = set_combine(sets.Enmity.SIRD, {})
 sets.midcast['Healing Magic'].SIRD = set_combine(sets.Enmity.SIRD, {})
@@ -363,7 +363,7 @@ sets.idle = {
 	legs={name="Nyame Flanchard",priority=114},												-- 		 	/ 9 DT	/
 	feet={name=gear.run_tank_feet,priority=500},																
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
-	waist="Flume Belt +1",																	-- 4 PDT 	/		/
+	waist=gear.dt_waist,																	-- 4 PDT 	/		/
 	left_ear={name="Etiolation Earring",priority=50},
 	right_ear={name="Odnowa Earring +1",priority=500},										--			/		/	2 MDT
 	left_ring="Defending Ring",
@@ -374,7 +374,7 @@ sets.idle = {
 sets.idle.Refresh = set_combine(sets.idle, {head="Rawhide Mask", legs="Rawhide Trousers", feet="Nyame Sollerets"})
 sets.idle.Weak = sets.idle
 
-sets.Kiting = {ammo="Staunch Tathlum +1", legs="Carmine Cuisses +1"}
+sets.Kiting = {ammo=gear.dt_ammo, legs="Carmine Cuisses +1"}
 
 sets.latent_refresh = {waist="Fucho-no-obi"}
 sets.DayIdle = {}
@@ -390,19 +390,19 @@ sets.TreasureHunter = set_combine(sets.TreasureHunter, {hands=gear.herculean_tre
 
 -- Set for Sleep/Stun/Petrify
 sets.defense.PDT = {
-	ammo="Staunch Tathlum +1",
+	ammo=gear.dt_ammo,
 	head={name="Nyame Helm",priority=91},
 	body="Nyame Mail",																	
 	hands={name="Nyame Gauntlets",priority=91},																
 	legs={name="Nyame Flanchard",priority=114},
 	feet="Nyame Sollerets",
 	neck={name=gear.run_jse_neck,priority=60},
-	waist="Flume Belt +1",
+	waist=gear.dt_waist,
 	left_ear={name="Etiolation Earring",priority=50},
 	right_ear={name="Odnowa Earring +1",priority=500},
 	left_ring={name=gear.moon_ring,priority=500},
 	right_ring={name="Gelatinous Ring +1",priority=500},
-	back={name="Moonlight Cape",priority=500},
+	back={name=gear.dt_moon_back,priority=500},
 }
 	
 sets.defense.MEVA = sets.defense.PDT
@@ -467,14 +467,14 @@ sets.engaged.Ongo =  set_combine(sets.engaged.DTLite , {
 --  3452 HP
 
 sets.engaged.Tank = {
-	ammo="Staunch Tathlum +1",																-- 			/ 3 DT	/			
+	ammo=gear.dt_ammo,																-- 			/ 3 DT	/			
 	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
 	body={name="Runeist's Coat +3",priority=218},											--					
 	hands={name="Turms Mittens +1",priority=74},											--					
 	legs={name="Nyame Flanchard",priority=114},												--   		/ 8 DT	/
 	feet={name=gear.run_tank_feet,priority=76},												--					
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
-	waist="Flume Belt +1",																	-- 4 PDT 	/		/
+	waist=gear.dt_waist,																	-- 4 PDT 	/		/
 	left_ear={name="Etiolation Earring",priority=50},
 	right_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
 	left_ring="Eihwaz Ring",
@@ -483,7 +483,7 @@ sets.engaged.Tank = {
 }
 
 sets.engaged.MEVA = {
-	ammo="Staunch Tathlum +1",																-- 			/ 3 DT	/			
+	ammo=gear.dt_ammo,																-- 			/ 3 DT	/			
 	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
 	body={name="Runeist's Coat +3",priority=218},											--					
 	hands={name="Nyame Gauntlets",priority=91},												--					

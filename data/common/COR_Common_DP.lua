@@ -139,6 +139,14 @@ sets.precast.WS = {
 	back=gear.jse_str_back,
 }
 
+-- 31 SB
+sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
+    neck="Bathy Choker +1",
+	waist="Sarissapho. Belt",
+    left_ear="Digni. Earring",
+	right_ring="Chirich Ring +1",
+})
+
 -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 sets.precast.WS['Evisceration'] = {
 	head="Nyame Helm",
@@ -187,6 +195,14 @@ sets.precast.WS['Last Stand'] = {
 	right_ring="Dingir Ring",
 	back=gear.jse_agi_back
 }
+
+-- 31 SB
+sets.precast.WS['Last Stand'].SubtleBlow = set_combine(sets.precast.WS['Last Stand'] , {
+    neck="Bathy Choker +1",
+	waist="Sarissapho. Belt",
+    left_ear="Digni. Earring",
+	right_ring="Chirich Ring +1",
+})
 
 sets.precast.WS['Wildfire'] = {
 	ammo=gear.MAbullet,

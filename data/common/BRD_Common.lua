@@ -64,19 +64,26 @@ sets.precast.WS = {
 	feet="Nyame Sollerets",
 	neck="Bard's Charm +1",
 	waist="Fotia Belt",
-	left_ear="Ishvara Earring",			-- 2%
+	left_ear="Ishvara Earring",			    -- 2%
 	right_ear="Moonshade Earring",
 	left_ring="Ilabrat Ring",
 	right_ring="Rufescent Ring",			-- 3%
-	back=gear.wsd_back,					-- 10%
+	back=gear.wsd_back,					    -- 10%
 }
+
+-- 20 SB
+sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
+	waist="Sarissapho. Belt",
+    left_ear="Digni. Earring",
+	right_ring="Chirich Ring +1",
+})
 
 sets.precast.WS['Rudra\'s Storm'] = {
 	range=gear.wsd_linos,
 	head="Nyame Helm",
 	body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
 	hands="Nyame Gauntlets",
-	legs="Lustr. Subligar +1",
+	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Bard's Charm +1",
 	waist="Fotia Belt",
@@ -86,6 +93,14 @@ sets.precast.WS['Rudra\'s Storm'] = {
 	right_ring="Rufescent Ring",
 	back=gear.wsd_back,
 }
+
+-- 20 SB
+sets.precast.WS['Rudra\'s Storm'].SubtleBlow = set_combine(sets.precast.WS['Rudra\'s Storm'] , {
+	waist="Sarissapho. Belt",
+    left_ear="Digni. Earring",
+	right_ring="Chirich Ring +1",
+})
+
 
 sets.precast.WS['Savage Blade'] = {
 	range=gear.wsd_str_linos,
@@ -485,7 +500,7 @@ sets.engaged = {
 	left_ear="Crep. Earring",
 	right_ear="Telos Earring",
 	left_ring="Ilabrat Ring",
-	right_ring="Petrov Ring",
+	right_ring="Chirich Ring +1",
 	back=gear.tp_back,
 }
 

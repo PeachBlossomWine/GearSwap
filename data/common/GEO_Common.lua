@@ -117,12 +117,12 @@ sets.precast.FC = {
 
 sets.precast.FC.DT = set_combine(sets.precast.FC, {back={name=gear.dt_moon_back,priority=1},left_ear={name="Odnowa Earring +1",priority=1},})
 
-sets.precast.FC.Geomancy = set_combine(sets.precast.FC, { neck="Bagua Charm +1"	})
+sets.precast.FC.Geomancy = set_combine(sets.precast.FC, { neck=gear.geo_jse_neck })
 sets.precast.FC.Geomancy.Indi = sets.precast.FC.Geomancy		
 sets.precast.FC.Cure = set_combine(sets.precast.FC, {})
 sets.precast.FC.Curaga = sets.precast.FC.Cure
 
-sets.precast.FC.Geomancy.DT = set_combine(sets.precast.FC.DT, { neck="Bagua Charm +1"	})
+sets.precast.FC.Geomancy.DT = set_combine(sets.precast.FC.DT, { neck=gear.geo_jse_neck })
 sets.precast.FC.Geomancy.Indi.DT = sets.precast.FC.Geomancy.DT
 sets.precast.FC.Cure.DT = set_combine(sets.precast.FC.DT, {})
 sets.precast.FC.Curaga.DT = sets.precast.FC.Cure.DT
@@ -344,7 +344,7 @@ sets.midcast['Enfeebling Magic'] = {
 	hands="Geo. Mitaines +3",
 	legs={name="Geomancy Pants +3",priority=1},
 	feet="Geomancy Sandals +3",
-	neck="Bagua Charm +1",
+	neck=gear.geo_jse_neck,
 	waist="Luminary Sash",
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
@@ -364,7 +364,7 @@ sets.midcast['Enfeebling Magic'].Resistant = {
 	hands="Geo. Mitaines +3",
 	legs="Geomancy Pants +3",
 	feet="Geomancy Sandals +3",
-	neck="Bagua Charm +1",
+	neck=gear.geo_jse_neck,
 	waist="Luminary Sash",
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
@@ -526,7 +526,7 @@ sets.idle.Pet = {																										--Regen / Pet DT
 	hands="Geomancy Mitaines +3",																						-- 0 / 13
 	legs=gear.telchine_pet_legs,																						-- 3
 	feet="Bagua Sandals +3",																						-- 5
-	neck="Bagua Charm +1",
+	neck=gear.geo_jse_neck,
 	waist="Isa Belt",																									-- 1 / 3
 	left_ear="Odnowa Earring +1",																						
 	right_ear="Etiolation Earring",																						
@@ -545,7 +545,7 @@ sets.idle.DT.Pet = {
 	hands="Geomancy Mitaines +3",																						-- 0 / 13
 	legs="Nyame Flanchard",																							-- 3 / 0
 	feet="Bagua Sandals +3",																						-- 5
-	neck="Bagua Charm +1",
+	neck=gear.geo_jse_neck,
 	waist="Isa Belt",																									-- 1 / 0
 	left_ear={name="Odnowa Earring +1",priority=1},										-- 3
 	right_ear={name="Etiolation Earring",priority=1},														

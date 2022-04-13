@@ -2,7 +2,7 @@ state.OffenseMode:options('Normal')
 state.HybridMode:options('Normal')
 state.CastingMode:options('Normal','Melee')
 state.IdleMode:options('DT', 'Normal')
-
+state.WeaponskillMode:options('Normal','SubtleBlow')
 state.Weapons:options('None','Carnwenhan','Aeneas','Naegling','DualCarn','DualAeneas','DualSavage')
 
 -- Adjust this if using the Terpander (new +song instrument)

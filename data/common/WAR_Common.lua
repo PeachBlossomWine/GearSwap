@@ -75,9 +75,11 @@ sets.precast.WS.Enmity = set_combine(sets.precast.WS, {
 	left_ear="Schere Earring",	
 })
 
+-- 31 SB
 sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
 	hands="Sakpata's Gauntlets",
 	feet="Sakpata's Leggings",
+    left_ear="Digni. Earring",
 	right_ring="Niqmaddu Ring",
 })
 
