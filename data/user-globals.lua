@@ -342,16 +342,20 @@ step_timer = 0
 
 function check_steps_subjob()
 	local abil_recasts = windower.ffxi.get_ability_recasts()
-
-	if state.AutoBuffMode.value ~= 'Off' and player.sub_job == 'DNC' and not buffactive['SJ Restriction'] and player.tp > 140 and not silent_check_amnesia() and os.clock() > step_timer and abil_recasts[220] < latency and player.status == 'Engaged' then
-		windower.add_to_chat('[AutoStep] Using Box Step')
-		windower.chat.input('/ja "Box Step" <t>')
-		tickdelay = os.clock() + 3.5
-		step_timer = os.clock() + 35
-		return true
-	else
-		return false
-	end
+    
+    if state.AutoBuffMode.value ~= 'Off' and not buffactive['SJ Restriction'] then
+        if player.sub_job == 'DNC' and player.tp > 140 and not silent_check_amnesia() and os.clock() > step_timer and abil_recasts[220] < latency and player.status == 'Engaged' then
+            windower.add_to_chat('[AutoStep] Using Box Step')
+            windower.chat.input('/ja "Box Step" <t>')
+            tickdelay = os.clock() + 3.5
+            step_timer = os.clock() + 35
+            return true
+        else
+            return false
+        end
+    else
+        return false
+    end
 end
 
 

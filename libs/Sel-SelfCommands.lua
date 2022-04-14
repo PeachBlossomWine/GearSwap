@@ -117,7 +117,9 @@ function handle_set(cmdParams)
     
     if state_var then
         local oldVal = state_var.value
-        state_var:set(cmdParams[2])
+        table.remove(cmdParams, 1)
+        local argstr = table.concat(cmdParams,' ')
+        state_var:set(argstr)
         local newVal = state_var.value
 		
 		if toggleset and newVal == oldVal and newVal ~= 'Single' then
