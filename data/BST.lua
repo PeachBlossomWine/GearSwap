@@ -470,19 +470,24 @@ function job_aftercast(spell, spellMap, eventArgs)
         end
 		
 		if not spell.interrupted and spell.english == 'TP Drainkiss' and not state.Buff["Unleash"] then
-			windower.send_command('input /p '..str_using..' -'..auto_translate('Sic')..' '..spell.english..'! -<t>-; wait 20; input /p '..auto_translate('Sic').. ' ' ..spell.english.. '! '..str_remaining..'10'..str_seconds..';')
+            windower.send_command('wait 20; input /p '..auto_translate('Ready')..str_remaining..' 10s remaining!;')
 		end
 		
 		if state.Buff["Unleash"] and UnleashLock and not UnleashLocked then
 			UnleashLocked = true
 			disable('main','sub','range','ammo','head','neck','lear','rear','body','hands','lring','rring','back','waist','legs','feet')
 			add_to_chat(217, "Unleash is on, locking your current Ready set.")
-            windower.send_command('input /p '..str_using..' -'..auto_translate('Unleash')..'; wait 50; input /p '..auto_translate('Unleash')..' 10s remaining! <scall19>; wait 10; input /p '..auto_translate('Unleash')..'is OFF! <scall17>')
 		end
+       
 		eventArgs.handled = true
 	elseif spell.english == "Bestial Loyalty" or spell.english == 'Call Beast' then
 		eventArgs.handled = true
 	end
+
+    if not spell.interrupted and spell.english == 'Unleash' then
+        windower.send_command('input /p '..str_using..' -'..auto_translate('Unleash')..'; wait 50; input /p '..auto_translate('Unleash')..' 10s remaining! <scall116>; wait 10; input /p '..auto_translate('Unleash')..' is OFF! <scall13>')
+    end
+
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -687,16 +692,16 @@ function check_ready()
 			if get_current_ready_count() > 0 and abil_recasts[102] < latency  then
 				if pet.status == "Idle" and player.target.type == "MONSTER" and abil_recasts[100] < latency then
 					windower.chat.input('/pet Fight <t>')
-					tickdelay = os.clock() + 2
+					tickdelay = os.clock() + 1.7
 					return true
 				elseif pet.status == "Engaged" then 
 					windower.send_command('gs c ready')
-					tickdelay = os.clock() + 2
+					tickdelay = os.clock() + 1.7
 					return true
 				end
 			elseif get_current_ready_count() <= 0 and abil_recasts[102] > latency and pet.status == "Engaged" and not buffactive['Unleash'] then
 				windower.send_command:schedule(1,'input /pet "Heel" <me>')
-				tickdelay = os.clock() + 3
+				tickdelay = os.clock() + 1.7
 				return true
 			else
 				return false

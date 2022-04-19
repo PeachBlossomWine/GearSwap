@@ -147,6 +147,8 @@ end
 -- Need to use this event handler to listen for deaths in case Battlemod is loaded,
 -- because Battlemod blocks the 'action message' event.
 
+str_using = string.char(130,240,142,103,151,112,130,181,130,196)
+str_stars = string.char(129,154,129,153)
 -- This function removes mobs from our tracking table when they die.
 function on_incoming_chunk_for_dd(id, data, original, modified, injected, blocked)
     if id == 0x29 then
@@ -168,18 +170,30 @@ function on_incoming_chunk_for_dd(id, data, original, modified, injected, blocke
                 if _settings.debug_mode then add_to_chat(123,'Mob '..target_id..' died. Removing from tagged mobs table.') end
                 dd_info.tagged_mobs[target_id] = nil
             end
-		elseif packet.Message == 206 and state.DefenseDownMode.value == 'Tag' then
-			local name = windower.ffxi.get_mob_by_index(packet['Target Index'])
-			if packet['Param 1'] == 149 and name.is_npc then
-				windower.add_to_chat(3,"Defense Down is now *OFF* on: " .. name.name)
-				if player.main_job == 'SAM' then
-					windower.send_command('gs c autows Tachi: Ageha')
-				elseif player.main_job == 'DRK' then
-					windower.send_command('gs c set weapons Lycurgos; gs c autows tp 1750;')
-				elseif player.main_job == 'WAR' then
-					windower.send_command('gs c autows Armor Break; gs c set weapons Chango; gs c autows tp 1750;')
-				end
-			end
+		elseif packet.Message == 206 then
+            if state.DefenseDownMode.value == 'Tag' then
+                local name = windower.ffxi.get_mob_by_index(packet['Target Index'])
+                if packet['Param 1'] == 149 and name.is_npc then
+                    windower.add_to_chat(3,"Defense Down is now *OFF* on: " .. name.name)
+                    if player.main_job == 'SAM' then
+                        windower.send_command('gs c autows Tachi: Ageha')
+                    elseif player.main_job == 'DRK' then
+                        windower.send_command('gs c set weapons Lycurgos; gs c autows tp 1750;')
+                    elseif player.main_job == 'WAR' then
+                        windower.send_command('gs c autows Armor Break; gs c set weapons Chango; gs c autows tp 1750;')
+                    end
+                end
+            else
+                local name = windower.ffxi.get_mob_by_index(packet['Target Index'])
+                if packet['Param 1'] == 149 and name.is_npc then
+                    windower.send_command("input /p Defense Down is now *OFF* on: " .. name.name)
+                end
+            end
+        end
+    elseif id == 0x028 then
+        local packet = packets.parse('incoming', data)
+        if packet['Target 1 Action 1 Message'] == 226 and player.main_job == "BST" and packet.Actor == pet.id then
+            windower.send_command('input /p '..str_using..' -'..auto_translate('Ready')..' TP: '..str_stars..'[ ' ..packet['Target 1 Action 1 Param']..' ]'..str_stars)
         end
     end
 end
