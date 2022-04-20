@@ -274,9 +274,9 @@ function job_filter_precast(spell, spellMap, eventArgs)
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
 		if abil_recasts[94] ~= 0 then
-				send_command('@input /ja "Call Beast" <me>')
-                eventArgs.cancel = true
-				return
+            send_command('@input /ja "Call Beast" <me>')
+            eventArgs.cancel = true
+            return
 		end
 
     end

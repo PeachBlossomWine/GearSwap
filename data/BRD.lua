@@ -158,7 +158,7 @@ function job_filter_precast(spell, spellMap, eventArgs)
         end
 		if spell.english:contains('Minne') and not buffactive['Pianissimo'] and not buffactive['Tenuto'] and abil_recasts[47] < latency then
 			if spell_recasts[spell.recast_id] < 1.5 then
-				send_command('@input /ja "Tenuto" <me>; wait 1.2; input /ma "'..spell.name..'" ..spell.target.name')
+				send_command('@input /ja "Tenuto" <me>; wait 1.2; input /ma "'..spell.name..'" '..spell.target.name)
 				eventArgs.cancel = true
 			end
 		end
