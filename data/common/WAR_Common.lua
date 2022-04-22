@@ -4,12 +4,6 @@ elseif item_available("Lycurgos") then
     gear.war_greataxe = "Lycurgos"
 end
 
-if item_available("Mutsunokami +1") then
-	gear.war_procGK = "Mutsunokami +1"
-else
-	gear.war_procGK = "Ark Tachi"
-end
-
 -- Precast Sets
 sets.Enmity = {}
 sets.Knockback = {}
@@ -22,7 +16,7 @@ sets.weapons.Loxotic = {main="Loxotic Mace +1",sub="Blurred Shield +1"}
 
 -- Proc sets
 sets.weapons.ProcKatana = {main="Trainee Burin",sub="Qutrub Knife"}
-sets.weapons.ProcGreatKatana = {main=gear.war_procGK,sub="Utu Grip"}
+sets.weapons.ProcGreatKatana = {main="Mutsunokami +1",sub="Utu Grip"}
 sets.weapons.ProcDagger = {main="Qutrub Knife",sub="Trainee Burin"}
 sets.weapons.ProcSword = {main="Nihility",sub="Qutrub Knife"}
 sets.weapons.ProcClub = {main="Burrower's Wand",sub="Qutrub Knife"}
@@ -77,7 +71,7 @@ sets.precast.WS.Enmity = set_combine(sets.precast.WS, {
 
 -- 31 SB
 sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
-	hands="Sakpata's Gauntlets",
+	--hands="Sakpata's Gauntlets",
 	feet="Sakpata's Leggings",
     left_ear="Digni. Earring",
 	right_ring="Niqmaddu Ring",
@@ -107,8 +101,8 @@ sets.precast.WS['Savage Blade'].SubtleBlow = set_combine(sets.precast.WS.SubtleB
 sets.precast.WS['Savage Blade'].KI = set_combine(sets.precast.WS.KI, {})
 sets.precast.WS['Savage Blade'].KI.SubtleBlow = set_combine(sets.precast.WS.KI.SubtleBlow, {})
 
-sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Impulse Drive'].SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {})
+sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {body="Dagon Breast."})
+sets.precast.WS['Impulse Drive'].SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {body="Dagon Breast."})
 sets.precast.WS['Impulse Drive'].KI = set_combine(sets.precast.WS.KI, {})
 sets.precast.WS['Impulse Drive'].KI.SubtleBlow = set_combine(sets.precast.WS.KI.SubtleBlow, {})
 
@@ -207,7 +201,7 @@ sets.idle = {
 
 sets.resting = sets.idle
 sets.idle.Weak = set_combine(sets.idle, {})
-sets.idle.Reraise = set_combine(sets.idle, {head="Twilight Helm",body="Twilight Mail"})
+sets.idle.Reraise = set_combine(sets.idle, {})
 
 sets.defense.PDT = {
 	ammo="Staunch Tathlum +1",
@@ -229,7 +223,7 @@ sets.defense.MDT = sets.defense.PDT
 sets.defense.MEVA = sets.defense.PDT
 
 sets.Kiting = {feet="Hermes' Sandals"}
-sets.Reraise = {head="Twilight Helm",body="Twilight Mail"}
+sets.Reraise = {}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
 sets.buff.Retaliation = {}
 sets.buff.Restraint = {}
@@ -294,7 +288,5 @@ sets.engaged.SubtleBlow.Auspice = set_combine(sets.engaged.SubtleBlow, {
 })
 
 sets.engaged.Enmity = set_combine(sets.engaged.DT, {right_ear="Schere Earring"})
-
 sets.engaged.Proc = set_combine(sets.engaged.DT, {neck="Combatant's Torque"})
-
 sets.idle.Town = sets.engaged.DT

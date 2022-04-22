@@ -26,14 +26,6 @@ else
 	gear.geo_head_idle = gear.merlinic_refresh_head
 end
 
-if item_available('Bagua Mitaines +3') then
-	gear.geo_hand_idle = 'Bagua Mitaines +3'
-elseif item_available('Bagua Mitaines +2') then
-    gear.geo_hand_idle = 'Bagua Mitaines +2'
-elseif item_available('Bagua Mitaines +1') then
-	gear.geo_hand_idle = 'Bagua Mitaines +1'
-end
-
 if item_available('Bagua Pants +3') then
 	gear.geo_relic_legs = 'Bagua Pants +3'
 	gear.geo_freenuke_legs = 'Bagua Pants +3'
@@ -78,16 +70,13 @@ end
 --------------------------------------
 
 -- Precast sets to enhance JAs
-sets.EaStuff = {head="Ea Hat +1", body="Ea Houppelande", legs="Ea Slops +1"}
-sets.EaStuffNQ = {legs="Ea Slops"}
 sets.precast.JA.Bolster = {body="Bagua Tunic"}
 sets.precast.JA['Life Cycle'] = {body=gear.geo_body_enfeebling, back=gear.jse_pet_back}
 sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +3"}
-sets.precast.JA['Mending Halation'] = {legs=geo_relic_legs}
-sets.precast.JA['Full Circle'] = {head="Azimuth Hood +1",hands=gear.geo_hand_idle}
+sets.precast.JA['Mending Halation'] = {legs=gear.geo_relic_legs}
+sets.precast.JA['Full Circle'] = {head="Azimuth Hood +1",hands="Bagua Mitaines +3"}
 
 -- Indi Duration in slots that would normally have skill here to make entrust more efficient.
-sets.buff.Entrust = {}
 
 -- Relic hat for Blaze of Glory HP increase.
 sets.buff['Blaze of Glory'] = {}
@@ -111,7 +100,7 @@ sets.precast.FC = {
 	left_ear="Loquac. Earring",																						-- 2
 	right_ear="Etiolation Earring",																					-- 1
 	left_ring="Weather. Ring +1",																					-- 4
-	right_ring="Lebeche Ring",																						-- QC
+	right_ring={name="Gelatinous Ring +1",priority=500},
 	back=gear.jse_skill_back,																						-- 7
 }
 
@@ -168,26 +157,27 @@ sets.midcast.FastRecast = sets.precast.FC
 -- Skill gear + MP not depleted + Conserve MP
 -- 850 Skill + 55
 -- 101% Conserve MP goal, GEO has 43%, need 57% to cap
--- CMP: 53%
+-- CMP: 59%
 sets.midcast.Geomancy = {
 	main="Idris",			
 	sub="Genmei Shield",
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},		-- 				GEO +18
-	head="Azimuth Hood +1",															-- 				GEO +15
+	head="Vanya Hood",															    -- CMP 6
 	body="Vedic Coat",																-- CMP 10
 	hands="Shrieker's Cuffs",														-- CMP 7
 	legs="Vanya Slops",																-- CMP 12
 	feet="Vanya Clogs",																-- CMP 6
-	neck="Incanter's Torque",														--				GEO +20
+	neck="Loricate Torque +1",
 	waist="Luminary Sash",															-- CMP 4
 	left_ear="Magnetic Earring",													-- CMP 5
 	right_ear="Calamitous Earring",													-- CMP 4
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
-	back="Solemnity Cape",															-- CMP 5
+	--back="Solemnity Cape",															-- CMP 5
+    back={name=gear.dt_moon_back,priority=500},
 }
 
-sets.midcast.Geomancy.DT = set_combine(sets.midcast.Geomancy, {back={name=gear.dt_moon_back,priority=1},left_ear={name="Odnowa Earring +1",priority=1},feet="Nyame Sollerets",})
+sets.midcast.Geomancy.DT = set_combine(sets.midcast.Geomancy, {})
 -- Indi Duration gear + Skill + Conserve MP
 -- 180 Base + 40s JP + 35s + 20% = 324s
 
@@ -195,10 +185,10 @@ sets.midcast.Geomancy.Indi = {
 	main="Idris",
 	sub="Genmei Shield",
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-	head="Azimuth Hood +1",
+	head="Nyame Helm",
 	body="Vedic Coat",
-	hands="Shrieker's Cuffs",														
-	legs=geo_relic_legs, 																-- 15s
+	hands="Nyame Gauntlets",													
+	legs=gear.geo_relic_legs, 															-- 15s
 	feet="Azimuth Gaiters +1",															-- 20s
 	neck="Incanter's Torque",
 	waist="Luminary Sash",															
@@ -209,9 +199,10 @@ sets.midcast.Geomancy.Indi = {
 	back=gear.jse_skill_back,															-- 20%
 }
 
-sets.midcast.Geomancy.Indi.DT = set_combine(sets.midcast.Geomancy.Indi, {hands={name="Nyame Gauntlets",priority=1},left_ear={name="Odnowa Earring +1",priority=1}})
+sets.midcast.Geomancy.Indi.DT = set_combine(sets.midcast.Geomancy.Indi, {})
 
 sets.midcast.Entrust = set_combine(sets.midcast.Geomancy.Indi, {main="Solstice"})
+sets.buff.Entrust = sets.midcast.Entrust
 	
 -- Cure Potency: 48%
 sets.midcast.Cure = {
@@ -326,14 +317,8 @@ sets.midcast['Dark Magic'].DT = set_combine(sets.midcast['Dark Magic'], {back={n
 		
 sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {})
 sets.midcast.Aspir = sets.midcast.Drain
-sets.midcast.Stun = sets.precast.FC
-sets.midcast.Stun.Resistant = sets.midcast.Stun
-
---DT
 sets.midcast.Drain.DT = set_combine(sets.midcast['Dark Magic'].DT, {})
 sets.midcast.Aspir.DT = sets.midcast.Drain.DT
-sets.midcast.Stun.DT = sets.precast.FC.DT
-
 	
 sets.midcast['Enfeebling Magic'] = {
 	main="Daybreak",
@@ -392,6 +377,11 @@ sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'], {
 	body=gear.impact_body,
 })
 
+sets.midcast.Stun = sets.midcast['Enfeebling Magic']
+sets.midcast.Stun.Resistant = sets.midcast['Enfeebling Magic'].Resistant
+sets.midcast.Stun.DT = sets.midcast.Stun
+sets.midcast.Stun.Resistant.DT = sets.midcast['Enfeebling Magic'].Resistant
+
 --DT
 sets.midcast.ElementalEnfeeble.DT = set_combine(sets.midcast['Enfeebling Magic'].DT, {})
 sets.midcast.IntEnfeebles.DT = set_combine(sets.midcast['Enfeebling Magic'].DT, {})
@@ -430,7 +420,7 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic']
 sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {neck="Nodens Gorget", waist="Siegel Sash"})
 sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {head="Amalric Coif +1",feet="Inspirited Boots", waist="Gishdubar Sash"})
 sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {main="Vadose Rod",head="Amalric Coif +1"})
-sets.midcast.BarElement = set_combine(sets.precast.FC['Enhancing Magic'], {})
+sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {})
 
 sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], {})
@@ -441,7 +431,7 @@ sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Stoneskin.DT = set_combine(sets.midcast['Enhancing Magic'].DT, {neck="Nodens Gorget", waist="Siegel Sash"})
 sets.midcast.Refresh.DT = set_combine(sets.midcast['Enhancing Magic'].DT, {head="Amalric Coif +1",feet="Inspirited Boots", waist="Gishdubar Sash"})
 sets.midcast.Aquaveil.DT = set_combine(sets.midcast['Enhancing Magic'].DT, {main="Vadose Rod",head="Amalric Coif +1"})
-sets.midcast.BarElement.DT = set_combine(sets.precast.FC['Enhancing Magic'].DT, {})
+sets.midcast.BarElement.DT = set_combine(sets.midcast['Enhancing Magic'].DT, {})
 
 sets.midcast.Protect.DT = set_combine(sets.midcast['Enhancing Magic'].DT, {})
 sets.midcast.Protectra.DT = set_combine(sets.midcast['Enhancing Magic'].DT, {})
@@ -465,7 +455,7 @@ sets.idle = {
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
 	head=gear.geo_head_idle,
 	body=gear.geo_body_idle,
-	hands=gear.geo_hand_idle,
+	hands="Bagua Mitaines +3",
 	legs="Assid. Pants +1",
 	feet="Geomancy Sandals +3",
 	neck="Sanctity Necklace",
@@ -488,10 +478,10 @@ sets.idle.DT = {
 	feet="Geomancy Sandals +3",
 	neck="Loricate Torque +1",															-- 6
 	waist="Porous Rope",
-	left_ear={name="Odnowa Earring +1",priority=1},										-- 3
-	right_ear={name="Etiolation Earring",priority=1},														
+	left_ear={name="Odnowa Earring +1",priority=500},										-- 3
+	right_ear={name="Etiolation Earring",priority=500},														
 	left_ring="Defending Ring",															-- 10
-	right_ring="Gelatinous Ring +1",													-- 7
+	right_ring={name="Gelatinous Ring +1",priority=500},										-- 7
 	back=gear.jse_pet_back,
 }
 

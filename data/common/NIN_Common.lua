@@ -6,7 +6,7 @@ sets.weapons.Tauret = {main="Tauret",sub="Kunimitsu"}
 
 -- Proc sets
 sets.weapons.ProcKatana = {main="Trainee Burin",sub="Qutrub Knife"}
-sets.weapons.ProcGreatKatana = {main="Uchigatana",sub=empty}
+sets.weapons.ProcGreatKatana = {main="Mutsunokami +1",sub=empty}
 sets.weapons.ProcDagger = {main="Qutrub Knife",sub="Trainee Burin"}
 sets.weapons.ProcSword = {main="Nihility",sub="Qutrub Knife"}
 sets.weapons.ProcClub = {main="Kyuka Uchiwa +1",sub="Qutrub Knife"}

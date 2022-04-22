@@ -123,7 +123,7 @@ sets.precast.FC = {
 	feet={name="Carmine Greaves +1",priority=95},																	-- 8
 	neck="Baetyl Pendant",																							-- 4
 	waist={name=gear.hp_belt,priority=500},
-	left_ear={name="Etiolation Earring",priority=50},																-- 1	
+	left_ear={name="Odnowa Earring +1",priority=500},																-- 1
 	right_ear={name="Tuisto Earring",priority=500},
 	left_ring="Weather. Ring +1",																					-- 6
 	right_ring={name="Gelatinous Ring +1",priority=500},
@@ -477,7 +477,7 @@ sets.engaged.Tank = {
 	waist=gear.dt_waist,																	-- 4 PDT 	/		/
 	left_ear={name="Etiolation Earring",priority=50},
 	right_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
-	left_ring="Eihwaz Ring",
+	left_ring={name=gear.moon_ring,priority=500},
 	right_ring={name="Gelatinous Ring +1",priority=500},									-- 7  PDT	/		/	-1 MDT
 	back=gear.tank_back,																	-- 10 PDT	/		/
 }

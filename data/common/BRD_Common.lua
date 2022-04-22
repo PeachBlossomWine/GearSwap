@@ -1,3 +1,11 @@
+if item_available("Brioso Justau. +3") then
+	gear.brd_af_body = "Brioso Justau. +3"	
+else
+	gear.brd_af_body = "Brioso Justau. +2"
+end
+
+
+
 -- Weapons sets
 sets.weapons.Aeneas = {main="Aeneas",sub="Genmei Shield"}
 sets.weapons.Carnwenhan = {main="Carnwenhan",sub="Genmei Shield"}
@@ -31,21 +39,21 @@ sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel
 
 -- 86% Song + FC combined
 sets.precast.FC.BardSong = set_combine(sets.precast.FC, {
-	head="Fili Calot +1",														-- 14
-	body="Brioso Justau. +3",													-- 15
+	head="Fili Calot +1",   												-- 14
+	body=gear.brd_af_body,													-- 15
 })
 
 sets.precast.FC.Daurdabla = set_combine(sets.precast.FC.BardSong, {range=info.ExtraSongInstrument})
 sets.precast.FC["Honor March"] = set_combine(sets.precast.FC.BardSong, {range="Marsyas"})
 
-sets.precast.FC.Daurdabla.Melee = set_combine(sets.precast.FC.BardSong.Melee, {range=info.ExtraSongInstrument})
+sets.precast.FC.Daurdabla.Melee = set_combine(sets.precast.FC.BardSong, {range=info.ExtraSongInstrument})
 sets.precast.FC["Honor March"].Melee = set_combine(sets.precast.FC.BardSong, {range="Marsyas"})
 
 -- Precast sets to enhance JAs
 
 sets.precast.JA['Nightingale'] = {feet="Bihu Slippers +3"}
 sets.precast.JA['Troubadour'] = {body="Bihu Justaucorps +3"}
-sets.precast.JA['Soul Voice'] = {legs="Brd. Cannions +2"}
+sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions +2"}
 
 -- Waltz set (chr and vit)
 sets.precast.Waltz = {}
@@ -58,7 +66,7 @@ sets.precast.FC['Dispelga'] = set_combine(sets.precast.FC, {main="Daybreak"})
 sets.precast.WS = {
 	range=gear.wsd_linos,																		-- 3
 	head="Nyame Helm",
-	body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},				-- 10%
+	body="Bihu Justaucorps +3",				-- 10%
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -81,7 +89,7 @@ sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
 sets.precast.WS['Rudra\'s Storm'] = {
 	range=gear.wsd_linos,
 	head="Nyame Helm",
-	body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
+	body="Bihu Justaucorps +3",	
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -105,7 +113,7 @@ sets.precast.WS['Rudra\'s Storm'].SubtleBlow = set_combine(sets.precast.WS['Rudr
 sets.precast.WS['Savage Blade'] = {
 	range=gear.wsd_str_linos,
 	head="Nyame Helm",
-	body={ name="Bihu Jstcorps. +3", augments={'Enhances "Troubadour" effect',}},
+	body="Bihu Justaucorps +3",	
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -237,7 +245,7 @@ sets.midcast.SongDebuff = {
 	left_ear="Dignitary's Earring",
 	right_ear="Regal Earring",
 	left_ring="Metamorph Ring +1",
-	right_ring="Kishar Ring",
+	right_ring="Weather. Ring +1",
 	back=gear.jse_back,
 }
 
@@ -263,7 +271,7 @@ sets.midcast.SongDebuff.Melee = {
 	left_ear="Dignitary's Earring",
 	right_ear="Regal Earring",
 	left_ring="Metamorph Ring +1",
-	right_ring="Kishar Ring",
+	right_ring="Weather. Ring +1",
 	back=gear.jse_back,
 }
 
@@ -475,7 +483,7 @@ sets.defense.PDT = {
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
-	back="Moonbeam Cape",
+	back=gear.dt_moon_back,
 }
 
 sets.defense.MDT = sets.defense.PDT
