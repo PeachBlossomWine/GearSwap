@@ -290,7 +290,7 @@ function job_precast(spell, spellMap, eventArgs)
         elseif spell.english == 'Unleash' then
             if pet.isvalid then
                 if pet.status == "Idle" and player.target.type == "MONSTER" and abil_recasts[100] < latency then
-					windower.chat.input('/pet Fight <t>')
+                    windower.chat.input('/pet Fight <t>')
                     windower.chat.input:schedule(1.2,'/ja "Unleash" <me>')
                 elseif pet.status == "Engaged" then
                     windower.chat.input('/ja "Unleash" <me>')
