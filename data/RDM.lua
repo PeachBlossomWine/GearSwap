@@ -542,6 +542,7 @@ function job_tick()
 	if check_arts() then return true end
 	if check_buff() then return true end
 	if check_buffup() then return true end
+    if check_zerg_sp() then return true end
 	return false
 end
 
@@ -641,6 +642,25 @@ function update_melee_groups()
 		classes.CustomMeleeGroups:append('AM')
 	end	
 end
+
+
+function check_zerg_sp()
+	if state.AutoZergMode.value == 'On' and player.in_combat and data.areas.cities:contains(world.area) then
+		
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if (not buffactive['Chainspell'] and abil_recasts[0] < latency) then
+            windower.chat.input('/ja "Chainspell" <me>')
+			tickdelay = os.clock() + 1.8
+			return true		
+		else
+			return false
+		end
+	end
+		
+	return false
+end
+
 
 buff_spell_lists = {
 	Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat

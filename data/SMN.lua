@@ -829,7 +829,7 @@ end
 
 function check_auto_avatar_mode()
 
-	if not (state.AutoBPMode.value or state.AutoAvatarMode.value) and not state.BPWardToggle.value or data.areas.cities:contains(world.area) then return false end
+	if state.AutoBuffMode.value == 'Off' or (not (state.AutoBPMode.value or state.AutoAvatarMode.value) and not state.BPWardToggle.value) or data.areas.cities:contains(world.area) then return false end
 	
 	local abil_recasts = windower.ffxi.get_ability_recasts()
 	local spell_recasts = windower.ffxi.get_spell_recasts()
@@ -894,6 +894,8 @@ function check_auto_avatar_mode()
 end
 
 function check_auto_ward_mode()
+
+    if state.AutoBuffMode.value == 'Off' or data.areas.cities:contains(world.area) then return false end
 
 	if state.AutoWardMode.value == 'Off' or data.areas.cities:contains(world.area) then 
 		state.BPWardToggle.value = true

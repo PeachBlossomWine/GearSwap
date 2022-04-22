@@ -286,7 +286,16 @@ function job_precast(spell, spellMap, eventArgs)
         if spell.type == "WeaponSkill" and spell.english ~= 'Mistral Axe' and spell.english ~= 'Bora Axe' and spell.target.distance > target_distance then
                 eventArgs.cancel = true
                 add_to_chat(123, spell.name..' Canceled: [Out of Range]')
-
+                
+        elseif spell.english == 'Unleash' then
+            if pet.isvalid then
+                if pet.status == "Idle" and player.target.type == "MONSTER" and abil_recasts[100] < latency then
+					windower.chat.input('/pet Fight <t>')
+                    windower.chat.input:schedule(1.2,'/ja "Unleash" <me>')
+                elseif pet.status == "Engaged" then
+                    windower.chat.input('/ja "Unleash" <me>')
+				end
+            end
 		elseif spell.english == 'Reward' then
 			equip(sets.precast.JA.Reward[state.RewardMode.value])
 			if can_dual_wield then
@@ -646,6 +655,7 @@ function job_tick()
 	if check_pet() then return true end
 	if check_ready() then return true end
     if check_buff() then return true end
+    if check_zerg_sp() then return true end
 	return false
 end
 
@@ -816,6 +826,23 @@ function check_buff()
 			windower.chat.input('/ja "Last Resort" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
+		else
+			return false
+		end
+	end
+		
+	return false
+end
+
+function check_zerg_sp()
+	if state.AutoZergMode.value == 'On' and player.in_combat and data.areas.cities:contains(world.area) then
+		
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if (abil_recasts[254] < latency) then
+            windower.chat.input('/ja "Unleash" <me>')
+			tickdelay = os.clock() + 1.8
+			return true		
 		else
 			return false
 		end

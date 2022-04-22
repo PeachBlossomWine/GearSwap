@@ -497,7 +497,7 @@ function check_buffup()
 end
 
 function check_zerg_sp()
-	if state.AutoZergMode.value == 'On' then
+	if state.AutoZergMode.value == 'On' and data.areas.cities:contains(world.area) then
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
@@ -511,19 +511,21 @@ function check_zerg_sp()
 			end
 			tickdelay = os.clock() + 1.8
 			return true		
-		-- elseif buffactive['Soul Voice'] and buffactive['Clarion Call'] and singeron == false then
+		elseif buffactive['Soul Voice'] and buffactive['Clarion Call'] and singeron == false then
 			-- send_command('sing n on; sing on')
-			-- singeron = true
+			singeron = true
+            windower.send_command('sing on;')
+            windower.send_command:schedule(110,'mc brd nitro; sing n on;')
+			tickdelay = os.clock() + 1.8
+			return true
+		-- elseif not buffactive['Nightingale'] and abil_recasts[109] < latency then
+			-- windower.chat.input('/ja "Nightingale" <me>')
 			-- tickdelay = os.clock() + 1.8
-			-- return true
-		elseif not buffactive['Nightingale'] and abil_recasts[109] < latency then
-			windower.chat.input('/ja "Nightingale" <me>')
-			tickdelay = os.clock() + 1.8
-			return true		
-		elseif not buffactive['Troubadour'] and abil_recasts[110] < latency then
-			windower.chat.input('/ja "Troubadour" <me>')
-			tickdelay = os.clock() + 1.8
-			return true		
+			-- return true		
+		-- elseif not buffactive['Troubadour'] and abil_recasts[110] < latency then
+			-- windower.chat.input('/ja "Troubadour" <me>')
+			-- tickdelay = os.clock() + 1.8
+			-- return true		
 		else
 			return false
 		end

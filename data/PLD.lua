@@ -514,6 +514,7 @@ function job_tick()
 			return true
 		end
 	end
+    if check_zerg_sp() then return true end
 	if check_buffup() then return true end
 	if check_hasso() then return true end
 end
@@ -677,12 +678,30 @@ function check_buffup()
 	end
 end
 
+function check_zerg_sp()
+	if state.AutoZergMode.value == 'On' and player.in_combat and data.areas.cities:contains(world.area) then
+		
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if (abil_recasts[254] < latency) then
+            windower.chat.input('/ja "Intervene" <t>')
+			tickdelay = os.clock() + 1.8
+			return true		
+		else
+			return false
+		end
+	end
+		
+	return false
+end
+
+
 buff_spell_lists = {
 	Auto = {	
 		{Name='Reprisal',Buff='Reprisal',SpellID=97,When='Combat'},
 		{Name='Cocoon',Buff='Defense Boost',SpellID=547,When='Always'},
 		{Name='Phalanx',Buff='Phalanx',SpellID=106,When='Always'},
-		{Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
+		--{Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
 	},
 	
 	Default = {
