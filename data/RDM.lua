@@ -645,7 +645,7 @@ end
 
 
 function check_zerg_sp()
-	if state.AutoZergMode.value == 'On' and player.in_combat and data.areas.cities:contains(world.area) then
+	if state.AutoZergMode.value == 'On' and player.in_combat and not data.areas.cities:contains(world.area) then
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 

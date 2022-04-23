@@ -497,7 +497,7 @@ function check_buffup()
 end
 
 function check_zerg_sp()
-	if state.AutoZergMode.value == 'On' and data.areas.cities:contains(world.area) then
+	if state.AutoZergMode.value == 'On' and not data.areas.cities:contains(world.area) then
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 

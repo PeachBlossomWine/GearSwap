@@ -834,7 +834,7 @@ function check_buffup()
 end
 
 function check_zerg_sp()
-    if state.AutoZergMode.value and player.in_combat then
+    if state.AutoZergMode.value and player.in_combat and not data.areas.cities:contains(world.area) then
 
         local abil_recasts = windower.ffxi.get_ability_recasts()
 

@@ -53,7 +53,7 @@
 --]]
 rd_status = false
 wc_status = false
-wildcard_failsafe = os.clock() + 900000
+wildcard_failsafe = os.clock() + 9000000
 
 
 -- Initialization function for this job file.
@@ -503,7 +503,7 @@ function check_buff()
 end
 
 function check_zerg_sp()
-	if state.AutoZergMode.value and player.status == 'Engaged' and player.in_combat then
+	if state.AutoZergMode.value and player.status == 'Engaged' and player.in_combat and not data.areas.cities:contains(world.area) then
 	
 		local now = os.clock()
 		local abil_recasts = windower.ffxi.get_ability_recasts()
@@ -527,7 +527,7 @@ function check_zerg_sp()
 		-- If RD fails, to force WC
 		elseif not buffactive['Warcry'] and abil_recasts[196] > latency and abil_recasts[0] < latency and rd_status == false then
 			if now > wildcard_failsafe then
-				wildcard_failsafe = os.clock() + 900000
+				wildcard_failsafe = os.clock() + 9000000
 				windower.chat.input('/p Wild Card - Failsafe! <scall20>')
 				windower.chat.input('/ja "Wild Card" <me>')
 				tickdelay = os.clock() + 4.5

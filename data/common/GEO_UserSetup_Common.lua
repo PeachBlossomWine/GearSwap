@@ -6,6 +6,7 @@ state.MagicalDefenseMode:options('MDT', 'NukeLock')
 state.ResistDefenseMode:options('MEVA')
 state.Weapons:options('None')
 state.AutoZergMode = M(false, 'Auto Zerg Mode')
+state.MaintainAftermath	= M(false, 'Maintain Aftermath')
 
 gear.obi_cure_waist = "Porous Rope"
 gear.obi_low_nuke_waist = "Eschan Stone"
