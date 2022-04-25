@@ -61,6 +61,7 @@ state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
 state.AutoTomahawkMode = M(false, 'AutoTomahawkMode')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 state.AutoRecoverHPMode = M(false, 'Auto Recover HP Mode')
+state.AutoShot = M(false, 'Auto Shot Mode')
 
 data.weaponskills.mythic = {
     ["Conqueror"] = "King's Justice",

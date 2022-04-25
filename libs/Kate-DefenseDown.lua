@@ -192,8 +192,21 @@ function on_incoming_chunk_for_dd(id, data, original, modified, injected, blocke
         end
     elseif id == 0x028 then
         local packet = packets.parse('incoming', data)
-        if packet['Target 1 Action 1 Message'] == 226 and player.main_job == "BST" and packet.Actor == pet.id then
-            windower.send_command('input /p '..str_using..' -'..auto_translate('Ready')..' TP: '..str_stars..'[ ' ..packet['Target 1 Action 1 Param']..' ]'..str_stars)
+        --local receive_effect_id = S{230,237,267,268,269,271,278}
+        local receive_effect_id = S{2,252}
+        --table.vprint(packet)
+        if packet['Target 1 Action 1 Message'] == 226 and (player.main_job == "BST" or player.main_job == "SMN") and packet.Actor == pet.id then
+            if player.main_job == "BST" then
+                windower.send_command('input /p '..str_using..' -'..auto_translate('Ready')..' TP: '..str_stars..'[ ' ..packet['Target 1 Action 1 Param']..' ]'..str_stars)
+            elseif player.main_job == "SMN" then
+                windower.send_command('input /p '..str_using..' - Mewing Lullaby TP: '..str_stars..'[ ' ..packet['Target 1 Action 1 Param']..' ]'..str_stars)
+            end
+        elseif receive_effect_id:contains(packet['Target 1 Action 1 Message']) and player.main_job == "COR" and state.AutoShot.value then
+            local name = windower.ffxi.get_mob_by_id(packet['Target 1 ID'])
+            if S{23,24,25,26,27,33,34,35,36,37}:contains(packet['Param']) and name.is_npc then
+                windower.add_to_chat('[AutoShot] Using Light Shot for -DIA- upgrade.')
+                windower.send_command('input /ja "Light Shot" '..name.id)
+            end
         end
     end
 end
