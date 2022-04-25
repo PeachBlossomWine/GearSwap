@@ -789,6 +789,7 @@ end)
 function check_buff()
 	if state.AutoBuffMode.value ~= 'Off' and not data.areas.cities:contains(world.area) then
 		local spell_recasts = windower.ffxi.get_spell_recasts()
+        local abil_recasts = windower.ffxi.get_ability_recasts()
 		for i in pairs(buff_spell_lists[state.AutoBuffMode.Value]) do
 			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost then
 				windower.chat.input('/ma "'..buff_spell_lists[state.AutoBuffMode.Value][i].Name..'" <me>')
@@ -796,6 +797,10 @@ function check_buff()
 				return true
 			end
 		end
+        if player.mpp < 65 and abil_recasts[252] < latency and pet.isvalid and pet.distance:sqrt() < 10 then
+            windower.send_command('input /ja "Radial Arcana" <me>')
+            return true
+        end
 	else
 		return false
 	end
