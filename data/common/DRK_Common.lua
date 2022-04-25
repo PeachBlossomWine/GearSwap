@@ -2,7 +2,7 @@
 -- Start defining the sets
 --------------------------------------
 
-autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['KajaChopper']='Armor Break'}
+autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['KajaChopper']='Armor Break',['Naegling']='Savage Blade'}
 
 -- Weapons sets
 sets.weapons.Caladbolg = {main="Caladbolg",sub="Utu Grip"}
@@ -11,6 +11,7 @@ sets.weapons.Apocalypse = {main="Apocalypse",sub="Utu Grip"}
 sets.weapons.Anguta = {main="Anguta",sub="Utu Grip"}
 sets.weapons.Lycurgos = {main="Lycurgos",sub="Khonsu"}
 sets.weapons.Loxotic = {main="Loxotic Mace +1",sub="Blurred Shield +1"}
+sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield +1"}
 
 -- Precast Sets
 -- Precast sets to enhance JAs
@@ -117,7 +118,7 @@ sets.Self_Refresh = {waist="Gishdubar Sash"}
 sets.precast.WS = {
 	ammo="Knobkierrie",																	-- 6
 	head="Nyame Helm",
-	body="Ignominy Cuirass +3",															-- 10
+	body="Nyame Mail",      															-- 10
 	hands="Nyame Gauntlets",															-- 5
 	legs="Nyame Flanchard",																-- 9
 	feet="Nyame Sollerets",																-- 7
@@ -261,7 +262,7 @@ sets.defense.PDT = {
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
-	back="Moonbeam Cape",
+	back=gear.dt_moon_back,
 }
 
 sets.defense.MDT = sets.defense.PDT
@@ -272,7 +273,7 @@ sets.resting = sets.defense.PDT
 sets.Kiting = {legs="Carmine Cuisses +1"}
 sets.passive.Reraise = {}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
-sets.buff['Dark Seal'] = {head="Fallen's Burgeonet +3"}
+sets.buff['Dark Seal'] = {head="Fall. Burgeonet +3"}
 
 --Extra Special Sets
 sets.buff.Souleater = {}

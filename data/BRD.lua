@@ -512,12 +512,14 @@ function check_zerg_sp()
 			tickdelay = os.clock() + 1.8
 			return true		
 		elseif buffactive['Soul Voice'] and buffactive['Clarion Call'] and singeron == false then
-			-- send_command('sing n on; sing on')
 			singeron = true
             windower.send_command('sing on;')
-            windower.send_command:schedule(110,'mc brd nitro; sing n on;')
+            windower.send_command:schedule(110,'mc brd nitro; sing n on; gs c set autozergmode off;')
 			tickdelay = os.clock() + 1.8
 			return true
+            
+            			-- send_command('sing n on; sing on')
+            
 		-- elseif not buffactive['Nightingale'] and abil_recasts[109] < latency then
 			-- windower.chat.input('/ja "Nightingale" <me>')
 			-- tickdelay = os.clock() + 1.8
