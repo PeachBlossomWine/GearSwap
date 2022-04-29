@@ -66,7 +66,7 @@ sets.precast.WS = {
 	right_ring="Beithir Ring",																-- 3
 	back=gear.ws_jse_back,																	-- 10
 }
-sets.precast.WS.Emnity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
+sets.precast.WS.Enmity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
 sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
 	right_ring="Niqmaddu Ring",
 })
@@ -74,7 +74,7 @@ sets.precast.WS.KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
 sets.precast.WS.KI.SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {body="Found. Breastplate"})
 
 sets.precast.WS['Tachi: Fudo'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Tachi: Fudo'].Emnity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
+sets.precast.WS['Tachi: Fudo'].Enmity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
 sets.precast.WS['Tachi: Fudo'].KI = set_combine(sets.precast.WS.KI, {})
 sets.precast.WS['Tachi: Fudo'].KI.SubtleBlow = set_combine(sets.precast.WS.KI.SubtleBlow, {})
 
@@ -94,13 +94,13 @@ sets.precast.WS['Tachi: Shoha'] = {
 	back=gear.ws_jse_back,
 }
 
-sets.precast.WS['Tachi: Shoha'].Emnity = set_combine(sets.precast.WS['Tachi: Shoha'], {left_ear="Schere Earring"})
+sets.precast.WS['Tachi: Shoha'].Enmity = set_combine(sets.precast.WS['Tachi: Shoha'], {left_ear="Schere Earring"})
 
 sets.precast.WS['Tachi: Rana'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Tachi: Rana'].Emnity = set_combine(sets.precast.WS['Tachi: Rana'], {left_ear="Schere Earring"})
+sets.precast.WS['Tachi: Rana'].Enmity = set_combine(sets.precast.WS['Tachi: Rana'], {left_ear="Schere Earring"})
 
 sets.precast.WS['Tachi: Kasha'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Tachi: Kasha'].Emnity = set_combine(sets.precast.WS['Tachi: Kasha'], {left_ear="Schere Earring"})
+sets.precast.WS['Tachi: Kasha'].Enmity = set_combine(sets.precast.WS['Tachi: Kasha'], {left_ear="Schere Earring"})
 
 sets.precast.WS['Tachi: Jinpu'] = {
 	ammo="Knobkierrie",																		
@@ -117,13 +117,13 @@ sets.precast.WS['Tachi: Jinpu'] = {
 	right_ring="Niqmaddu Ring",															
 	back=gear.ws_jse_back,																
 }
-sets.precast.WS['Tachi: Jinpu'].Emnity = set_combine(sets.precast.WS['Tachi: Jinpu'], {left_ear="Schere Earring"})
+sets.precast.WS['Tachi: Jinpu'].Enmity = set_combine(sets.precast.WS['Tachi: Jinpu'], {left_ear="Schere Earring"})
 sets.precast.WS['Tachi: Jinpu'].SubtleBlow = set_combine(sets.precast.WS['Tachi: Jinpu'], {})
 sets.precast.WS['Tachi: Jinpu'].KI = set_combine(sets.precast.WS['Tachi: Jinpu'], {body="Found. Breastplate"})
 sets.precast.WS['Tachi: Jinpu'].KI.SubtleBlow = set_combine(sets.precast.WS['Tachi: Jinpu'].KI, {})
 
 sets.precast.WS['Tachi: Kagero'] = set_combine(sets.precast.WS['Tachi: Jinpu'], {})
-sets.precast.WS['Tachi: Kagero'].Emnity = set_combine(sets.precast.WS['Tachi: Kagero'], {left_ear="Schere Earring"})
+sets.precast.WS['Tachi: Kagero'].Enmity = set_combine(sets.precast.WS['Tachi: Kagero'], {left_ear="Schere Earring"})
 sets.precast.WS['Tachi: Kagero'].SubtleBlow = set_combine(sets.precast.WS['Tachi: Kagero'], {})
 sets.precast.WS['Tachi: Kagero'].KI = set_combine(sets.precast.WS['Tachi: Kagero'], {body="Found. Breastplate"})
 sets.precast.WS['Tachi: Kagero'].KI.SubtleBlow = set_combine(sets.precast.WS['Tachi: Kagero'].KI, {})
@@ -144,12 +144,13 @@ sets.precast.WS['Tachi: Ageha'] = {
 	back=gear.ws_jse_back,
 }
 
-sets.precast.WS['Tachi: Ageha'].Emnity = set_combine(sets.precast.WS['Tachi: Ageha'], {left_ear="Schere Earring"})
+sets.precast.WS['Tachi: Ageha'].Enmity = set_combine(sets.precast.WS['Tachi: Ageha'], {left_ear="Schere Earring"})
 	
 sets.precast.WS['Tachi: Hobaku'] = set_combine(sets.precast.WS['Tachi: Ageha'], {})
-sets.precast.WS['Tachi: Hobaku'].Emnity = set_combine(sets.precast.WS['Tachi: Ageha'], {left_ear="Schere Earring"})
+sets.precast.WS['Tachi: Hobaku'].Enmity = set_combine(sets.precast.WS['Tachi: Ageha'], {left_ear="Schere Earring"})
 
 sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {body="Dagon Breast."})
+sets.precast.WS['Impulse Drive'].Enmity = set_combine(sets.precast.WS['Impulse Drive'], {left_ear="Schere Earring"})
 sets.precast.WS['Impulse Drive'].SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {body="Dagon Breast."})
 sets.precast.WS['Impulse Drive'].KI = set_combine(sets.precast.WS.KI, {})
 sets.precast.WS['Impulse Drive'].KI.SubtleBlow = set_combine(sets.precast.WS.KI.SubtleBlow, {})

@@ -54,6 +54,8 @@
 rd_status = false
 wc_status = false
 wildcard_failsafe = os.clock() + 9000000
+dia_applied = false
+shot_mob_id = 0
 
 
 -- Initialization function for this job file.
@@ -481,7 +483,12 @@ function check_buff()
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
 
-		if player.sub_job == 'WAR' and not state.Buff['SJ Restriction'] and not buffactive.Berserk and abil_recasts[1] < latency and player.status == 'Engaged' then
+        if state.AutoShot.value ~= 'Off' and dia_applied == true then
+            windower.add_to_chat('[AutoShot] Attemping to use Light Shot for -DIA- upgrade.')
+            windower.send_command('input /ja "Light Shot" '..shot_mob_id)
+            tickdelay = os.clock() + 2.8
+            return true
+		elseif player.sub_job == 'WAR' and not state.Buff['SJ Restriction'] and not buffactive.Berserk and abil_recasts[1] < latency and player.status == 'Engaged' then
 			windower.chat.input('/ja "Berserk" <me>')
 			tickdelay = os.clock() + 5.1
 			return true
@@ -490,7 +497,6 @@ function check_buff()
 			tickdelay = os.clock() + 5.1
 			return true
 		elseif (player.equipment.range == 'Armageddon' and not (buffactive['Aftermath: Lv.1'] or buffactive['Aftermath: Lv.2'] or buffactive['Aftermath: Lv.3'])) and abil_recasts[84] < latency and not buffactive['Triple Shot'] then
---		elseif state.Weapons.value:contains("Ranged") and abil_recasts[84] < latency and not buffactive['Triple Shot'] then
 			windower.chat.input('/ja "Triple Shot" <me>')
 			tickdelay = os.clock() + 5.1
 			return true

@@ -1138,6 +1138,7 @@ buff_spell_lists = {
 		{Name='Shell V',		Buff='Shell',			SpellID=52, 	When='Always'},
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
 		{Name='Aurorastorm II', Buff='Aurorastorm',		SpellID=864,	When='Always'},
+        {Name='Reraise II',     Buff='Reraise',		    SpellID=141,	When='Always'},
 	},
 	
 	Nuking = {
@@ -1154,5 +1155,6 @@ buff_spell_lists = {
 		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
 		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
 		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
+        {Name='Reraise II',     Buff='Reraise',		    SpellID=141,	Reapply=true},
 	},
 }

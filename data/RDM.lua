@@ -669,6 +669,8 @@ buff_spell_lists = {
 		{Name='Aurorastorm',	Buff='Aurorastorm',		SpellID=119,	When='Always'},
 		{Name='Temper II',		Buff='Multi Strikes',	SpellID=895,	When='Engaged'},
 		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	When='Engaged'},
+        {Name='Shell V',		Buff='Shell',			SpellID=52,		When='Always'},
+		{Name='Protect V',		Buff='Protect',			SpellID=47,		When='Always'},
 	},
 	Default = {
 		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=false},

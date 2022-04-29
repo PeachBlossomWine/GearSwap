@@ -797,7 +797,7 @@ function check_buff()
 				return true
 			end
 		end
-        if player.mpp < 65 and abil_recasts[252] < latency and pet.isvalid and pet.distance:sqrt() < 10 then
+        if player.mpp < 65 and abil_recasts[252] < latency and pet.isvalid and pet.distance:sqrt() < 9 then
             windower.send_command('input /ja "Radial Arcana" <me>')
             return true
         end

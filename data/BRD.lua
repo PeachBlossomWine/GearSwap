@@ -502,7 +502,7 @@ function check_zerg_sp()
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
 		if (not buffactive['Soul Voice'] and abil_recasts[0] < latency) or (not buffactive['Clarion Call'] and abil_recasts[254] < latency) then
-			send_command('sing off')
+			send_command('sing off; sing n off')
 			singeron = false
 			if not buffactive['Soul Voice'] and abil_recasts[0] < latency then
 				windower.chat.input('/ja "Soul Voice" <me>')
@@ -538,8 +538,8 @@ end
 
 buff_spell_lists = {
 	Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
-		{Name='Refresh',			Buff='Refresh',			SpellID=109,	When='Idle'},
-		{Name='Haste',				Buff='Haste',			SpellID=57,		Reapply='Idle'},
+		{Name='Refresh',			Buff='Refresh',			SpellID=109,	When='Always'},
+		{Name='Haste',				Buff='Haste',			SpellID=57,		When='Always'},
 	},
 	Default = {
 		{Name='Refresh',			Buff='Refresh',			SpellID=109,	Reapply=false},

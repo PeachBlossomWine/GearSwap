@@ -55,7 +55,138 @@ sets.precast.FC = {
 sets.precast.FC['Dark Magic'] = set_combine(sets.precast.FC, {})
 
 sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
-	
+
+-- Weaponskill sets
+-- Default set for any weaponskill that isn't any more specifically defined
+sets.precast.WS = {
+	ammo="Knobkierrie",																	-- 6
+	head="Nyame Helm",
+	body="Nyame Mail",      															-- 10
+	hands="Nyame Gauntlets",															-- 5
+	legs="Nyame Flanchard",																-- 9
+	feet="Nyame Sollerets",																-- 7
+	neck=gear.drk_jse_neck,
+	waist="Sailfi Belt +1",
+	left_ear="Thrud Earring",															-- 3
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ring="Regal Ring",
+	right_ring="Beithir Ring",															-- 3
+	back=gear.jse_STR_Back,																-- 10
+}
+
+sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
+	hands="Sakpata's Gauntlets",
+	feet="Sakpata's Leggings",
+	right_ring="Niqmaddu Ring",
+})
+
+sets.precast.WS.Enmity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
+sets.precast.WS.KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
+sets.precast.WS.KI.SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {body="Found. Breastplate"})
+
+-- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.	
+sets.precast.WS['Torcleaver'] = set_combine(sets.precast.WS, {
+	ammo="Crepuscular Pebble",															-- 3
+	head="Nyame Helm",
+	body="Nyame Mail",          														-- 10
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",																-- 9
+	feet="Nyame Sollerets",																-- 7
+	neck=gear.drk_jse_neck,
+	waist="Fotia Belt",
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear="Thrud Earring",															-- 3
+	left_ring="Regal Ring",
+	right_ring="Niqmaddu Ring",															-- 3
+	back=gear.jse_VIT_Back,																-- 10
+})
+sets.precast.WS['Torcleaver'].Enmity = set_combine(sets.precast.WS['Torcleaver'], {right_ear="Schere Earring"})
+sets.precast.WS['Torcleaver'].SubtleBlow = set_combine(sets.precast.WS['Torcleaver'], {
+	hands="Sakpata's Gauntlets",	-- 8
+	feet="Sakpata's Leggings",		-- 13
+	right_ring="Niqmaddu Ring",		-- 5
+})
+sets.precast.WS['Torcleaver'].KI = set_combine(sets.precast.WS['Torcleaver'], {body="Found. Breastplate"})
+sets.precast.WS['Torcleaver'].KI.SubtleBlow = set_combine(sets.precast.WS['Torcleaver'].SubtleBlow, {body="Found. Breastplate"})
+
+sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {})
+sets.precast.WS['Catastrophe'] = set_combine(sets.precast.WS, {})
+sets.precast.WS['Cross Reaper'] = set_combine(sets.precast.WS, {})
+sets.precast.WS['Entropy'] = set_combine(sets.precast.WS, {})
+
+sets.precast.WS['Insurgency'] = {
+	ammo="Knobkierrie",																		
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck=gear.drk_jse_neck,
+	waist="Sailfi Belt +1",
+	left_ear="Thrud Earring",
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ring="Regal Ring",
+	right_ring="Niqmaddu Ring",
+	back=gear.jse_STR_Back,
+}
+
+sets.precast.WS['Shadow of Death'] = {
+	ammo="Knobkierrie",																		
+	head="Pixie Hairpin +1",
+	body="Fall. Cuirass +3",																
+	hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck=gear.drk_jse_neck,
+	waist="Hachirin-no-Obi",
+	left_ear="Malignance Earring",
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ring="Regal Ring",
+	right_ring="Archon Ring",
+	back=gear.jse_STR_Back,
+}
+
+sets.precast.WS['Armor Break'] = {
+	ammo="Pemphredo Tathlum",
+	head="Sakpata's Helm",
+	body="Sakpata's Plate",
+	hands="Sakpata's Gauntlets",
+	legs="Sakpata's Cuisses",
+	feet="Sakpata's Leggings",	
+	neck="Erra Pendant",
+	waist="Eschan Stone",
+	left_ear="Malignance Earring",
+	--right_ear="Digni. Earring",
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ring="Metamor. Ring +1",
+	right_ring="Weather. Ring +1",
+	back=gear.jse_FC_Back,
+}
+
+sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
+	ammo="Crepuscular Pebble",															-- 3
+	head="Nyame Helm",
+	body="Nyame Mail",          														-- 10
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",																-- 9
+	feet="Nyame Sollerets",																-- 7
+	neck=gear.drk_jse_neck,
+	waist="Sailfi Belt +1",
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear="Thrud Earring",															-- 3
+	left_ring="Regal Ring",
+	right_ring="Niqmaddu Ring",															-- 3
+	back=gear.jse_STR_Back,																-- 10
+})
+sets.precast.WS['Savage Blade'].Enmity = set_combine(sets.precast.WS['Savage Blade'], {right_ear="Schere Earring"})
+sets.precast.WS['Savage Blade'].SubtleBlow = set_combine(sets.precast.WS['Savage Blade'], {
+	hands="Sakpata's Gauntlets",	-- 8
+	feet="Sakpata's Leggings",		-- 13
+	right_ring="Niqmaddu Ring",		-- 5
+})
+sets.precast.WS['Savage Blade'].KI = set_combine(sets.precast.WS['Savage Blade'], {body="Found. Breastplate"})
+sets.precast.WS['Savage Blade'].KI.SubtleBlow = set_combine(sets.precast.WS['Savage Blade'].SubtleBlow, {body="Found. Breastplate"})
+
 -- Midcast Sets
 sets.midcast.FastRecast = sets.precast.FC
 			   
@@ -113,112 +244,7 @@ sets.Self_Healing = {waist="Gishdubar Sash"}
 sets.Cure_Received = {waist="Gishdubar Sash"}
 sets.Self_Refresh = {waist="Gishdubar Sash"}
 									   
--- Weaponskill sets
--- Default set for any weaponskill that isn't any more specifically defined
-sets.precast.WS = {
-	ammo="Knobkierrie",																	-- 6
-	head="Nyame Helm",
-	body="Nyame Mail",      															-- 10
-	hands="Nyame Gauntlets",															-- 5
-	legs="Nyame Flanchard",																-- 9
-	feet="Nyame Sollerets",																-- 7
-	neck="Abyssal Beads +2",
-	waist="Sailfi Belt +1",
-	left_ear="Thrud Earring",															-- 3
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	left_ring="Regal Ring",
-	right_ring="Beithir Ring",															-- 3
-	back=gear.jse_STR_Back,																-- 10
-}
 
-sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
-	hands="Sakpata's Gauntlets",
-	feet="Sakpata's Leggings",
-	right_ring="Niqmaddu Ring",
-})
-
-sets.precast.WS.Enmity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})
-sets.precast.WS.KI = set_combine(sets.precast.WS, {body="Found. Breastplate"})
-sets.precast.WS.KI.SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {body="Found. Breastplate"})
-
--- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.	
-sets.precast.WS['Torcleaver'] = set_combine(sets.precast.WS, {
-	ammo="Crepuscular Pebble",															-- 3
-	head="Nyame Helm",
-	body="Ignominy Cuirass +3",															-- 10
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",																-- 9
-	feet="Nyame Sollerets",																-- 7
-	neck="Abyssal Beads +2",
-	waist="Fotia Belt",
-	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	right_ear="Thrud Earring",															-- 3
-	left_ring="Regal Ring",
-	right_ring="Niqmaddu Ring",															-- 3
-	back=gear.jse_VIT_Back,																-- 10
-})
-sets.precast.WS['Torcleaver'].Enmity = set_combine(sets.precast.WS['Torcleaver'], {right_ear="Schere Earring"})
-sets.precast.WS['Torcleaver'].SubtleBlow = set_combine(sets.precast.WS['Torcleaver'], {
-	hands="Sakpata's Gauntlets",	-- 8
-	feet="Sakpata's Leggings",		-- 13
-	right_ring="Niqmaddu Ring",		-- 5
-})
-sets.precast.WS['Torcleaver'].KI = set_combine(sets.precast.WS['Torcleaver'], {body="Found. Breastplate"})
-sets.precast.WS['Torcleaver'].KI.SubtleBlow = set_combine(sets.precast.WS['Torcleaver'].SubtleBlow, {body="Found. Breastplate"})
-
-sets.precast.WS['Resolution'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Catastrophe'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Cross Reaper'] = set_combine(sets.precast.WS, {})
-sets.precast.WS['Entropy'] = set_combine(sets.precast.WS, {})
-
-sets.precast.WS['Insurgency'] = {
-	ammo="Knobkierrie",																		
-	head="Nyame Helm",
-	body="Ignominy Cuirass +3",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
-	neck="Abyssal Beads +2",
-	waist="Sailfi Belt +1",
-	left_ear="Thrud Earring",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	left_ring="Regal Ring",
-	right_ring="Niqmaddu Ring",
-	back=gear.jse_STR_Back,
-}
-
-sets.precast.WS['Shadow of Death'] = {
-	ammo="Knobkierrie",																		
-	head="Pixie Hairpin +1",
-	body="Fall. Cuirass +3",																
-	hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
-	neck="Abyssal Beads +2",
-	waist="Hachirin-no-Obi",
-	left_ear="Malignance Earring",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	left_ring="Regal Ring",
-	right_ring="Archon Ring",
-	back=gear.jse_STR_Back,
-}
-
-sets.precast.WS['Armor Break'] = {
-	ammo="Pemphredo Tathlum",
-	head="Sakpata's Helm",
-	body="Sakpata's Plate",
-	hands="Sakpata's Gauntlets",
-	legs="Sakpata's Cuisses",
-	feet="Sakpata's Leggings",	
-	neck="Erra Pendant",
-	waist="Eschan Stone",
-	left_ear="Malignance Earring",
-	--right_ear="Digni. Earring",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	left_ring="Metamor. Ring +1",
-	right_ring="Weather. Ring +1",
-	back=gear.jse_FC_Back,
-}
 	   
 -- Swap to these on Moonshade using WS if at 3000 TP
 sets.MaxTP = {ear1="Thrud Earring",ear2="Lugra Earring +1",}
@@ -284,7 +310,7 @@ sets.buff.ScarletDelirium = {
     hands="Fall. Fin. Gaunt. +3",
     legs="Ig. Flanchard +3",
     feet="Flam. Gambieras +2",
-    neck="Abyssal Beads +2",
+    neck=gear.drk_jse_neck,
 	waist="Ioskeha Belt +1",
 	left_ear="Crep. Earring",
 	right_ear="Telos Earring",
@@ -299,7 +325,7 @@ sets.buff.ScarletDelirium.Mboze = {
     hands=empty,
     legs=empty,
     feet="Sakpata's Leggings",      -- 13
-    neck="Abyssal Beads +2",
+    neck=gear.drk_jse_neck,
     waist="Sarissapho. Belt",		-- 5
 	left_ear="Digni. Earring",		-- 5
 	right_ear="Telos Earring",
@@ -318,7 +344,7 @@ sets.engaged = {
 	hands="Sakpata's Gauntlets",
 	legs="Ig. Flanchard +3",
 	feet="Flam. Gambieras +2",
-	neck="Abyssal Beads +2",
+	neck=gear.drk_jse_neck,
 	waist="Ioskeha Belt +1",
 	left_ear="Cessance Earring",
 	right_ear="Telos Earring",
@@ -334,7 +360,7 @@ sets.engaged.DT ={
 	hands="Sakpata's Gauntlets",		-- 5
 	legs="Sakpata's Cuisses",
 	feet="Sakpata's Leggings",
-	neck="Abyssal Beads +2",
+	neck=gear.drk_jse_neck,
 	waist="Ioskeha Belt +1",
 	left_ear="Crep. Earring",
 	right_ear="Telos Earring",
@@ -352,7 +378,7 @@ sets.engaged.SubtleBlow ={
 	hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},			-- 8
 	legs="Sakpata's Cuisses",
 	feet="Sakpata's Leggings",											-- 13
-	neck={ name="Abyssal Beads +2", augments={'Path: A',}},
+	neck=gear.drk_jse_neck,
 	waist="Sarissapho. Belt",											-- 5
 	left_ear="Digni. Earring",											-- 5
 	right_ear="Telos Earring",											

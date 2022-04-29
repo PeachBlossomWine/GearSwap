@@ -149,6 +149,10 @@ end
 
 str_using = string.char(130,240,142,103,151,112,130,181,130,196)
 str_stars = string.char(129,154,129,153)
+
+scheduled_function = nil
+cor_draws = S{124,125,126,127,128,129,130,131,132}
+
 -- This function removes mobs from our tracking table when they die.
 function on_incoming_chunk_for_dd(id, data, original, modified, injected, blocked)
     if id == 0x29 then
@@ -181,6 +185,8 @@ function on_incoming_chunk_for_dd(id, data, original, modified, injected, blocke
                         windower.send_command('gs c set weapons Lycurgos; gs c autows tp 1750;')
                     elseif player.main_job == 'WAR' then
                         windower.send_command('gs c autows Armor Break; gs c set weapons Chango; gs c autows tp 1750;')
+                    elseif player.main_job == 'DRG' then
+                        windower.send_command('input /ja Angon <t>')
                     end
                 end
             else
@@ -196,16 +202,19 @@ function on_incoming_chunk_for_dd(id, data, original, modified, injected, blocke
             windower.send_command('input /p '..str_using..' -'..auto_translate('Ready')..' TP: '..str_stars..'[ ' ..packet['Target 1 Action 1 Param']..' ]'..str_stars)
         elseif packet['Category'] == 13 and packet['Param'] == 522 and player.main_job == "SMN" and packet.Actor == pet.id then
             windower.send_command('input /p '..str_using..' -Mewing Lullaby TP: '..str_stars..'[ ' ..packet['Target 1 Action 1 Param']..' ]'..str_stars)
-        elseif packet["Category"] == 4 and S{23,24,25,33}:contains(packet['Param']) and player.main_job == "COR" and state.AutoShot.value then
-            local name = windower.ffxi.get_mob_by_id(packet['Target 1 ID'])
-            if name.is_npc then
-                windower.add_to_chat('[AutoShot] Using Light Shot for -DIA- upgrade.')
-                windower.send_command('input /ja "Light Shot" '..name.id)
-            end
+        elseif state.AutoShot.value and packet["Category"] == 4 and S{23,24,25,33}:contains(packet['Param']) and player.main_job == "COR" then
+            local mob_name = windower.ffxi.get_mob_by_id(packet['Target 1 ID'])
+				if mob_name.is_npc then
+					windower.add_to_chat('[AutoShot] Dia detected on mob.')
+                    dia_applied = true
+                    shot_mob_id = mob_name.id
+				end
+        elseif packet["Category"] == 6 and cor_draws:contains(packet["Param"]) and player.main_job == "COR" and state.AutoShot.value then
+            windower.add_to_chat(7,'Succesfully used Quick Draw shot!')
+            dia_applied = false
         end
     end
 end
-
 
 -- Clear out the entire tagged mobs table when zoning.
 function on_zone_change_for_dd(new_zone, old_zone)
