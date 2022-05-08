@@ -6,7 +6,7 @@ state.IdleMode:options('Normal')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
-state.Weapons:options('Aeneas','TH','Naegling','KajaKnuckles','KajaBow','None')
+state.Weapons:options('Aeneas','TH','Naegling','KajaKnuckles','None')
 
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 state.AmbushMode = M(false, 'Ambush Mode')

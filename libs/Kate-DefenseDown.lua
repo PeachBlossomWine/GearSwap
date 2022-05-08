@@ -150,7 +150,6 @@ end
 str_using = string.char(130,240,142,103,151,112,130,181,130,196)
 str_stars = string.char(129,154,129,153)
 
-scheduled_function = nil
 cor_draws = S{124,125,126,127,128,129,130,131,132}
 
 -- This function removes mobs from our tracking table when they die.
@@ -173,6 +172,12 @@ function on_incoming_chunk_for_dd(id, data, original, modified, injected, blocke
             if dd_info.tagged_mobs[target_id] then
                 if _settings.debug_mode then add_to_chat(123,'Mob '..target_id..' died. Removing from tagged mobs table.') end
                 dd_info.tagged_mobs[target_id] = nil
+            end
+            
+            -- if shot mob died
+            if state.AutoShot.value and dia_applied and (shot_mob_id and shot_mob_id == target_id) then
+                windower.add_to_chat(7,'[AutoShot] Resetting shot indicator due to mob died and shot not used.')
+                dia_applied = false
             end
 		elseif packet.Message == 206 then
             if state.DefenseDownMode.value == 'Tag' then
@@ -204,22 +209,38 @@ function on_incoming_chunk_for_dd(id, data, original, modified, injected, blocke
             windower.send_command('input /p '..str_using..' -Mewing Lullaby TP: '..str_stars..'[ ' ..packet['Target 1 Action 1 Param']..' ]'..str_stars)
         elseif state.AutoShot.value and packet["Category"] == 4 and S{23,24,25,33}:contains(packet['Param']) and player.main_job == "COR" then
             local mob_name = windower.ffxi.get_mob_by_id(packet['Target 1 ID'])
-				if mob_name.is_npc then
-					windower.add_to_chat('[AutoShot] Dia detected on mob.')
+				if mob_name.is_npc and check_claim_id(mob_name.claim_id) then
+					windower.add_to_chat('[AutoShot] Dia detected on mob claimed by party/alliance.')
                     dia_applied = true
                     shot_mob_id = mob_name.id
+                else
+                    shot_mob_id = nil
 				end
-        elseif packet["Category"] == 6 and cor_draws:contains(packet["Param"]) and player.main_job == "COR" and state.AutoShot.value then
-            windower.add_to_chat(7,'Succesfully used Quick Draw shot!')
+        elseif packet["Category"] == 6 and cor_draws:contains(packet["Param"]) and packet.Actor == player.id and player.main_job == "COR" and state.AutoShot.value then
+            windower.add_to_chat(7,'[AutoShot] Succesfully used Quick Draw shot!')
             dia_applied = false
         end
     end
+end
+
+-- Check id party/alliance members.
+function check_claim_id(id)
+	for k, v in pairs(windower.ffxi.get_party()) do
+		if type(v) == 'table' then
+			if v.mob and v.mob.id == id then
+				return true
+			end
+		end
+	end
+	return false
 end
 
 -- Clear out the entire tagged mobs table when zoning.
 function on_zone_change_for_dd(new_zone, old_zone)
     if _settings.debug_mode then add_to_chat(123,'Zoning. Clearing tagged mobs table.') end
     dd_info.tagged_mobs:clear()
+    dia_applied = false
+    shot_mob_id = nil
 end
 
 

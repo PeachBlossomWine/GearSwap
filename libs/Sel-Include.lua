@@ -1226,7 +1226,7 @@ end
 
 function default_aftercast(spell, spellMap, eventArgs)
 	if spell.interrupted then
-		if spell.type:contains('Magic') or spell.type == 'Ninjutsu' or spell.type == 'BardSong' then
+		if spell.type and (spell.type:contains('Magic') or spell.type == 'Ninjutsu' or spell.type == 'BardSong') then
 			next_cast = os.clock() + 3.35 - latency
 		else
 			next_cast = os.clock() + 1.75 - latency

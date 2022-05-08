@@ -2,12 +2,12 @@ state.OffenseMode:options('Normal')
 state.HybridMode:options('Normal')
 state.WeaponskillMode:options('Normal')
 state.AutoBuffMode:options('Off','Auto')
-state.CastingMode:options('Normal','Resistant')
+state.CastingMode:options('Normal','Resistant','Melee')
 state.IdleMode:options('DT','Normal')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
-state.Weapons:options('None','DualMurCea','DualMurgleis','DualMurDegen','DualCrocea','DualCroDegen','DualSequence','DualSavage','DualEvis','DualClubs','Murgleis','Crocea','Sequence','Naegling')
+state.Weapons:options('None','DualMurCea','DualMurgleis','DualCrocea','DualCroDay','DualSequence','DualSavage','DualEvis','DualClubs','Murgleis','Crocea','Sequence','Naegling')
 state.AutoArts = M(false, 'AutoArts') 
 
 gear.jse_str_back = {name="Sucellos's Cape",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
@@ -26,20 +26,12 @@ gear.obi_low_nuke_waist = "Sacro Cord"
 gear.obi_high_nuke_back = gear.jse_mab_back
 gear.obi_high_nuke_waist = "Sacro Cord"
 
-	-- Additional local binds
 send_command('bind ^` gs c cycle ElementalMode')
 send_command('bind @` gs c cycle MagicBurstMode')
 send_command('bind ^backspace input /ja "Saboteur" <me>')
 send_command('bind !backspace input /ja "Spontaneity" <t>')
 send_command('bind @backspace input /ja "Composure" <me>')
 send_command('bind @f8 gs c toggle AutoNukeMode')
-
--- send_command('bind ^@!` input /ja "Accession" <me>')
--- send_command('bind != input /ja "Penury" <me>')
--- send_command('bind @= input /ja "Parsimony" <me>')
--- send_command('bind ^delete input /ja "Dark Arts" <me>')
--- send_command('bind !delete input /ja "Addendum: Black" <me>')
--- send_command('bind @delete input /ja "Manifestation" <me>')
 
 send_command('bind @= gs c scholar dark')
 send_command('bind != gs c scholar light')

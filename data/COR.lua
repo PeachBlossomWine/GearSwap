@@ -483,7 +483,7 @@ function check_buff()
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
 
-        if state.AutoShot.value ~= 'Off' and dia_applied == true then
+        if state.AutoShot.value ~= 'Off' and (dia_applied and shot_mob_id and windower.ffxi.get_mob_by_id(shot_mob_id).valid_target and math.sqrt(windower.ffxi.get_mob_by_id(shot_mob_id).distance) <= 22) then
             windower.add_to_chat('[AutoShot] Attemping to use Light Shot for -DIA- upgrade.')
             windower.send_command('input /ja "Light Shot" '..shot_mob_id)
             tickdelay = os.clock() + 2.8

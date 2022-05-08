@@ -24,9 +24,6 @@ else
 	gear.impact_body = "Twilight Cloak"
 end
 
-sets.EaStuff = {head="Ea Hat +1", body="Ea Houppelande", legs="Ea Slops +1"}
-sets.EaStuffNQ = {legs="Ea Slops"}
-
 -- Weapons sets
 sets.weapons.Murgleis = {main="Murgleis",sub="Ammurapi Shield"}
 sets.weapons.Crocea = {main="Crocea Mors",sub="Ammurapi Shield"}
@@ -35,15 +32,12 @@ sets.weapons.Naegling = {main="Naegling",sub="Ammurapi Shield"}
 -- DW
 sets.weapons.DualMurCea = {main="Murgleis",sub="Crocea Mors"}
 sets.weapons.DualMurgleis = {main="Murgleis",sub="Gleti's Knife"}
-sets.weapons.DualMurDegen = {main="Murgleis",sub="Demers. Degen +1"}
 sets.weapons.DualCrocea = {main="Crocea Mors",sub="Gleti's Knife"}
-sets.weapons.DualCroDegen = {main="Crocea Mors",sub="Demers. Degen +1"}
+sets.weapons.DualCroDay = {main="Crocea Mors",sub="Daybreak"}
 sets.weapons.DualSequence = {main="Sequence",sub="Gleti's Knife"}
 sets.weapons.DualSavage = {main="Naegling",sub="Gleti's Knife"}
 sets.weapons.DualEvis = {main="Tauret",sub="Gleti's Knife"}
 sets.weapons.DualClubs = {main="Kaja Rod",sub="Bunzi's Rod"}
-
-sets.weapons.DualTrial = {main="Murgleis",sub="Qutrub Knife"}
 
 
 -- Precast Sets
@@ -208,7 +202,7 @@ sets.midcast['Enhancing Magic'] = {
 	hands="Atrophy Gloves +3",														-- 20%
 	legs=gear.telchine_enhancing_legs,												-- 9%
 	feet="Leth. Houseaux +1",														-- 30%
-	neck="Dls. Torque +2",															-- ?
+	neck=gear.rdm_jse_neck,															-- ?
 	waist="Embla Sash",																-- 10%
 	left_ear="Genmei Earring",
 	right_ear="Etiolation Earring",
@@ -294,7 +288,7 @@ sets.midcast['Enfeebling Magic'] = {
 	hands="Regal Cuffs",
 	legs=gear.chironic_enfeeble_legs,
 	feet={ name="Vitiation Boots +3", augments={'Immunobreak Chance',}},
-	neck="Dls. Torque +2",
+	neck=gear.rdm_jse_neck,
 	waist="Obstin. Sash",
 	left_ear="Regal Earring",
 	right_ear="Snotra Earring",
@@ -332,33 +326,47 @@ sets.midcast.DurationOnlyEnfeebling.INT = set_combine(sets.midcast['Enfeebling M
 	main="Bunzi's Rod", 
 	body="Atrophy Tabard +3", 
 })	
+
+sets.midcast.DurationOnlyEnfeebling.Melee = set_combine(sets.midcast['Enfeebling Magic'], {
+	body="Atrophy Tabard +3", 
+})
 	
 sets.midcast.Silence = sets.midcast.DurationOnlyEnfeebling
+sets.midcast.Silence.Melee = sets.midcast.DurationOnlyEnfeebling.Melee
 sets.midcast.Silence.Resistant = sets.midcast['Enfeebling Magic'].Resistant
 sets.midcast.Sleep = set_combine(sets.midcast.DurationOnlyEnfeebling.INT,{})
+sets.midcast.Sleep.Melee = sets.midcast.DurationOnlyEnfeebling.Melee
 sets.midcast.Sleep.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant.INT,{})
 
 sets.midcast['Sleep'] = set_combine(sets.midcast.DurationOnlyEnfeebling.INT,{})
+sets.midcast['Sleep'].Melee = set_combine(sets.midcast.DurationOnlyEnfeebling.Melee,{})
 sets.midcast['Sleepga'] = set_combine(sets.midcast.DurationOnlyEnfeebling.INT,{})
+sets.midcast['Sleepga'].Melee = set_combine(sets.midcast.DurationOnlyEnfeebling.Melee,{})
 sets.midcast['Sleep II'] = set_combine(sets.midcast.DurationOnlyEnfeebling.INT,{})
+sets.midcast['Sleep II'].Melee = set_combine(sets.midcast.DurationOnlyEnfeebling.Melee,{})
 sets.midcast['Sleep'].Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant.INT, {})
 sets.midcast['Sleepga'].Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant.INT, {})
 sets.midcast['Sleep II'].Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant.INT, {})
 
 sets.midcast.Bind = set_combine(sets.midcast.DurationOnlyEnfeebling.INT,{})
+sets.midcast.Bind.Melee = set_combine(sets.midcast.DurationOnlyEnfeebling.Melee,{})
 sets.midcast.Bind.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant.INT,{})
 sets.midcast.Break = set_combine(sets.midcast.DurationOnlyEnfeebling.INT,{})
+sets.midcast.Break.Melee = set_combine(sets.midcast.DurationOnlyEnfeebling.Melee,{})
 sets.midcast.Break.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant.INT,{})
 
 sets.midcast.Dispel = sets.midcast['Enfeebling Magic'].Resistant
+sets.midcast.Dispel.Melee = sets.midcast['Enfeebling Magic']
 
 sets.midcast.SkillBasedEnfeebling = set_combine(sets.midcast['Enfeebling Magic'], {})
 
 sets.midcast['Frazzle II'] = sets.midcast['Enfeebling Magic'].Resistant
+sets.midcast['Frazzle II'].Melee = sets.midcast['Enfeebling Magic']
 sets.midcast['Frazzle III'] = sets.midcast.SkillBasedEnfeebling
 sets.midcast['Frazzle III'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
 
 sets.midcast['Distract II'] = sets.midcast['Enfeebling Magic'].Resistant
+sets.midcast['Distract II'].Melee = sets.midcast['Enfeebling Magic']
 sets.midcast['Distract III'] = sets.midcast.SkillBasedEnfeebling
 sets.midcast['Distract III'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
 
@@ -393,7 +401,7 @@ sets.midcast['Elemental Magic'] = {
 	hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
 	legs="Ea Slops +1",
 	feet="Vitiation Boots +3",
-	neck="Dls. Torque +2",
+	neck=gear.rdm_jse_neck,
 	waist=gear.ElementalObi,
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
@@ -484,7 +492,7 @@ sets.idle.Town = {
 	hands="Nyame Gauntlets",
 	legs="Carmine Cuisses +1",
 	feet="Nyame Sollerets",
-	neck="Dls. Torque +2",
+	neck=gear.rdm_jse_neck,
 	waist="Obstin. Sash",
 	left_ear="Telos Earring",
 	right_ear="Crepuscular Earring",
@@ -528,7 +536,7 @@ sets.buff.DTSublimation = {waist="Embla Sash"}
 
 -- Engaged sets
 sets.engaged = {
-	ammo="Ginsen",
+	ammo="Coiste Bodhar",
 	head="Malignance Chapeau",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
@@ -538,7 +546,7 @@ sets.engaged = {
 	waist="Windbuffet Belt +1",
 	left_ear="Sherida Earring",
 	right_ear="Telos Earring",
-	left_ring="Petrov Ring",
+	left_ring="Chirich Ring +1",
 	right_ring="Ilabrat Ring",
 	back=gear.jse_da_back,
 }

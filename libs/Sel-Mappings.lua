@@ -295,7 +295,7 @@ data.spells.storms = S{"Aurorastorm", "Voidstorm", "Firestorm", "Sandstorm", "Ra
 		"Aurorastorm II", "Voidstorm II", "Firestorm II", "Sandstorm II", "Rainstorm II", "Windstorm II", "Hailstorm II", "Thunderstorm II"}
 
 data.spells.geo_debuffs = S{'Frailty','Torpor','Wilt','Fade','Malaise','Slip','Torpor','Vex','Languor','Slow','Paralysis','Gravity','Poison'}
-data.spells.geo_buffs = S{'Regen','Refresh','Haste','STR','DEX','VIT','AGI','INT','MND','CHR','Fury','Barrier','Acumen','Fend','Precision','Voidance','Focus','Attunement'}
+data.spells.geo_buffs = S{'Regen','Refresh','Haste','STR','DEX','VIT','AGI','INT','MND','CHR','Str','Dex','Vit','Agi','Int','Mnd','Chr','Fury','Barrier','Acumen','Fend','Precision','Voidance','Focus','Attunement'}
 
 data.spells.addendum_white = S{'Poisona','Paralyna','Blindna','Silena','Stona','Viruna','Cursna','Erase','Raise II','Raise III',
 	'Reraise II','Reraise III','Reraise'}

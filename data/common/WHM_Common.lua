@@ -280,7 +280,7 @@ sets.midcast.Cure = {
 	waist="Porous Rope",
 	left_ear="Mendi. Earring",																								-- 0  / 2
 		right_ear="Glorious Earring",																							-- 5
-	left_ring="Vertigo Ring",
+	left_ring="Metamorph Ring +1",
 	right_ring="Lebeche Ring",																									-- 3
 	back=gear.jse_cure_back,																											
 }
@@ -306,7 +306,7 @@ sets.midcast.Cure.DT = {											-- Cure 	/	PDT/DT
 	legs="Ebers Pantaloons +1",
 	feet="Nyame Sollerets",											--			/	7
 	neck="Cleric's Torque",											-- 6%
-	waist="Porous Rope",
+	waist="Korin Obi",
 	left_ear={name="Odnowa Earring +1",priority=1},					--   			3
 	right_ear="Glorious Earring",									-- 5% II
 	left_ring="Defending Ring",										--				10

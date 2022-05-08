@@ -89,6 +89,16 @@ function select_default_macro_book()
 	end
 end
 
+weapon_castingmode = {['None']='Normal',['Murgleis']='Melee',['Crocea Mors']='Melee',['Sequence']='Melee',['Naegling']='Melee',['DualMurCea']='Melee',['DualMurgleis']='Melee',['DualCrocea']='Melee',['DualCroDay']='Melee',['DualSequence']='Melee',['DualSavage']='Melee',['DualEvis']='Melee',['DualClubs']='Melee',}
+
+function user_job_state_change(stateField, newValue, oldValue)
+	if stateField == 'Weapons' then
+		if weapon_castingmode[newValue] then 
+			state.CastingMode:set(weapon_castingmode[newValue]) 
+		end
+	end
+end
+
 function user_job_buff_change(buff, gain)
 	if buff:startswith('Addendum: ') or buff:endswith(' Arts') then
 		style_lock = true
