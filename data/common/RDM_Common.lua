@@ -125,10 +125,10 @@ sets.precast.WS['Seraph Blade'] = {
 	right_ear="Malignance Earring",
 	left_ring="Weather. Ring +1",																		
 	right_ring="Freke Ring",
-	back=gear.jse_mab_back,
+	back=gear.jse_mnd_back,
 }
 	
-sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS['Seraph Blade'], {head="Pixie Hairpin +1",left_ring="Archon Ring"})
+sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS['Seraph Blade'], {head="Pixie Hairpin +1",left_ring="Archon Ring",back=gear.jse_mab_back})
 	
 sets.precast.WS['Evisceration'] = sets.precast.WS['Chant Du Cygne']
 sets.precast.WS['Aeolian Edge'] = set_combine(sets.precast.WS['Seraph Blade'], {})

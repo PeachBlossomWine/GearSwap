@@ -14,6 +14,7 @@ gear.jse_str_back = {name="Sucellos's Cape",augments={'STR+20','Accuracy+20 Atta
 gear.jse_da_back = {name="Sucellos's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 gear.jse_macc_back = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','Phys. dmg. taken-10%',}}
 gear.jse_mab_back = {name="Sucellos's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
+gear.jse_mnd_back = { name="Sucellos's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','MND+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 
 gear.jse_skill_back = { name="Ghostfyre Cape", augments={'Enfb.mag. skill +3','Enha.mag. skill +10','Mag. Acc.+8',}}
 
