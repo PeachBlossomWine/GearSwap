@@ -758,4 +758,6 @@ item_stepdown = {
 	['Hi-Reraiser'] = {'Reraiser','item'},
 	['Reraiser'] = {'Instant Reraise','item'},
 	['Instant Reraise'] = {'Scapegoat','item'},
+    ['Grape Daifuku'] = {'Oden','item'},
+    ['Oden'] = {'Seafood Gratin','item'},
 }

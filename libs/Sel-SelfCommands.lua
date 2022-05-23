@@ -116,11 +116,19 @@ function handle_set(cmdParams)
     local state_var = get_state(cmdParams[1])
     
     if state_var then
-        local oldVal = state_var.value
-        table.remove(cmdParams, 1)
-        local argstr = table.concat(cmdParams,' ')
-        state_var:set(argstr)
-        local newVal = state_var.value
+
+
+        if cmdParams[3] == nil then
+            oldVal = state_var.value
+            state_var:set(cmdParams[2])
+            newVal = state_var.value
+        else
+            oldVal = state_var.value
+            table.remove(cmdParams, 1)
+            local argstr = table.concat(cmdParams,' ')
+            state_var:set(argstr)
+            newVal = state_var.value
+        end
 		
 		if toggleset and newVal == oldVal and newVal ~= 'Single' then
 			handle_reset(cmdParams)
@@ -147,7 +155,6 @@ function handle_set(cmdParams)
         
         add_to_chat(122, msg)
         handle_update({'auto'})
-		
     else
         add_to_chat(123,'Sel-Libs: Set: Unknown field ['..cmdParams[1]..']')
     end
