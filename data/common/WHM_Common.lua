@@ -96,18 +96,13 @@ else
 	gear.impact_body = "Twilight Cloak"
 end
 
-if item_available('Maxentius') then
-	gear.ambu_club = "Maxentius"
-else
-	gear.ambu_club = "Kaja Rod"
-end
-
-
 -- Weapons sets
 sets.weapons.Yagrush = {main="Yagrush",sub="Genmei Shield"}
 sets.weapons.Tishtrya = {main="Tishtrya",sub="Genmei Shield"}
-sets.weapons.DualWeapons = {main="Tishtrya",sub="Daybreak"}
-sets.weapons.Blue = {main=gear.ambu_club,sub="Genmei Shield"}
+sets.weapons.Maxentius = {main="Maxentius",sub="Genmei Shield"}
+sets.weapons.DualTish = {main="Tishtrya",sub="Daybreak"}
+sets.weapons.DualMaxen = {main="Maxentius",sub="Daybreak"}
+
 	
 -- Precast Sets
 -- 83%
@@ -278,9 +273,9 @@ sets.midcast.Cure = {
 	feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},				-- 10
 	neck="Cleric's Torque",																										-- 6
 	waist="Porous Rope",
-	left_ear="Mendi. Earring",																								-- 0  / 2
-		right_ear="Glorious Earring",																							-- 5
-	left_ring="Metamorph Ring +1",
+	left_ear="Mendi. Earring",			    																					-- 0  / 2
+	right_ear="Glorious Earring",	    																						-- 5
+	left_ring="Naji's Loop",
 	right_ring="Lebeche Ring",																									-- 3
 	back=gear.jse_cure_back,																											
 }

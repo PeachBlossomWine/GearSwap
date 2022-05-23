@@ -32,7 +32,7 @@ sets.Enmity.DT = sets.Enmity
 -- Enmity: 	25 + 23 Weapon = 48
 
 sets.Enmity.SIRD = {															--SIRD	/	DT-PDT	/	Enmity
-	ammo=gear.dt_ammo,											        		-- 11	/	3
+	ammo=gear.sird_ammo,										        		-- 11	/	3
 	head={name="Agwu's Cap",priority=38},										-- 10				/	
 	body={name="Nyame Mail",priority=136},										--		/	9
 	hands={name="Regal Gauntlets",priority=500},								-- 10

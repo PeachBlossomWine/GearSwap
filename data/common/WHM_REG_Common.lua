@@ -84,8 +84,9 @@ end
 -- Weapons sets
 sets.weapons.Yagrush = {main="Yagrush",sub="Genmei Shield"}
 sets.weapons.Tishtrya = {main="Tishtrya",sub="Genmei Shield"}
-sets.weapons.DualWeapons = {main="Tishtrya",sub="Daybreak"}
-sets.weapons.Blue = {main="Kaja Rod",sub="Genmei Shield"}
+sets.weapons.Maxentius = {main="Maxentius",sub="Genmei Shield"}
+sets.weapons.DualTish = {main="Tishtrya",sub="Daybreak"}
+sets.weapons.DualMaxen = {main="Maxentius",sub="Daybreak"}
 
 -- Precast Sets
 -- 83%
