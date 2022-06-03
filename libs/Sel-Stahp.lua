@@ -71,6 +71,9 @@ RefreshAbility = S{"Refresh","Refresh II", "Refresh III"
 				 
 PhalanxAbility = S{"Phalanx II"
 				 }
+
+RegenAbility = S{"Regen","Regen II","Regen III","Regen IV","Regen V"
+				 }
 				 
 EnhancingAbility = S{"Haste","Haste II","Flurry","Flurry II","Adloquium","Erratic Flutter","Animating Wail",
 				 }
@@ -257,6 +260,13 @@ function check_reaction(act)
 				do_equip('sets.Phalanx_Received')
 			elseif sets.midcast.Phalanx then
 				do_equip('sets.midcast.Phalanx')
+			end
+			return
+       	elseif RegenAbility:contains(act_info.name) then
+			if sets.Regen_Received then
+				do_equip('sets.Regen_Received')
+			elseif sets.midcast.Regen then
+				do_equip('sets.midcast.Regen')
 			end
 			return
 		elseif ProshellAbility:contains(act_info.name) then

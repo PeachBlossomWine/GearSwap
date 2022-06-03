@@ -277,9 +277,9 @@ sets.midcast.BarElement = sets.midcast['Temper']
 sets.midcast.BarElement.SIRD = sets.midcast['Temper']
 sets.midcast.BarElement.DT = sets.midcast['Temper']
 
-sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist's Bandeau +3", neck="Sacro Gorget"}) 
-sets.midcast['Regen'].SIRD = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist's Bandeau +3", neck="Sacro Gorget"}) 
-sets.midcast['Regen'].DT = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist's Bandeau +3", neck="Sacro Gorget"}) 
+sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist's Bandeau +3", neck="Sacro Gorget", waist="Sroda Belt"}) 
+sets.midcast['Regen'].SIRD = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist's Bandeau +3", neck="Sacro Gorget", waist="Sroda Belt"}) 
+sets.midcast['Regen'].DT = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist's Bandeau +3", neck="Sacro Gorget", waist="Sroda Belt"}) 
 
 sets.midcast['Refresh'] = set_combine(sets.midcast['Enhancing Magic'],{}) 
 sets.midcast['Refresh'].SIRD = set_combine(sets.midcast['Enhancing Magic'],{})
@@ -333,6 +333,7 @@ sets.midcast.Cocoon.DT = sets.Enmity.SIRD
 sets.Self_Healing = {}
 sets.Cure_Received = {}
 sets.Self_Refresh = {waist="Gishdubar Sash"}
+sets.Regen_Received = {waist="Sroda Belt"}
 
 sets.midcast.Protect = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Protect.SIRD = set_combine(sets.midcast['Enhancing Magic'], {})
@@ -346,9 +347,9 @@ sets.midcast['Raise'] = set_combine(sets.Enmity.SIRD, {})
 sets.midcast['Raise'].SIRD = set_combine(sets.Enmity.SIRD, {})
 sets.midcast['Raise'].DT = set_combine(sets.Enmity.SIRD, {})
 
-sets.midcast['Healing Magic'] = set_combine(sets.Enmity.SIRD, {})
-sets.midcast['Healing Magic'].SIRD = set_combine(sets.Enmity.SIRD, {})
-sets.midcast['Healing Magic'].DT = set_combine(sets.Enmity.SIRD, {})
+sets.midcast['Healing Magic'] = set_combine(sets.Enmity.SIRD, {feet=gear.sird_cure_feet, waist="Sroda Belt"})
+sets.midcast['Healing Magic'].SIRD = set_combine(sets.midcast['Healing Magic'], {})
+sets.midcast['Healing Magic'].DT = set_combine(sets.midcast['Healing Magic'], {})
 --------------------------------------
 -- Idle/resting/defense/etc sets
 --------------------------------------

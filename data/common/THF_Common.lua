@@ -197,7 +197,7 @@ sets.engaged = {
 	waist="Reiki Yotai",
 	left_ear="Sherida Earring",
 	right_ear="Telos Earring",
-	left_ring="Petrov Ring",
+	left_ring="Chirich Ring +1",
 	right_ring="Gere Ring",
 	back=gear.jse_tp_back,
 }
@@ -212,8 +212,8 @@ sets.engaged.DT ={
 	neck="Combatant's Torque",
 	waist="Reiki Yotai",
 	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
-	left_ring="Defending Ring",
+	right_ear="Odnowa Earring +1",
+	left_ring="Chirich Ring +1",
 	right_ring="Gere Ring",
 	back=gear.jse_tp_back,
 }

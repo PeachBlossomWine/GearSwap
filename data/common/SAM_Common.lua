@@ -213,11 +213,11 @@ sets.idle = {
 
 sets.idle.Town = {
 	ammo="Coiste Bodhar",
-	head="Nyame Helm",
-	body="Nyame Mail",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	head="Mpaca's Cap",
+	body="Mpaca's Doublet",
+	hands="Mpaca's Gloves",
+	legs="Mpaca's Hose",
+	feet="Mpaca's Boots",
 	neck="Sam. Nodowa +2",
 	waist="Sailfi Belt +1",
 	left_ear="Telos Earring",

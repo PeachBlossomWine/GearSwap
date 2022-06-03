@@ -26,18 +26,6 @@ end
 
 -- JSE
 
-if item_available('Viti. Tabard +3') then
-	gear.jse_relic_body = "Viti. Tabard +3"
-else
-	gear.jse_relic_body = "Viti. Tabard +2"
-end
-
-if item_available('Vitiation Boots +3') then
-	gear.jse_relic_feet = "Vitiation Boots +3"
-else
-	gear.jse_relic_feet = "Vitiation Boots +2"
-end
-
 if item_available('Atrophy Tights +3') then
 	gear.jse_af_legs = "Atrophy Tights +3"
 else
@@ -62,7 +50,7 @@ sets.weapons.DualClubs = {main="Kaja Rod",sub="Bunzi's Rod"}
 
 
 -- Precast Sets
-sets.precast.JA['Chainspell'] = {body=gear.jse_relic_body}
+sets.precast.JA['Chainspell'] = {body="Viti. Tabard +3"}
 sets.precast.JA['Convert'] = {main="Murgleis"}
 
 -- Waltz set (chr and vit)
@@ -79,7 +67,7 @@ sets.precast.FC = {
 	ammo={name="Impatiens", priority=1},													-- QC 2
 	ranged=empty,
 	head=gear.merlinic_fc_head,																-- 15
-	body=gear.jse_relic_body,																-- 15
+	body="Viti. Tabard +3",																-- 15
 	neck="Baetyl Pendant",  																-- 4
 	legs="Aya. Cosciales +2",																-- 6	
 	waist="Embla Sash",																		-- 5
@@ -219,7 +207,7 @@ sets.midcast['Enhancing Magic'] = {
 	main=gear.colada_enhancing_sword,												-- 4% 	
 	sub="Ammurapi Shield",															-- 10%
 	head=gear.telchine_enhancing_head,												-- 9%
-	body=gear.jse_relic_body,															-- 15%
+	body="Viti. Tabard +3",															-- 15%
 	hands="Atrophy Gloves +3",														-- 20%
 	legs=gear.telchine_enhancing_legs,												-- 9%
 	feet="Leth. Houseaux +1",														-- 30%
@@ -250,7 +238,7 @@ sets.EnhancingSkill = {
 	range=empty,
 	ammo=gear.dt_ammo,
 	head="Befouled Crown",
-	body=gear.jse_relic_body,
+	body="Viti. Tabard +3",
 	hands="Viti. Gloves +3",
 	legs=gear.jse_af_legs,
 	feet="Leth. Houseaux +1",
@@ -308,7 +296,7 @@ sets.midcast['Enfeebling Magic'] = {
 	body="Lethargy Sayon +1",
 	hands=gear.rdm_regal_hands,
 	legs=gear.chironic_enfeeble_legs,
-	feet=gear.jse_relic_feet,
+	feet="Vitiation Boots +3",
 	neck=gear.rdm_jse_neck,
 	waist="Obstin. Sash",
 	left_ear="Regal Earring",
@@ -423,7 +411,7 @@ sets.midcast['Elemental Magic'] = {
 	body="Shamash Robe",
 	hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
 	legs=gear.BurstLegs,
-	feet=gear.jse_relic_feet,
+	feet="Vitiation Boots +3",
 	neck=gear.rdm_jse_neck,
 	waist=gear.ElementalObi,
 	left_ear="Regal Earring",

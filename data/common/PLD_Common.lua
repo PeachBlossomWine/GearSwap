@@ -262,8 +262,9 @@ sets.midcast.Reprisal = {
 	back=gear.tank_fc_back,																		-- 10%
 }
 	
-sets.Cure_Received = {}
+sets.Cure_Received = {waist="Gishdubar Sash"}
 sets.Self_Refresh = {waist="Gishdubar Sash"}
+sets.Regen_Received = {waist="Sroda Belt"}
 
 sets.midcast['Enhancing Magic'] = {
 	ammo="Staunch Tathlum +1",																				-- 11	/	3	/
