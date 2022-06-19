@@ -1634,7 +1634,8 @@ function check_doomed()
 end
 
 function check_ws()
-	if state.AutoWSMode.value and not state.RngHelper.value and player.status == 'Engaged' and player.target and player.target.type == "MONSTER" and player.tp > 999 and not silent_check_amnesia() and not (player.target.distance > (19.7 + player.target.model_size)) then
+    local currentshadows = has_shadows()
+	if state.AutoWSMode.value and not state.RngHelper.value and player.status == 'Engaged' and player.target and player.target.type == "MONSTER" and player.tp > 999 and not silent_check_amnesia() and not (player.target.distance > (19.7 + player.target.model_size)) and ((state.AutoShadowMode.value and currentshadows > 0) or (not state.AutoShadowMode.value)) then
 
 	local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
 		
