@@ -640,7 +640,17 @@ function check_buff()
 				tickdelay = os.clock() + 2.0
 				return true
 			end
-		end
+            
+            if player.sub_job == 'WAR' and not buffactive['SJ Restriction'] and not buffactive.Aggressor and abil_recasts[4] < latency then
+                windower.chat.input('/ja "Aggressor" <me>')
+                tickdelay = os.clock() + 1.1
+                return true
+            elseif player.sub_job == 'WAR' and not buffactive['SJ Restriction'] and not buffactive.Berserk and abil_recasts[1] < latency then
+                windower.chat.input('/ja "Berserk" <me>')
+                tickdelay = os.clock() + 1.1
+                return true
+            end
+        end
 	else
 		return false
 	end
@@ -701,7 +711,8 @@ buff_spell_lists = {
 		{Name='Reprisal',Buff='Reprisal',SpellID=97,When='Combat'},
 		{Name='Cocoon',Buff='Defense Boost',SpellID=547,When='Always'},
 		{Name='Phalanx',Buff='Phalanx',SpellID=106,When='Always'},
-		--{Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
+		{Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
+        {Name='Protect V',Buff='Protect',SpellID=47,When='Always'},
 	},
 	
 	Default = {

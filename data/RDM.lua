@@ -115,11 +115,34 @@ end
 
 function job_precast(spell, spellMap, eventArgs)
     local abil_recasts = windower.ffxi.get_ability_recasts()
+    local accession_spells = S{'Regen II','Sneak','Invisible','Shell V','Protect V'}
+    
 	if spell.action_type == 'Magic' then
 		if state.Buff.Chainspell then
 			eventArgs.handled = true
 		end
-		if spellMap == 'Cure' or spellMap == 'Curaga' then
+        
+        if accession_spells:contains(spell.english) and not data.areas.cities:contains(world.area) then
+			local abil_recasts = windower.ffxi.get_ability_recasts()
+			if player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia()) and not buffactive['SJ Restriction'] then
+				if state.Buff['Light Arts'] then
+					windower.chat.input('/ja "Accession" <me>')
+					windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
+					add_to_chat(122,'Accession - "'..spell.english..'" !')
+					eventArgs.cancel = true
+					tickdelay = os.clock() + 4.6
+				else
+					if abil_recasts[228] < latency then
+						windower.chat.input('/ja "Light Arts" <me>')
+						windower.chat.input:schedule(1.6,'/ja "Accession" <me>')
+						windower.chat.input:schedule(3.1,'/ma "'..spell.english..'" '..spell.target.raw..'')
+						add_to_chat(122,'Accession - "'..spell.english..'" !')
+						eventArgs.cancel = true
+						tickdelay = os.clock() + 6.2
+					end
+				end
+			end
+		elseif spellMap == 'Cure' or spellMap == 'Curaga' then
 			gear.default.obi_back = gear.obi_cure_back
 			gear.default.obi_waist = gear.obi_cure_waist
 		elseif spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' then

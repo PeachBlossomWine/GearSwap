@@ -46,7 +46,7 @@ sets.weapons.DualCroDay = {main="Crocea Mors",sub="Daybreak"}
 sets.weapons.DualSequence = {main="Sequence",sub="Gleti's Knife"}
 sets.weapons.DualSavage = {main="Naegling",sub="Gleti's Knife"}
 sets.weapons.DualEvis = {main="Tauret",sub="Gleti's Knife"}
-sets.weapons.DualClubs = {main="Kaja Rod",sub="Bunzi's Rod"}
+sets.weapons.DualClubs = {main="Maxentius",sub="Bunzi's Rod"}
 
 
 -- Precast Sets
@@ -291,7 +291,7 @@ sets.midcast['Enfeebling Magic'] = {
 	main="Daybreak",
 	sub="Ammurapi Shield",
 	range=empty,
-	ammo={name="Regal Gem", priority=15},
+	ammo={name="Regal Gem", priority=500},
 	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 	body="Lethargy Sayon +1",
 	hands=gear.rdm_regal_hands,
@@ -301,8 +301,8 @@ sets.midcast['Enfeebling Magic'] = {
 	waist="Obstin. Sash",
 	left_ear="Regal Earring",
 	right_ear="Snotra Earring",
-	left_ring={name="Kishar Ring", priority=15},
-	right_ring=gear.stikini_ring,
+	left_ring={name="Kishar Ring", priority=500},
+	right_ring="Metamorph Ring +1",
 	back=gear.jse_macc_back,
 }
 	
@@ -314,8 +314,8 @@ sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeeblin
 	ammo=empty,
 	body="Atrophy Tabard +3",
 	hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
-	left_ring="Metamorph Ring +1",
-	right_ring=gear.stikini_ring,
+	left_ring=gear.stikini_ring,
+	right_ring={name="Metamorph Ring +1", priority=500},
 })
 
 sets.midcast['Enfeebling Magic'].Resistant.INT = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {

@@ -4,20 +4,25 @@ else
 	gear.ring_tp = 'Petrov Ring'
 end
 
-sets.weapons.DualSavage = 				{main="Naegling",sub="Demers. Degen +1",range="Anarchy +2"}
-sets.weapons.DualLeaden = 				{main="Rostam",sub="Gleti's Knife",range="Death Penalty"}
+if item_available('Crepuscular Knife') then
+	gear.offhand_melee_dagger = "Crepuscular Knife"
+    gear.offhand_savage = "Crepuscular Knife"
+else
+	gear.offhand_melee_dagger = "Gleti's Knife"
+    gear.offhand_savage = "Gleti's Knife"
+end
+
+sets.weapons.DualSavage = 				{main="Naegling",sub=gear.offhand_savage ,range="Anarchy +2"}
+sets.weapons.DualLeaden = 				{main="Rostam",sub=gear.offhand_melee_dagger,range="Death Penalty"}
 sets.weapons.DualLeadenRanged = 		{main="Rostam",sub="Tauret",range="Death Penalty"}
-sets.weapons.DualWildfire = 			{main="Rostam",sub="Gleti's Knife",range="Armageddon"}
+sets.weapons.DualWildfire = 			{main="Rostam",sub=gear.offhand_melee_dagger,range="Armageddon"}
 sets.weapons.DualWildfireRanged = 		{main="Rostam",sub="Tauret",range="Armageddon"}
-sets.weapons.DualLastStand = 			{main="Rostam",sub="Gleti's Knife",range="Fomalhaut"}
+sets.weapons.DualLastStand = 			{main="Rostam",sub=gear.offhand_melee_dagger,range="Fomalhaut"}
 sets.weapons.DualLastStandRanged = 		{main="Rostam",sub="Kustawi +1",range="Fomalhaut"}
 sets.weapons.DeathPenalty = 			{main="Rostam",sub="Nusku Shield",range="Death Penalty"}
 sets.weapons.Armageddon =				{main="Rostam",sub="Nusku Shield",range="Armageddon"}
 sets.weapons.Fomalhaut = 				{main="Rostam",sub="Nusku Shield",range="Fomalhaut"}
 sets.weapons.Naegling = 				{main="Naegling",sub="Nusku Shield",range="Anarchy +2"}
-
--- sets.BeltOne = {waist="Chr. Bul. Pouch"}
--- sets.BeltTwo = {waist="Liv. Bul. Pouch"}
 
 -- Precast sets to enhance JAs
 

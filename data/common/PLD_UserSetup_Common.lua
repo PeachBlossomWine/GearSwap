@@ -6,7 +6,7 @@ state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('DT','Normal')
-state.Weapons:options('Ochain','Aegis','Srivatsa','None')
+state.Weapons:options('Ochain','Aegis','Srivatsa','Naegling','None')
 
 state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None'}
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
@@ -37,6 +37,7 @@ send_command('bind ^pause gs c toggle AutoRuneMode')
 send_command('bind @f6 gs c toggle AutoTankFull;')
 send_command('bind @f7 gs c toggle AutoBuffMode;')
 send_command('bind @f8 gs c toggle AutoTankMode;')
+send_command('bind f10 gs c toggle MagicalDefenseMode')
 send_command('bind @f10 gs c toggle TankAutoDefense')
 
 send_command('wait 15; input /lockstyleset 7;')

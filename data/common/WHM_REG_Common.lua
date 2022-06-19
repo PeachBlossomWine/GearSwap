@@ -36,6 +36,14 @@ else
 	gear.whm_relic_legs = 'Piety Pantaloons +1'
 end
 
+--JSE
+
+if item_available('Theo. Bliaut +3') then
+	gear.whm_AF_body = 'Theo. Bliaut +3'
+else
+	gear.whm_AF_body = 'Theo. Bliaut +2'
+end
+
 if item_available('Th. Pant. +3') then
 	gear.whm_AF_legs = 'Th. Pant. +3'
 else
@@ -73,7 +81,10 @@ else
 	gear.whm_idle_feet = 'Inyanga Crackows +2'
 end
 
-if item_available('Iridal Staff') then
+if item_available("Chatoyant Staff") then
+	gear.cure_weather_weapon = 'Chatoyant Staff'
+	gear.cure_weather_sub = 'Enki Strap'
+elseif item_available('Iridal Staff') then
 	gear.cure_weather_weapon = 'Iridal Staff'
 	gear.cure_weather_sub = 'Enki Strap'
 else
@@ -251,7 +262,7 @@ sets.midcast.Cure = {
 	sub="Sors Shield",																											-- 3
 	ammo="Hydrocera",
 	head="Ebers Cap +1",																										-- 16
-	body="Theo. Bliaut +3",
+	body=gear.whm_AF_body,
 	hands="Theophany Mitts +3",																									-- 0  / 4
 	legs="Ebers Pantaloons +1",
 	feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},				-- 10
@@ -280,7 +291,7 @@ sets.midcast.Cure.MEVA = {																							-- Cure 	/	PDT/DT
 	sub="Genmei Shield",																								-- 			/	10
 	ammo="Crepuscular Pebble",																							--			/	3
 	head="Ebers Cap +1",																								-- 16%
-	body="Theo. Bliaut +3",
+	body=gear.whm_AF_body,
 	hands="Theophany Mitts +3",																							-- 4% II
 	legs="Ebers Pantaloons +1",
 	feet="Nyame Sollerets",																								--			/	7
@@ -493,7 +504,7 @@ sets.midcast['Enfeebling Magic'] = {
 	sub="Ammurapi Shield",
 	ammo="Hydrocera",
 	head="C. Palug Crown",
-	body="Theo. Bliaut +3",
+	body=gear.whm_AF_body,
 	hands=gear.whm_hands_enfeebling,
 	legs=gear.whm_AF_legs,
 	feet=gear.whm_AF_feet,

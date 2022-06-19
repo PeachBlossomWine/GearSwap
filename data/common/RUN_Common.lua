@@ -1,7 +1,7 @@
 -- Weapons sets
 sets.weapons.Epeolatry = {main="Epeolatry", sub="Utu Grip"}
 sets.weapons.Lionheart = {main="Lionheart", sub="Utu Grip"}
-sets.weapons.Lycurgos = {main="Lycurgos", sub="Utu Grip"}
+sets.weapons.Lycurgos = {main="Lycurgos", sub="Khonsu"}
 
 -- 50 DT/PDT
 -- 62 + 23 Weapon = 85

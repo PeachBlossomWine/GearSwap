@@ -3,8 +3,8 @@ sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 -- Extra Melee sets.  Apply these on top of melee sets.
 
 -- Weapons sets
-sets.weapons.Aeneas = {main="Aeneas",sub="Gleti's Knife"}
-sets.weapons.Terpsichore = {main="Terpsichore",sub="Gleti's Knife"}
+sets.weapons.Aeneas = {main="Aeneas",sub="Crepuscular Knife"}
+sets.weapons.Terpsichore = {main="Terpsichore",sub="Crepuscular Knife"}
 sets.weapons.Karambit = {main="Karambit",sub=empty}
 
 -- Precast Sets

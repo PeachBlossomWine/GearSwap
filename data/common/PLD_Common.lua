@@ -1,7 +1,7 @@
 sets.weapons.Ochain = {main="Burtgang", sub="Ochain"}
 sets.weapons.Aegis = {main="Burtgang", sub="Aegis"}
 sets.weapons.Srivatsa = {main="Burtgang", sub="Srivatsa"}
---sets.weapons.DualWeapons = {main="Sequence",sub="Sakpata's Sword"}
+sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield +1"}
 
 --------------------------------------
 -- Precast sets

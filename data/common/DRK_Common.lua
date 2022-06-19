@@ -226,25 +226,18 @@ sets.midcast['Enfeebling Magic'] = {
 	   
 sets.midcast['Dread Spikes'] = set_combine(sets.midcast['Dark Magic'], {})
 sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {hands="Heathen's Gauntlets +1", feet="Ratri Sollerets +1", back="Ankou's Mantle"})
-	   
-sets.midcast.Stun = {}
-			   
 sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {ring1="Evanescence Ring",ring2="Archon Ring", back=gear.Drain_back}) -- feet="Ratri Sollerets +1", 
-
-sets.DrainWeapon = {main="Misanthropy",sub="Utu Grip"}
-sets.AbsorbWeapon = {main="Liberator",sub="Utu Grip"}
-			   
 sets.midcast.Aspir = sets.midcast.Drain
-
 sets.midcast.Impact = set_combine(sets.midcast['Dark Magic'], {head=empty,body="Twilight Cloak"})
-
+sets.midcast.Stun = sets.midcast['Enfeebling Magic']
 sets.midcast.Cure = {}
 
 sets.Self_Healing = {waist="Gishdubar Sash"}
 sets.Cure_Received = {waist="Gishdubar Sash"}
 sets.Self_Refresh = {waist="Gishdubar Sash"}
-									   
 
+sets.DrainWeapon = {main="Misanthropy",sub="Khonsu"}
+sets.AbsorbWeapon = {main="Liberator",sub="Khonsu"}
 	   
 -- Swap to these on Moonshade using WS if at 3000 TP
 sets.MaxTP = {ear1="Thrud Earring",ear2="Lugra Earring +1",}
