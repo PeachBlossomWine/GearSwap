@@ -1,3 +1,6 @@
+
+autows_list = {['DualSavage']='Savage Blade',['DualLeaden']='Leaden Salute',['DualLeadenRanged']='Leaden Salute',['DualWildfire']='Wildfire',['DualWildfireRanged']='Wildfire',['DualLastStand']='Last Stand',['DualLastStandRanged']='Last Stand',['DeathPenalty']='Leaden Salute',['Armageddon']='Wildfire',['Fomalhaut']='Last Stand',['Naegling']='Savage Blade',}
+
 if item_available('Chirich Ring +1') then
 	gear.ring_tp = 'Chirich Ring +1'
 else

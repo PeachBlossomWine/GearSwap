@@ -36,7 +36,7 @@ sets.precast.JA['Tactical Switch'] = {} --{feet="Cirque Scarpe +2"}
 sets.precast.JA['Repair'] = {ammo="Automat. Oil +3"} --feet="Foire Babouches"
 sets.precast.JA['Maintenance'] = {ammo="Automat. Oil +3"}
 
-sets.precast.JA.Maneuver = {main="Midnights",back=gear.jse_pet_tank_back} --neck="Buffoon's Collar",hands="Foire Dastanas",body="Cirque Farsetto +2",
+sets.precast.JA.Maneuver = {main="Midnights",body="Kara. Farsetto +1",neck="Bfn. Collar +1",back=gear.jse_pet_tank_back} --,hands="Foire Dastanas",
 
 -- Waltz set (chr and vit)
 sets.precast.Waltz = {}

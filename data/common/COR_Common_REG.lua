@@ -1,5 +1,7 @@
 -- Gear selection based on availability
 
+autows_list = {['DualSavage']='Savage Blade',['DualLeaden']='Leaden Salute',['DualLeadenRanged']='Leaden Salute',['DualLastStand']='Last Stand',['DualLastStandRanged']='Last Stand',['DeathPenalty']='Leaden Salute',['Fomalhaut']='Last Stand',['Naegling']='Savage Blade',}
+
 if item_available('Laksa. Frac +3') then
 	gear.jse_ws_body = 'Laksa. Frac +3'
 else
@@ -403,7 +405,7 @@ sets.engaged.DT = {
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Malignance Boots",
-	neck="Lissome Necklace",
+	neck="Combatant's Torque",
 	waist=gear.tp_dw_waist,
 	left_ear="Telos Earring",
 	right_ear="Cessance Earring",
@@ -412,21 +414,28 @@ sets.engaged.DT = {
 	back=gear.jse_tp_back,
 }
 
+sets.engaged.Tank = {
+	ammo=gear.RAbullet,
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck="Combatant's Torque",
+	waist=gear.tp_dw_waist,
+	left_ear="Telos Earring",
+	right_ear="Cessance Earring",
+	left_ring="Defending Ring",
+	right_ring=gear.ring_tp,
+	back=gear.jse_tp_back,
+}
+
 --------
 -- DW --
 --------
-sets.engaged.DW = set_combine(sets.engaged, {
-	right_ear="Suppanomimi",
-})
-
-sets.engaged.Acc.DW = set_combine(sets.engaged.Acc, {
-	right_ear="Suppanomimi",
-})
-
-sets.engaged.DW.DT = set_combine(sets.engaged.DT, {
-	right_ear="Suppanomimi",
-})
-	
-sets.engaged.Acc.DW.DT = set_combine(sets.engaged.DW.DT, {
-	right_ear="Suppanomimi",
-})
+sets.engaged.DW = set_combine(sets.engaged, {waist="Reiki Yotai", right_ear="Suppanomimi",})
+sets.engaged.Acc.DW = set_combine(sets.engaged.Acc, {waist="Reiki Yotai", right_ear="Suppanomimi",})
+sets.engaged.DW.DT = set_combine(sets.engaged.DT, {waist="Reiki Yotai", right_ear="Suppanomimi",})
+sets.engaged.DW.Tank = set_combine(sets.engaged.DT, {waist="Reiki Yotai", right_ear="Suppanomimi",})
+sets.engaged.Acc.DW.DT = set_combine(sets.engaged.DW.DT, {waist="Reiki Yotai", right_ear="Suppanomimi",})
+sets.engaged.Acc.DW.Tank = set_combine(sets.engaged.DW.DT, {waist="Reiki Yotai", right_ear="Suppanomimi",})
