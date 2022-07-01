@@ -114,6 +114,10 @@ function job_pretarget(spell, spellMap, eventArgs)
 end
 
 function job_precast(spell, spellMap, eventArgs)
+    local AP_spells = S{'Regen V','Animus Minuo','Embrava'}
+    local Accession_spells = S{'Protect V','Shell V','Sneak','Invisible','Adloquium'}
+    local Perpetuance_spells = S{'Refresh'}
+    local AOE_na_spells = S{'Blindna','Cursna','Paralyna','Poisona','Silena','Stona','Viruna','Erase'}
 
 	if spell.action_type == 'Magic' then
 		if spellMap == 'Cure' or spellMap == 'Curaga' then
@@ -142,14 +146,11 @@ function job_precast(spell, spellMap, eventArgs)
 						end
 					end
 				end
-			-- else
-				-- gear.default.obi_back = gear.obi_high_nuke_back
-				-- gear.default.obi_waist = gear.obi_high_nuke_waist
 			end
 		-- Accession + Perpetuance
-		elseif (spell.english == 'Regen V' or spell.english == 'Animus Minuo') and state.AutoAPMode.value then
+		elseif (AP_spells:contains(spell.english)) and state.AutoAPMode.value then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
-			if get_current_stratagem_count() > 1 and not(buffactive.Accession or silent_check_amnesia()) then -- or buffactive.Perpetuance
+			if get_current_stratagem_count() > 1 and not(buffactive.Accession or silent_check_amnesia()) then
 				if state.Buff['Light Arts'] or state.Buff['Addendum: White'] then
 					windower.chat.input('/ja "Accession" <me>')
 					windower.chat.input:schedule(1.6,'/ja "Perpetuance" <me>')
@@ -170,7 +171,7 @@ function job_precast(spell, spellMap, eventArgs)
 				end
 			end
 		-- Accession
-		elseif (spell.english == 'Protect V' or spell.english == 'Shell V' or spell.english == 'Invisible' or spell.english == 'Sneak' or spell.english == 'Adloquium') and state.AutoAPMode.value then
+		elseif ((Accession_spells:contains(spell.english)) and state.AutoAPMode.value) or (state.AutoAOE.value and AOE_na_spells:contains(spell.english)) then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 			if get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia()) then
 				if state.Buff['Light Arts'] or state.Buff['Addendum: White'] then
@@ -191,7 +192,7 @@ function job_precast(spell, spellMap, eventArgs)
 				end
 			end
 		-- Perpetuance
-		elseif spell.english == 'Refresh' and state.AutoAPMode.value then -- spell.english == 'Haste' or 
+		elseif (Perpetuance_spells:contains(spell.english)) and state.AutoAPMode.value then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 			if get_current_stratagem_count() > 0 and not(buffactive.Perpetuance or silent_check_amnesia()) then
 				if state.Buff['Light Arts'] or state.Buff['Addendum: White'] then
@@ -1044,6 +1045,7 @@ function job_tick()
 	if check_arts() then return true end
 	if check_buff() then return true end
 	if check_buffup() then return true end
+    if check_zerg_sp() then return true end
 	return false
 end
 
@@ -1127,10 +1129,28 @@ function check_buffup()
 	end
 end
 
+function check_zerg_sp()
+	if state.AutoZergMode.value == 'On' and player.in_combat and not data.areas.cities:contains(world.area) then
+		
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if (not buffactive['Tabula Rasa'] and abil_recasts[0] < latency) then
+            windower.chat.input('/ja "Tabula Rasa" <me>')
+			tickdelay = os.clock() + 1.8
+			return true		
+		else
+			return false
+		end
+	end
+		
+	return false
+end
+
 buff_spell_lists = {
 	Auto = {	
 		--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
+        {Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
 	},
 	
 	Healing = {
@@ -1139,6 +1159,7 @@ buff_spell_lists = {
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
 		{Name='Aurorastorm II', Buff='Aurorastorm',		SpellID=864,	When='Always'},
         {Name='Reraise II',     Buff='Reraise',		    SpellID=141,	When='Always'},
+        {Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
 	},
 	
 	Nuking = {

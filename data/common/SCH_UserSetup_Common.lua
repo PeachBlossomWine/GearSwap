@@ -5,6 +5,7 @@ state.HybridMode:options('Normal')
 state.Weapons:options('None','Musa','Khatvanga')
 state.AutoArts = M(false, 'AutoArts')
 state.AutoAPMode = M(true, 'AutoAPMode')
+state.AutoAOE = M(false, 'AutoAOE')
 state.AutoBuffMode = M{['description'] = 'Auto Buff Mode','Off','Auto','Healing','Nuking'}
 state.AutoArts = M{['description'] = 'Auto Arts Mode','Off','On','Light','Dark'}
 
