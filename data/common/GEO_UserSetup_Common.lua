@@ -4,7 +4,7 @@ state.IdleMode:options('Normal', 'DT')
 state.PhysicalDefenseMode:options('PDT', 'NukeLock', 'GeoLock', 'PetPDT')
 state.MagicalDefenseMode:options('MDT', 'NukeLock')
 state.ResistDefenseMode:options('MEVA')
-state.Weapons:options('None')
+state.Weapons:options('None','Idris','DualClub')
 state.AutoZergMode = M(false, 'Auto Zerg Mode')
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
 

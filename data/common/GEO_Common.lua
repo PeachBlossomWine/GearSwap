@@ -76,6 +76,9 @@ sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +3"}
 sets.precast.JA['Mending Halation'] = {legs=gear.geo_relic_legs}
 sets.precast.JA['Full Circle'] = {head="Azimuth Hood +1",hands="Bagua Mitaines +3"}
 
+sets.weapons.Idris = {main="Idris",sub="Genmei Shield"}
+sets.weapons.DualClub = {main="Idris",sub="Bunzi's Rod"}
+
 -- Indi Duration in slots that would normally have skill here to make entrust more efficient.
 
 -- Relic hat for Blaze of Glory HP increase.
@@ -601,17 +604,17 @@ sets.engaged = {
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head="Nyame Helm",
     body="Nyame Mail",
-    hands="Nyame Gauntlets",
+    hands="Geomancy Mitaines +3",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck="Combatant's Torque",
+    neck=gear.geo_jse_neck,
     waist="Grunfeld Rope",
     left_ear="Telos Earring",
-    right_ear="Cessance Earring",
-    left_ring="Petrov Ring",
-    right_ring="Begrudging Ring",
+    right_ear="Crepuscular Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Petrov Ring",
+    back=gear.jse_pet_back,
 }
-sets.engaged.DW = {}
 
 --------------------------------------
 -- Custom buff sets

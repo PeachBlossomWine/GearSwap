@@ -867,6 +867,7 @@ buff_spell_lists = {
 	Auto = {
 		{Name='Haste',		Buff='Haste',		SpellID=57,		When='Always'},
 		{Name='Refresh',	Buff='Refresh',		SpellID=109,	When='Always'},
+        {Name='Aurorastorm',Buff='Aurorastorm', SpellID=119,    When='Always'},
 	},
 
 	Default = {
