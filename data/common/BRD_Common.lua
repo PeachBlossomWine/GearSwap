@@ -499,7 +499,7 @@ sets.latent_refresh = {waist="Fucho-no-obi"}
 sets.engaged = {
 	range=gear.tp_linos,
 	head="Nyame Helm",
-	body="Nyame Mail",
+	body="Bihu Justaucorps +3",
 	hands="Bunzi's Gloves",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -513,4 +513,4 @@ sets.engaged = {
 }
 
 -- Set if dual-wielding
-sets.engaged.DW = set_combine(sets.engaged, { right_ear="Suppanomimi"}) -- waist="Reiki Yotai",
+sets.engaged.DW = set_combine(sets.engaged, {waist="Reiki Yotai", right_ear="Suppanomimi"})

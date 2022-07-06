@@ -381,7 +381,7 @@ function default_zone_change(new_id,old_id)
 	state.AutoNukeMode:reset()
 	state.AutoArts:reset()
 	state.AutoSambaMode:reset()
-	--state.AutoShadowMode:reset()
+	state.AutoShadowMode:reset()
 	state.AutoJumpMode:reset()
 	--Custom states
 	state.AutoZergMode:reset()
