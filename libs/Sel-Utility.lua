@@ -793,7 +793,7 @@ function can_use(spell)
             (spell_jobs[player.main_job_id] >= 100 and number_of_jps(player.job_points[__raw.lower(res.jobs[player.main_job_id].ens)]) >= spell_jobs[player.main_job_id]) ) ) then
                         
             if data.spells.addendum_white:contains(spell.english) then
-				if state.AutoArts.value and not buffactive["Addendum: White"] and not silent_check_amnesia() and get_current_stratagem_count() > 0 then
+				if not buffactive["Addendum: White"] and not silent_check_amnesia() and get_current_stratagem_count() > 0 then -- state.AutoArts.value and
 					if state.Buff['Light Arts'] then
 						windower.chat.input('/ja "Addendum: White" <me>')
 						windower.chat.input:schedule(1.5,'/ma "'..spell.english..'" '..spell.target.raw..'')
@@ -810,7 +810,7 @@ function can_use(spell)
 				end
             end
             if data.spells.addendum_black:contains(spell.english) then
-				if state.AutoArts.value and not buffactive["Addendum: Black"] and not silent_check_amnesia() and get_current_stratagem_count() > 0 then
+				if not buffactive["Addendum: Black"] and not silent_check_amnesia() and get_current_stratagem_count() > 0 then --  state.AutoArts.value and
 					if buffactive["Dark Arts"] then
 						windower.chat.input('/ja "Addendum: Black" <me>')
 						windower.chat.input:schedule(1.5,'/ma "'..spell.english..'" '..spell.target.raw..'')
@@ -2388,8 +2388,10 @@ function get_current_stratagem_count()
 	local StratagemChargeTimer = 240
 	local maxStratagems = 1
 	
-	if player.sub_job == 'SCH' and player.sub_job_level > 29 then
+	if player.sub_job == 'SCH' and (player.sub_job_level > 29 and player.sub_job_level < 50) then
 		StratagemChargeTimer = 120
+    elseif player.sub_job == 'SCH' and player.sub_job_level > 49 then
+    	StratagemChargeTimer = 80
 	elseif player.main_job_level > 89 then
 		if player.job_points[(res.jobs[player.main_job_id].ens):lower()].jp_spent > 549 then
 			StratagemChargeTimer = 33
@@ -2405,8 +2407,10 @@ function get_current_stratagem_count()
 	end
 	
 	if player.sub_job == 'SCH' then
-		if player.sub_job_level > 29 then
+		if (player.sub_job_level > 29 and player.sub_job_level < 50) then
 			maxStratagems = 2
+        elseif player.sub_job_level > 49 then
+            maxStratagems = 3
 		end
 	else
 		maxStratagems = math.floor((player.main_job_level + 10) / 20)
