@@ -741,7 +741,7 @@ function can_use(spell)
             add_to_chat(123,"Abort: You don't have access to ["..(res.spells[spell.id][language] or spell.id).."].")
             return false
         -- At this point, we know that it is technically castable by this job combination if the right conditions are met.
-		elseif player.main_job == 'SCH'then
+		elseif player.main_job == 'SCH' then
 			if (spell_jobs[player.sub_job_id] and spell_jobs[player.sub_job_id] <= player.sub_job_level) or state.Buff['Enlightenment'] then
 				return true
 			elseif data.spells.addendum_white:contains(spell.english) and not state.Buff['Addendum: White'] then

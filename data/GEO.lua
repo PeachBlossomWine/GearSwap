@@ -791,7 +791,15 @@ function check_buff()
 		local spell_recasts = windower.ffxi.get_spell_recasts()
         local abil_recasts = windower.ffxi.get_ability_recasts()
 		for i in pairs(buff_spell_lists[state.AutoBuffMode.Value]) do
-			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost then
+			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or 
+            (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or 
+            (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or 
+            (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or 
+            (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and 
+            spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and 
+            player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost and
+            silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and
+            (((data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and not buffactive['Addendum: White'] and get_current_stratagem_count() > 0) or (data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and buffactive['Addendum: White'])) or not(data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name))) then
 				windower.chat.input('/ma "'..buff_spell_lists[state.AutoBuffMode.Value][i].Name..'" <me>')
 				tickdelay = os.clock() + 2
 				return true
@@ -868,6 +876,7 @@ buff_spell_lists = {
 		{Name='Haste',		Buff='Haste',		SpellID=57,		When='Always'},
 		{Name='Refresh',	Buff='Refresh',		SpellID=109,	When='Always'},
         {Name='Aurorastorm',Buff='Aurorastorm', SpellID=119,    When='Always'},
+        {Name='Reraise',	Buff='Reraise',		SpellID=135,	When='Always'},
 	},
 
 	Default = {
@@ -878,6 +887,7 @@ buff_spell_lists = {
 		{Name='Blink',		Buff='Blink',		SpellID=53,		Reapply=false},
 		{Name='Regen',		Buff='Regen',		SpellID=108,	Reapply=false},
 		{Name='Phalanx',	Buff='Phalanx',		SpellID=106,	Reapply=false},
+        {Name='Reraise',	Buff='Reraise',	    SpellID=135,	Reapply=false},
 	},
 }
 

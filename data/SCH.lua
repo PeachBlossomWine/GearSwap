@@ -89,6 +89,7 @@ function job_setup()
 	
 	state.RecoverMode = M('35%', '60%', 'Always', 'Never')
 	
+    tabularasa = false
 	autows = 'Realmrazer'
 	autofood = 'Pear Crepe'
 	
@@ -114,7 +115,7 @@ function job_pretarget(spell, spellMap, eventArgs)
 end
 
 function job_precast(spell, spellMap, eventArgs)
-    local AP_spells = S{'Regen V','Animus Minuo','Embrava'}
+    local AP_spells = S{'Regen V','Animus Minuo'}
     local Accession_spells = S{'Protect V','Shell V','Sneak','Invisible','Adloquium'}
     local Perpetuance_spells = S{'Refresh'}
     local AOE_na_spells = S{'Blindna','Cursna','Paralyna','Poisona','Silena','Stona','Viruna','Erase'}
@@ -123,6 +124,10 @@ function job_precast(spell, spellMap, eventArgs)
 		if spellMap == 'Cure' or spellMap == 'Curaga' then
 			gear.default.obi_back = gear.obi_cure_back
 			gear.default.obi_waist = gear.obi_cure_waist
+        elseif ((spell.id == 478 or spell.id == 502) and not buffactive['Tabula Rasa']) then
+            add_to_chat(123,"Abort: Tabula Rasa not active - You don't have access to ["..(spell[language] or spell.id).."]")
+            eventArgs.cancel = true
+            return false
 		elseif spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' then
 			if spell.english:contains('helix') then
 				gear.default.obi_back = gear.obi_high_nuke_back
@@ -150,7 +155,7 @@ function job_precast(spell, spellMap, eventArgs)
 		-- Accession + Perpetuance
 		elseif (AP_spells:contains(spell.english)) and state.AutoAPMode.value then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
-			if get_current_stratagem_count() > 1 and not(buffactive.Accession or silent_check_amnesia()) then
+			if get_current_stratagem_count() > 1 and not(silent_check_amnesia()) then
 				if state.Buff['Light Arts'] or state.Buff['Addendum: White'] then
 					windower.chat.input('/ja "Accession" <me>')
 					windower.chat.input:schedule(1.6,'/ja "Perpetuance" <me>')
@@ -164,6 +169,27 @@ function job_precast(spell, spellMap, eventArgs)
 						windower.chat.input:schedule(1.6,'/ja "Accession" <me>')
 						windower.chat.input:schedule(3.2,'/ja "Perpetuance" <me>')
 						windower.chat.input:schedule(4.8,'/ma "'..spell.english..'" '..spell.target.raw..'')
+						add_to_chat(122,'Acc/Perp - "'..spell.english..'" !')
+						eventArgs.cancel = true
+						tickdelay = os.clock() + 7.5
+					end
+				end
+            elseif (spell.id == 478 and buffactive['Tabula Rasa']) and not(silent_check_amnesia()) then
+                if state.Buff['Light Arts'] or state.Buff['Addendum: White'] then
+					windower.chat.input('/ja "Accession" <me>')
+					windower.chat.input:schedule(1.6,'/ja "Perpetuance" <me>')
+                    windower.chat.input:schedule(3.2,'/ja "Penury" <me>')
+					windower.chat.input:schedule(4.8,'/ma "'..spell.english..'" '..spell.target.raw..'')
+					add_to_chat(122,'Acc/Perp - "'..spell.english..'" !')
+					eventArgs.cancel = true
+					tickdelay = os.clock() + 5.6
+				else
+					if abil_recasts[228] < latency then
+						windower.chat.input('/ja "Light Arts" <me>')
+						windower.chat.input:schedule(1.6,'/ja "Accession" <me>')
+						windower.chat.input:schedule(3.2,'/ja "Perpetuance" <me>')
+                        windower.chat.input:schedule(4.8,'/ja "Penury" <me>')
+						windower.chat.input:schedule(5.4,'/ma "'..spell.english..'" '..spell.target.raw..'')
 						add_to_chat(122,'Acc/Perp - "'..spell.english..'" !')
 						eventArgs.cancel = true
 						tickdelay = os.clock() + 7.5
@@ -1086,7 +1112,16 @@ function check_buff()
 	if state.AutoBuffMode.value ~= 'Off' and not data.areas.cities:contains(world.area) then
 		local spell_recasts = windower.ffxi.get_spell_recasts()
 		for i in pairs(buff_spell_lists[state.AutoBuffMode.Value]) do
-			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost and not silent_check_silence() then
+			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or 
+            (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or 
+            (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or 
+            (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or 
+            (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and 
+            spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and 
+            player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost and
+            silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and 
+            ((buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Embrava' and buffactive['Tabula Rasa']) or not(buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Embrava')) and
+            (((data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and not buffactive['Addendum: White'] and get_current_stratagem_count() > 0) or (data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and buffactive['Addendum: White'])) or not(data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name))) then
 				windower.chat.input('/ma "'..buff_spell_lists[state.AutoBuffMode.Value][i].Name..'" <me>')
 				tickdelay = os.clock() + 2
 				return true
@@ -1134,11 +1169,14 @@ function check_zerg_sp()
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		if (not buffactive['Tabula Rasa'] and abil_recasts[0] < latency and not buffactive['Embrava']) or (buffactive['Tabula Rasa'] and not buffactive['Embrava'])then
+		if (not buffactive['Tabula Rasa'] and abil_recasts[0] < latency) then
+            tabularasa = true
             windower.chat.input('/ja "Tabula Rasa" <me>')
-            windower.chat.input:schedule(1.6,'/ma "Embrava" <me>')
 			tickdelay = os.clock() + 1.8
 			return true		
+        elseif buffactive['Tabula Rasa'] and tabularasa == true then
+            tabularasa = false
+            windower.send_command:schedule(175,'cancel embrava; gs c set autozergmode off;')
 		else
 			return false
 		end
@@ -1151,6 +1189,8 @@ buff_spell_lists = {
 	Auto = {	
 		--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
+        {Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
+        {Name='Reraise',	    Buff='Reraise',		    SpellID=135,	When='Always'},
 	},
 	
 	Healing = {
@@ -1158,7 +1198,8 @@ buff_spell_lists = {
 		{Name='Shell V',		Buff='Shell',			SpellID=52, 	When='Always'},
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
 		{Name='Aurorastorm II', Buff='Aurorastorm',		SpellID=864,	When='Always'},
-        {Name='Reraise II',     Buff='Reraise',		    SpellID=141,	When='Always'},
+        {Name='Reraise',    	Buff='Reraise', 		SpellID=135,	When='Always'},
+        {Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
 	},
 	
 	Nuking = {
