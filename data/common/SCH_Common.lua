@@ -504,7 +504,7 @@ sets.buff['Parsimony'] = {} -- legs="Savant's Pants +2"
 sets.buff['Celerity'] = {} -- feet="Pedagogy Loafers"
 sets.buff['Alacrity'] = {} -- feet="Pedagogy Loafers"
 
-sets.buff['Klimaform'] = {feet="Savant's Loafers +2"}
+sets.buff['Klimaform'] = {feet="Arbatel loafers +1"}
 
 sets.buff.Sublimation = {head="Acad. Mortar. +3", body="Peda. Gown +3", waist="Embla Sash"}
 sets.buff.DTSublimation = {waist="Embla Sash"}

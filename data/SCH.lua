@@ -1134,8 +1134,9 @@ function check_zerg_sp()
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		if (not buffactive['Tabula Rasa'] and abil_recasts[0] < latency) then
+		if (not buffactive['Tabula Rasa'] and abil_recasts[0] < latency and not buffactive['Embrava']) or (buffactive['Tabula Rasa'] and not buffactive['Embrava'])then
             windower.chat.input('/ja "Tabula Rasa" <me>')
+            windower.chat.input:schedule(1.6,'/ma "Embrava" <me>')
 			tickdelay = os.clock() + 1.8
 			return true		
 		else
@@ -1150,7 +1151,6 @@ buff_spell_lists = {
 	Auto = {	
 		--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
-        {Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
 	},
 	
 	Healing = {
@@ -1159,7 +1159,6 @@ buff_spell_lists = {
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
 		{Name='Aurorastorm II', Buff='Aurorastorm',		SpellID=864,	When='Always'},
         {Name='Reraise II',     Buff='Reraise',		    SpellID=141,	When='Always'},
-        {Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
 	},
 	
 	Nuking = {
