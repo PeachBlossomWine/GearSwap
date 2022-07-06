@@ -153,7 +153,7 @@ function job_precast(spell, spellMap, eventArgs)
 				end
 			end
 		-- Accession + Perpetuance
-		elseif (AP_spells:contains(spell.english)) and state.AutoAPMode.value then
+		elseif (AP_spells:contains(spell.english)) and state.AutoAPMode.value and spell.id ~= 478 then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 			if get_current_stratagem_count() > 1 and not(silent_check_amnesia()) then
 				if state.Buff['Light Arts'] or state.Buff['Addendum: White'] then
@@ -174,28 +174,29 @@ function job_precast(spell, spellMap, eventArgs)
 						tickdelay = os.clock() + 7.5
 					end
 				end
-            elseif (spell.id == 478 and buffactive['Tabula Rasa']) and not(silent_check_amnesia()) then
-                if state.Buff['Light Arts'] or state.Buff['Addendum: White'] then
-					windower.chat.input('/ja "Accession" <me>')
-					windower.chat.input:schedule(1.6,'/ja "Perpetuance" <me>')
-                    windower.chat.input:schedule(3.2,'/ja "Penury" <me>')
-					windower.chat.input:schedule(4.8,'/ma "'..spell.english..'" '..spell.target.raw..'')
-					add_to_chat(122,'Acc/Perp - "'..spell.english..'" !')
-					eventArgs.cancel = true
-					tickdelay = os.clock() + 5.6
-				else
-					if abil_recasts[228] < latency then
-						windower.chat.input('/ja "Light Arts" <me>')
-						windower.chat.input:schedule(1.6,'/ja "Accession" <me>')
-						windower.chat.input:schedule(3.2,'/ja "Perpetuance" <me>')
-                        windower.chat.input:schedule(4.8,'/ja "Penury" <me>')
-						windower.chat.input:schedule(5.4,'/ma "'..spell.english..'" '..spell.target.raw..'')
-						add_to_chat(122,'Acc/Perp - "'..spell.english..'" !')
-						eventArgs.cancel = true
-						tickdelay = os.clock() + 7.5
-					end
-				end
-			end
+            end
+        elseif (spell.id == 478 and buffactive['Tabula Rasa']) and not(silent_check_amnesia()) then
+            local abil_recasts = windower.ffxi.get_ability_recasts()
+            if state.Buff['Light Arts'] or state.Buff['Addendum: White'] then
+                windower.chat.input('/ja "Accession" <me>')
+                windower.chat.input:schedule(1.6,'/ja "Perpetuance" <me>')
+                windower.chat.input:schedule(3.2,'/ja "Penury" <me>')
+                windower.chat.input:schedule(4.8,'/ma "'..spell.english..'" '..spell.target.raw..'')
+                add_to_chat(122,'Acc/Perp - "'..spell.english..'" !')
+                eventArgs.cancel = true
+                tickdelay = os.clock() + 5.6
+            else
+                if abil_recasts[228] < latency then
+                    windower.chat.input('/ja "Light Arts" <me>')
+                    windower.chat.input:schedule(1.6,'/ja "Accession" <me>')
+                    windower.chat.input:schedule(3.2,'/ja "Perpetuance" <me>')
+                    windower.chat.input:schedule(4.8,'/ja "Penury" <me>')
+                    windower.chat.input:schedule(5.4,'/ma "'..spell.english..'" '..spell.target.raw..'')
+                    add_to_chat(122,'Acc/Perp - "'..spell.english..'" !')
+                    eventArgs.cancel = true
+                    tickdelay = os.clock() + 7.5
+                end
+            end
 		-- Accession
 		elseif ((Accession_spells:contains(spell.english)) and state.AutoAPMode.value) or (state.AutoAOE.value and AOE_na_spells:contains(spell.english)) then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
