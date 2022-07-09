@@ -153,8 +153,8 @@ sets.midcast.Cure.DT = set_combine(sets.midcast.Cure, {
 	back={name="Moonbeam Cape",priority=1},
 })
 
-sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure,{main="Chatoyant Staff", sub="Enki Strap", neck="Nodens Gorget", waist="Korin Obi",})
-sets.midcast.LightDayCure = set_combine(sets.midcast.Cure,{main="Chatoyant Staff", sub="Enki Strap", neck="Nodens Gorget", waist="Korin Obi",})
+sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure,{main="Chatoyant Staff", sub="Khonsu", neck="Nodens Gorget", waist="Korin Obi",})
+sets.midcast.LightDayCure = set_combine(sets.midcast.Cure,{main="Chatoyant Staff", sub="Khonsu", neck="Nodens Gorget", waist="Korin Obi",})
 
 sets.midcast.LightWeatherCure.DT = set_combine(sets.midcast.LightWeatherCure,{body={name="Nyame Mail",priority=1},left_ear={name="Odnowa Earring +1",priority=1},left_ring="Defending Ring", back={name="Moonbeam Cape",priority=1},})
 sets.midcast.LightDayCure.DT = set_combine(sets.midcast.LightWeatherCure,{body={name="Nyame Mail",priority=1},left_ear={name="Odnowa Earring +1",priority=1},left_ring="Defending Ring", back={name="Moonbeam Cape",priority=1},})

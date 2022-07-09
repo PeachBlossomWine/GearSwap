@@ -115,23 +115,18 @@ function job_pretarget(spell, spellMap, eventArgs)
 end
 
 function job_precast(spell, spellMap, eventArgs)
-    local AP_spells = S{'Regen V','Animus Minuo'}
+    local AP_spells = S{'Regen V','Animus Minuo','Embrava'}
     local Accession_spells = S{'Protect V','Shell V','Sneak','Invisible','Adloquium'}
     local Perpetuance_spells = S{'Refresh'}
     local AOE_na_spells = S{'Blindna','Cursna','Paralyna','Poisona','Silena','Stona','Viruna','Erase'}
 
 	if spell.action_type == 'Magic' then
-		if spellMap == 'Cure' or spellMap == 'Curaga' then
-			gear.default.obi_back = gear.obi_cure_back
-			gear.default.obi_waist = gear.obi_cure_waist
-        elseif ((spell.id == 478 or spell.id == 502) and not buffactive['Tabula Rasa']) then
+        if ((spell.id == 478 or spell.id == 502) and not buffactive['Tabula Rasa']) then
             add_to_chat(123,"Abort: Tabula Rasa not active - You don't have access to ["..(spell[language] or spell.id).."]")
             eventArgs.cancel = true
             return false
 		elseif spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' then
 			if spell.english:contains('helix') then
-				gear.default.obi_back = gear.obi_high_nuke_back
-				gear.default.obi_waist = gear.obi_high_nuke_waist
 				local abil_recasts = windower.ffxi.get_ability_recasts()
 				if get_current_stratagem_count() > 0 and abil_recasts[233] < latency and not (buffactive['Ebullience'] or silent_check_amnesia()) and player.target.type == "MONSTER" then
 					if state.Buff['Dark Arts'] or state.Buff['Addendum: Black'] then
@@ -153,14 +148,14 @@ function job_precast(spell, spellMap, eventArgs)
 				end
 			end
 		-- Accession + Perpetuance
-		elseif (AP_spells:contains(spell.english)) and state.AutoAPMode.value and spell.id ~= 478 then
+		elseif (AP_spells:contains(spell.english)) and state.AutoAPMode.value then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
-			if get_current_stratagem_count() > 1 and not(silent_check_amnesia()) then
+			if get_current_stratagem_count() > 1 and not(silent_check_amnesia()) and not(buffactive['Perpetuance'] and buffactive['Accession']) then
 				if state.Buff['Light Arts'] or state.Buff['Addendum: White'] then
-					windower.chat.input('/ja "Accession" <me>')
-					windower.chat.input:schedule(1.6,'/ja "Perpetuance" <me>')
-					windower.chat.input:schedule(3.2,'/ma "'..spell.english..'" '..spell.target.raw..'')
-					add_to_chat(122,'Acc/Perp - "'..spell.english..'" !')
+                    windower.chat.input('/ja "Accession" <me>') 
+                    windower.chat.input:schedule(1.6,'/ja "Perpetuance" <me>')
+                    windower.chat.input:schedule(3.2,'/ma "'..spell.english..'" '..spell.target.raw..'')
+                    add_to_chat(122,'Acc/Perp - "'..spell.english..'" !')
 					eventArgs.cancel = true
 					tickdelay = os.clock() + 5.6
 				else
@@ -174,28 +169,6 @@ function job_precast(spell, spellMap, eventArgs)
 						tickdelay = os.clock() + 7.5
 					end
 				end
-            end
-        elseif (spell.id == 478 and buffactive['Tabula Rasa']) and not(silent_check_amnesia()) then
-            local abil_recasts = windower.ffxi.get_ability_recasts()
-            if state.Buff['Light Arts'] or state.Buff['Addendum: White'] then
-                windower.chat.input('/ja "Accession" <me>')
-                windower.chat.input:schedule(1.6,'/ja "Perpetuance" <me>')
-                windower.chat.input:schedule(3.2,'/ja "Penury" <me>')
-                windower.chat.input:schedule(4.8,'/ma "'..spell.english..'" '..spell.target.raw..'')
-                add_to_chat(122,'Acc/Perp - "'..spell.english..'" !')
-                eventArgs.cancel = true
-                tickdelay = os.clock() + 5.6
-            else
-                if abil_recasts[228] < latency then
-                    windower.chat.input('/ja "Light Arts" <me>')
-                    windower.chat.input:schedule(1.6,'/ja "Accession" <me>')
-                    windower.chat.input:schedule(3.2,'/ja "Perpetuance" <me>')
-                    windower.chat.input:schedule(4.8,'/ja "Penury" <me>')
-                    windower.chat.input:schedule(5.4,'/ma "'..spell.english..'" '..spell.target.raw..'')
-                    add_to_chat(122,'Acc/Perp - "'..spell.english..'" !')
-                    eventArgs.cancel = true
-                    tickdelay = os.clock() + 7.5
-                end
             end
 		-- Accession
 		elseif ((Accession_spells:contains(spell.english)) and state.AutoAPMode.value) or (state.AutoAOE.value and AOE_na_spells:contains(spell.english)) then
@@ -1124,7 +1097,7 @@ function check_buff()
             ((buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Embrava' and buffactive['Tabula Rasa']) or not(buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Embrava')) and
             (((data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and not buffactive['Addendum: White'] and get_current_stratagem_count() > 0) or (data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and buffactive['Addendum: White'])) or not(data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name))) then
 				windower.chat.input('/ma "'..buff_spell_lists[state.AutoBuffMode.Value][i].Name..'" <me>')
-				tickdelay = os.clock() + 2
+				tickdelay = os.clock() + 3
 				return true
 			end
 		end
