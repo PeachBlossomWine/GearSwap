@@ -2406,7 +2406,7 @@ function get_current_stratagem_count()
 		StratagemChargeTimer = 120
 	end
 	
-	if player.sub_job == 'SCH' then
+	if player.sub_job == 'SCH' and not buffactive['SJ Restriction'] then
 		if (player.sub_job_level > 29 and player.sub_job_level < 50) then
 			maxStratagems = 2
         elseif player.sub_job_level > 49 then

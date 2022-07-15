@@ -1,7 +1,7 @@
 if item_available('Shamash Robe') then
-	gear.sch_body_idle = 'Shamash Robe'
+	gear.sch_body_idle = "Shamash Robe"
 else
-	gear.sch_body_idle = 'Agwu\'s Robe'
+	gear.sch_body_idle = "Agwu's Robe"
 end
 
 if item_available('Musa') then
@@ -448,7 +448,7 @@ sets.idle.DT = {
 	sub="Genmei Shield",
 	ammo="Staunch Tathlum +1",
 	head="Nyame Helm",
-	body="Agwu's Robe",
+	body=gear.sch_body_idle,
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
