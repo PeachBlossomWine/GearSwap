@@ -712,6 +712,7 @@ buff_spell_lists = {
 		{Name='Cocoon',Buff='Defense Boost',SpellID=547,When='Always'},
 		{Name='Phalanx',Buff='Phalanx',SpellID=106,When='Always'},
 		{Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
+        {Name='Enlight II',Buff='Enlight',SpellID=855,When='Always'},
         {Name='Protect V',Buff='Protect',SpellID=47,When='Always'},
 	},
 	
