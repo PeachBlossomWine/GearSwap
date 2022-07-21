@@ -19,8 +19,8 @@ state.PetMode = M{['description']='Pet Mode','DD'}
 state.RewardMode = M{['description']='Reward Mode', 'Theta'}
 
 ready_moves.default.FatsoFargann = 'TP Drainkiss'
---ready_moves.default.GenerousArthur = 'Purulent Ooze'
-ready_moves.default.GenerousArthur = 'Corrosive Ooze'
+ready_moves.default.GenerousArthur = 'Purulent Ooze'
+--ready_moves.default.GenerousArthur = 'Corrosive Ooze'
 
 state.AutoFightMode = M(false, 'Auto Fight Mode')
 state.AutoReadyMode = M(true, 'Auto Ready Mode')
