@@ -2416,9 +2416,9 @@ function get_current_stratagem_count()
 		maxStratagems = math.floor((player.main_job_level + 10) / 20)
 	end
 
-
     local currentCharges = math.floor(maxStratagems - (stratsRecast / StratagemChargeTimer))
     return currentCharges
+    
 end
 
 function arts_active()

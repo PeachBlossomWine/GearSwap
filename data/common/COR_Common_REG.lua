@@ -8,13 +8,7 @@ else
 	gear.jse_ws_body = 'Laksa. Frac +2'
 end
 
-if item_available('Demers. Degen +1') then
-	gear.dagger_multihit = 'Demers. Degen +1'
-else
-	gear.dagger_multihit = "Gleti's Knife"
-end
-
-sets.weapons.DualSavage = 			{main="Naegling",sub=gear.dagger_multihit,range="Anarchy +2"}
+sets.weapons.DualSavage = 			{main="Naegling",sub="Gleti's Knife",range="Anarchy +2"}
 sets.weapons.DualLeaden = 			{main="Naegling",sub="Gleti's Knife",range="Fomalhaut"}
 sets.weapons.DualLeadenRanged = 	{main="Naegling",sub="Tauret",range="Fomalhaut"}
 sets.weapons.DualLastStand = 		{main="Kustawi +1",sub="Gleti's Knife",range="Fomalhaut"}

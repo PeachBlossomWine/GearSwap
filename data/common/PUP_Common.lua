@@ -1,8 +1,3 @@
-if item_available('Moonbow Belt +1') then
-	gear.mnk_jse_waist = 'Moonbow Belt +1'
-else
-	gear.mnk_jse_waist = 'Moonbow Belt'
-end
 
 -- Weapons sets
 sets.weapons.Verethragna = {main="Verethragna",range="Neo Animator",}
@@ -20,7 +15,7 @@ sets.precast.FC = {
 	legs="Rawhide Trousers",
 		feet="Regal Pumps +1",
 	neck="Baetyl Pendant",
-	waist=gear.mnk_jse_waist,
+	waist="Moonbow Belt +1",
 	left_ear="Loquac. Earring",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
@@ -52,7 +47,7 @@ sets.precast.WS = {
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Fotia Gorget",
-	waist=gear.mnk_jse_waist,
+	waist="Moonbow Belt +1",
 	left_ear="Ishvara Earring",
 	right_ear="Moonshade Earring",
 	left_ring="Regal Ring",
@@ -132,7 +127,7 @@ sets.idle = {
 	legs="Malignance Tights",
 	feet="Malignance Boots",
 	neck="Sanctity Necklace",
-	waist=gear.mnk_jse_waist,
+	waist="Moonbow Belt +1",
 	left_ear="Infused Earring",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
@@ -227,7 +222,7 @@ sets.defense.PDT = {
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Loricate Torque +1",
-	waist=gear.mnk_jse_waist,
+	waist="Moonbow Belt +1",
 	left_ear="Etiolation Earring",
 	right_ear="Odnowa Earring +1",
 	left_ring="Defending Ring",
@@ -250,7 +245,7 @@ sets.engaged = {
 	legs="Malignance Tights",
 	feet="Mpaca's Boots",
 	neck="Combatant's Torque",
-	waist=gear.mnk_jse_waist,
+	waist="Moonbow Belt +1",
 	left_ear="Telos Earring",
 	right_ear="Cessance Earring",
 	left_ring=gear.tp_ring,
@@ -265,7 +260,7 @@ sets.engaged.DT = {
 	legs="Malignance Tights",
 	feet="Malignance Boots",
 	neck="Combatant's Torque",
-	waist=gear.mnk_jse_waist,
+	waist="Moonbow Belt +1",
 	left_ear="Telos Earring",
 	right_ear="Cessance Earring",
 	left_ring="Defending Ring",
@@ -280,7 +275,7 @@ sets.engaged.HybridPET = {
 	legs="Nyame Flanchard",									-- 7
 	feet="Mpaca's Boots",									-- 6
 	neck="Shulmanu Collar",
-	waist=gear.mnk_jse_waist,								-- 5
+	waist="Moonbow Belt +1",								-- 5
 	left_ear="Telos Earring",
 	right_ear="Enmerkar Earring",
 	left_ring="C. Palug Ring",												
