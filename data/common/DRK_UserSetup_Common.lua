@@ -23,7 +23,7 @@ send_command('bind @f7 gs c toggle AutoTPReductionMode')
 send_command('bind ^backspace input /ja "Third Eye" <me>')
 send_command('bind !backspace gs c toggle DrainAbsSwapMode')
 send_command('bind ^\\\\ input /ja "Weapon Bash" <t>')
-send_command('bind @\\\\ gs c set toggle weapons Lycurgos')
+send_command('bind @\\\\ gs c set toggle weapons Caladbolg')
 
 if player.sub_job == "DRG" then
 	send_command('bind @f8 gs c toggle AutoJumpMode')

@@ -3,12 +3,6 @@
 --------------------------------------
 
 if item_available('Shamash Robe') then
-	gear.geo_dt_body_idle = 'Shamash Robe'	
-else
-	gear.geo_dt_body_idle = "Agwu's Robe"
-end
-
-if item_available('Shamash Robe') then
 	gear.geo_body_idle = 'Shamash Robe'
 else
 	gear.geo_body_idle = "Agwu's Robe"
@@ -18,12 +12,6 @@ if item_available('Geomancy Tunic +3') then
 	gear.geo_body_enfeebling = 'Geomancy Tunic +3'
 else
 	gear.geo_body_enfeebling = 'Geomancy Tunic +2'
-end
-
-if item_available('Befouled Crown') then
-	gear.geo_head_idle = 'Befouled Crown'
-else
-	gear.geo_head_idle = gear.merlinic_refresh_head
 end
 
 if item_available('Bagua Pants +3') then
@@ -65,6 +53,12 @@ else
 	gear.impact_body = "Twilight Cloak"
 end
 
+if item_available('Weather. Ring +1') then
+	gear.fc_ring = "Weather. Ring +1"
+else
+	gear.fc_ring = "Weather. Ring"
+end
+
 --------------------------------------
 -- Precast sets
 --------------------------------------
@@ -102,7 +96,7 @@ sets.precast.FC = {
 	waist="Embla Sash",																								-- 5
 	left_ear="Loquac. Earring",																						-- 2
 	right_ear="Etiolation Earring",																					-- 1
-	left_ring="Weather. Ring +1",																					-- 4
+	left_ring=gear.fc_ring,																							-- 4
 	right_ring={name="Gelatinous Ring +1",priority=500},
 	back=gear.jse_skill_back,																						-- 7
 }
@@ -329,7 +323,7 @@ sets.midcast['Enfeebling Magic'] = {
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
 	head="C. Palug Crown",
 	body=gear.geo_body_enfeebling,
-	hands="Geo. Mitaines +3",
+	hands="Geomancy Mitaines +3",
 	legs={name="Geomancy Pants +3",priority=1},
 	feet="Geomancy Sandals +3",
 	neck=gear.geo_jse_neck,
@@ -349,7 +343,7 @@ sets.midcast['Enfeebling Magic'].Resistant = {
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
 	head="C. Palug Crown",
 	body=gear.geo_body_enfeebling,
-	hands="Geo. Mitaines +3",
+	hands="Geomancy Mitaines +3",
 	legs="Geomancy Pants +3",
 	feet="Geomancy Sandals +3",
 	neck=gear.geo_jse_neck,
@@ -456,7 +450,7 @@ sets.idle = {
 	main="Daybreak",
 	sub="Genmei Shield",																-- 10%
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-	head=gear.geo_head_idle,
+	head="Befouled Crown",
 	body=gear.geo_body_idle,
 	hands="Bagua Mitaines +3",
 	legs="Assid. Pants +1",
@@ -474,8 +468,8 @@ sets.idle.DT = {
 	main="Daybreak",
 	sub="Genmei Shield",																-- 10
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},	
-	head=gear.geo_head_idle,
-	body=gear.geo_dt_body_idle,
+	head="Befouled Crown",
+	body=gear.geo_body_idle,
 	hands="Nyame Gauntlets",														-- 7
 	legs="Nyame Flanchard",
 	feet="Geomancy Sandals +3",
@@ -534,7 +528,7 @@ sets.idle.DT.Pet = {
 	sub="Genmei Shield",																-- 10
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},	
 	head="Nyame Helm",
-	body=gear.geo_dt_body_idle,
+	body=gear.geo_body_idle,
 	hands="Geomancy Mitaines +3",																						-- 0 / 13
 	legs="Nyame Flanchard",																							-- 3 / 0
 	feet="Bagua Sandals +3",																						-- 5
