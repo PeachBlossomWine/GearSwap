@@ -527,7 +527,7 @@ function check_buff()
             spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and 
             player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost and
             silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and
-            (((data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and not buffactive['Addendum: White'] and get_current_stratagem_count() > 0) or (data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and buffactive['Addendum: White'])) or not(data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name))) then
+			(((player.sub_job == 'SCH' and data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and not buffactive['Addendum: White'] and get_current_stratagem_count() > 0) or (player.sub_job == 'SCH' and data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and buffactive['Addendum: White'])) or (player.sub_job ~= 'SCH' or (not(data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name)) and player.sub_job == 'SCH'))) then
 				windower.chat.input('/ma "'..buff_spell_lists[state.AutoBuffMode.Value][i].Name..'" <me>')
 				tickdelay = os.clock() + 2
 				return true
