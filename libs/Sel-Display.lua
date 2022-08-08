@@ -203,7 +203,7 @@ function update_job_states()
 		Stance = "Stance",
     }
 
-    stateBox:clear()
+	stateBox:clear()
 	stateBox:append('   ')
 
     -- Construct and append info for boolean states

@@ -12,7 +12,7 @@ send_command('bind ^pagedown sa fullcircle')
 send_command('exec SI.txt')
 send_command('wait 5; lua r healbot')
 --send_command('wait 7; gs org')
-
+autofood = 'Grape Daifuku'
 --Binds
 send_command('bind !@^f7 gs c toggle AutoWSMode') --Turns auto-ws mode on and off.
 send_command('bind !^f7 gs c toggle AutoFoodMode') --Turns auto-ws mode on and off.
@@ -43,7 +43,6 @@ send_command('bind pause gs c update user') --Runs a quick check to make sure yo
 send_command('bind ^@!pause gs org') --Runs organizer.
 send_command('bind ^@!backspace gs c buffup') --Buffup macro because buffs are love.
 send_command('bind ^o fillmode') --Lets you see through walls
-
 
 state.AutoSubMode = M{['description'] = 'Auto Sublimation Mode','Off','On','Sleep'}
 state.AutoZergMode = M{['description'] = 'Auto Zerg Mode','Off','On'}
