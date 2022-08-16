@@ -17,34 +17,9 @@ end
 if item_available('Bagua Pants +3') then
 	gear.geo_relic_legs = 'Bagua Pants +3'
 	gear.geo_freenuke_legs = 'Bagua Pants +3'
-elseif item_available('Bagua Pants +2') then
+else
 	gear.geo_relic_legs = 'Bagua Pants +2'
 	gear.geo_freenuke_legs = 'Bagua Pants +2'
-else
-	gear.geo_relic_legs = 'Bagua Pants +1'
-	gear.geo_freenuke_legs = 'Nyame Flanchard'
-end
-
-if item_available('Ea Hat +1') then
-	gear.BurstHead = 'Ea Hat +1'
-else
-	gear.BurstHead = 'Nyame Helm'
-end
-
-if item_available('Ea Houppelande +1') then
-	gear.BurstBody = 'Ea Houppelande +1'
-elseif item_available('Ea Houppelande') then
-	gear.BurstBody = 'Ea Houppelande'
-else
-	gear.BurstBody = "Agwu's Robe"
-end
-
-if item_available('Ea Slops +1') then
-	gear.BurstLegs = 'Ea Slops +1'
-elseif item_available('Ea Slops') then
-	gear.BurstLegs = 'Ea Slops'
-else
-	gear.BurstLegs = 'Nyame Flanchard'
 end
 
 if item_available('Crepuscular Cloak') then
@@ -57,6 +32,29 @@ if item_available('Weather. Ring +1') then
 	gear.fc_ring = "Weather. Ring +1"
 else
 	gear.fc_ring = "Weather. Ring"
+end
+
+--Burst gear
+if item_available('Ea Hat +1') then
+	gear.BurstHead = 'Ea Hat +1'
+else
+	gear.BurstHead = 'Nyame Helm'
+end
+
+if item_available("Ea Houppelande +1") then
+	gear.BurstBody = "Ea Houppelande +1"
+elseif item_available("Agwu's Robe") then
+	gear.BurstBody = "Agwu's Robe"
+else
+	gear.BurstBody = "Nyame Mail"
+end
+
+if item_available('Ea Slops +1') then
+	gear.BurstLegs = 'Ea Slops +1'
+elseif item_available('Ea Slops') then
+	gear.BurstLegs = 'Ea Slops'
+else
+	gear.BurstLegs = 'Nyame Flanchard'
 end
 
 --------------------------------------

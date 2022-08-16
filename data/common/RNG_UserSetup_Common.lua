@@ -4,7 +4,7 @@ state.RangedMode:options('Normal')
 state.WeaponskillMode:options('Normal')
 state.IdleMode:options('Normal')
 if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
-	state.Weapons:options('DualGastra','DualFoma','DualAnni','DualYoichi','DualFailNot','DualSavage','None')
+	state.Weapons:options('DualGastra','DualArma','DualFoma','DualAnni','DualYoichi','DualFailNot','DualSavage','None')
 else
 	state.Weapons:options('Gastraphetes','Armageddon','Fomalhaut','Annihilator','Yoichinoyumi','FailNot','Naegling','None')
 end
@@ -66,6 +66,6 @@ send_command('bind @` input /ja "Velocity Shot" <me>')
 send_command('wait 15; input /lockstyleset 11;')
 send_command('lua l hovershot')
 ammostock = 198
-rangedautows = 'Last Stand'
+--rangedautows = 'Last Stand'
 state.MaintainAftermath	= M(true, 'Maintain Aftermath')
 select_default_macro_book()

@@ -116,7 +116,7 @@ end
 
 function job_precast(spell, spellMap, eventArgs)
     local AP_spells = S{'Regen V','Animus Minuo','Embrava'}
-    local Accession_spells = S{'Protect V','Shell V','Sneak','Invisible','Adloquium'}
+    local Accession_spells = S{'Protect V','Shell V','Sneak','Invisible','Adloquium','Aquaveil'}
     local Perpetuance_spells = S{'Refresh'}
     local AOE_na_spells = S{'Blindna','Cursna','Paralyna','Poisona','Silena','Stona','Viruna','Erase'}
 

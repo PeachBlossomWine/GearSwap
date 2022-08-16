@@ -2,6 +2,7 @@
 sets.weapons.Masamune = {main="Masamune",sub="Utu Grip"}
 sets.weapons.Dojikiri = {main="Dojikiri Yasutsuna",sub="Utu Grip"}
 sets.weapons.ShiningOne = {main="Shining One",sub="Utu Grip"}
+sets.weapons.Norifusa = {main="Norifusa +1",sub=="Utu Grip"}
 sets.weapons.MaficCudgel = {main="Mafic Cudgel",sub=empty}
 sets.weapons.Yoichinoyumi = {main="Kustawi +1",sub=empty, range="Yoichinoyumi", ammo="Yoichi's Arrow"}
 

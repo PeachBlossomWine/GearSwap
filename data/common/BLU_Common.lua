@@ -1,7 +1,7 @@
 if item_available('Shamash Robe') then
 	gear.body_idle = 'Shamash Robe'
 else
-	gear.body_idle = 'Jhakri Robe +2'
+	gear.body_idle = "Assim. Jubbah +3"
 end
 
 
@@ -76,9 +76,9 @@ sets.precast.RA = {ranged="Aureole"}
 sets.precast.WS = {
 	ammo="Crepuscular Pebble",
 	head="Nyame Helm",
-	body="Assim. Jubbah +3",																						-- 10
+	body="Nyame Mail",																						-- 10
 	hands="Nyame Gauntlets",																				-- 7
-	legs="Luhlaza Shalwar +3",																				-- 10
+	legs="Nyame Flanchard",																					-- 10
 	feet="Nyame Sollerets",
 	neck=gear.blu_jse_neck,
 	waist="Sailfi Belt +1",

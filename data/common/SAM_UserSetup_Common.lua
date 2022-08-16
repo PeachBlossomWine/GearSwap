@@ -6,7 +6,7 @@ state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('Normal')
-state.Weapons:options('Masamune','Dojikiri','ShiningOne','MaficCudgel','Yoichinoyumi','None')
+state.Weapons:options('Masamune','Dojikiri','ShiningOne','MaficCudgel','Yoichinoyumi','Norifusa','None')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 autofood = 'Grape Daifuku'
 
