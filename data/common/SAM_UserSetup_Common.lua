@@ -12,6 +12,7 @@ autofood = 'Grape Daifuku'
 
 gear.ws_jse_back = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','STR+10','Phys. dmg. taken-10%',}} 
 gear.da_jse_back = { name="Smertrios's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Accuracy+10','Phys. dmg. taken-10%',}}
+gear.mab_jse_back = { name="Smertrios's Mantle", augments={'STR+20','Mag. Acc+20 /Mag. Dmg.+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 
 -- Additional local binds
 send_command('bind !` input /ja "Hasso" <me>')

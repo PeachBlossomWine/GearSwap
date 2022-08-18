@@ -123,11 +123,38 @@ sets.precast.WS['Tachi: Jinpu'].SubtleBlow = set_combine(sets.precast.WS['Tachi:
 sets.precast.WS['Tachi: Jinpu'].KI = set_combine(sets.precast.WS['Tachi: Jinpu'], {body="Found. Breastplate"})
 sets.precast.WS['Tachi: Jinpu'].KI.SubtleBlow = set_combine(sets.precast.WS['Tachi: Jinpu'].KI, {})
 
-sets.precast.WS['Tachi: Kagero'] = set_combine(sets.precast.WS['Tachi: Jinpu'], {})
+--Magical WS
+sets.precast.WS['Tachi: Kagero'] = {
+	ammo="Knobkierrie",																		
+	head="Mpaca's Cap",
+	body="Nyame Mail",																
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",																
+	feet="Nyame Sollerets",
+	neck="Sam. Nodowa +2",
+	waist="Fotia Belt",
+	left_ear="Lugra Earring +1",
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ring="Regal Ring",
+	right_ring="Niqmaddu Ring",
+	back=gear.mab_jse_back,																
+}
 sets.precast.WS['Tachi: Kagero'].Enmity = set_combine(sets.precast.WS['Tachi: Kagero'], {left_ear="Schere Earring"})
 sets.precast.WS['Tachi: Kagero'].SubtleBlow = set_combine(sets.precast.WS['Tachi: Kagero'], {})
 sets.precast.WS['Tachi: Kagero'].KI = set_combine(sets.precast.WS['Tachi: Kagero'], {body="Found. Breastplate"})
 sets.precast.WS['Tachi: Kagero'].KI.SubtleBlow = set_combine(sets.precast.WS['Tachi: Kagero'].KI, {})
+
+sets.precast.WS['Tachi: Goten'] = set_combine(sets.precast.WS['Tachi: Kagero'], {})
+sets.precast.WS['Tachi: Goten'].Enmity = set_combine(sets.precast.WS['Tachi: Goten'], {left_ear="Schere Earring"})
+sets.precast.WS['Tachi: Goten'].SubtleBlow = set_combine(sets.precast.WS['Tachi: Goten'], {})
+sets.precast.WS['Tachi: Goten'].KI = set_combine(sets.precast.WS['Tachi: Goten'], {body="Found. Breastplate"})
+sets.precast.WS['Tachi: Goten'].KI.SubtleBlow = set_combine(sets.precast.WS['Tachi: Goten'].KI, {})
+
+sets.precast.WS['Tachi: Koki'] = set_combine(sets.precast.WS['Tachi: Kagero'], {right_ring="Weather. Ring +1"})
+sets.precast.WS['Tachi: Koki'].Enmity = set_combine(sets.precast.WS['Tachi: Koki'], {left_ear="Schere Earring"})
+sets.precast.WS['Tachi: Koki'].SubtleBlow = set_combine(sets.precast.WS['Tachi: Koki'], {})
+sets.precast.WS['Tachi: Koki'].KI = set_combine(sets.precast.WS['Tachi: Koki'], {body="Found. Breastplate"})
+sets.precast.WS['Tachi: Koki'].KI.SubtleBlow = set_combine(sets.precast.WS['Tachi: Koki'].KI, {})
 
 sets.precast.WS['Tachi: Ageha'] = {
 	ammo="Pemphredo Tathlum",
