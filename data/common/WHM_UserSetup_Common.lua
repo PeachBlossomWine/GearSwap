@@ -10,7 +10,8 @@ autows="Judgment"
 autowstp=1250
 --state.MiniQueue	= M(false, 'MiniQueue')
 
-gear.jse_cure_back  ={ name="Alaunus's Cape", augments={'MP+60','Mag. Acc+20 /Mag. Dmg.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}}
+gear.jse_macc_fc_back  ={ name="Alaunus's Cape", augments={'MND+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}}
+gear.jse_cure_back  ={ name="Alaunus's Cape", augments={'MND+20','Eva.+20 /Mag. Eva.+20','MND+10','"Cure" potency +10%','Phys. dmg. taken-10%',}}
 	
 gear.obi_cure_waist = "Porous Rope"
 gear.obi_cure_back = gear.jse_cure_back

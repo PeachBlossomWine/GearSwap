@@ -1,6 +1,6 @@
 state.OffenseMode:options('Normal','Acc')
 state.CastingMode:options('Normal')
-state.IdleMode:options('Normal', 'DT')
+state.IdleMode:options('DT', 'Normal')
 state.Weapons:options('None','Nirvana')
 state.AutoBPMode = M(false, 'AutoBPMode')
 state.BPWardToggle = M(false, 'BPWardToggle')
