@@ -128,14 +128,20 @@ function job_precast(spell, spellMap, eventArgs)
 		elseif spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' then
 			if spell.english:contains('helix') then
 				local abil_recasts = windower.ffxi.get_ability_recasts()
-				if get_current_stratagem_count() > 0 and abil_recasts[233] < latency and not (buffactive['Ebullience'] or silent_check_amnesia()) and player.target.type == "MONSTER" then
-					if state.Buff['Dark Arts'] or state.Buff['Addendum: Black'] then
+				if get_current_stratagem_count() > 0 and abil_recasts[233] < latency and player.target.type == "MONSTER" and not (buffactive['Ebullience'] or silent_check_amnesia()) and not (buffactive['Enlightenment'] or silent_check_amnesia()) then
+					if buffactive['Dark Arts'] or buffactive['Addendum: Black'] then
 						windower.chat.input('/ja "Ebullience" <me>')
 						windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
 						add_to_chat(122,'Ebullience - "'..spell.english..'" !')
 						eventArgs.cancel = true
 						tickdelay = os.clock() + 4.6
-					else
+					elseif buffactive['Light Arts'] or buffactive['Addendum: White'] then
+						windower.chat.input('/ja "Enlightenment" <me>')
+						windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
+						add_to_chat(122,'Enlightenment/Ebullience - "'..spell.english..'" !')
+						eventArgs.cancel = true
+						tickdelay = os.clock() + 6.2
+					else 
 						if abil_recasts[232] < latency and abil_recasts[233] < latency then
 							windower.chat.input('/ja "Dark Arts" <me>')
 							windower.chat.input:schedule(1.6,'/ja "Ebullience" <me>')

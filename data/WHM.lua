@@ -180,7 +180,7 @@ function job_pretarget(spell, spellMap, eventArgs)
 end
 
 function job_precast(spell, spellMap, eventArgs)
-    local accession_spells = S{'Regen IV','Sneak','Invisible','Shell V','Protect V'}
+    local accession_spells = S{'Regen IV','Sneak','Invisible','Shell V','Protect V','Aquaveil','Stoneskin'}
 	if spell.action_type == 'Magic' then
 		if spellMap == 'StatusRemoval' and not (spell.english == "Erase" or spell.english == "Esuna" or spell.english == "Sacrifice") then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
@@ -190,7 +190,7 @@ function job_precast(spell, spellMap, eventArgs)
 				windower.chat.input:schedule(1,'/ma "'..spell.english..'" '..spell.target.raw..'')
 				return
 			end
-		elseif accession_spells:contains(spell.english) and not data.areas.cities:contains(world.area) then
+		elseif accession_spells:contains(spell.english) then -- and not data.areas.cities:contains(world.area) then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 			if player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia()) and not buffactive['SJ Restriction'] then
 				if state.Buff['Light Arts'] then

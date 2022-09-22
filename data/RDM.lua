@@ -115,14 +115,14 @@ end
 
 function job_precast(spell, spellMap, eventArgs)
     local abil_recasts = windower.ffxi.get_ability_recasts()
-    local accession_spells = S{'Regen II','Sneak','Invisible','Shell V','Protect V','Barblizzard','Barparalyze'}
+    local accession_spells = S{'Regen II','Sneak','Invisible','Aquaveil','Stoneskin','Shell V','Protect V','Barblizzard','Barparalyze',}
     
 	if spell.action_type == 'Magic' then
 		if state.Buff.Chainspell then
 			eventArgs.handled = true
 		end
         
-        if accession_spells:contains(spell.english) and not data.areas.cities:contains(world.area) then
+        if accession_spells:contains(spell.english) then -- and not data.areas.cities:contains(world.area) then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 			if player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia()) and not buffactive['SJ Restriction'] then
 				if state.Buff['Light Arts'] then

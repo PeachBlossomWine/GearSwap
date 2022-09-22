@@ -149,6 +149,8 @@ function job_post_midcast(spell, spellMap, eventArgs)
 			if state.MagicBurstMode.value ~= 'Off' then
 				if state.CastingMode.value:contains('Resistant') and sets.ResistantMagicBurst then
 					equip(sets.ResistantMagicBurst)
+				elseif spell.english:contains('ja') then
+					equip(sets.MagicEffectDurationBurst)
 				else
 					equip(sets.MagicBurst)
 				end
