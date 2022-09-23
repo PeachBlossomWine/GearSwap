@@ -1,3 +1,11 @@
+if item_available("Nukumi Earring +2") then
+	gear.empy_earring = "Nukumi Earring +2"
+elseif item_available("Nukumi Earring +1") then
+	gear.empy_earring = "Nukumi Earring +1"
+else
+	gear.empy_earring = "Nukumi Earring"
+end
+
 -- Weapons sets
 sets.weapons.Aymur =      {main="Aymur", sub="Adapa Shield"}
 sets.weapons.Guttler =      {main="Guttler", sub="Adapa Shield"}
@@ -6,7 +14,7 @@ sets.weapons.Dolichenus =   {main="Dolichenus", sub="Adapa Shield"}
 
 -- PRECAST SETS
 sets.precast.JA['Killer Instinct'] = {head="Ankusa Helm +1"}
-sets.precast.JA['Bestial Loyalty'] = {hands="Ankusa Gloves +1",feet="Gleti's Boots"}
+sets.precast.JA['Bestial Loyalty'] = {hands="Ankusa Gloves +1",feet="Gleti's Boots",right_ear=gear.empy_earring}
 sets.precast.JA['Call Beast'] = sets.precast.JA['Bestial Loyalty']
 sets.precast.JA.Familiar = {legs="Ankusa Trousers +3"}
 sets.precast.JA.Tame = {}						 	-- head="Totemic Helm +1"
@@ -103,7 +111,7 @@ sets.midcast.Helix.Resistant = sets.midcast['Elemental Magic']
 
 -- Default weaponskill sets.
 sets.precast.WS = {
-	ammo="Coiste Bodhar",
+	ammo="Oshasha's Treatise",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
@@ -223,7 +231,7 @@ sets.idle.Pet = {                       -- Master   -- Pet
 	neck="Loricate Torque +1",          -- 6
 	waist="Isa Belt",                   --          3
 	left_ear="Handler's Earring +1",    --          4
-	right_ear="Enmerkar Earring",       --          3             
+	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",         -- 10
 	right_ring="C. Palug Ring",         -- 5
 	back=gear.jse_petmacc_back,         --          10
@@ -266,7 +274,7 @@ sets.engaged = {
 	neck="Combatant's Torque",
 	waist="Windbuffet Belt +1",
 	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Petrov Ring",
 	right_ring="Gere Ring",
 	back=gear.jse_tp_back,
@@ -285,7 +293,7 @@ sets.engaged.DT = {
 	neck="Combatant's Torque",
 	waist="Windbuffet Belt +1",
 	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Chirich Ring +1",
 	right_ring="Gere Ring",
 	back=gear.jse_tp_back,
@@ -294,12 +302,12 @@ sets.engaged.DT = {
 sets.engaged.Acc.DT = set_combine(sets.engaged.DT, {})
 
 -- MELEE (DUAL-WIELD) SETS FOR DNC AND NIN SUBJOB
-sets.engaged.DW = set_combine(sets.engaged, {waist="Reiki Yotai", right_ear="Suppanomimi",})
-sets.engaged.DW.Acc = set_combine(sets.engaged.Acc, {waist="Reiki Yotai", right_ear="Suppanomimi",})
+sets.engaged.DW = set_combine(sets.engaged, {waist="Reiki Yotai", left_ear="Suppanomimi",})
+sets.engaged.DW.Acc = set_combine(sets.engaged.Acc, {waist="Reiki Yotai", left_ear="Suppanomimi",})
 
 -- MELEE (DUAL-WIELD) HYBRID SETS
-sets.engaged.DW.DT = set_combine(sets.engaged.DT, {waist="Reiki Yotai", right_ear="Suppanomimi"})
-sets.engaged.DW.Acc.DT = set_combine(sets.engaged.Acc.DT, {waist="Reiki Yotai", right_ear="Suppanomimi"})
+sets.engaged.DW.DT = set_combine(sets.engaged.DT, {waist="Reiki Yotai", left_ear="Suppanomimi"})
+sets.engaged.DW.Acc.DT = set_combine(sets.engaged.Acc.DT, {waist="Reiki Yotai", left_ear="Suppanomimi"})
 
 -- GEARSETS FOR MASTER ENGAGED (SINGLE-WIELD) & PET TANKING
 sets.engaged.HybridPet = set_combine(sets.engaged,{})

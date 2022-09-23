@@ -15,6 +15,15 @@ else
     gear.offhand_savage = "Gleti's Knife"
 end
 
+if item_available("Chas. Earring +2") then
+	gear.empy_earring = "Chas. Earring +2"
+elseif item_available("Chas. Earring +1") then
+	gear.empy_earring = "Chas. Earring +1"
+else
+	gear.empy_earring = "Telos Earring"
+end
+
+
 sets.weapons.DualSavage = 				{main="Naegling",sub=gear.offhand_savage ,range="Anarchy +2"}
 sets.weapons.DualLeaden = 				{main="Rostam",sub=gear.offhand_melee_dagger,range="Death Penalty"}
 sets.weapons.DualLeadenRanged = 		{main="Rostam",sub="Tauret",range="Death Penalty"}
@@ -29,21 +38,21 @@ sets.weapons.Naegling = 				{main="Naegling",sub="Nusku Shield",range="Anarchy +
 
 -- Precast sets to enhance JAs
 
-sets.precast.JA['Triple Shot'] = {body="Chasseur's Frac +1"}
+sets.precast.JA['Triple Shot'] = {body="Chasseur's Frac +2"}
 sets.precast.JA['Snake Eye'] = {legs="Comm. Trews +2"}
 sets.precast.JA['Wild Card'] = {feet="Lanun Bottes +3"}
 sets.precast.JA['Random Deal'] = {body="Lanun Frac +3"}
 sets.precast.FoldDoubleBust = {hands="Lanun Gants +3"}
 
 
-sets.precast.CorsairRoll = {head="Lanun Tricorne +3",back="Camulus's Mantle",neck="Regal Necklace",hands="Chasseur's Gants +1"}
+sets.precast.CorsairRoll = {head="Lanun Tricorne +3",back="Camulus's Mantle",neck="Regal Necklace",hands="Chasseur's Gants +2"}
 
 -- sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})
--- sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Navarch's Bottes +2"})
+sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +2"})
 -- sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Navarch's Tricorne +2"})
 
-sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +1"})
-sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +1"})
+sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body="Chasseur's Frac +2"})
+sets.precast.CorsairRoll["Allies' Roll"] = set_combine(sets.precast.CorsairRoll, {hands="Chasseur's Gants +2"})
 
 sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
  
@@ -53,7 +62,7 @@ sets.precast.CorsairShot = {
 	body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
-	feet="Lanun Bottes +3",
+	feet="Chass. Bottes +2",
 	neck=gear.cor_jse_neck,
 	waist="Eschan Stone",
 	left_ear="Friomisi Earring",
@@ -64,7 +73,7 @@ sets.precast.CorsairShot = {
 }
 	
 sets.precast.CorsairShot.Damage = sets.precast.CorsairShot
-sets.precast.CorsairShot.Resistant = set_combine({sets.precast.CorsairShot, feet="Chass. Bottes +1",})
+sets.precast.CorsairShot.Resistant = set_combine({sets.precast.CorsairShot, feet="Chass. Bottes +2",})
 
 sets.precast.CorsairShot['Light Shot'] = {
 	ammo=gear.QDbullet,
@@ -137,7 +146,7 @@ sets.precast.WS = {
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
-	feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+	feet="Nyame Sollerets",
 	neck="Fotia Gorget",
 	waist="Fotia Belt",
 	left_ear="Ishvara Earring",
@@ -178,7 +187,7 @@ sets.precast.WS['Savage Blade'] = {
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
-	feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
+	feet="Nyame Sollerets",
 	neck=gear.cor_jse_neck,
 	waist="Sailfi Belt +1",
 	left_ear="Ishvara Earring",
@@ -293,8 +302,8 @@ sets.midcast.RA = {
 	feet="Malignance Boots",
 	neck="Iskur Gorget",
 	waist="Yemaya Belt",
-	left_ear="Telos Earring",
-	right_ear="Crep. Earring",
+	left_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Dingir Ring",
 	right_ring="Ilabrat Ring",
 	back=gear.jse_midshot_back,
@@ -309,14 +318,14 @@ sets.midcast.RA.AM = {
 	feet="Osh. Leggings +1",
 	neck="Scout's Gorget +2",
 	waist="K. Kachina Belt +1",
-	left_ear="Telos Earring",
-	right_ear="Odr Earring",
+	left_ear="Odr Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Dingir Ring",
 	right_ring="Ilabrat Ring",
 	back=gear.jse_crit_back,
 }
 
-sets.buff['Triple Shot'] = {hands="Lanun Gants +3", body="Chasseur's Frac +1", legs="Osh. Trousers +1", feet="Osh. Leggings +1", back=gear.jse_midshot_back}
+sets.buff['Triple Shot'] = {hands="Lanun Gants +3", body="Chasseur's Frac +2", legs="Osh. Trousers +1", feet="Osh. Leggings +1", back=gear.jse_midshot_back}
 
 -- Sets to return to when not performing an action.
 sets.DayIdle = {}
@@ -398,7 +407,7 @@ sets.engaged = {
 	neck="Combatant's Torque",
 	waist=gear.tp_dw_waist,
 	left_ear="Cessance Earring",
-	right_ear="Brutal Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Ilabrat Ring",
 	right_ring=gear.ring_tp,
 	back=gear.jse_tp_back
@@ -413,8 +422,8 @@ sets.engaged.Acc = {
 	feet="Malignance Boots",
 	neck="Combatant's Torque",
 	waist=gear.tp_dw_waist,
-	left_ear="Telos Earring",
-	right_ear="Brutal Earring",
+	left_ear="Cessance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Ilabrat Ring",
 	right_ring="Regal Ring",
 	back=gear.jse_tp_back,
@@ -429,8 +438,8 @@ sets.engaged.DT = {
 	feet="Malignance Boots",
 	neck="Combatant's Torque",
 	waist=gear.tp_dw_waist,
-	left_ear="Telos Earring",
-	right_ear="Cessance Earring",
+	left_ear="Cessance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",
 	right_ring=gear.ring_tp,
 	back=gear.jse_tp_back,
@@ -445,8 +454,8 @@ sets.engaged.Tank = {
 	feet="Nyame Sollerets",
 	neck="Combatant's Torque",
 	waist=gear.tp_dw_waist,
-	left_ear="Telos Earring",
-	right_ear="Cessance Earring",
+	left_ear="Cessance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",
 	right_ring=gear.ring_tp,
 	back=gear.jse_tp_back,
@@ -455,9 +464,9 @@ sets.engaged.Tank = {
 --------
 -- DW --
 --------
-sets.engaged.DW = set_combine(sets.engaged, {waist="Reiki Yotai", right_ear="Suppanomimi",})
-sets.engaged.Acc.DW = set_combine(sets.engaged.Acc, {waist="Reiki Yotai", right_ear="Suppanomimi",})
-sets.engaged.DW.DT = set_combine(sets.engaged.DT, {waist="Reiki Yotai", right_ear="Suppanomimi",})
-sets.engaged.DW.Tank = set_combine(sets.engaged.DT, {waist="Reiki Yotai", right_ear="Suppanomimi",})
-sets.engaged.Acc.DW.DT = set_combine(sets.engaged.DW.DT, {waist="Reiki Yotai", right_ear="Suppanomimi",})
-sets.engaged.Acc.DW.Tank = set_combine(sets.engaged.DW.DT, {waist="Reiki Yotai", right_ear="Suppanomimi",})
+sets.engaged.DW = set_combine(sets.engaged, {waist="Reiki Yotai", left_ear="Suppanomimi",})
+sets.engaged.Acc.DW = set_combine(sets.engaged.Acc, {waist="Reiki Yotai", left_ear="Suppanomimi",})
+sets.engaged.DW.DT = set_combine(sets.engaged.DT, {waist="Reiki Yotai", left_ear="Suppanomimi",})
+sets.engaged.DW.Tank = set_combine(sets.engaged.DT, {waist="Reiki Yotai", left_ear="Suppanomimi",})
+sets.engaged.Acc.DW.DT = set_combine(sets.engaged.DW.DT, {waist="Reiki Yotai", left_ear="Suppanomimi",})
+sets.engaged.Acc.DW.Tank = set_combine(sets.engaged.DW.DT, {waist="Reiki Yotai", left_ear="Suppanomimi",})

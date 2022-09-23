@@ -1,5 +1,15 @@
 autows_list = {['Gastraphetes']='Trueflight',['Armageddon']='Wildfire',['Fomalhaut']='Last Stand',['Annihilator']='Last Stand',['Yoichinoyumi']='Namas Arrow',['FailNot']='Apex Arrow',['Naegling']='Savage Blade',['DualGastra']='Trueflight',['DualArma']='Wildfire',['DualFoma']='Last Stand',['DualAnni']='Last Stand',['DualYoichi']='Namas Arrow',['DualFailNot']='Apex Arrow',['DualSavage']='Savage Blade',}
 
+if item_available("Amini Earring +2") then
+	gear.empy_earring = "Amini Earring +2"
+elseif item_available("Amini Earring +1") then
+	gear.empy_earring = "Amini Earring +1"
+elseif item_available("Amini Earring") then
+	gear.empy_earring = "Amini Earring"
+else
+	gear.empy_earring = "Telos Earring"
+end
+
 -- Weapons sets
 sets.weapons.Gastraphetes = {main="Tauret",sub="Nusku Shield",range="Gastraphetes",ammo="Quelling Bolt"}
 sets.weapons.Armageddon = {main="Perun +1",sub="Nusku Shield",range="Armageddon",ammo="Chrono Bullet"}
@@ -32,7 +42,7 @@ sets.precast.JA['Scavenge'] = {}	--{feet="Orion Socks +1"}
 sets.precast.JA['Shadowbind'] = {hands="Orion Bracers +3"}
 sets.precast.JA['Sharpshot'] = {legs="Orion Braccae +3"}
 sets.precast.JA['Double Shot'] = {body="Arc. Jerkin +3", back=gear.jse_midshot_back}
-sets.precast.JA['Velocity Shot'] = {body="Amini Caban +1"}
+sets.precast.JA['Velocity Shot'] = {body="Amini Caban +2"}
 
 -- Fast cast sets for spells
 sets.precast.FC = {
@@ -66,7 +76,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket"})
 -- 60% + 10% = 70%
 sets.precast.RA = {
 	head={ name="Taeon Chapeau", augments={'"Snapshot"+5','"Snapshot"+5',}},							-- 10
-	body="Amini Caban +1",
+	body="Amini Caban +2",
 	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},	-- 8
 	legs="Orion Braccae +3",																			-- 15
 	feet="Meg. Jam. +2",																				-- 10
@@ -263,8 +273,8 @@ sets.engaged = {
 	feet="Malignance Boots",
 	neck="Combatant's Torque",
 	waist="Windbuffet Belt +1",
-	left_ear="Telos Earring",
-	right_ear="Sherida Earring",
+	left_ear="Sherida Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Petrov Ring",
 	right_ring="Epona's Ring",
 	back=gear.jse_tp_back,
@@ -278,8 +288,8 @@ sets.engaged.DT = {
 	feet="Malignance Boots",
 	neck="Combatant's Torque",
 	waist="Windbuffet Belt +1",
-	left_ear="Telos Earring",
-	right_ear="Sherida Earring",
+	left_ear="Sherida Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",
 	right_ring="Epona's Ring",
 	back=gear.jse_tp_back,

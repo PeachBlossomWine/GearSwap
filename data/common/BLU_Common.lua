@@ -1,9 +1,24 @@
+autows_list = {['TizThib']='Expiacion',['TizThib']='Expiacion',['NaegThib']='Savage Blade',['NaegZan']='Savage Blade',['Maxentius']='Black Halo',}
+
 if item_available('Shamash Robe') then
 	gear.body_idle = 'Shamash Robe'
 else
-	gear.body_idle = "Assim. Jubbah +3"
+	gear.body_idle = "Hashishin Mintan +2"
 end
 
+if item_available("Hashi. Earring +2") then
+	gear.empy_earring = "Hashi. Earring +2"
+	gear.empy_nuke_earring = "Hashi. Earring +2"
+elseif item_available("Hashi. Earring +1") then
+	gear.empy_earring = "Hashi. Earring +1"
+	gear.empy_nuke_earring = "Friomisi Earring"
+elseif item_available("Hashishin Earring") then
+	gear.empy_earring = "Hashishin Earring"
+	gear.empy_nuke_earring = "Friomisi Earring"
+else
+	gear.empy_earring = "Telos Earring"
+	gear.empy_nuke_earring = "Friomisi Earring"
+end
 
 -- Weapons sets
 sets.weapons.TizThib = {main="Tizona",sub="Thibron"}
@@ -20,7 +35,7 @@ sets.weapons.MACC = {main="Sakpata's Sword",sub="Bunzi's Rod"}
 sets.weapons.Learn = {main="Nihility",sub="Qutrub Knife"}
 
 -- Buff sets
-sets.buff['Burst Affinity'] = {} --feet="Hashi. Basmak +1"
+sets.buff['Burst Affinity'] = {feet="Hashi. Basmak +2"}
 sets.buff['Chain Affinity'] = {} --feet="Assim. Charuqs +2"
 sets.buff.Convergence = {} --head="Luh. Keffiyeh +1"
 sets.buff.Diffusion = {feet="Luhlaza Charuqs +3"}
@@ -74,7 +89,7 @@ sets.precast.RA = {ranged="Aureole"}
 -- For Savage and Expiacion
 -- WSD:
 sets.precast.WS = {
-	ammo="Crepuscular Pebble",
+	ammo="Oshasha's Treatise",
 	head="Nyame Helm",
 	body="Nyame Mail",																						-- 10
 	hands="Nyame Gauntlets",																				-- 7
@@ -107,7 +122,7 @@ sets.precast.WS['Chant du Cygne'] = {
 }
 
 sets.precast.WS['Black Halo'] = {
-	ammo="Hydrocera",
+	ammo="Oshasha's Treatise",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
@@ -222,17 +237,18 @@ sets.midcast['Blue Magic'].PhysicalHP.Resistant = set_combine(sets.midcast['Blue
 -- Magical Spells --
 sets.midcast['Blue Magic'].Magical = {
 	ammo="Pemphredo Tathlum",
-	head="Amalric Coif +1",
-	body=gear.body_idle,
-	hands="Amalric Gages +1",
-	legs="Luhlaza Shalwar +3",
-	feet="Jhakri Pigaches +2",
+	head="Nyame Helm",
+	body="Hashishin Mintan +2",
+	hands="Hashi. Bazu. +2",
+	--legs="Luhlaza Shalwar +3",
+	legs="Hashishin Tayt +2",
+	feet="Hashi. Basmak +2",
 	neck=gear.blu_jse_neck,
 	waist="Sacro Cord",
-	left_ear="Friomisi Earring",
-	right_ear="Regal Earring",
+	left_ear="Regal Earring",
+	right_ear=gear.empy_nuke_earring,
 	left_ring="Metamorph Ring +1",
-	right_ring="Vertigo Ring",
+	right_ring="Weather. Ring +1",
 	back=gear.jse_mab_back,
 }
 				 
@@ -274,7 +290,7 @@ sets.midcast['Blue Magic'].MagicAccuracy = sets.midcast['Blue Magic'].Magical.Re
 sets.midcast['Enfeebling Magic'] = {
 	ammo="Pemphredo Tathlum",
 	head="Malignance Chapeau",
-	body=gear.body_idle,
+	body="Hashishin Mintan +2",
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Malignance Boots",
@@ -334,7 +350,7 @@ sets.element.Light = {}
 sets.midcast.Cure = {
 	ammo="Hydrocera",
 	head="Nyame Helm",
-	body=gear.body_idle,
+	body="Hashishin Mintan +2",
 	hands=gear.telchine_enhancing_hands,
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -382,7 +398,7 @@ sets.midcast['Blue Magic'].Stun.Resistant = set_combine(sets.midcast['Blue Magic
 sets.midcast['Blue Magic']['White Wind'] = {
 	ammo="Hydrocera",
 	head="Nyame Helm",
-	body=gear.body_idle,
+	body="Hashishin Mintan +2",
 	hands=gear.telchine_enhancing_hands,
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -400,7 +416,7 @@ sets.midcast['Blue Magic']['Healing Breeze'] = sets.midcast['Blue Magic']['White
 sets.midcast['Blue Magic'].Healing = {
 	ammo="Hydrocera",
 	head="Nyame Helm",
-	body=gear.body_idle,
+	body="Hashishin Mintan +2",
 	hands=gear.telchine_enhancing_hands,
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -425,8 +441,8 @@ sets.midcast['Blue Magic'].SkillBasedBuff = {
 	feet={ name="Luhlaza Charuqs +3", augments={'Enhances "Diffusion" effect',}},
 	neck=gear.blu_jse_neck,
 	waist="Luminary Sash",
-	left_ear="Crep. Earring",
-	right_ear="Regal Earring",
+	left_ear="Regal Earring",
+	right_ear=gear.empy_nuke_earring,
 	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 	right_ring="Weather. Ring +1",
 	back=gear.jse_mab_back,
@@ -537,8 +553,8 @@ sets.engaged = {
 	feet="Malignance Boots",
 	neck=gear.blu_jse_neck,
 	waist="Reiki Yotai",
-	left_ear="Telos Earring",
-	right_ear="Suppanomimi",
+	left_ear="Suppanomimi",
+	right_ear=gear.empy_earring,
 	left_ring="Petrov Ring",
 	right_ring="Chirich Ring +1",
 	back=gear.jse_da_back
@@ -553,8 +569,8 @@ sets.engaged.DT = {
 	feet="Malignance Boots",
 	neck=gear.blu_jse_neck,
 	waist="Reiki Yotai",
-	left_ear="Telos Earring",
-	right_ear="Suppanomimi",
+	left_ear="Suppanomimi",
+	right_ear=gear.empy_earring,
 	left_ring="Petrov Ring",
 	right_ring="Chirich Ring +1",
 	back=gear.jse_da_back

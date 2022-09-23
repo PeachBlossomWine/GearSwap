@@ -57,6 +57,25 @@ else
 	gear.BurstLegs = 'Nyame Flanchard'
 end
 
+--Empy
+if item_available("Azimuth Hood +2") then
+	gear.jse_empy_head = "Azimuth Hood +2"
+else
+	gear.jse_empy_head = "Azimuth Hood +1"
+end
+
+if item_available("Azimuth Gaiters +2") then
+	gear.jse_empy_feet = "Azimuth Gaiters +2"
+else
+	gear.jse_empy_feet = "Azimuth Gaiters +1"
+end
+
+if item_available("Azimuth Earring +2") then
+	gear.empy_earring = "Azimuth Earring +2"
+else
+	gear.empy_earring = "Malignance Earring"
+end
+
 --------------------------------------
 -- Precast sets
 --------------------------------------
@@ -66,7 +85,7 @@ sets.precast.JA.Bolster = {body="Bagua Tunic"}
 sets.precast.JA['Life Cycle'] = {body=gear.geo_body_enfeebling, back=gear.jse_pet_back}
 sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +3"}
 sets.precast.JA['Mending Halation'] = {legs=gear.geo_relic_legs}
-sets.precast.JA['Full Circle'] = {head="Azimuth Hood +1",hands="Bagua Mitaines +3"}
+sets.precast.JA['Full Circle'] = {head=gear.jse_empy_head,hands="Bagua Mitaines +3"}
 
 sets.weapons.Idris = {main="Idris",sub="Genmei Shield"}
 sets.weapons.DualClub = {main="Idris",sub="Bunzi's Rod"}
@@ -184,7 +203,7 @@ sets.midcast.Geomancy.Indi = {
 	body="Vedic Coat",
 	hands="Nyame Gauntlets",													
 	legs=gear.geo_relic_legs, 															-- 15s
-	feet="Azimuth Gaiters +1",															-- 20s
+	feet=gear.jse_empy_feet,															-- 20s
 	neck="Incanter's Torque",
 	waist="Luminary Sash",															
 	left_ear="Magnetic Earring",
@@ -255,7 +274,7 @@ sets.midcast['Elemental Magic'] = {
 	neck="Sanctity Necklace",
 	waist=gear.ElementalObi,
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Metamor. Ring +1",
 	right_ring="Freke Ring",
 	back=gear.jse_mab_back,
@@ -280,7 +299,7 @@ sets.MagicBurst = {
 	neck="Mizu. Kubikazari",																		-- 10
 	waist=gear.ElementalObi,
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Mujin Band",																		
 	right_ring="Freke Ring",
 	back=gear.jse_mab_back,
@@ -302,7 +321,7 @@ sets.midcast['Dark Magic'] = {
 	neck="Erra Pendant",
 	waist="Fucho-no-obi",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Evanescence Ring",
 	right_ring="Archon Ring",
 	back=gear.nuke_jse_back,
@@ -327,7 +346,7 @@ sets.midcast['Enfeebling Magic'] = {
 	neck=gear.geo_jse_neck,
 	waist="Luminary Sash",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Kishar Ring",
 	right_ring="Metamorph Ring +1",
 	back=gear.jse_mab_back,
@@ -347,7 +366,7 @@ sets.midcast['Enfeebling Magic'].Resistant = {
 	neck=gear.geo_jse_neck,
 	waist="Luminary Sash",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Vertigo Ring",
 	right_ring="Metamorph Ring +1",
 	back=gear.jse_mab_back,
@@ -468,16 +487,16 @@ sets.idle.DT = {
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},	
 	head="Befouled Crown",
 	body=gear.geo_body_idle,
-	hands="Nyame Gauntlets",														-- 7
-	legs="Nyame Flanchard",
+	hands="Nyame Gauntlets",															-- 7
+	legs="Nyame Flanchard",																-- 9
 	feet="Geomancy Sandals +3",
 	neck="Loricate Torque +1",															-- 6
 	waist="Porous Rope",
-	left_ear={name="Odnowa Earring +1",priority=500},										-- 3
+	left_ear={name="Odnowa Earring +1",priority=500},									-- 3
 	right_ear={name="Etiolation Earring",priority=500},														
 	left_ring="Defending Ring",															-- 10
-	right_ring={name="Gelatinous Ring +1",priority=500},										-- 7
-	back=gear.jse_pet_back,
+	right_ring={name="Gelatinous Ring +1",priority=500},								-- 7
+	back=gear.jse_pet_back,																
 }
 
 sets.idle.Town = {
@@ -506,11 +525,11 @@ sets.idle.Pet = {																										--Regen / Pet DT
 	main="Idris",																										-- 0 / 25
 	sub="Genmei Shield",
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},											-- 0 / 5
-	head="Azimuth Hood +1",																								-- 3
+	head=gear.jse_empy_head,																							-- 4
 	body=gear.geo_body_idle,
 	hands="Geomancy Mitaines +3",																						-- 0 / 13
 	legs=gear.telchine_pet_legs,																						-- 3
-	feet="Bagua Sandals +3",																						-- 5
+	feet="Bagua Sandals +3",																							-- 5
 	neck=gear.geo_jse_neck,
 	waist="Isa Belt",																									-- 1 / 3
 	left_ear="Odnowa Earring +1",																						
@@ -525,18 +544,18 @@ sets.idle.DT.Pet = {
 	main="Idris",
 	sub="Genmei Shield",																-- 10
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},	
-	head="Nyame Helm",
+	head=gear.jse_empy_head,															-- 11							-- 4
 	body=gear.geo_body_idle,
-	hands="Geomancy Mitaines +3",																						-- 0 / 13
-	legs="Nyame Flanchard",																							-- 3 / 0
-	feet="Bagua Sandals +3",																						-- 5
+	hands="Geomancy Mitaines +3",														-- 3							-- 0 / 13
+	legs="Nyame Flanchard",																		
+	feet="Bagua Sandals +3",																							-- 5
 	neck=gear.geo_jse_neck,
 	waist="Isa Belt",																									-- 1 / 0
-	left_ear={name="Odnowa Earring +1",priority=1},										-- 3
-	right_ear={name="Etiolation Earring",priority=1},														
+	left_ear={name="Odnowa Earring +1",priority=500},									-- 3
+	right_ear={name="Etiolation Earring",priority=350},														
 	left_ring="Defending Ring",															-- 10
 	right_ring="Gelatinous Ring +1",													-- 7
-	back=gear.jse_pet_back,																								-- 10 / 0
+	back=gear.jse_pet_back,																								-- 15 / 0
 }
 
 sets.idle.Indi = set_combine(sets.idle, {})
@@ -614,3 +633,4 @@ sets.engaged = {
 
 -- Gear that converts elemental damage done to recover MP.	
 sets.RecoverMP = {}
+sets.buff.Sleep = set_combine(sets.buff.Sleep, {main="Prime Maul"})

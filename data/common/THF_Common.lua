@@ -4,7 +4,17 @@ else
 	gear.thf_knuckles = 'Kaja Knuckles'
 end
 
-sets.TreasureHunter = set_combine(sets.TreasureHunterTHF, {hands="Plunderer's Armlets +3", waist="Chaac Belt", feet="Skulker's Poulaines +1"})
+if item_available("Skulk. Earring +2") then
+	gear.empy_earring = "Skulk. Earring +2"
+elseif item_available("Skulk. Earring +1") then
+	gear.empy_earring = "Skulk. Earring +1"
+elseif item_available("Skulker's Earring") then
+	gear.empy_earring = "Skulker's Earring"
+else
+	gear.empy_earring = "Telos Earring"
+end
+
+sets.TreasureHunter = set_combine(sets.TreasureHunterTHF, {hands="Plunderer's Armlets +3", waist="Chaac Belt", feet="Skulker's Poulaines +2"})
 sets.Kiting = {feet="Jute Boots +1"}
 
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
@@ -38,7 +48,7 @@ sets.precast.JA['Hide'] = {}
 sets.precast.JA['Conspirator'] = {}
 sets.precast.JA['Steal'] = {}
 sets.precast.JA['Mug'] = {}
-sets.precast.JA['Despoil'] = {feet="Skulker's Poulaines +1"}
+sets.precast.JA['Despoil'] = {feet="Skulker's Poulaines +2"}
 sets.precast.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +3"}
 sets.precast.JA['Feint'] = {}
 
@@ -70,7 +80,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads"})
 
 -- Weaponskill sets
 sets.precast.WS = {
-	ammo="C. Palug Stone",
+	ammo="Oshasha's Treatise",
 	head={ name="Nyame Helm", augments={'Path: B',}},
 	body={ name="Nyame Mail", augments={'Path: B',}},
 	hands={ name="Nyame Gauntlets", augments={'Path: B',}},
@@ -196,7 +206,7 @@ sets.engaged = {
 	neck="Lissome Necklace",
 	waist="Reiki Yotai",
 	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Chirich Ring +1",
 	right_ring="Gere Ring",
 	back=gear.jse_tp_back,
@@ -212,7 +222,7 @@ sets.engaged.DT ={
 	neck="Combatant's Torque",
 	waist="Reiki Yotai",
 	left_ear="Sherida Earring",
-	right_ear="Odnowa Earring +1",
+	right_ear=gear.empy_earring,
 	left_ring="Chirich Ring +1",
 	right_ring="Gere Ring",
 	back=gear.jse_tp_back,

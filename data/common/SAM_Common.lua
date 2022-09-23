@@ -1,3 +1,17 @@
+if item_available("Kasuga Earring +2") then
+	gear.empy_earring = "Kasuga Earring +2"
+	gear.empy_wsd_earring = "Kasuga Earring +2"
+elseif item_available("Kasuga Earring +1") then
+	gear.empy_earring = "Kasuga Earring +1"
+	gear.empy_wsd_earring = "Kasuga Earring +1"
+elseif item_available("Kasuga Earring") then
+	gear.empy_earring = "Kasuga Earring"
+	gear.empy_wsd_earring = "Thrud Earring"
+else
+	gear.empy_earring = "Crep. Earring"
+	gear.empy_wsd_earring = "Thrud Earring"
+end
+
 -- Weapons sets
 sets.weapons.Masamune = {main="Masamune",sub="Utu Grip"}
 sets.weapons.Dojikiri = {main="Dojikiri Yasutsuna",sub="Utu Grip"}
@@ -42,8 +56,8 @@ sets.precast.Jump = {
 	feet="Maenadic Gambieras",
 	neck="Sam. Nodowa +2",
 	waist="Sailfi Belt +1",
-	left_ear="Telos Earring",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear=gear.empy_earring,															-- 3
 	left_ring="Regal Ring",
 	right_ring="Niqmaddu Ring",
 	back=gear.da_jse_back,
@@ -61,8 +75,8 @@ sets.precast.WS = {
 	feet="Nyame Sollerets",
 	neck="Sam. Nodowa +2",
 	waist="Sailfi Belt +1",
-	left_ear="Thrud Earring",																-- 3
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear=gear.empy_wsd_earring,														-- 3
 	left_ring="Regal Ring",
 	right_ring="Beithir Ring",																-- 3
 	back=gear.ws_jse_back,																	-- 10
@@ -88,8 +102,8 @@ sets.precast.WS['Tachi: Shoha'] = {
 	feet="Nyame Sollerets",
 	neck="Sam. Nodowa +2",
 	waist="Fotia Belt",
-	left_ear="Thrud Earring",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear=gear.empy_wsd_earring,														-- 3
 	left_ring="Regal Ring",
 	right_ring="Niqmaddu Ring",
 	back=gear.ws_jse_back,
@@ -165,8 +179,8 @@ sets.precast.WS['Tachi: Ageha'] = {
 	feet="Mpaca's Boots",
 	neck="Sanctity Necklace",
 	waist="Eschan Stone",
-	left_ear="Digni. Earring",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear=gear.empy_wsd_earring,														-- 3
 	left_ring="Metamor. Ring +1",
 	right_ring="Weather. Ring +1",
 	back=gear.ws_jse_back,
@@ -241,11 +255,11 @@ sets.idle = {
 
 sets.idle.Town = {
 	ammo="Coiste Bodhar",
-	head="Mpaca's Cap",
-	body="Mpaca's Doublet",
-	hands="Mpaca's Gloves",
-	legs="Mpaca's Hose",
-	feet="Mpaca's Boots",
+	head="Nyame Helm",
+	body="Kasuga Domaru +2",
+	hands="Nyame Gauntlets",
+	legs="Kasuga Haidate +2",
+	feet="Nyame Sollerets",
 	neck="Sam. Nodowa +2",
 	waist="Sailfi Belt +1",
 	left_ear="Telos Earring",
@@ -283,15 +297,15 @@ sets.defense.MEVA = sets.defense.PDT
 -- Engaged sets
 sets.engaged = {
 	ammo="Coiste Bodhar",
-	head="Mpaca's Cap",
-	body="Mpaca's Doublet",
+	head="Kasuga Kabuto +2",
+	body="Kasuga Domaru +2",
 	hands="Mpaca's Gloves",
-	legs="Mpaca's Hose",
+	legs="Kasuga Haidate +2",
 	feet="Mpaca's Boots",
 	neck="Sam. Nodowa +2",
     waist="Ioskeha Belt +1",
 	left_ear="Telos Earring",
-	right_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Niqmaddu Ring",
 	right_ring=gear.tp_ring,
 	back=gear.da_jse_back,
@@ -301,15 +315,15 @@ sets.engaged = {
 -- 501 MEVA
 sets.engaged.DT = {
 	Ammo="Coiste Bodhar",
-	head="Nyame Helm",
-	body="Mpaca's Doublet",
+	head="Kasuga Kabuto +2",
+	body="Kasuga Domaru +2",
 	hands="Mpaca's Gloves",
-	legs="Mpaca's Hose",
+	legs="Kasuga Haidate +2",
 	feet="Nyame Sollerets",
 	neck="Sam. Nodowa +2",
 	waist="Ioskeha Belt +1",
 	left_ear="Telos Earring",
-	right_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Niqmaddu Ring",
 	right_ring=gear.tp_ring,
 	back=gear.da_jse_back,
@@ -335,7 +349,7 @@ sets.engaged.SubtleBlow = {
 -- Buff sets
 sets.Cure_Received = {waist="Gishdubar Sash"}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
-sets.buff.Hasso = {hands="Wakido Kote +3"}
+sets.buff.Hasso = {}
 sets.buff.LastResort = {hands="Mpaca's Gloves", right_ear="Crep. Earring"}
 sets.buff['Third Eye'] = {}
 sets.buff.Sekkanoki = {} --{hands="Kasuga Kote +1"}

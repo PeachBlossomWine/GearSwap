@@ -4,7 +4,47 @@ else
 	gear.brd_af_body = "Brioso Justau. +2"
 end
 
+if item_available("Fili Manchettes +2") then
+	gear.brd_empy_hands = "Fili Manchettes +2"
+	gear.brd_melee_hands = "Fili Manchettes +2"
+else
+	gear.brd_empy_hands = "Fili Manchettes +1"
+	gear.brd_melee_hands = "Bunzi's Gloves"
+end
 
+if item_available("Fili Hongreline +2") then
+	gear.brd_empy_body = "Fili Hongreline +2"
+else
+	gear.brd_empy_body = "Fili Hongreline +1"
+end
+
+if item_available("Fili Cothurnes +2") then
+	gear.brd_empy_feet = "Fili Cothurnes +2"
+else
+	gear.brd_empy_feet = "Fili Cothurnes +1"
+end
+
+if item_available("Fili Calot +2") then
+	gear.brd_empy_head = "Fili Calot +2"
+else
+	gear.brd_empy_head = "Fili Calot +1"
+end
+
+if item_available("Fili Rhingrave +2") then
+	gear.brd_empy_legs = "Fili Rhingrave +2"
+else
+	gear.brd_empy_legs = "Fili Rhingrave +1"
+end
+
+if item_available("Fili Earring +2") then
+	gear.empy_earring = "Fili. Earring +2"
+elseif item_available("Fili Earring +1") then
+	gear.empy_earring = "Fili Earring +1"
+elseif item_available("Fili Earring") then
+	gear.empy_earring = "Fili Earring"
+else
+	gear.empy_earring = "Crep. Earring"
+end
 
 -- Weapons sets
 sets.weapons.Aeneas = {main="Aeneas",sub="Genmei Shield"}
@@ -23,12 +63,12 @@ sets.precast.FC = {
 	body="Inyanga Jubbah +2",																-- 14
 	hands="Gende. Gages +1",																-- 7
 	legs="Aya. Cosciales +2",																-- 6
-	feet="Telchine Pigaches",																-- 5
+	feet=gear.brd_empy_feet,																-- 10
 	neck="Baetyl Pendant",																	-- 4
 	waist="Embla Sash",																		-- 5
 	left_ear="Loquacious Earring",															-- 2
 	right_ear="Etiolation Earring",															-- 1
-	left_ring="Weather. Ring +1",																-- 4
+	left_ring="Weather. Ring +1",															-- 4
 	right_ring="Lebeche Ring",
 	back=gear.jse_back,																		-- 10
 }
@@ -39,7 +79,7 @@ sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel
 
 -- 86% Song + FC combined
 sets.precast.FC.BardSong = set_combine(sets.precast.FC, {
-	head="Fili Calot +1",   												-- 14
+	head=gear.brd_empy_head,   												-- 14
 	body=gear.brd_af_body,													-- 15
 })
 
@@ -66,7 +106,7 @@ sets.precast.FC['Dispelga'] = set_combine(sets.precast.FC, {main="Daybreak"})
 sets.precast.WS = {
 	range=gear.wsd_linos,																		-- 3
 	head="Nyame Helm",
-	body="Bihu Justaucorps +3",				-- 10%
+	body="Nyame Mail",					-- 10%
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -89,7 +129,7 @@ sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
 sets.precast.WS['Rudra\'s Storm'] = {
 	range=gear.wsd_linos,
 	head="Nyame Helm",
-	body="Bihu Justaucorps +3",	
+	body="Nyame Mail",	
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -113,7 +153,7 @@ sets.precast.WS['Rudra\'s Storm'].SubtleBlow = set_combine(sets.precast.WS['Rudr
 sets.precast.WS['Savage Blade'] = {
 	range=gear.wsd_str_linos,
 	head="Nyame Helm",
-	body="Bihu Justaucorps +3",	
+	body="Nyame Mail",	
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -174,9 +214,9 @@ sets.midcast.SongEffect = {
 	main="Carnwenhan",
 	sub="Genmei Shield",					-- 10
 	range="Gjallarhorn",
-	head="Fili Calot +1",
-	body="Fili Hongreline +1",
-	hands="Fili Manchettes +1",
+	head=gear.brd_empy_head,
+	body=gear.brd_empy_body,
+	hands=gear.brd_empy_hands,
 	legs="Inyanga Shalwar +2",
 	feet="Brioso Slippers +3",
 	neck=gear.brd_potency_neck,
@@ -191,9 +231,9 @@ sets.midcast.SongEffect = {
 sets.midcast.SongEffect.Melee = {
 	main="Carnwenhan",
 	range="Gjallarhorn",
-	head="Fili Calot +1",
-	body="Fili Hongreline +1",
-	hands="Fili Manchettes +1",
+	head=gear.brd_empy_head,
+	body=gear.brd_empy_body,
+	hands=gear.brd_empy_hands,
 	legs="Inyanga Shalwar +2",
 	feet="Brioso Slippers +3",
 	neck=gear.brd_potency_neck,
@@ -206,27 +246,27 @@ sets.midcast.SongEffect.Melee = {
 }
 
 -- Gear to enhance certain classes of songs.  No instruments added here since Gjallarhorn is being used.
-sets.midcast.Ballad = set_combine(sets.midcast.SongEffect, {}) --{legs="Fili Rhingrave +1"})
-sets.midcast.Madrigal = set_combine(sets.midcast.SongEffect, {head="Fili Calot +1"})
-sets.midcast.March = set_combine(sets.midcast.SongEffect, {hands="Fili Manchettes +1"})
-sets.midcast.Minuet = set_combine(sets.midcast.SongEffect, {body="Fili Hongreline +1"})
+sets.midcast.Ballad = set_combine(sets.midcast.SongEffect, {}) --{legs=gear.brd_empy_legs})
+sets.midcast.Madrigal = set_combine(sets.midcast.SongEffect, {head=gear.brd_empy_head})
+sets.midcast.March = set_combine(sets.midcast.SongEffect, {hands=gear.brd_empy_hands})
+sets.midcast.Minuet = set_combine(sets.midcast.SongEffect, {body=gear.brd_empy_body})
 sets.midcast.Minne = set_combine(sets.midcast.SongEffect, {legs="Mousai Seraweels +1"})
-sets.midcast.Etude = set_combine(sets.midcast.SongEffect, {head="Mousai Turban +1", feet="Fili Cothurnes +1"})
+sets.midcast.Etude = set_combine(sets.midcast.SongEffect, {head="Mousai Turban +1", feet=gear.brd_empy_feet})
 sets.midcast.Paeon = set_combine(sets.midcast.SongEffect, {head="Brioso Roundlet +3"})
-sets.midcast.Carol = set_combine(sets.midcast.SongEffect, {head="Fili Calot +1", hands="Mousai Gages +1"})
-sets.midcast["Sentinel's Scherzo"] = set_combine(sets.midcast.SongEffect, {feet="Fili Cothurnes +1"})
+sets.midcast.Carol = set_combine(sets.midcast.SongEffect, {head=gear.brd_empy_head, hands="Mousai Gages +1"})
+sets.midcast["Sentinel's Scherzo"] = set_combine(sets.midcast.SongEffect, {feet=gear.brd_empy_feet})
 sets.midcast.Mazurka = {range=info.ExtraSongInstrument}
 sets.midcast["Honor March"] = set_combine(sets.midcast.SongEffect, {range="Marsyas"})
 
-sets.midcast.Ballad.Melee = set_combine(sets.midcast.SongEffect.Melee, {}) --{legs="Fili Rhingrave +1"})
-sets.midcast.Madrigal.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Fili Calot +1"})
-sets.midcast.March.Melee = set_combine(sets.midcast.SongEffect.Melee, {hands="Fili Manchettes +1"})
-sets.midcast.Minuet.Melee = set_combine(sets.midcast.SongEffect.Melee, {body="Fili Hongreline +1"})
+sets.midcast.Ballad.Melee = set_combine(sets.midcast.SongEffect.Melee, {}) --{legs=gear.brd_empy_legs})
+sets.midcast.Madrigal.Melee = set_combine(sets.midcast.SongEffect.Melee, {head=gear.brd_empy_head})
+sets.midcast.March.Melee = set_combine(sets.midcast.SongEffect.Melee, {hands=gear.brd_empy_hands})
+sets.midcast.Minuet.Melee = set_combine(sets.midcast.SongEffect.Melee, {body=gear.brd_empy_body})
 sets.midcast.Minne.Melee = set_combine(sets.midcast.SongEffect.Melee, {legs="Mousai Seraweels +1"})
-sets.midcast.Etude.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Mousai Turban +1", feet="Fili Cothurnes +1"})
+sets.midcast.Etude.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Mousai Turban +1", feet=gear.brd_empy_feet})
 sets.midcast.Paeon.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Brioso Roundlet +3"})
-sets.midcast.Carol.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Fili Calot +1", hands="Mousai Gages +1"})
-sets.midcast["Sentinel's Scherzo"].Melee = set_combine(sets.midcast.SongEffect.Melee, {feet="Fili Cothurnes +1"})
+sets.midcast.Carol.Melee = set_combine(sets.midcast.SongEffect.Melee, {head=gear.brd_empy_head, hands="Mousai Gages +1"})
+sets.midcast["Sentinel's Scherzo"].Melee = set_combine(sets.midcast.SongEffect.Melee, {feet=gear.brd_empy_feet})
 sets.midcast.Mazurka.Melee = {range=info.ExtraSongInstrument}
 sets.midcast["Honor March"].Melee = set_combine(sets.midcast.SongEffect.Melee, {range="Marsyas"})	
 
@@ -242,8 +282,8 @@ sets.midcast.SongDebuff = {
 	feet="Brioso Slippers +3",
 	neck=gear.brd_potency_neck,
 	waist="Obstin. Sash",
-	left_ear="Dignitary's Earring",
-	right_ear="Regal Earring",
+	left_ear="Regal Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Metamorph Ring +1",
 	right_ring="Weather. Ring +1",
 	back=gear.jse_back,
@@ -268,8 +308,8 @@ sets.midcast.SongDebuff.Melee = {
 	feet="Brioso Slippers +3",
 	neck=gear.brd_potency_neck,
 	waist="Obstin. Sash",
-	left_ear="Dignitary's Earring",
-	right_ear="Regal Earring",
+	left_ear="Regal Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Metamorph Ring +1",
 	right_ring="Weather. Ring +1",
 	back=gear.jse_back,
@@ -420,7 +460,7 @@ sets.idle = {
 	body="Annoint. Kalasiris",				-- 2
 	hands=gear.chironic_refresh_hands,		-- 2
 	legs=gear.chironic_refresh_legs,		-- 2
-	feet=gear.chironic_refresh_feet,		-- 2
+	feet=gear.brd_empy_feet,
 	neck="Sanctity Necklace",
 	waist="Flume Belt +1",
 	left_ear="Infused Earring",
@@ -459,7 +499,7 @@ sets.idle.DT = {
 	body="Annoint. Kalasiris",
 	hands="Nyame Gauntlets",
 	legs="Inyanga Shalwar +2",
-	feet="Inyanga Crackows +2",
+	feet=gear.brd_empy_feet,
 	neck="Loricate Torque +1",
 	waist="Flume Belt +1",	
 	left_ear="Infused Earring",
@@ -492,25 +532,25 @@ sets.defense.MEVA = sets.defense.PDT
 sets.resting = sets.idle
 sets.idle.Weak = sets.idle.DT
 
-sets.Kiting = {feet="Fili Cothurnes +1"}
+sets.Kiting = {feet=gear.brd_empy_feet}
 sets.latent_refresh = {waist="Fucho-no-obi"}
 
 -- Engaged sets
 sets.engaged = {
 	range=gear.tp_linos,
-	head="Nyame Helm",
-	body="Bihu Justaucorps +3",
-	hands="Bunzi's Gloves",
+	head=gear.brd_empy_head,
+	body="Nyame Mail",
+	hands=gear.brd_melee_hands,
 	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	feet=gear.brd_empy_feet,
 	neck="Bard's Charm +1",
 	waist="Windbuffet Belt +1",
-	left_ear="Crep. Earring",
-	right_ear="Telos Earring",
+	left_ear="Telos Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Ilabrat Ring",
 	right_ring="Chirich Ring +1",
 	back=gear.tp_back,
 }
 
 -- Set if dual-wielding
-sets.engaged.DW = set_combine(sets.engaged, {waist="Reiki Yotai", right_ear="Suppanomimi"})
+sets.engaged.DW = set_combine(sets.engaged, {waist="Reiki Yotai", left_ear="Suppanomimi"})

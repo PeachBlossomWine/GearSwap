@@ -4,6 +4,17 @@ elseif item_available("Lycurgos") then
     gear.war_greataxe = "Lycurgos"
 end
 
+if item_available("Boii Earring +2") then
+	gear.empy_earring = "Boii Earring +2"
+elseif item_available("Boii Earring +1") then
+	gear.empy_earring = "Boii Earring +1"
+elseif item_available("Boii Earring") then
+	gear.empy_earring = "Boii Earring"
+else
+	gear.empy_earring = "Cessance Earring"
+end
+
+
 -- Precast Sets
 sets.Enmity = {}
 sets.Knockback = {}
@@ -243,7 +254,7 @@ sets.engaged = {
 	neck=gear.war_jse_neck,
 	waist="Ioskeha Belt +1",
 	left_ear="Telos Earring",
-	right_ear="Cessance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Chirich Ring +1",
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,
@@ -259,7 +270,7 @@ sets.engaged.DT = {
 	neck=gear.war_jse_neck,
 	waist="Ioskeha Belt +1",
 	left_ear="Telos Earring",
-	right_ear="Cessance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Chirich Ring +1",
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,

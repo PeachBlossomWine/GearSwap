@@ -4,18 +4,34 @@ else
 	gear.sch_body_idle = "Agwu's Robe"
 end
 
-if item_available('Musa') then
-	gear.sch_town_idle_weapon = 'Musa'
-	gear.sch_town_idle_sub = 'Enki Strap'
-else
-	gear.sch_town_idle_weapon = 'Daybreak'
-	gear.sch_town_idle_sub = 'Genmei Shield'
-end
-
 if item_available('Crepuscular Cloak') then
 	gear.impact_body = "Crepuscular Cloak"
 else
 	gear.impact_body = "Twilight Cloak"
+end
+
+if item_available('Arbatel Bracers +2') then
+	gear.jse_empy_hands = "Arbatel Bracers +2"
+else
+	gear.jse_empy_hands = "Arbatel Bracers +1"
+end
+
+if item_available('Arbatel Bonnet +2') then
+	gear.jse_empy_head = "Arbatel Bonnet +2"
+else
+	gear.jse_empy_head = "Arbatel Bonnet +1"
+end
+
+if item_available('Arbatel Loafers +2') then
+	gear.jse_empy_feet = "Arbatel Loafers +2"
+else
+	gear.jse_empy_feet = "Arbatel Loafers +1"
+end
+
+if item_available("Arbatel Earring +2") then
+	gear.empy_earring = "Arbatel Earring +2"
+else
+	gear.empy_earring = "Malignance Earring"
 end
 
 sets.weapons.Musa = {main="Musa",sub="Khonsu"}
@@ -107,13 +123,13 @@ sets.MagicBurst = {
 	ammo="Pemphredo Tathlum",	
 	head="Peda. M.Board +3",								-- 4 II
 	body="Agwu's Robe",										-- 10
-	hands="Amalric Gages +1",								-- 6 II 
-	legs="Nyame Flanchard",									-- 6
-	feet="Jhakri Pigaches +2",								-- 7																																		
+	hands="Agwu's Gages",									-- 8 + 5 II 
+	legs="Agwu's Slops",									-- 9
+	feet=gear.jse_empy_feet,								-- 4 II																																		
 	neck=gear.sch_jse_neck,									-- 10/7 
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",	
+	right_ear=gear.empy_earring,	
 	left_ring="Mujin Band",									-- 5 II 
 	right_ring="Freke Ring",																					
 	back=gear.nuke_jse_back,
@@ -207,13 +223,13 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic']
 sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
 	main=gear.sch_regen_weapon,
 	sub=gear.sch_regen_sub,
-	head="Arbatel Bonnet +1",		-- 15%
+	head=gear.jse_empy_head,		-- 15%
 	body=gear.telchine_enhancing_body,
 	back=gear.regen_jse_back,		-- +10
 })
 
 sets.midcast.Regen.DT = set_combine(sets.midcast['Enhancing Magic'].DT, {
-	head="Arbatel Bonnet +1",		-- 15%
+	head=gear.jse_empy_head,		-- 15%
 	body=gear.telchine_enhancing_body,
 	back=gear.regen_jse_back,		-- +10
 })
@@ -253,7 +269,7 @@ sets.midcast['Enfeebling Magic'] = {
 	neck=gear.sch_jse_neck,
 	waist="Obstin. Sash",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Kishar Ring",
 	right_ring="Metamorph Ring +1",
 	back=gear.nuke_jse_back,
@@ -286,11 +302,11 @@ sets.midcast['Dark Magic'] = {
 	body=gear.sch_body_idle,
 	hands="Nyame Gauntlets",
 	legs="Peda. Pants +3",
-	feet="Jhakri Pigaches +2",
+	feet=gear.jse_empy_feet,
 	neck=gear.sch_jse_neck,
 	waist="Obstin. Sash",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Vertigo Ring",
 	right_ring="Metamorph Ring +1",
 	back=gear.nuke_jse_back,
@@ -304,11 +320,11 @@ sets.midcast.Kaustra = {
 	body=gear.sch_body_idle,
 	hands="Nyame Gauntlets",
 	legs="Peda. Pants +3",
-	feet="Jhakri Pigaches +2",
+	feet=gear.jse_empy_feet,
 	neck=gear.sch_jse_neck,
 	waist="Luminary Sash",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Freke Ring",
 	right_ring="Archon Ring",
 	back=gear.nuke_jse_back,
@@ -343,11 +359,11 @@ sets.midcast['Elemental Magic'] = {
 	body="Agwu's Robe",
 	hands="Amalric Gages +1",
 	legs="Peda. Pants +3",
-	feet="Jhakri Pigaches +2",
+	feet=gear.jse_empy_feet,
 	neck=gear.sch_jse_neck,
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",	
+	right_ear=gear.empy_earring,	
 	left_ring="Metamor. Ring +1",
 	right_ring="Freke Ring",																					
 	back=gear.nuke_jse_back,											
@@ -390,11 +406,11 @@ sets.midcast.Helix = {
 	body="Agwu's Robe",
 	hands="Amalric Gages +1",
 	legs="Peda. Pants +3",
-	feet="Jhakri Pigaches +2",
+	feet=gear.jse_empy_feet,
 	neck=gear.sch_jse_neck,
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",	
+	right_ear=gear.empy_earring,	
 	left_ring="Metamor. Ring +1",
 	right_ring="Freke Ring",																					
 	back=gear.nuke_jse_back,		
@@ -431,8 +447,8 @@ sets.idle = {
 }
 
 sets.idle.Town = set_combine(sets.idle, {
-	main=gear.sch_town_idle_weapon,
-	sub=gear.sch_town_idle_sub,
+	main="Musa",
+	sub="Khonsu",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
@@ -495,16 +511,16 @@ sets.engaged = {}
 
 
 -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
-sets.buff['Ebullience'] = {head="Arbatel Bonnet +1"}
-sets.buff['Rapture'] = {head="Arbatel Bonnet +1"}
-sets.buff['Perpetuance'] = {hands="Arbatel Bracers +1"}
-sets.buff['Immanence'] = {hands="Arbatel Bracers +1"}
+sets.buff['Ebullience'] = {head=gear.jse_empy_head}
+sets.buff['Rapture'] = {head=gear.jse_empy_head}
+sets.buff['Perpetuance'] = {hands=gear.jse_empy_hands}
+sets.buff['Immanence'] = {hands=gear.jse_empy_hands}
 sets.buff['Penury'] = {} -- legs="Savant's Pants +2"
 sets.buff['Parsimony'] = {} -- legs="Savant's Pants +2"
 sets.buff['Celerity'] = {} -- feet="Pedagogy Loafers"
 sets.buff['Alacrity'] = {} -- feet="Pedagogy Loafers"
 
-sets.buff['Klimaform'] = {feet="Arbatel loafers +1"}
+sets.buff['Klimaform'] = {feet=gear.jse_empy_feet}
 
 sets.buff.Sublimation = {head="Acad. Mortar. +3", body="Peda. Gown +3", waist="Embla Sash"}
 sets.buff.DTSublimation = {waist="Embla Sash"}

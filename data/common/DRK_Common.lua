@@ -1,6 +1,19 @@
 --------------------------------------
 -- Start defining the sets
 --------------------------------------
+if item_available("Heath. Earring +2") then
+	gear.empy_earring = "Heath. Earring +2"
+elseif item_available("Heath. Earring +1") then
+	gear.empy_earring = "Heath. Earring +1"
+else
+	gear.empy_earring = "Thrud Earring"
+end
+
+if item_available("Ratri Sollerets +1") then
+	gear.drk_darkmagic_feet = "Ratri Sollerets +1"
+else
+	gear.drk_darkmagic_feet = "Ratri Sollerets"
+end
 
 autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['KajaChopper']='Armor Break',['Naegling']='Savage Blade'}
 
@@ -19,7 +32,7 @@ sets.precast.JA['Diabolic Eye'] = {}
 sets.precast.JA['Arcane Circle'] = {}
 sets.precast.JA['Souleater'] = {}
 sets.precast.JA['Weapon Bash'] = {}
-sets.precast.JA['Nether Void'] = {}
+sets.precast.JA['Nether Void'] = {legs="Heath. Flanchard +2"}
 sets.precast.JA['Blood Weapon'] = {}
 sets.precast.JA['Dark Seal'] = {}
 sets.precast.JA['Last Resort'] = {back="Ankou's Mantle"}
@@ -67,8 +80,8 @@ sets.precast.WS = {
 	feet="Nyame Sollerets",																-- 7
 	neck=gear.drk_jse_neck,
 	waist="Sailfi Belt +1",
-	left_ear="Thrud Earring",															-- 3
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear=gear.empy_earring,														-- 3 to 4
 	left_ring="Regal Ring",
 	right_ring="Beithir Ring",															-- 3
 	back=gear.jse_STR_Back,																-- 10
@@ -95,7 +108,7 @@ sets.precast.WS['Torcleaver'] = set_combine(sets.precast.WS, {
 	neck=gear.drk_jse_neck,
 	waist="Fotia Belt",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	right_ear="Thrud Earring",															-- 3
+	right_ear=gear.empy_earring,														-- 3 to 4
 	left_ring="Regal Ring",
 	right_ring="Niqmaddu Ring",															-- 3
 	back=gear.jse_VIT_Back,																-- 10
@@ -123,8 +136,8 @@ sets.precast.WS['Insurgency'] = {
 	feet="Nyame Sollerets",
 	neck=gear.drk_jse_neck,
 	waist="Sailfi Belt +1",
-	left_ear="Thrud Earring",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear=gear.empy_earring,														-- 3 to 4
 	left_ring="Regal Ring",
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_STR_Back,
@@ -139,8 +152,8 @@ sets.precast.WS['Shadow of Death'] = {
 	feet="Nyame Sollerets",
 	neck=gear.drk_jse_neck,
 	waist="Hachirin-no-Obi",
-	left_ear="Malignance Earring",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear="Malignance Earring",
 	left_ring="Regal Ring",
 	right_ring="Archon Ring",
 	back=gear.jse_STR_Back,
@@ -155,9 +168,8 @@ sets.precast.WS['Armor Break'] = {
 	feet="Sakpata's Leggings",	
 	neck="Erra Pendant",
 	waist="Eschan Stone",
-	left_ear="Malignance Earring",
-	--right_ear="Digni. Earring",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	right_ear="Malignance Earring",
 	left_ring="Metamor. Ring +1",
 	right_ring="Weather. Ring +1",
 	back=gear.jse_FC_Back,
@@ -173,7 +185,7 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {
 	neck=gear.drk_jse_neck,
 	waist="Sailfi Belt +1",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	right_ear="Thrud Earring",															-- 3
+	right_ear=gear.empy_earring,														-- 3 to 4
 	left_ring="Regal Ring",
 	right_ring="Niqmaddu Ring",															-- 3
 	back=gear.jse_STR_Back,																-- 10
@@ -195,9 +207,9 @@ sets.midcast.FastRecast = sets.precast.FC
 sets.midcast['Dark Magic'] = {
 	ammo="Pemphredo Tathlum",
 	head={ name="Fall. Burgeonet +3", augments={'Enhances "Dark Seal" effect',}},
-	body="Fall. Cuirass +3",
+	body="Heath. Cuirass +2",
 	hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
-	legs={ name="Fall. Flanchard +3", augments={'Enhances "Muted Soul" effect',}},
+	legs="Heath. Flanchard +2",
 	feet="Nyame Sollerets",
 	neck="Erra Pendant",
 	waist="Eschan Stone",
@@ -211,9 +223,9 @@ sets.midcast['Dark Magic'] = {
 sets.midcast['Enfeebling Magic'] = {
 	ammo="Pemphredo Tathlum",
 	head="Hjarrandi Helm",
-	body="Fall. Cuirass +3",
-	hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
-	legs="Nyame Flanchard",
+	body="Heath. Cuirass +2",
+	hands="Heath. Gauntlets +2",
+	legs="Heath. Flanchard +2",
 	feet="Nyame Sollerets",
 	neck="Erra Pendant",
 	waist="Eschan Stone",
@@ -225,8 +237,8 @@ sets.midcast['Enfeebling Magic'] = {
 }
 	   
 sets.midcast['Dread Spikes'] = set_combine(sets.midcast['Dark Magic'], {})
-sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {hands="Heathen's Gauntlets +1", feet="Ratri Sollerets +1", back="Ankou's Mantle"})
-sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {ring1="Evanescence Ring",ring2="Archon Ring", back=gear.Drain_back}) -- feet="Ratri Sollerets +1", 
+sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {hands="Heath. Gauntlets +2", feet=gear.drk_darkmagic_feet, back="Ankou's Mantle"})
+sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {ring1="Evanescence Ring",ring2="Archon Ring", back=gear.Drain_back})
 sets.midcast.Aspir = sets.midcast.Drain
 sets.midcast.Impact = set_combine(sets.midcast['Dark Magic'], {head=empty,body="Twilight Cloak"})
 sets.midcast.Stun = sets.midcast['Enfeebling Magic']
@@ -293,6 +305,7 @@ sets.Kiting = {legs="Carmine Cuisses +1"}
 sets.passive.Reraise = {}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
 sets.buff['Dark Seal'] = {head="Fall. Burgeonet +3"}
+sets.buff['Nether Void'] = {legs="Heath. Flanchard +2"}
 
 --Extra Special Sets
 sets.buff.Souleater = {}

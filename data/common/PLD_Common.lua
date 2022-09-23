@@ -3,6 +3,14 @@ sets.weapons.Aegis = {main="Burtgang", sub="Aegis"}
 sets.weapons.Srivatsa = {main="Burtgang", sub="Srivatsa"}
 sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield +1"}
 
+if item_available("Chevalier's Earring +2") then
+	gear.empy_earring = "Chevalier's Earring +2"
+elseif item_available("Chevalier's Earring +1") then
+	gear.empy_earring = "Chevalier's Earring +1"
+else
+	gear.empy_earring = "Chevalier's Earring"
+end
+
 --------------------------------------
 -- Precast sets
 --------------------------------------
@@ -51,7 +59,7 @@ sets.precast.JA['Holy Circle'] = set_combine(sets.Enmity,{})	-- feet="Rev. Leggi
 sets.precast.JA['Sentinel'] = set_combine(sets.Enmity,{feet={name="Cab. Leggings +3",priority=63}, left_ear={name="Tuisto Earring",priority=150},})
 sets.precast.JA['Rampart'] = set_combine(sets.Enmity,{head={name="Cab. Coronet +1",priority=96}, left_ear={name="Tuisto Earring",priority=150},})
 sets.precast.JA['Fealty'] = set_combine(sets.Enmity,{body={name="Cab. Surcoat +1",priority=118}, left_ear={name="Tuisto Earring",priority=150},})
-sets.precast.JA['Divine Emblem'] = set_combine(sets.Enmity,{feet={name="Chev. Sabatons +1",priority=22}, left_ear={name="Tuisto Earring",priority=150},})
+sets.precast.JA['Divine Emblem'] = set_combine(sets.Enmity,{feet={name="Chev. Sabatons +2",priority=22}, left_ear={name="Tuisto Earring",priority=150},})
 sets.precast.JA['Cover'] = set_combine(sets.Enmity, {body={name="Cab. Surcoat +1",priority=118}, left_ear={name="Tuisto Earring",priority=150},}) 	-- head="Rev. Coronet +1", 
 sets.precast.JA['Shield Bash'] = set_combine(sets.Enmity, {hands={name="Cab. Gauntlets +3",priority=114},})
 sets.precast.JA['Palisade'] = set_combine(sets.Enmity, {})
@@ -98,7 +106,7 @@ sets.precast.FC = {
 	body={name="Rev. Surcoat +3",priority=254},													-- 10%
 	hands={name="Souv. Handsch. +1",priority=239},
 	legs=gear.odyssean_fc_legs,																	-- 6%
-	feet={name="Carmine Greaves +1",priority=95},												-- 8%
+	feet={name="Chev. Sabatons +2",priority=42},												-- 8%
 	neck="Baetyl Pendant",																		-- 4%
 	waist={name="Silver Moogle Belt",priority=500},
 	left_ear={name="Tuisto Earring",priority=150},
@@ -116,7 +124,7 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {})
 -- Weaponskill sets
 -- Default set for any weaponskill that isn't any more specifically defined
 sets.precast.WS = {
-	ammo="Ginsen",
+	ammo="Oshasha's Treatise",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
@@ -131,8 +139,8 @@ sets.precast.WS = {
 	back=gear.jse_wsd_back,
 }
 	
- sets.precast.WS.Tank = {
-	ammo="Ginsen",
+sets.precast.WS.Tank = {
+	ammo="Oshasha's Treatise",
 	head={name="Nyame Helm", priority=91},
 	body={name="Nyame Mail", priority=136},
 	hands={name="Regal Gauntlets", priority=250},
@@ -218,7 +226,7 @@ sets.midcast.Cure = {
 	neck={name="Sacro Gorget", priority=50},					-- 10%
 	waist={name="Carrier's Sash", priority=20},
 	left_ear="Nourish. Earring +1",								-- 6%
-	right_ear="Mendi. Earring",									-- 5%
+	right_ear=gear.empy_earring,								-- 10%
 	left_ring={name="Moonlight Ring", priority=110},
 	right_ring={name="Eihwaz Ring",priority=70},
 	back=gear.tank_cure_back,									-- 10%

@@ -1,3 +1,11 @@
+if item_available("Pel. Earring +2") then
+	gear.empy_earring = "Pel. Earring +2"
+elseif item_available("Pel. Earring +1") then
+	gear.empy_earring = "Pel. Earring +1"
+else
+	gear.empy_earring = "Pel. Earring"
+end
+
 -- Weapons sets
 sets.weapons.Trishula = {main="Trishula",sub="Utu Grip"}
 sets.weapons.ShiningOne = {main="Shining One",sub="Utu Grip"}
@@ -19,18 +27,18 @@ sets.precast.Jump = {
 	neck="Dgn. Collar +2",
 	waist="Ioskeha Belt +1",
 	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Petrov Ring",
 	right_ring="Niqmaddu Ring",
 	back=gear.TPBack,
 }
 sets.precast.JA['High Jump'] = set_combine(sets.precast.Jump, {})
-sets.precast.JA['Spirit Jump'] = set_combine(sets.precast.Jump, {})
-sets.precast.JA['Soul Jump'] = set_combine(sets.precast.Jump, {body="Vishap Mail +3"})
+sets.precast.JA['Spirit Jump'] = set_combine(sets.precast.Jump, {legs="Pelt. Cuissots +2", feet="Pelt. Schyn. +2"})
+sets.precast.JA['Soul Jump'] = set_combine(sets.precast.Jump, {legs="Pelt. Cuissots +2", body="Vishap Mail +3"})
 
 sets.precast.JA['Super Jump'] = {}
-sets.precast.JA['Spirit Link'] = {head="Vishap Armet +3", hands="Pel. Vambraces +1", feet="Ptero. Greaves +3"}
-sets.precast.JA['Call Wyvern'] = {body="Ptero. Mail +3", neck="Dgn. Collar +2", feet="Gleti's Boots"}
+sets.precast.JA['Spirit Link'] = {head="Vishap Armet +3", hands="Pel. Vambraces +2", feet="Ptero. Greaves +3"}
+sets.precast.JA['Call Wyvern'] = {body="Ptero. Mail +3", neck="Dgn. Collar +2", feet="Gleti's Boots", right_ear=gear.empy_earring}
 sets.precast.JA['Deep Breathing'] = {} 
 sets.precast.JA['Spirit Surge'] = {body="Ptero. Mail +3"}
 sets.precast.JA['Steady Wing'] = {legs="Vishap Brais +3", feet="Ptero. Greaves +3"}
@@ -79,8 +87,8 @@ sets.precast.WS = {
 	ammo="Knobkierrie",
 	head="Nyame Helm",
 	body="Nyame Mail",
-	hands={ name="Ptero. Fin. G. +3", augments={'Enhances "Angon" effect',}},
-	legs="Vishap Brais +3",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Dgn. Collar +2",
 	waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -105,14 +113,46 @@ sets.precast.WS['Savage Blade'].KI.SubtleBlow = set_combine(sets.precast.WS.KI.S
 
 -- Stardiver - DA%
 sets.precast.WS['Stardiver'] = {
-	ammo="Knobkierrie",
+	ammo="Coiste Bodhar",
 	head="Ptero. Armet +3",
 	body="Gleti's Cuirass",
-	hands="Gleti's Gauntlets",
-	legs="Gleti's Breeches",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Dgn. Collar +2",
 	waist="Fotia Belt",
+	left_ear="Sherida Earring",
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ring="Regal Ring",
+	right_ring="Niqmaddu Ring",
+	back=gear.jse_str_back,	
+}
+
+sets.precast.WS['Impulse Drive'] = {
+	ammo="Knobkierrie",
+	head="Ptero. Armet +3",
+	body="Gleti's Cuirass",
+	hands="Nyame Gauntlets",
+	legs="Pelt. Cuissots +2",
+	feet="Nyame Sollerets",
+	neck="Dgn. Collar +2",
+	waist={ name="Sailfi Belt +1", augments={'Path: A',}},
+	left_ear="Sherida Earring",
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ring="Regal Ring",
+	right_ring="Niqmaddu Ring",
+	back=gear.jse_str_back,	
+}
+
+sets.precast.WS['Drakesbane'] = {
+	ammo="Coiste Bodhar",
+	head="Ptero. Armet +3",
+	body="Gleti's Cuirass",
+	hands="Gleti's Gauntlets",
+	legs="Pelt. Cuissots +2",
+	feet="Gleti's Boots",
+	neck="Dgn. Collar +2",
+	waist={ name="Sailfi Belt +1", augments={'Path: A',}},
 	left_ear="Sherida Earring",
 	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	left_ring="Regal Ring",
@@ -218,13 +258,13 @@ sets.engaged = {
 	ammo="Coiste Bodhar",
 	head="Hjarrandi Helm",
 	body="Gleti's Cuirass",
-	hands="Sulev. Gauntlets +2",
-	legs="Ptero. Brais +3",
-	feet="Gleti's Boots",
+	hands="Pel. Vambraces +2",
+	legs="Pelt. Cuissots +2",
+	feet="Pelt. Schyn. +2",
 	neck="Dgn. Collar +2",
 	waist="Ioskeha Belt +1",
 	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Chirich Ring +1",
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,
@@ -241,7 +281,7 @@ sets.engaged.Acc = {
 	neck="Dgn. Collar +2",
 	waist="Ioskeha Belt +1",
 	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Chirich Ring +1",
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,
@@ -252,16 +292,16 @@ sets.engaged.Acc = {
 -- 1264 ACC
 -- 599 MEVA
 sets.engaged.DT = {
-	ammo="Staunch Tathlum +1",
+	ammo="Coiste Bodhar",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Gleti's Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Gleti's Boots",
+	legs="Pelt. Cuissots +2",
+	feet="Pelt. Schyn. +2",
 	neck="Dgn. Collar +2",
 	waist="Ioskeha Belt +1",
 	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Chirich Ring +1",
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,		

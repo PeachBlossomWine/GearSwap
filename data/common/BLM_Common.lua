@@ -10,6 +10,12 @@ else
 	gear.impact_body = "Twilight Cloak"
 end
 
+if item_available("Wicce Earring +2") then
+	gear.empy_earring = "Wicce Earring +2"
+else
+	gear.empy_earring = "Malignance Earring"
+end
+
 
 sets.EaStuff = {head="Ea Hat +1", body="Ea Houppelande +1", legs="Ea Slops +1"}
 
@@ -22,7 +28,7 @@ sets.buff.DTSublimation = {waist="Embla Sash"}
 sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 
 ---- Precast Sets ----
-sets.precast.JA['Mana Wall'] = {back=gear.nuke_jse_back,feet="Wicce Sabots +1"}
+sets.precast.JA['Mana Wall'] = {back=gear.nuke_jse_back,feet="Wicce Sabots +2"}
 sets.precast.JA.Manafont = {}
 sets.precast.JA.Convert = {}
 
@@ -94,19 +100,21 @@ sets.MagicBurst = {
 	ammo="Pemphredo Tathlum",
 	head="Ea Hat +1",					-- 7
 	body=gear.blm_body_mab,			-- 9
-	hands="Amalric Gages +1",
+	--hands="Amalric Gages +1",
+	hands="Spae. Gloves +3",
 	legs="Ea Slops +1",					-- 8												
 	feet="Arch. Sabots +3",
 	neck=gear.blm_jse_neck,				-- 10/8
     waist="Sacro Cord",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Mujin Band",
 	right_ring="Freke Ring",
 	back=gear.nuke_jse_back,			-- 5													
 }
 
 sets.ResistantMagicBurst = set_combine(sets.MagicBurst, {main="Marin Staff +1", sub="Khonsu", hands="Spae. Gloves +3",})
+sets.MagicEffectDurationBurst = set_combine(sets.MagicBurst, {legs="Wicce Chausses +2"})
 
 sets.midcast.FastRecast = sets.precast.FC
 sets.midcast.Cure = {
@@ -172,7 +180,7 @@ sets.midcast['Enfeebling Magic'] = {
 	neck="Erra Pendant",						-- 17
 	waist="Luminary Sash",						-- 10
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Kishar Ring",
 	right_ring="Metamorph Ring +1",
 	back=gear.nuke_jse_back,
@@ -203,18 +211,18 @@ sets.midcast['Dark Magic'] = {
 	body="Spaekona's Coat +3",
 	hands="Nyame Gauntlets",
 	legs="Ea Slops +1",
-	feet="Arch. Sabots +3",
+	feet="Wicce Sabots +2",
 	neck="Erra Pendant",
 	waist="Fucho-no-obi",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Evanescence Ring",
 	right_ring="Archon Ring",
 	back=gear.nuke_jse_back,
 }
 
 sets.midcast.Drain = sets.midcast['Dark Magic']
-sets.midcast.Aspir = sets.midcast.Drain
+sets.midcast.Aspir = set_combine(sets.midcast.Drain, {feet="Arch. Sabots +3",})
 		
 					sets.midcast.Aspir.Death = sets.midcast.Aspir
 		
@@ -253,7 +261,7 @@ sets.midcast['Elemental Magic'] = {
 	neck=gear.blm_jse_neck,
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Metamor. Ring +1",
 	right_ring="Freke Ring",
 	back=gear.nuke_jse_back,
@@ -285,7 +293,7 @@ sets.midcast['Elemental Magic'].Proc = {
 	neck="Loricate Torque +1",
 	waist="Eschan Stone",
 	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",
 	right_ring="Freke Ring",
 	back=gear.nuke_jse_back,
@@ -298,7 +306,7 @@ sets.idle = {
 	sub="Genmei Shield",
 	ammo="Staunch Tathlum +1",
 	head=gear.merlinic_refresh_head,
-	body="Agwu's Robe",
+	body="Shamash Robe",
 	hands="Nyame Gauntlets",
 	legs="Assid. Pants +1",
 	feet="Nyame Sollerets",
@@ -316,7 +324,7 @@ sets.idle.DT = {
 	sub="Genmei Shield",
 	ammo="Staunch Tathlum +1",
 	head="Nyame Helm",
-	body="Agwu's Robe",
+	body="Shamash Robe",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -371,7 +379,7 @@ sets.NightIdle = {}
 sets.HPDown = {}
 sets.HPCure = {}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
-sets.buff['Mana Wall'] = {back=gear.nuke_jse_back,feet="Wicce Sabots +1"}
+sets.buff['Mana Wall'] = {back=gear.nuke_jse_back,feet="Wicce Sabots +2"}
 
 -- Gear for specific elemental nukes.
 sets.element.Dark = {head="Pixie Hairpin +1",ring2="Archon Ring"}

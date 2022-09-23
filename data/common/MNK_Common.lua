@@ -1,3 +1,11 @@
+if item_available("Bhikku Earring +2") then
+	gear.empy_earring = "Bhikku Earring +2"
+elseif item_available("Bhikku Earring +1") then
+	gear.empy_earring = "Bhikku Earring +1"
+else
+	gear.empy_earring = "Bhikku Earring"
+end
+
 -- Weapons sets
 sets.weapons.Verethragna = {main="Verethragna"}
 sets.weapons.Godhands = {main="Godhands"}
@@ -192,24 +200,29 @@ sets.defense.MEVA = sets.defense.MDT
 sets.Kiting = {feet="Herald's Gaiters"}
 
 -- Engaged sets
+
+-- MNK: 35 (Tier I)
+-- Tier I: 45
+-- Tier II: 30
+-- Total: 75 (75 Cap)
 sets.engaged = {
 	ammo="Coiste Bodhar",
 	head="Malignance Chapeau",
 	body="Mpaca's Doublet",
 	hands="Malignance Gloves",	
-	legs="Mpaca's Hose",
+	legs="Bhikku Hose +2",
 	feet="Malignance Boots",
 	neck="Mnk. Nodowa +2",
-	waist=gear.mnk_tp_waist,
-	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
-	left_ring="Gere Ring",
-	right_ring="Niqmaddu Ring",
+	waist=gear.mnk_tp_waist,					-- 15 II
+	left_ear="Sherida Earring",					-- 5 II
+	right_ear=gear.empy_earring,
+	left_ring=gear.mnk_tp_ring,					-- 10
+	right_ring="Niqmaddu Ring",					-- 5 II
 	back=gear.jse_da_back,
 }
 
 sets.engaged.DT = {
-	ammo=gear.dt_ammo,																-- 3
+	ammo=gear.dt_ammo,																	-- 3
 	head="Malignance Chapeau",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",															-- 5
@@ -218,7 +231,7 @@ sets.engaged.DT = {
 	neck="Mnk. Nodowa +2",
 	waist=gear.mnk_tp_waist,															-- 6
 	left_ear="Sherida Earring",
-	right_ear="Digni. Earring",
+	right_ear=gear.empy_earring,
 	left_ring=gear.mnk_tp_ring,															-- 10
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,																-- 10
@@ -234,7 +247,7 @@ sets.engaged.Tank = {
 	neck="Mnk. Nodowa +2",
 	waist=gear.mnk_tp_waist,
 	left_ear="Sherida Earring",
-	right_ear="Digni. Earring",
+	right_ear=gear.empy_earring,
 	left_ring=gear.mnk_tp_ring,
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,
@@ -243,11 +256,11 @@ sets.engaged.Tank = {
 sets.engaged.HF = set_combine(sets.engaged, {})
 
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
-sets.buff.Impetus = {} --{body="Bhikku Cyclas +1"}
-sets.buff.Footwork = {left_ring="Defending Ring", legs="Hes. Hose +3", feet="Anch. Gaiters +3"}
+sets.buff.Impetus = {body="Bhikku Cyclas +2", feet="Nyame Sollerets", ammo=gear.dt_ammo}
+sets.buff.Footwork = {legs="Bhikku Hose +2", feet="Anch. Gaiters +3"}
 sets.buff.Boost = {}
 
-sets.FootworkWS = {feet="Anch. Gaiters +3"}
+sets.FootworkWS = {legs="Bhikku Hose +2", feet="Anch. Gaiters +3"}
 sets.DayIdle = {}
 sets.NightIdle = {}
 sets.Knockback = {}

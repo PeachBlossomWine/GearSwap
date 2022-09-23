@@ -1,5 +1,13 @@
 sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 
+if item_available("Maculele Earring +2") then
+	gear.empy_earring = "Maculele Earring +2"
+elseif item_available("Maculele Earring +1") then
+	gear.empy_earring = "Maculele Earring +1"
+else
+	gear.empy_earring = "Telos Earring"
+end
+
 -- Extra Melee sets.  Apply these on top of melee sets.
 
 -- Weapons sets
@@ -100,7 +108,7 @@ sets.precast.Flourish3 = {}
 sets.precast.Flourish3['Striking Flourish'] = {}
 sets.precast.Flourish3['Climactic Flourish'] = {
 	ammo="C. Palug Stone",
-	head="Maculele Tiara +1",
+	head="Maculele Tiara +2",
 	body="Nyame Mail",
 	hands="Maxixi Bangles +3",
 	legs={ name="Horos Tights +3", augments={'Enhances "Saber Dance" effect',}},
@@ -138,7 +146,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {})
 -- Weaponskill sets
 -- Default set for any weaponskill that isn't any more specifically defined
 sets.precast.WS = {
-	ammo="C. Palug Stone",
+	ammo="Oshasha's Treatise",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Maxixi Bangles +3",
@@ -155,7 +163,7 @@ sets.precast.WS = {
 
 -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 sets.precast.WS["Rudra's Storm"] = {
-	ammo="C. Palug Stone",
+	ammo="Oshasha's Treatise",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Maxixi Bangles +3",
@@ -172,7 +180,7 @@ sets.precast.WS["Rudra's Storm"] = {
 
 sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Pyrrhic Kleos'] = {
-	ammo="Crepuscular Pebble",
+	ammo="Oshasha's Treatise",
 	head="Gleti's Mask",
 	body="Gleti's Cuirass",
 	hands="Gleti's Gauntlets",
@@ -276,7 +284,7 @@ sets.engaged = {
 	neck="Etoile Gorget +2",
 	waist="Windbuffet Belt +1",
 	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Gere Ring",
 	right_ring="Chirich Ring +1",
 	back=gear.jse_stp_back,
@@ -292,7 +300,7 @@ sets.engaged.DT = {
 	neck="Etoile Gorget +2",
 	waist="Windbuffet Belt +1",
 	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",
 	right_ring="Chirich Ring +1",
 	back=gear.jse_stp_back,
@@ -300,5 +308,5 @@ sets.engaged.DT = {
 
 -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
 sets.buff['Saber Dance'] = {legs="Horos Tights +3"}
-sets.buff['Climactic Flourish'] = {head="Maculele Tiara +1"} --ammo="Charis Feather", 
+sets.buff['Climactic Flourish'] = {head="Maculele Tiara +2"} --ammo="Charis Feather", 
 sets.buff.Doom = set_combine(sets.buff.Doom, {})

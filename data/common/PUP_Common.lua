@@ -1,3 +1,12 @@
+if item_available("Karagoz Earring +2") then
+	gear.empy_earring = "Karagoz Earring +2"
+elseif item_available("Karagoz Earring +1") then
+	gear.empy_earring = "Karagoz Earring +1"
+elseif item_available("Karagoz Earring") then
+	gear.empy_earring = "Karagoz Earring"
+else
+	gear.empy_earring = "Crep. Earring"
+end
 
 -- Weapons sets
 sets.weapons.Verethragna = {main="Verethragna",range="Neo Animator",}
@@ -153,7 +162,7 @@ sets.idle.Pet = {
 	neck="Shepherd's Chain",								-- 2
 	waist="Isa Belt",										-- 3
 	left_ear="Enmerkar Earring",							-- 3
-	right_ear="Rimeice Earring",							-- 1
+	right_ear=gear.empy_earring,
 	left_ring="Overbearing Ring",
 	right_ring="C. Palug Ring",
 	back=gear.jse_pet_tank_back,							-- 5
@@ -162,14 +171,14 @@ sets.idle.Pet = {
 -- Idle sets to wear while pet is engaged
 sets.idle.Pet.Engaged = {
 	head="Nyame Helm",
-	body="Nyame Mail",
+	body="Kara. Farsetto +2",
 	hands="Mpaca's Gloves",
 	legs="Nyame Flanchard",
 	feet="Mpaca's Boots",
 	neck="Shulmanu Collar",
 	waist="Incarnation Sash",
 	left_ear="Enmerkar Earring",
-	right_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Varar Ring +1",
 	right_ring="C. Palug Ring",
 	back=gear.jse_pet_tank_back,
@@ -186,7 +195,7 @@ sets.idle.Pet.Engaged.Tank = set_combine(sets.idle.Pet.Engaged,
 	neck="Shepherd's Chain",								-- 2
 	waist="Isa Belt",										-- 3
 	left_ear="Enmerkar Earring",							-- 3
-	right_ear="Rimeice Earring",							-- 1
+	right_ear=gear.empy_earring,							-- 1
 	left_ring="Overbearing Ring",
 	right_ring="C. Palug Ring",
 	back=gear.jse_pet_tank_back,							-- 5
@@ -201,7 +210,7 @@ sets.idle.Pet.Engaged.Magic ={
 	neck="Adad Amulet",
 	waist="Isa Belt",
 	left_ear="Enmerkar Earring",
-	right_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Varar Ring +1",
 	right_ring="C. Palug Ring",
 	back=gear.jse_pet_tank_back,
@@ -247,7 +256,7 @@ sets.engaged = {
 	neck="Combatant's Torque",
 	waist="Moonbow Belt +1",
 	left_ear="Telos Earring",
-	right_ear="Cessance Earring",
+	right_ear=gear.empy_earring,
 	left_ring=gear.tp_ring,
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,
@@ -262,7 +271,7 @@ sets.engaged.DT = {
 	neck="Combatant's Torque",
 	waist="Moonbow Belt +1",
 	left_ear="Telos Earring",
-	right_ear="Cessance Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,
@@ -270,14 +279,14 @@ sets.engaged.DT = {
 	   
 sets.engaged.HybridPET = {
 	head="Nyame Helm",										-- 6
-	body="Nyame Mail",										-- 9
+	body="Kara. Farsetto +2",								-- 9
 	hands="Mpaca's Gloves",									-- 8
 	legs="Nyame Flanchard",									-- 7
 	feet="Mpaca's Boots",									-- 6
 	neck="Shulmanu Collar",
 	waist="Moonbow Belt +1",								-- 5
 	left_ear="Telos Earring",
-	right_ear="Enmerkar Earring",
+	right_ear=gear.empy_earring,
 	left_ring="C. Palug Ring",												
 	right_ring="Niqmaddu Ring",
 	back=gear.jse_da_back,									-- 10
@@ -292,7 +301,7 @@ sets.engaged.PetTank = {
 	neck="Shepherd's Chain",								-- 2
 	waist="Isa Belt",										-- 3
 	left_ear="Enmerkar Earring",							-- 3
-	right_ear="Rimeice Earring",							-- 1
+	right_ear=gear.empy_earring,							-- 1
 	left_ring="Overbearing Ring",
 	right_ring="C. Palug Ring",
 	back=gear.jse_pet_tank_back,								-- 5

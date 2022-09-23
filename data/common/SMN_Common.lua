@@ -7,6 +7,34 @@ else
 	gear.impact_body = "Twilight Cloak"
 end
 
+if item_available("Beckoner's Horn +2") then
+	gear.jse_empy_head = "Beckoner's Horn +2"
+else
+	gear.jse_empy_head = "Beckoner's Horn +1"
+end
+
+if item_available("Beck. Doublet +2") then
+	gear.jse_empy_body = "Beck. Doublet +2"
+else
+	gear.jse_empy_body = "Beck. Doublet +1"
+end
+
+if item_available("Beck. Spats +2") then
+	gear.jse_empy_legs = "Beck. Spats +2"
+else
+	gear.jse_empy_legs = "Beck. Spats +1"
+end
+
+if item_available("Beck. Earring +2") then
+	gear.empy_earring = "Beck. Earring +2"
+elseif item_available("Beck. Earring +1") then
+	gear.empy_earring = "Beck. Earring +1"
+elseif item_available("Beck. Earring") then
+	gear.empy_earring = "Beck. Earring"
+else
+	gear.empy_earring = "Gelos Earring"
+end
+
 sets.weapons.Nirvana = {main="Nirvana", sub="Elan Strap +1"}
 
 sets.TreasureHunter = set_combine(sets.TreasureHunter, {waist="Chaac Belt"})
@@ -19,10 +47,10 @@ sets.precast.JA['Elemental Siphon'] = {
 	main="Espiritus",						-- 15
 	sub="Elan Strap +1",
 	ammo="Epitaph",
-	head="Beckoner's Horn +1",				-- 13
-	body="Beck. Doublet +1",				-- 14
+	head=gear.jse_empy_head,				-- 13
+	body=gear.jse_empy_body,				-- 14
 	hands="Lamassu Mitts +1",				-- 20
-	legs="Beck. Spats +1",					-- 20
+	legs=gear.jse_empy_legs,					-- 20
 	feet="Convo. Pigaches +3",
 	neck="Incanter's Torque",				-- 10
 	waist="Lucidity Sash",					-- 7
@@ -223,10 +251,10 @@ sets.midcast.Pet.BloodPactWard = {
 	main="Espiritus",						-- 15
 	sub="Elan Strap +1",
 	ammo="Epitaph",
-	head="Beckoner's Horn +1",				-- 13
-	body="Beck. Doublet +1",				-- 14
+	head=gear.jse_empy_head,				-- 13
+	body=gear.jse_empy_body,				-- 14
 	hands="Lamassu Mitts +1",				-- 22
-	legs="Beck. Spats +1",					-- 20
+	legs=gear.jse_empy_legs,					-- 20
 	feet="Convo. Pigaches +3",
 	neck="Incanter's Torque",				-- 10
 	waist="Lucidity Sash",					-- 7
@@ -254,8 +282,8 @@ sets.midcast.Pet.PhysicalBloodPactRage = {
 	feet="Convo. Pigaches +3",
 	neck=gear.smn_jse_neck,
 	waist="Incarnation Sash",
-	left_ear="Gelos Earring",
-	right_ear="Lugalbanda Earring",
+	left_ear="Lugalbanda Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Varar Ring +1",
 	right_ring="C. Palug Ring",
 	back=gear.phys_jse_back,
@@ -279,8 +307,8 @@ sets.midcast.Pet.MagicalBloodPactRage = {
 	feet="Convo. Pigaches +3",
 	neck="Adad Amulet",
 	waist="Regal Belt",
-	left_ear="Gelos Earring",
-	right_ear="Lugalbanda Earring",
+	left_ear="Lugalbanda Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Varar Ring +1",
 	right_ring="C. Palug Ring",
 	back=gear.magic_jse_back,
@@ -303,8 +331,8 @@ sets.midcast.Pet['Flaming Crush'] = {
 	feet="Convo. Pigaches +3",
 	neck=gear.smn_jse_neck,
 	waist="Regal Belt",
-	left_ear="Gelos Earring",
-	right_ear="Lugalbanda Earring",
+	left_ear="Lugalbanda Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Varar Ring +1",
 	right_ring="C. Palug Ring",
 	back=gear.phys_jse_back,
@@ -327,7 +355,7 @@ sets.idle = {
 	main="Daybreak",
 	sub="Genmei Shield",
 	ammo="Epitaph",
-	head="Beckoner's Horn +1",
+	head=gear.jse_empy_head,
 	body="Shomonjijoe +1",
 	hands="Asteria Mitts +1",
 	legs="Assid. Pants +1",
@@ -343,20 +371,20 @@ sets.idle = {
 
 sets.idle.DT = {
 	main="Daybreak",
-	sub="Genmei Shield",
+	sub="Genmei Shield",				-- 10
 	ammo="Epitaph",
-	head="Beckoner's Horn +1",
+	head=gear.jse_empy_head,
 	body="Inyanga Jubbah +2",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
+	hands="Nyame Gauntlets",			-- 7
+	legs="Nyame Flanchard",				-- 8
 	feet="Inyanga Crackows +2",
-	neck="Loricate Torque +1",
-	waist="Regal Belt",
+	neck="Loricate Torque +1",			-- 6
+	waist="Regal Belt",					
 	left_ear="C. Palug Earring",
 	right_ear="Etiolation Earring",
-	left_ring="Defending Ring",
+	left_ring="Defending Ring",			-- 10
 	right_ring="Inyanga Ring",
-	back=gear.phys_jse_back,
+	back=gear.phys_jse_back,			-- 10
 }
 
 sets.idle.Town = {
@@ -388,47 +416,48 @@ sets.idle.Town = {
 -- Max useful -perp gear is 1 less than the perp cost (can't be reduced below 1)
 -- Aim for -14 perp, and refresh in other slots.
 
--- Gridarvor:			-5
--- Con. Pigaches +3: 	-6
--- Lucidity Sash:		-2
--- total: -13
+-- Gridarvor/Nirvana:			-5/-8
+-- Con. Pigaches +3:		 	-6
+-- Lucidity Sash:				-2
+-- Assid. Pants +1:				-3
+-- total: -16/-17
 
 -- Can make due without either the head or the body, and use +refresh items in those slots.
 
 sets.idle.Avatar = {
 	main=gear.smn_physical_staff,
-	sub="Elan Strap +1",
+	sub="Khonsu",
 	ammo="Epitaph",
-	head="Beckoner's Horn +1",
+	head=gear.jse_empy_head,
 	body="Shomonjijoe +1",
-	hands="Asteria Mitts +1",
+	hands="Asteria Mitts +1",			-- MP Refresh
 	legs="Assid. Pants +1",
 	feet="Convo. Pigaches +3",
-	neck="Caller's Pendant",
-	waist="Lucidity Sash",
-	left_ear="C. Palug Earring",
-	right_ear="Lugalbanda Earring",
-	left_ring="Varar Ring +1",
-	right_ring="C. Palug Ring",
-	back=gear.phys_jse_back,
-}
-
-sets.idle.DT.Avatar = {
-	main=gear.smn_physical_staff,
-	sub="Elan Strap +1",
-	ammo="Epitaph",
-	head="Nyame Helm",
-	body="Shomonjijoe +1",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Convo. Pigaches +3",
-	neck=gear.smn_petdt_neck,
+	neck="Caller's Pendant",			-- TP Regain
 	waist="Lucidity Sash",
 	left_ear="C. Palug Earring",
 	right_ear="Lugalbanda Earring",
 	left_ring="Defending Ring",
 	right_ring="C. Palug Ring",
 	back=gear.phys_jse_back,
+}
+
+sets.idle.DT.Avatar = {
+	main=gear.smn_physical_staff,
+	sub="Khonsu",						-- 6
+	ammo="Epitaph",
+	head=gear.jse_empy_head,			-- 9
+	body="Shomonjijoe +1",
+	hands="Nyame Gauntlets",			-- 7
+	legs="Assid. Pants +1",
+	feet="Convo. Pigaches +3",
+	neck=gear.smn_petdt_neck,			-- 4
+	waist="Lucidity Sash",
+	left_ear="C. Palug Earring",
+	right_ear="Lugalbanda Earring",
+	left_ring="Defending Ring",			-- 10
+	right_ring="C. Palug Ring",			-- 5
+	back=gear.phys_jse_back,			-- 10
 }
 
 sets.idle.Spirit = sets.idle.Avatar

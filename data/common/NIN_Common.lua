@@ -1,3 +1,14 @@
+if item_available("Hattori Earring +2") then
+	gear.empy_earring = "Hattori Earring +2"
+elseif item_available("Hattori Earring +1") then
+	gear.empy_earring = "Hattori Earring +1"
+elseif item_available("Hattori Earring") then
+	gear.empy_earring = "Hattori Earring"
+else
+	gear.empy_earring = "Crep. Earring"
+end
+
+
 -- Weapons sets
 sets.weapons.Kikoku = {main="Kikoku",sub="Kunimitsu"}
 sets.weapons.Heishi = {main="Heishi Shorinken",sub="Kunimitsu"}
@@ -69,7 +80,7 @@ sets.precast.FC = {
 	back=gear.jse_da_back,
 }
 
-sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Mochi. Chainmail +3",}) --feet="Hattori Kyahan +1"
+sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Mochi. Chainmail +3", feet="Hattori Kyahan +2" })
 sets.precast.FC.Shadows = set_combine(sets.precast.FC.Utsusemi, {})
 
 -- Snapshot for ranged
@@ -78,7 +89,7 @@ sets.precast.RA = {}
 -- Weaponskill sets
 
 sets.precast.WS = {
-	ammo="Crepuscular Pebble",
+	ammo="Oshasha's Treatise",
 	head="Mpaca's Cap",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
@@ -129,7 +140,7 @@ sets.precast.WS['Blade: Ten'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {})
 
 sets.precast.WS['Blade: Chi'] ={
-	ammo="Crepuscular Pebble",
+	ammo="Oshasha's Treatise",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
@@ -291,7 +302,7 @@ sets.engaged = {
 	neck="Ninja Nodowa +2",
 	waist="Windbuffet Belt +1",
 	left_ear="Telos Earring",
-	right_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
 	left_ring={name="Chirich Ring +1",priority=500},
 	right_ring={name="Gere Ring",priority=250},
 	back=gear.jse_da_back,
@@ -307,7 +318,7 @@ sets.engaged.DT = {
 	neck="Ninja Nodowa +2",
 	waist="Windbuffet Belt +1",
 	left_ear="Telos Earring",
-	right_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
 	left_ring={name="Defending Ring",priority=500},
 	right_ring={name="Gere Ring",priority=250},
 	back=gear.jse_da_back,

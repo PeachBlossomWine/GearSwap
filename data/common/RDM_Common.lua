@@ -32,6 +32,46 @@ else
 	gear.jse_af_legs = "Atrophy Tights +2"
 end
 
+if item_available('Lethargy Sayon +2') then
+	gear.jse_empy_body = "Lethargy Sayon +2"
+else
+	gear.jse_empy_body = "Lethargy Sayon +1"
+end
+
+if item_available('Leth. Ganth. +2') then
+	gear.jse_empy_hands = "Leth. Ganth. +2"
+else
+	gear.jse_empy_hands = "Leth. Gantherots +1"
+end
+
+if item_available('Leth. Houseaux +2') then
+	gear.jse_empy_feet = "Leth. Houseaux +2"
+else
+	gear.jse_empy_feet = "Leth. Houseaux +1"
+end
+
+if item_available('Leth. Fuseau +2') then
+	gear.jse_empy_legs = "Leth. Fuseau +2"
+else
+	gear.jse_empy_legs = "Leth. Fuseau +1"
+end
+
+if item_available('Leth. Chappel +2') then
+	gear.jse_empy_head = "Leth. Chappel +2"
+else
+	gear.jse_empy_head = "Leth. Chappel +1"
+end
+
+if item_available("Leth. Earring +2") then
+	gear.empy_earring = "Leth. Earring +2"
+	gear.empy_debuff_earring = "Leth. Earring +2"
+elseif item_available("Leth. Earring +1") then
+	gear.empy_earring = "Leth. Earring +1"
+	gear.empy_debuff_earring = "Regal Earring"
+else
+	gear.empy_earring = "Lethargy Earring"
+	gear.empy_debuff_earring = "Regal Earring"
+end
 
 -- Weapons sets
 sets.weapons.Murgleis = {main="Murgleis",sub="Ammurapi Shield"}
@@ -210,11 +250,11 @@ sets.midcast['Enhancing Magic'] = {
 	body="Viti. Tabard +3",															-- 15%
 	hands="Atrophy Gloves +3",														-- 20%
 	legs=gear.telchine_enhancing_legs,												-- 9%
-	feet="Leth. Houseaux +1",														-- 30%
+	feet=gear.jse_empy_feet,														-- 30%
 	neck=gear.rdm_jse_neck,															-- ?
 	waist="Embla Sash",																-- 10%
-	left_ear="Genmei Earring",
-	right_ear="Etiolation Earring",
+	left_ear="Etiolation Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
 	back=gear.jse_macc_back,														-- 20%
@@ -223,11 +263,11 @@ sets.midcast['Enhancing Magic'] = {
 --Atrophy Gloves are better than Lethargy for me despite the set bonus for duration on others.		
 sets.buff.ComposureOther = --set_combine(sets.midcast['Enhancing Magic'], {
 {		
-	head="Leth. Chappel +1",
-	body="Lethargy Sayon +1",
-	hands="Leth. Gantherots +1",
-	legs="Leth. Fuseau +1",
-	feet="Leth. Houseaux +1",
+	head=gear.jse_empy_head,
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
 }
 
 	
@@ -241,7 +281,7 @@ sets.EnhancingSkill = {
 	body="Viti. Tabard +3",
 	hands="Viti. Gloves +3",
 	legs=gear.jse_af_legs,
-	feet="Leth. Houseaux +1",
+	feet=gear.jse_empy_feet,
 	neck="Incanter's Torque",
 	waist=gear.dt_waist,
 	left_ear="Andoaa Earring",			-- 5
@@ -251,7 +291,7 @@ sets.EnhancingSkill = {
 	back=gear.jse_skill_back,
 }
 
-sets.midcast.Refresh = {head="Amalric Coif +1",body="Atrophy Tabard +3",hands="Atrophy Gloves +3",legs="Leth. Fuseau +1"}
+sets.midcast.Refresh = {head="Amalric Coif +1",body="Atrophy Tabard +3",hands="Atrophy Gloves +3",legs=gear.jse_empy_legs}
 sets.midcast.Aquaveil = {head="Amalric Coif +1",hands=gear.rdm_regal_hands}
 sets.midcast.BarElement = {}
 sets.midcast.Temper = sets.EnhancingSkill
@@ -293,14 +333,14 @@ sets.midcast['Enfeebling Magic'] = {
 	range=empty,
 	ammo={name="Regal Gem", priority=500},
 	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
-	body="Lethargy Sayon +1",
+	body=gear.jse_empy_body,
 	hands=gear.rdm_regal_hands,
 	legs=gear.chironic_enfeeble_legs,
 	feet="Vitiation Boots +3",
 	neck=gear.rdm_jse_neck,
 	waist="Obstin. Sash",
-	left_ear="Regal Earring",
-	right_ear="Snotra Earring",
+	left_ear="Snotra Earring",
+	right_ear=empy_debuff_earring,
 	left_ring={name="Kishar Ring", priority=500},
 	right_ring="Metamorph Ring +1",
 	back=gear.jse_macc_back,
@@ -312,7 +352,7 @@ sets.midcast['Enfeebling Magic'] = {
 sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {
 	range={name="Ullr", priority=1},
 	ammo=empty,
-	body="Atrophy Tabard +3",
+	body=gear.jse_empy_body,
 	hands={ name="Kaykaus Cuffs +1", augments={'MP+80','MND+12','Mag. Acc.+20',}},
 	left_ring=gear.stikini_ring,
 	right_ring={name="Metamorph Ring +1", priority=500},
@@ -326,18 +366,18 @@ sets.midcast['Enfeebling Magic'].Resistant.INT = set_combine(sets.midcast['Enfee
 sets.midcast.DurationOnlyEnfeebling = set_combine(sets.midcast['Enfeebling Magic'], {
 	range={name="Ullr", priority=1},
 	ammo=empty,
-	body="Atrophy Tabard +3", 
+	body=gear.jse_empy_body,
 })
 
 sets.midcast.DurationOnlyEnfeebling.INT = set_combine(sets.midcast['Enfeebling Magic'], {
 	range={name="Ullr", priority=1},
 	ammo=empty,
 	main="Bunzi's Rod", 
-	body="Atrophy Tabard +3", 
+	body=gear.jse_empy_body,
 })	
 
 sets.midcast.DurationOnlyEnfeebling.Melee = set_combine(sets.midcast['Enfeebling Magic'], {
-	body="Atrophy Tabard +3", 
+	body=gear.jse_empy_body,
 })
 	
 sets.midcast.Silence = sets.midcast.DurationOnlyEnfeebling
@@ -451,7 +491,7 @@ sets.midcast.Stun = set_combine(sets.midcast['Enfeebling Magic'], {})
 sets.midcast.Stun.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 
 -- Sets for special buff conditions on spells.
-sets.buff.Saboteur = {hands="Leth. Gantherots +1"}
+sets.buff.Saboteur = {hands=gear.jse_empy_hands}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
 -- Idle sets
