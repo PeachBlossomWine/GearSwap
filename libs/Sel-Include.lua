@@ -947,7 +947,7 @@ function default_filtered_action(spell, eventArgs)
             add_to_chat(217,"You can't cast Teleport-Mea, attempting to use Dimensional Ring instead, /heal to cancel.")
             cancel_spell()
             eventArgs.cancel = true
-        elseif spell.english == 'Invisible' then
+        elseif spell.english == 'Invisible' and not (data.areas.cities:contains(world.area)) then
             if player.main_job == 'DNC' or player.sub_job == 'DNC' then
                 windower.chat.input('/ja "Spectral Jig" <me>')
                 add_to_chat(217,"You can't cast Invisible, attempting to use Spectral Jig instead.")
@@ -957,7 +957,7 @@ function default_filtered_action(spell, eventArgs)
             end
             cancel_spell()
             eventArgs.cancel = true
-        elseif spell.english == 'Sneak' then
+        elseif spell.english == 'Sneak' and not (data.areas.cities:contains(world.area)) then
             if player.main_job == 'DNC' or player.sub_job == 'DNC' then
                 windower.chat.input('/ja "Spectral Jig" <me>')
                 add_to_chat(217,"You can't cast Sneak, attempting to use Spectral Jig instead.")
@@ -1420,10 +1420,10 @@ end
 
 function default_tick()
 	check_lockstyle()
+	if check_ws() then return true end
 	if check_sub() then return true end
 	if check_food() then return true end
 	if check_samba() then return true end
-	if check_ws() then return true end
 	if check_cpring_buff() then return true end
 	if check_cleanup() then return true end
 	if check_nuke() then return true end
@@ -2094,7 +2094,7 @@ end
 -- Function to add kiting gear on top of the base set if kiting state is true.
 -- @param baseSet : The gear set that the kiting gear will be applied on top of.
 function apply_kiting(baseSet)
-	if sets.Kiting and (state.Kiting.value or (player.status == 'Idle' and moving and state.DefenseMode.value == 'None' and state.Passive.value == 'None' and (state.IdleMode.value == 'Normal' or state.IdleMode.value:contains('Sphere') or not (player.in_combat or being_attacked)))) then
+	if sets.Kiting and (state.Kiting.value or (player.status == 'Idle' and moving and state.DefenseMode.value == 'None' and state.Passive.value == 'None' and (state.IdleMode.value == 'Normal' or state.IdleMode.value:contains('Sphere') or state.IdleMode.value == 'DT' or state.IdleMode.value == 'Refresh'))) then --or not (player.in_combat or being_attacked)))) then
 		baseSet = set_combine(baseSet, sets.Kiting)
 	end
 	

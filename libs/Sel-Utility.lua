@@ -675,7 +675,6 @@ end
 function silent_can_use(spellid)
 	local available_spells = windower.ffxi.get_spells()
 	local spell_jobs = copy_entry(res.spells[spellid].levels)
-        
 	-- Filter for spells that you do not know. Exclude Impact, Honor March and Dispelga.
 	if not available_spells[spellid] and not (spellid == 503 or spellid == 417 or spellid == 360) then
 		return false
@@ -787,7 +786,7 @@ function can_use(spell)
 				end
 				return false
             end
-        elseif player.sub_job_id == 20 and ((data.spells.addendum_white:contains(spell.english) and not buffactive[401] and not buffactive[416]) or
+        elseif player.sub_job_id == 20 and not buffactive['SJ Restriction'] and ((data.spells.addendum_white:contains(spell.english) and not buffactive[401] and not buffactive[416]) or
             (data.spells.addendum_black:contains(spell.english) and not buffactive[402] and not buffactive[416])) and
             not (spell_jobs[player.main_job_id] and (spell_jobs[player.main_job_id] <= player.main_job_level or
             (spell_jobs[player.main_job_id] >= 100 and number_of_jps(player.job_points[__raw.lower(res.jobs[player.main_job_id].ens)]) >= spell_jobs[player.main_job_id]) ) ) then
