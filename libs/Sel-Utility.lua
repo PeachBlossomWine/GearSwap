@@ -1456,16 +1456,22 @@ function check_trust()
 				local spell_recasts = windower.ffxi.get_spell_recasts()
 				local available_spells = windower.ffxi.get_spells()
 
-				if spell_recasts[998] < spell_latency and available_spells[998] and not have_trust("Ygnas") then
-					windower.chat.input('/ma "Ygnas" <me>')
-					tickdelay = os.clock() + 3
-					return true
+				if (available_spells[998] and not have_trust("Ygnas")) or (available_spells[980] and not have_trust("Yoran-Oran")) then
+					if available_spells[998] and spell_recasts[998] < spell_latency and not have_trust("Ygnas") then
+						windower.chat.input('/ma "Ygnas" <me>')
+						tickdelay = os.clock() + 3
+						return true
+					elseif available_spells[980] and spell_recasts[980] < spell_latency and not have_trust("Yoran-Oran") then
+						windower.chat.input('/ma "Yoran-Oran (UC)" <me>')
+						tickdelay = os.clock() + 3
+						return true
+					end
 				elseif spell_recasts[981] < spell_latency and available_spells[981] and not have_trust("Sylvie") then
 					windower.chat.input('/ma "Sylvie (UC)" <me>')
 					tickdelay = os.clock() + 3
 					return true
-				elseif spell_recasts[952] < spell_latency and available_spells[952] and not have_trust("Koru-Moru") then
-					windower.chat.input('/ma "Koru-Moru" <me>')
+				elseif spell_recasts[999] < spell_latency and available_spells[999] and not have_trust("Monberaux") then
+					windower.chat.input('/ma "Monberaux" <me>')
 					tickdelay = os.clock() + 3
 					return true
 				elseif spell_recasts[914] < spell_latency and available_spells[914] and not have_trust("Ulmia") then
