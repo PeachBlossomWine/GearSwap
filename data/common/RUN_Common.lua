@@ -1,9 +1,27 @@
 autows_list = {['Epeolatry']='Dimidiation',['Lionheart']='Resolution',['Lycurgos']='Upheaval',}
 
-if item_available("Erilaz Galea +2") then
+if item_available("Eri. Leg Guards +3") then
+	gear.jse_empy_legs = {name="Eri. Leg Guards +3",priority=100}
+elseif item_available("Eri. Leg Guards +2") then
+	gear.jse_empy_legs = {name="Eri. Leg Guards +2",priority=100}
+else
+	gear.jse_empy_legs = {name="Eri. Leg Guards +1",priority=100}
+end
+
+if item_available("Erilaz Galea +3") then
+	gear.jse_empy_head = "Erilaz Galea +3"
+elseif item_available("Erilaz Galea +2") then
 	gear.jse_empy_head = "Erilaz Galea +2"
 else
 	gear.jse_empy_head = "Erilaz Galea +1"
+end
+
+if item_available("Erilaz Greaves +3") then
+	gear.jse_empy_feet = "Erilaz Greaves +3"
+elseif item_available("Erilaz Greaves +2") then
+	gear.jse_empy_feet = "Erilaz Greaves +2"
+else
+	gear.jse_empy_feet = "Erilaz Greaves +1"
 end
 
 if item_available("Erilaz Earring +2") then
@@ -20,15 +38,15 @@ sets.weapons.Lionheart = {main="Lionheart", sub="Utu Grip"}
 sets.weapons.Lycurgos = {main="Lycurgos", sub="Khonsu"}
 
 -- 50 DT/PDT
--- 62 + 23 Weapon = 85
+-- 68 + 23 Weapon = 85
 
 sets.Enmity = {
 	ammo=gear.dt_ammo,													        -- 3
 	head={name="Halitus Helm",priority=88},										-- 			8
 	body={name="Nyame Mail",priority=136},										-- 10
 	hands={name="Kurys Gloves",priority=25},									-- 2	/	9
-	legs={name="Eri. Leg Guards +2",priority=80},								-- 7	/	11
-	feet={name="Erilaz Greaves +2",priority=18},								-- 10	/	7
+	legs=gear.jse_empy_legs,													-- 7	/	11
+	feet={name=gear.jse_empy_feet ,priority=18},								-- 13	/	13
 	neck={name="Unmoving Collar +1",priority=500},								--		/	10
 	waist={name=gear.hp_belt,priority=500},
 	left_ear={name="Odnowa Earring +1",priority=500},							-- 3
@@ -72,10 +90,10 @@ sets.Enmity.SIRD = {															--SIRD	/	DT-PDT	/	Enmity
 -- Precast sets to enhance JAs
 sets.precast.JA['Vallation'] = set_combine(sets.Enmity,{body={name="Runeist's Coat +3",priority=218}, legs={name="Futhark Trousers +3",priority=107},})
 sets.precast.JA['Valiance'] = set_combine(sets.Enmity,{body={name="Runeist's Coat +3",priority=218}, legs={name="Futhark Trousers +3",priority=107},})
-sets.precast.JA['Pflug'] = set_combine(sets.Enmity,{feet={name="Runeist's Boots +3",priority=74},})
+sets.precast.JA['Pflug'] = set_combine(sets.Enmity,{feet={name="Runeist's Bottes +3",priority=74},})
 sets.precast.JA['Battuta'] = set_combine(sets.Enmity,{
 	head={name="Futhark Bandeau +3",priority=56}, 
-	legs={name="Eri. Leg Guards +2",priority=80}, 
+	legs=gear.jse_empy_legs,
 	feet={name=gear.run_tank_feet,priority=76}, 
 	back=gear.tank_back
 })
@@ -223,6 +241,13 @@ sets.precast.WS.Tank = {
 sets.precast.WS['Resolution'].Tank = set_combine(sets.precast.WS.Tank, {})	
 sets.precast.WS['Dimidiation'].Tank = set_combine(sets.precast.WS.Tank, {})
 
+sets.precast.RA = {
+	range="Aureole",
+	hands="Carmine Finger Gauntlets +1",	-- 8
+	feet="Meghanada Jambeaux +2",			-- 10
+	waist="Yemaya Belt",
+	left_ring="Crepuscular Ring",			-- 3
+}
 --------------------------------------
 -- Midcast sets
 --------------------------------------
@@ -378,7 +403,7 @@ sets.idle = {
 	body={name="Runeist's Coat +3",priority=218},																
 	hands={name="Regal Gauntlets",priority=205},																
 	legs={name="Nyame Flanchard",priority=114},												-- 		 	/ 9 DT	/
-	feet={name=gear.run_tank_feet,priority=500},											--			/ 10 DT /													
+	feet={name=gear.jse_empy_feet,priority=500},										--			/ 10 DT /													
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
 	waist=gear.dt_waist,																	-- 4 PDT 	/		/
 	left_ear={name="Odnowa Earring +1",priority=500},										--			/		/	2 MDT
@@ -488,8 +513,8 @@ sets.engaged.Tank = {
 	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
 	body={name="Runeist's Coat +3",priority=218},											--					
 	hands={name="Turms Mittens +1",priority=74},											--					
-	legs={name="Eri. Leg Guards +2",priority=114},											--   		/ 8 DT	/
-	feet={name=gear.run_tank_feet,priority=76},												--			/ 10 DT /	
+	legs=gear.jse_empy_legs,																--   		/ 8 DT	/
+	feet={name=gear.jse_empy_feet ,priority=76},												--			/ 10 DT /	
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
 	waist=gear.dt_waist,																	-- 4 PDT 	/		/
 	left_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
@@ -504,8 +529,8 @@ sets.engaged.MEVA = {
 	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
 	body={name="Runeist's Coat +3",priority=218},											--					
 	hands={name="Nyame Gauntlets",priority=91},												--					
-	legs={name="Eri. Leg Guards +2",priority=114},												--   		/ 8 DT	/
-	feet={name=gear.run_tank_feet,priority=68},												--					
+	legs=gear.jse_empy_legs,																--   		/ 8 DT	/
+	feet={name=gear.jse_empy_feet ,priority=68},												--					
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
 	waist="Carrier's Sash",																	-- 4 PDT 	/		/
 	left_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT

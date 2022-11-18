@@ -7,8 +7,8 @@ state.Weapons:options('Verethragna','Godhands','Sakpata','Midnights','DivinatorI
 state.PetWSGear = M(true, 'Pet WS Gear')
 
 --state.AutoBuffMode:options('auto')
-state.PetMode = M{['description']='Pet Mode', 'Tank','Melee','Ranged','Heal','Nuke'}
-state.AutoManeuvers = M{['description']='Auto Maneuver List', 'Tank','Melee','Ranged','Heal','Nuke'}
+state.PetMode = M{['description']='Pet Mode', 'Tank','TankMEVA','Melee','Ranged','Heal','Nuke'}
+state.AutoManeuvers = M{['description']='Auto Maneuver List', 'Tank','TankMEVA','Melee','Ranged','Heal','Nuke'}
 
 PetMode="Tank"
 AutoManeuvers="Tank"
@@ -21,6 +21,12 @@ defaultManeuvers = {
 		{Name='Fire Maneuver',	  Amount=1},
 		{Name='Light Maneuver',	  Amount=2},
 		{Name='Water Maneuver',	  Amount=0},
+	},
+	TankMEVA = {
+		{Name='Earth Maneuver',	  Amount=0},
+		{Name='Fire Maneuver',	  Amount=0},
+		{Name='Light Maneuver',	  Amount=2},
+		{Name='Water Maneuver',	  Amount=1},
 	},
 	Melee = {
 		{Name='Fire Maneuver', 	  Amount=0},

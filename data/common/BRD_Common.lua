@@ -6,10 +6,8 @@ end
 
 if item_available("Fili Manchettes +2") then
 	gear.brd_empy_hands = "Fili Manchettes +2"
-	gear.brd_melee_hands = "Fili Manchettes +2"
 else
 	gear.brd_empy_hands = "Fili Manchettes +1"
-	gear.brd_melee_hands = "Bunzi's Gloves"
 end
 
 if item_available("Fili Hongreline +2") then
@@ -540,9 +538,9 @@ sets.engaged = {
 	range=gear.tp_linos,
 	head=gear.brd_empy_head,
 	body="Nyame Mail",
-	hands=gear.brd_melee_hands,
+	hands="Bunzi's Gloves",
 	legs="Nyame Flanchard",
-	feet=gear.brd_empy_feet,
+	feet="Nyame Sollerets",
 	neck="Bard's Charm +1",
 	waist="Windbuffet Belt +1",
 	left_ear="Telos Earring",

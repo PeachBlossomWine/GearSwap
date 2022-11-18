@@ -4,7 +4,7 @@ state.IdleMode:options('Normal','DT')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
-state.Weapons:options('None','Yagrush','Tishtrya','Maxentius','DualTish','DualMaxen')
+state.Weapons:options('None','Yagrush','Tishtrya','Maxentius','DualYag','DualTish','DualMaxen')
 
 autows="Judgment"
 autowstp=1250

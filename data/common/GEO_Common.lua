@@ -8,12 +8,6 @@ else
 	gear.geo_body_idle = "Agwu's Robe"
 end
 
-if item_available('Geomancy Tunic +3') then
-	gear.geo_body_enfeebling = 'Geomancy Tunic +3'
-else
-	gear.geo_body_enfeebling = 'Geomancy Tunic +2'
-end
-
 if item_available('Bagua Pants +3') then
 	gear.geo_relic_legs = 'Bagua Pants +3'
 	gear.geo_freenuke_legs = 'Bagua Pants +3'
@@ -35,26 +29,22 @@ else
 end
 
 --Burst gear
-if item_available('Ea Hat +1') then
-	gear.BurstHead = 'Ea Hat +1'
+if item_available("Ea Hat +1") then
+	gear.BurstHead = "Ea Hat +1"
 else
-	gear.BurstHead = 'Nyame Helm'
+	gear.BurstHead = "Agwu's Cap"
 end
 
 if item_available("Ea Houppelande +1") then
 	gear.BurstBody = "Ea Houppelande +1"
-elseif item_available("Agwu's Robe") then
-	gear.BurstBody = "Agwu's Robe"
 else
-	gear.BurstBody = "Nyame Mail"
+	gear.BurstBody = "Agwu's Robe"
 end
 
-if item_available('Ea Slops +1') then
-	gear.BurstLegs = 'Ea Slops +1'
-elseif item_available('Ea Slops') then
-	gear.BurstLegs = 'Ea Slops'
+if item_available("Ea Slops +1") then
+	gear.BurstLegs = "Ea Slops +1"
 else
-	gear.BurstLegs = 'Nyame Flanchard'
+	gear.BurstLegs = "Agwu's Slops"
 end
 
 --Empy
@@ -82,7 +72,7 @@ end
 
 -- Precast sets to enhance JAs
 sets.precast.JA.Bolster = {body="Bagua Tunic"}
-sets.precast.JA['Life Cycle'] = {body=gear.geo_body_enfeebling, back=gear.jse_pet_back}
+sets.precast.JA['Life Cycle'] = {body="Geomancy Tunic +3", back=gear.jse_pet_back}
 sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +3"}
 sets.precast.JA['Mending Halation'] = {legs=gear.geo_relic_legs}
 sets.precast.JA['Full Circle'] = {head=gear.jse_empy_head,hands="Bagua Mitaines +3"}
@@ -139,6 +129,8 @@ sets.precast.FC['Elemental Magic'].DT = set_combine(sets.precast.FC.DT, {right_r
 sets.precast.FC['Enhancing Magic'].DT = set_combine(sets.precast.FC.DT, {})
 sets.precast.FC.Stoneskin.DT = set_combine(sets.precast.FC['Enhancing Magic'].DT, {})
 sets.precast.FC.Impact.DT = set_combine(sets.precast.FC.DT, {head=empty,body=gear.impact_body})
+
+sets.precast.FC['Dispelga'] = set_combine(sets.precast.FC, {main="Daybreak",sub="Genmei Shield"})
 
 sets.Self_Healing = {}
 sets.Cure_Received = {}
@@ -262,17 +254,15 @@ sets.midcast.StatusRemoval.DT = set_combine(sets.midcast.FastRecast.DT, {})
 -- Elemental --
 ---------------
 sets.midcast['Elemental Magic'] = {
-	main="Bunzi's Rod",																		-- 7
+	main="Bunzi's Rod",
 	sub="Ammurapi Shield",
-	--range=empty,
-	--ammo="Pemphredo Tathlum",
-	head="C. Palug Crown",
-	body="Jhakri Robe +2",
-	hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-	legs=gear.geo_freenuke_legs,
-	feet="Jhakri Pigaches +2",
+	head=gear.BurstHead,
+	body=gear.BurstBody,
+	hands="Agwu's Gages",
+	legs=gear.BurstLegs,
+	feet=gear.jse_empy_feet,
 	neck="Sanctity Necklace",
-	waist=gear.ElementalObi,
+	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Metamor. Ring +1",
@@ -288,16 +278,13 @@ sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcas
 sets.MagicBurst = {
 	main="Bunzi's Rod",																				-- 10
 	sub="Ammurapi Shield",
-	--range=empty,
-	--ammo="Pemphredo Tathlum",
-	head=gear.BurstHead,																			-- 8
-	body=gear.BurstBody,
-	hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
-	legs=gear.BurstLegs,																			-- 8
-	feet="Bagua Sandals +3",
-	--feet="Jhakri Pigaches +2",																		-- 7
+	head=gear.BurstHead,																			-- 7/7II		7
+	body=gear.BurstBody,																			-- 9/9II		10
+	hands="Agwu's Gages",																			-- 8/5II
+	legs=gear.BurstLegs,																			-- 8/8II		9
+	feet=gear.jse_empy_feet,
 	neck="Mizu. Kubikazari",																		-- 10
-	waist=gear.ElementalObi,
+	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Mujin Band",																		
@@ -314,7 +301,7 @@ sets.midcast['Dark Magic'] = {
 	sub="Ammurapi Shield",
 	range="Dunna",
 	head="Pixie Hairpin +1",
-	body=gear.geo_body_enfeebling,
+	body="Geomancy Tunic +3",
 	hands="Geomancy Mitaines +3",
 	legs="Geomancy Pants +3",
 	feet="Geomancy Sandals +3",
@@ -329,9 +316,9 @@ sets.midcast['Dark Magic'] = {
 
 sets.midcast['Dark Magic'].DT = set_combine(sets.midcast['Dark Magic'], {back={name=gear.dt_moon_back,priority=1},})
 		
-sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {})
+sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {feet="Agwu's Pigaches"})
 sets.midcast.Aspir = sets.midcast.Drain
-sets.midcast.Drain.DT = set_combine(sets.midcast['Dark Magic'].DT, {})
+sets.midcast.Drain.DT = set_combine(sets.midcast['Dark Magic'].DT, {feet="Agwu's Pigaches"})
 sets.midcast.Aspir.DT = sets.midcast.Drain.DT
 	
 sets.midcast['Enfeebling Magic'] = {
@@ -339,7 +326,7 @@ sets.midcast['Enfeebling Magic'] = {
 	sub="Ammurapi Shield",
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
 	head="C. Palug Crown",
-	body=gear.geo_body_enfeebling,
+	body="Geomancy Tunic +3",
 	hands="Geomancy Mitaines +3",
 	legs={name="Geomancy Pants +3",priority=1},
 	feet="Geomancy Sandals +3",
@@ -359,7 +346,7 @@ sets.midcast['Enfeebling Magic'].Resistant = {
 	sub="Ammurapi Shield",
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
 	head="C. Palug Crown",
-	body=gear.geo_body_enfeebling,
+	body="Geomancy Tunic +3",
 	hands="Geomancy Mitaines +3",
 	legs="Geomancy Pants +3",
 	feet="Geomancy Sandals +3",
@@ -384,6 +371,9 @@ sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.Trea
 sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'], {})
+
+sets.midcast['Dispelga'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {main="Daybreak"})
+sets.midcast['Dispelga'].DT = set_combine(sets.midcast['Enfeebling Magic'].DT, {main="Daybreak"})
 
 sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'], {
 	main="Bunzi's Rod",

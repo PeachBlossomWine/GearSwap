@@ -8,6 +8,14 @@ else
 	gear.jse_ws_body = 'Laksa. Frac +2'
 end
 
+if item_available('Crepuscular Knife') then
+	gear.offhand_melee_dagger = "Crepuscular Knife"
+    gear.offhand_savage = "Crepuscular Knife"
+else
+	gear.offhand_melee_dagger = "Gleti's Knife"
+    gear.offhand_savage = "Gleti's Knife"
+end
+
 if item_available("Chas. Earring +2") then
 	gear.empy_earring = "Chas. Earring +2"
 elseif item_available("Chas. Earring +1") then
@@ -17,11 +25,11 @@ else
 end
 
 
-sets.weapons.DualSavage = 			{main="Naegling",sub="Gleti's Knife",range="Anarchy +2"}
-sets.weapons.DualLeaden = 			{main="Naegling",sub="Gleti's Knife",range="Fomalhaut"}
+sets.weapons.DualSavage = 			{main="Naegling",sub=gear.offhand_melee_dagger,range="Anarchy +2"}
+sets.weapons.DualLeaden = 			{main="Naegling",sub=gear.offhand_melee_dagger,range="Fomalhaut"}
 sets.weapons.DualLeadenRanged = 	{main="Naegling",sub="Tauret",range="Fomalhaut"}
-sets.weapons.DualLastStand = 		{main="Kustawi +1",sub="Gleti's Knife",range="Fomalhaut"}
-sets.weapons.DualLastStandRanged = 	{main="Kustawi +1",sub="Gleti's Knife",range="Fomalhaut"}
+sets.weapons.DualLastStand = 		{main="Kustawi +1",sub=gear.offhand_melee_dagger,range="Fomalhaut"}
+sets.weapons.DualLastStandRanged = 	{main="Kustawi +1",sub=gear.offhand_melee_dagger,range="Fomalhaut"}
 sets.weapons.DeathPenalty =			{main="Naegling",sub="Nusku Shield",range="Fomalhaut"}
 sets.weapons.Fomalhaut = 			{main="Kustawi +1",sub="Nusku Shield",range="Fomalhaut"}
 sets.weapons.Naegling = 			{main="Naegling",sub="Nusku Shield",range="Anarchy +2"}

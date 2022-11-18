@@ -99,9 +99,8 @@ sets.MagicBurst = {
 	sub="Ammurapi Shield",
 	ammo="Pemphredo Tathlum",
 	head="Ea Hat +1",					-- 7
-	body=gear.blm_body_mab,			-- 9
-	--hands="Amalric Gages +1",
-	hands="Spae. Gloves +3",
+	body=gear.blm_body_mab,				-- 9
+	hands="Spae. Gloves +3",			-- 			8 II
 	legs="Ea Slops +1",					-- 8												
 	feet="Arch. Sabots +3",
 	neck=gear.blm_jse_neck,				-- 10/8
@@ -114,7 +113,7 @@ sets.MagicBurst = {
 }
 
 sets.ResistantMagicBurst = set_combine(sets.MagicBurst, {main="Marin Staff +1", sub="Khonsu", hands="Spae. Gloves +3",})
-sets.MagicEffectDurationBurst = set_combine(sets.MagicBurst, {legs="Wicce Chausses +2"})
+sets.MagicEffectDurationBurst = set_combine(sets.MagicBurst, {legs="Wicce Chausses +3"})
 
 sets.midcast.FastRecast = sets.precast.FC
 sets.midcast.Cure = {
@@ -190,7 +189,6 @@ sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeeblin
 	left_ring="Vertigo Ring",
 })
 	
-
 sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
 sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 sets.midcast.MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {ammo="Hydrocera",})
@@ -200,6 +198,8 @@ sets.midcast.Dia = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHu
 sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
+
+sets.midcast['Dispelga'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {main="Daybreak"})
 
 sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'], {})
 

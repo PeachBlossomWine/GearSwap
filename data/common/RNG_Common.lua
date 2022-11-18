@@ -1,4 +1,4 @@
-autows_list = {['Gastraphetes']='Trueflight',['Armageddon']='Wildfire',['Fomalhaut']='Last Stand',['Annihilator']='Last Stand',['Yoichinoyumi']='Namas Arrow',['FailNot']='Apex Arrow',['Naegling']='Savage Blade',['DualGastra']='Trueflight',['DualArma']='Wildfire',['DualFoma']='Last Stand',['DualAnni']='Last Stand',['DualYoichi']='Namas Arrow',['DualFailNot']='Apex Arrow',['DualSavage']='Savage Blade',}
+--autows_list = {['Gastraphetes']='Trueflight',['Armageddon']='Wildfire',['Fomalhaut']='Last Stand',['Annihilator']='Last Stand',['Yoichinoyumi']='Namas Arrow',['FailNot']='Apex Arrow',['Naegling']='Savage Blade',['DualGastra']='Trueflight',['DualArma']='Wildfire',['DualFoma']='Last Stand',['DualAnni']='Last Stand',['DualYoichi']='Namas Arrow',['DualFailNot']='Apex Arrow',['DualSavage']='Savage Blade',}
 
 if item_available("Amini Earring +2") then
 	gear.empy_earring = "Amini Earring +2"
@@ -97,7 +97,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA, {})
 -- Default set for any weaponskill that isn't any more specifically defined
 -- 51% WSD
 sets.precast.WS = {
-	head="Orion Beret +3",																									-- 10
+	head="Nyame Helm",																										-- 10
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},											-- 10

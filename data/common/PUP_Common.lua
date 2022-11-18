@@ -122,6 +122,7 @@ sets.midcast.Pet.PetWSGear = {
 sets.midcast.Pet.PetWSGear.Melee = set_combine(sets.midcast.Pet.PetWSGear, {})
 sets.midcast.Pet.PetWSGear.Ranged = set_combine(sets.midcast.Pet.PetWSGear, {})
 sets.midcast.Pet.PetWSGear.Tank = set_combine(sets.midcast.Pet.PetWSGear, {})
+sets.midcast.Pet.PetWSGear.TankMEVA = set_combine(sets.midcast.Pet.PetWSGear, {})
 sets.midcast.Pet.PetWSGear.Heal = set_combine(sets.midcast.Pet.PetWSGear, {})
 sets.midcast.Pet.PetWSGear.Nuke = set_combine(sets.midcast.Pet.PetWSGear, {})
 
@@ -217,6 +218,7 @@ sets.idle.Pet.Engaged.Magic ={
 }
 
 sets.idle.Pet.Engaged.Tank = set_combine(sets.idle.Pet.Engaged.Tank, {})
+sets.idle.Pet.Engaged.TankMEVA = set_combine(sets.idle.Pet.Engaged.Tank, {})
 sets.idle.Pet.Engaged.Ranged = set_combine(sets.idle.Pet.Engaged, {})
 sets.idle.Pet.Engaged.Melee = set_combine(sets.idle.Pet.Engaged, {})
 sets.idle.Pet.Engaged.Heal = sets.idle.Pet.Engaged.Magic

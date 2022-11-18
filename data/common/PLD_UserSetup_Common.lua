@@ -6,7 +6,7 @@ state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('DT','Normal')
-state.Weapons:options('Ochain','Aegis','Srivatsa','Naegling','None')
+state.Weapons:options('Ochain','Aegis','Duban','Srivatsa','Naegling','None')
 
 state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None'}
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
@@ -20,7 +20,7 @@ gear.tank_jse_back = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag
 gear.tank_cure_back = { name="Rudianos's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','HP+20','"Cure" potency +10%','Phys. dmg. taken-10%',}, priority=80}
 --tp
 gear.jse_wsd_back = { name="Rudianos's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
-gear.phalanx_jse_back={ name="Weard Mantle", augments={'VIT+4','DEX+1','Enmity+1','Phalanx +4',}}
+
 
 -- Additional local binds
 send_command('bind !` gs c SubJobEnmity')

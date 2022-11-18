@@ -256,7 +256,7 @@ sets.engaged.Tank = {
 sets.engaged.HF = set_combine(sets.engaged, {})
 
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
-sets.buff.Impetus = {body="Bhikku Cyclas +2", feet="Nyame Sollerets", ammo=gear.dt_ammo}
+sets.buff.Impetus = {body="Bhikku Cyclas +3", feet="Nyame Sollerets", ammo=gear.dt_ammo}
 sets.buff.Footwork = {legs="Bhikku Hose +2", feet="Anch. Gaiters +3"}
 sets.buff.Boost = {}
 

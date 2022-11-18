@@ -94,6 +94,7 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {feet="Vanya Clogs"})
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
 sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {})
 sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body})
+sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak",sub="Genmei Shield"})
 
 -- Weaponskill sets
 sets.precast.WS = {
@@ -192,6 +193,8 @@ sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.Trea
 	
 sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'], {head=empty, body=gear.impact_body})
 sets.midcast.Impact.OccultAcumen = set_combine(sets.midcast.Impact, {})
+
+sets.midcast['Dispelga'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {main="Daybreak"})
 
 sets.midcast['Divine Magic'] = set_combine(sets.midcast['Elemental Magic'], {})
 

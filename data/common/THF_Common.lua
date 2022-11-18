@@ -1,7 +1,7 @@
-if item_available('Karambit') then
-	gear.thf_knuckles = 'Karambit'	
+if item_available("Crepuscular Knife") then
+	gear.offhand_dagger = "Crepuscular Knife"	
 else
-	gear.thf_knuckles = 'Kaja Knuckles'
+	gear.offhand_dagger = "Gleti's Knife"
 end
 
 if item_available("Skulk. Earring +2") then
@@ -27,10 +27,10 @@ sets.Knockback = {}
 sets.Ambush = {}
 
 -- Weapons sets
-sets.weapons.Aeneas = {main="Aeneas",sub="Gleti's Knife"}
+sets.weapons.Aeneas = {main="Aeneas",sub=gear.offhand_dagger}
 sets.weapons.TH = {main="Aeneas",sub="Taming Sari"}
-sets.weapons.Naegling = {main="Naegling",sub="Gleti's Knife"}
-sets.weapons.KajaKnuckles = {main=gear.thf_knuckles,sub=empty}
+sets.weapons.Naegling = {main="Naegling",sub=gear.offhand_dagger}
+sets.weapons.KajaKnuckles = {main="Karambit",sub=empty}
 
 -- Actions we want to use to tag TH.
 sets.precast.Step = sets.TreasureHunter

@@ -1,6 +1,6 @@
 state.OffenseMode:options('Normal')
-state.CastingMode:options('Normal','Resistant','Proc','DT')
-state.IdleMode:options('Normal','DT')
+state.CastingMode:options('DT','Normal','Resistant','Proc')
+state.IdleMode:options('DT','Normal')
 state.HybridMode:options('Normal')
 state.Weapons:options('None','Musa','Khatvanga')
 state.AutoArts = M(false, 'AutoArts')

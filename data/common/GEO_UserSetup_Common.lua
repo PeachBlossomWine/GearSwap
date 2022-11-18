@@ -1,6 +1,6 @@
 state.OffenseMode:options('Normal')
-state.CastingMode:options('Normal', 'Resistant', 'DT')
-state.IdleMode:options('Normal', 'DT')
+state.CastingMode:options('DT','Normal', 'Resistant')
+state.IdleMode:options('DT','Normal')
 state.PhysicalDefenseMode:options('PDT', 'NukeLock', 'GeoLock', 'PetPDT')
 state.MagicalDefenseMode:options('MDT', 'NukeLock')
 state.ResistDefenseMode:options('MEVA')
@@ -32,12 +32,15 @@ send_command('bind ^delete input /ma "Aspir III" <t>')
 send_command('bind @delete input /ma "Sleep" <t>')
 send_command('bind @f6 gs c toggle AutoZergMode')
 
+gear.jse_mab_back = { name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
+gear.jse_pet_back = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}}
+
 indi_duration = 326
 
 if player.sub_job == "RDM" then
-send_command('wait 5; hb mincure 4')
+	send_command('wait 5; hb mincure 4')
 elseif player.sub_job == "WHM" then
-send_command('wait 5; hb mincure 3')
+	send_command('wait 5; hb mincure 3')
 else
-send_command('wait 5; hb mincure 4')
+	send_command('wait 5; hb mincure 4')
 end

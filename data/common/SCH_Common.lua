@@ -1,28 +1,34 @@
-if item_available('Shamash Robe') then
+if item_available("Shamash Robe") then
 	gear.sch_body_idle = "Shamash Robe"
 else
 	gear.sch_body_idle = "Agwu's Robe"
 end
 
-if item_available('Crepuscular Cloak') then
+if item_available("Crepuscular Cloak") then
 	gear.impact_body = "Crepuscular Cloak"
 else
 	gear.impact_body = "Twilight Cloak"
 end
 
-if item_available('Arbatel Bracers +2') then
+if item_available("Arbatel Bracers +3") then
+	gear.jse_empy_hands = "Arbatel Bracers +3"
+elseif item_available("Arbatel Bracers +2") then
 	gear.jse_empy_hands = "Arbatel Bracers +2"
 else
 	gear.jse_empy_hands = "Arbatel Bracers +1"
 end
 
-if item_available('Arbatel Bonnet +2') then
+if item_available("Arbatel Bonnet +3") then
+	gear.jse_empy_head = "Arbatel Bonnet +3"
+elseif item_available("Arbatel Bonnet +2") then
 	gear.jse_empy_head = "Arbatel Bonnet +2"
 else
 	gear.jse_empy_head = "Arbatel Bonnet +1"
 end
 
-if item_available('Arbatel Loafers +2') then
+if item_available("Arbatel Loafers +3") then
+	gear.jse_empy_feet = "Arbatel Loafers +3"
+elseif item_available("Arbatel Loafers +2") then
 	gear.jse_empy_feet = "Arbatel Loafers +2"
 else
 	gear.jse_empy_feet = "Arbatel Loafers +1"
@@ -33,6 +39,7 @@ if item_available("Arbatel Earring +2") then
 else
 	gear.empy_earring = "Malignance Earring"
 end
+
 
 sets.weapons.Musa = {main="Musa",sub="Khonsu"}
 sets.weapons.Khatvanga = {main="Khatvanga",sub="Khonsu"}
@@ -60,7 +67,7 @@ sets.precast.FC = {
 	waist="Embla Sash",																			-- 5
 	left_ear="Loquac. Earring",																	-- 2
 	right_ear="Malignance Earring",																-- 4
-	left_ring="Weather. Ring +1",																	-- 5 QC
+	left_ring="Weather Ring +1",																-- 5 QC
 	right_ring="Lebeche Ring",																	-- QC
 	back="Perimede Cape",																		-- QC
 }
@@ -94,7 +101,7 @@ sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak",sub="Ge
 
 -- Weaponskill sets
 sets.precast.WS['Myrkr'] = {
-	ammo="Staunch Tathlum +1",
+	ammo=gear.dt_ammo,
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
@@ -125,7 +132,7 @@ sets.MagicBurst = {
 	body="Agwu's Robe",										-- 10
 	hands="Agwu's Gages",									-- 8 + 5 II 
 	legs="Agwu's Slops",									-- 9
-	feet=gear.jse_empy_feet,								-- 4 II																																		
+	feet=gear.jse_empy_feet,								-- 5 II																																		
 	neck=gear.sch_jse_neck,									-- 10/7 
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
@@ -195,7 +202,7 @@ sets.midcast.StatusRemoval.DT = set_combine(sets.midcast.FastRecast.DT, {})
 sets.midcast['Enhancing Magic'] = {
 	main=gear.sch_enhancing_weapon,	 												-- 20%
 	sub=gear.sch_regen_sub,
-	ammo="Staunch Tathlum +1",
+	ammo=gear.dt_ammo,
 	head=gear.telchine_enhancing_head,												-- 8%
 	body="Peda. Gown +3",															-- 12%
 	hands=gear.telchine_enhancing_hands,											-- 10%
@@ -210,7 +217,7 @@ sets.midcast['Enhancing Magic'] = {
 }
 
 sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic'], {
-	ammo="Staunch Tathlum +1", 
+	ammo=gear.dt_ammo, 
 	neck="Loricate Torque +1",
 	left_ear={name="Odnowa Earring +1",priority=1}, 
 	right_ear={name="Tuisto Earring",priority=1}, 
@@ -291,7 +298,7 @@ sets.midcast.Diaga = set_combine(sets.midcast['Enfeebling Magic'], sets.Treasure
 sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-
+sets.midcast['Dispelga'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {main="Daybreak"})
 sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'], {})
 
 sets.midcast['Dark Magic'] = {
@@ -462,7 +469,7 @@ sets.idle.Weak = sets.idle
 sets.idle.DT = {
 	main="Daybreak",
 	sub="Genmei Shield",
-	ammo="Staunch Tathlum +1",
+	ammo=gear.dt_ammo,
 	head="Nyame Helm",
 	body=gear.sch_body_idle,
 	hands="Nyame Gauntlets",
@@ -481,7 +488,7 @@ sets.idle.DT = {
 sets.defense.PDT = {
 	main="Daybreak",
 	sub="Genmei Shield",
-	ammo="Staunch Tathlum +1",
+	ammo=gear.dt_ammo,
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",

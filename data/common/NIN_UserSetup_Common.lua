@@ -14,9 +14,9 @@ state.Weapons:options('Kikoku','Heishi','Naegling','Tauret',
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
 autows = 'Blade: Metsu'
 
-gear.jse_dex_back = {name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
+gear.jse_dex_back = {name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%','DEX+10','Phys. dmg. taken-10%',}}
 gear.jse_da_back = {name="Andartia's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Accuracy+10','Phys. dmg. taken-10%',}}
-gear.jse_str_back = {name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
+gear.jse_str_back = {name="Andartia's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','STR+10','Phys. dmg. taken-10%',}}
 
 send_command('bind ^` input /ja "Innin" <me>')
 send_command('bind !` input /ja "Yonin" <me>')
