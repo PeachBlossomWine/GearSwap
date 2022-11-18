@@ -709,7 +709,7 @@ function check_ready()
 					tickdelay = os.clock() + 1.7
 					return true
 				end
-			elseif get_current_ready_count() <= 0 and abil_recasts[102] > latency and pet.status == "Engaged" and not buffactive['Unleash'] then
+			elseif abil_recasts[102] > latency and pet.status == "Engaged" and not buffactive['Unleash'] then --get_current_ready_count() <= 0 and
 				windower.send_command:schedule(1,'input /pet "Heel" <me>')
 				tickdelay = os.clock() + 1.7
 				return true
