@@ -142,17 +142,6 @@ function job_precast(spell, spellMap, eventArgs)
 					end
 				end
 			end
-		elseif spellMap == 'Cure' or spellMap == 'Curaga' then
-			gear.default.obi_back = gear.obi_cure_back
-			gear.default.obi_waist = gear.obi_cure_waist
-		elseif spell.skill == 'Elemental Magic' and default_spell_map ~= 'ElementalEnfeeble' then
-			if LowTierNukes:contains(spell.english) or spell.english:endswith('helix') then
-				gear.default.obi_back = gear.obi_low_nuke_back
-				gear.default.obi_waist = gear.obi_low_nuke_waist
-			else
-				gear.default.obi_back = gear.obi_high_nuke_back
-				gear.default.obi_waist = gear.obi_high_nuke_waist
-			end
 		elseif spell.english == 'Phalanx' and (spell.target.type ~= 'SELF') then
 			windower.chat.input('/ma "Phalanx II" '..spell.target.raw)
 			cancel_spell()

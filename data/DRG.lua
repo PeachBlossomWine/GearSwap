@@ -319,7 +319,7 @@ function check_buff()
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		if not pet.isvalid and abil_recasts[163] < latency then
+		if not pet.isvalid and not buffactive['Spirit Surge'] and abil_recasts[163] < latency then
 			windower.chat.input('/ja "Call Wyvern" <me>')
 			tickdelay = os.clock() + 1.1
 			return true

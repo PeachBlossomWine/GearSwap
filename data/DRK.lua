@@ -464,6 +464,10 @@ function check_buff()
 				windower.chat.input('/ja "Aggressor" <me>')
 				tickdelay = os.clock() + 1.1
 				return true
+			elseif buffactive[479] and buffactive['Stoneskin'] then
+				windower.send_command('cancel stoneskin')
+				tickdelay = os.clock() + 1.1
+				return true
 			else
 				return false
 			end
