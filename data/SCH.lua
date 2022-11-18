@@ -1100,6 +1100,7 @@ function check_buff()
             spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and 
             player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost and
             silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and 
+			(((buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise' and player.sub_job == 'WHM') or ((buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise' and not buffactive['Addendum: White'] and get_current_stratagem_count() > 0 and (state.AutoBuffMode.value == 'Auto' or state.AutoBuffMode.value == 'Healing')) or (buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise' and buffactive['Addendum: White']))) or not(buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise')) and
             ((buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Embrava' and buffactive['Tabula Rasa']) or not(buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Embrava')) and
             (((data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and not buffactive['Addendum: White'] and get_current_stratagem_count() > 0) or (data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and buffactive['Addendum: White'])) or not(data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name))) then
 				windower.chat.input('/ma "'..buff_spell_lists[state.AutoBuffMode.Value][i].Name..'" <me>')
@@ -1185,6 +1186,7 @@ buff_spell_lists = {
 	Nuking = {
 		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	When='Combat'},
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
+		{Name='Reraise',    	Buff='Reraise', 		SpellID=135,	When='Always'},
 	},
 	
 	Default = {
