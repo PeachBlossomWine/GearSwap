@@ -19,7 +19,7 @@ pacts.autobp = {
         ['Garuda']=     {BP='Predator Claws',   SpellID=598},
         ['Shiva']=      {BP='Rush',             SpellID=614},
         ['Ramuh']=      {BP='Volt Strike',      SpellID=634},
-        ['Diabolos']=   {BP='Nether Blast',     SpellID=662},
+        ['Diabolos']=   {BP='Night Terror',     SpellID=665},
 		['Cait Sith']=  {BP='Mewing Lullaby',   SpellID=522},
         ['Siren']=      {BP='Hysteric Assault', SpellID=970},
 }
