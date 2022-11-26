@@ -1,8 +1,10 @@
 --Burst
 if item_available("Ea Hat +1") then
-  gear.BurstHead = 'Ea Hat +1'
+	gear.BurstHead = 'Ea Hat +1'
+elseif item_available("Leth. Chappel +3") then
+	gear.BurstHead = "Leth. Chappel +3"
 else
-  gear.BurstHead = 'Nyame Helm'
+	gear.BurstHead = "Leth. Chappel +2"
 end
 
 if item_available("Ea Houppelande +1") then
@@ -34,51 +36,35 @@ else
 	gear.jse_af_legs = "Atrophy Tights +2"
 end
 
-if item_available("Atrophy Tabard +3") then
-	gear.jse_af_body = "Atrophy Tabard +3"
-else
-	gear.jse_af_body = "Atrophy Tabard +2"
-end
-
 -- JSE Empy
 if item_available("Lethargy Sayon +3") then
 	gear.jse_empy_body = "Lethargy Sayon +3"
-elseif item_available("Lethargy Sayon +2") then
-	gear.jse_empy_body = "Lethargy Sayon +2"
 else
-	gear.jse_empy_body = "Lethargy Sayon +1"
+	gear.jse_empy_body = "Lethargy Sayon +2"
 end
 
 if item_available("Leth. Ganth. +3") then
 	gear.jse_empy_hands = "Leth. Ganth. +3"
-elseif item_available("Leth. Ganth. +2") then
-	gear.jse_empy_hands = "Leth. Ganth. +2"
 else
-	gear.jse_empy_hands = "Leth. Gantherots +1"
+	gear.jse_empy_hands = "Leth. Ganth. +2"
 end
 
 if item_available("Leth. Houseaux +3") then
 	gear.jse_empy_feet = "Leth. Houseaux +3"
-elseif item_available("Leth. Houseaux +2") then
-	gear.jse_empy_feet = "Leth. Houseaux +2"
 else
-	gear.jse_empy_feet = "Leth. Houseaux +1"
+	gear.jse_empy_feet = "Leth. Houseaux +2"
 end
 
 if item_available("Leth. Fuseau +3") then
 	gear.jse_empy_legs = "Leth. Fuseau +3"
-elseif item_available("Leth. Fuseau +2") then
-	gear.jse_empy_legs = "Leth. Fuseau +2"
 else
-	gear.jse_empy_legs = "Leth. Fuseau +1"
+	gear.jse_empy_legs = "Leth. Fuseau +2"
 end
 
 if item_available("Leth. Chappel +3") then
 	gear.jse_empy_head = "Leth. Chappel +3"
-elseif item_available("Leth. Chappel +2") then
-	gear.jse_empy_head = "Leth. Chappel +2"
 else
-	gear.jse_empy_head = "Leth. Chappel +1"
+	gear.jse_empy_head = "Leth. Chappel +2"
 end
 
 if item_available("Leth. Earring +2") then
@@ -192,7 +178,7 @@ sets.precast.WS['Savage Blade'] = {
 	
 sets.precast.WS['Seraph Blade'] = {
 	range=empty,
-	ammo="Pemphredo Tathlum",
+	ammo="Sroda Tathlum",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
@@ -226,11 +212,11 @@ sets.MagicBurst = {
 	ammo="Pemphredo Tathlum",
 	head=gear.BurstHead,																		-- 8
 	body=gear.BurstBody,																		-- 9
-	hands=gear.jse_empy_hands,
+	hands="Bunzi's Gloves",																		-- 8 / 5 II
 	legs=gear.BurstLegs,																		-- 8 / 15
 	feet=gear.jse_empy_feet,
 	neck="Mizu. Kubikazari",																	-- 10
-	waist=gear.ElementalObi,
+	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
 	left_ring="Mujin Band",																		
@@ -311,7 +297,8 @@ sets.buff.ComposureOther = --set_combine(sets.midcast['Enhancing Magic'], {
 {		
 	head=gear.jse_empy_head,
 	body=gear.jse_empy_body,
-	hands=gear.jse_empy_hands,
+	--hands=gear.jse_empy_hands,
+	hands="Atrophy Gloves +3",
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
 }
@@ -337,7 +324,7 @@ sets.EnhancingSkill = {
 	back=gear.jse_skill_back,
 }
 
-sets.midcast.Refresh = {head="Amalric Coif +1",body=gear.jse_af_body,hands="Atrophy Gloves +3",legs=gear.jse_empy_legs}
+sets.midcast.Refresh = {head="Amalric Coif +1",body="Atrophy Tabard +3",hands="Atrophy Gloves +3",legs=gear.jse_empy_legs}
 sets.midcast.Aquaveil = {head="Amalric Coif +1",hands=gear.rdm_regal_hands}
 sets.midcast.BarElement = {}
 sets.midcast.Temper = sets.EnhancingSkill
@@ -398,32 +385,38 @@ sets.midcast['Enfeebling Magic'] = {
 sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {
 	range={name="Ullr", priority=500},
 	ammo=empty,
-	body=gear.jse_af_body,
+	body="Atrophy Tabard +3",
 	hands=gear.jse_empy_hands,
+	legs=gear.chironic_enfeeble_legs,
 	left_ring=gear.stikini_ring,
 	right_ring={name="Metamorph Ring +1", priority=500},
 })
 
 sets.midcast['Enfeebling Magic'].Resistant.INT = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {
 	main="Bunzi's Rod", 
-	left_ring={name="Metamorph Ring +1", priority=1},
 })
 	
 sets.midcast.DurationOnlyEnfeebling = set_combine(sets.midcast['Enfeebling Magic'], {
 	range={name="Ullr", priority=500},
 	ammo=empty,
-	body=gear.jse_empy_body,
+	head=gear.jse_empy_head,
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
 })
 
 sets.midcast.DurationOnlyEnfeebling.INT = set_combine(sets.midcast['Enfeebling Magic'], {
+	main="Bunzi's Rod",
 	range={name="Ullr", priority=500},
 	ammo=empty,
-	main="Bunzi's Rod", 
-	body=gear.jse_empy_body,
+	head=gear.jse_empy_head,
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
 })	
 
 sets.midcast.DurationOnlyEnfeebling.Melee = set_combine(sets.midcast['Enfeebling Magic'], {
-	body=gear.jse_empy_body,
+	head=gear.jse_empy_head,
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
 })
 	
 sets.midcast.Silence = sets.midcast.DurationOnlyEnfeebling
@@ -454,6 +447,7 @@ sets.midcast.Dispel = sets.midcast['Enfeebling Magic'].Resistant
 sets.midcast.Dispel.Melee = sets.midcast['Enfeebling Magic']
 
 sets.midcast['Dispelga'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {main="Daybreak"})
+sets.midcast['Dispelga'].Melee = set_combine(sets.midcast['Enfeebling Magic'], {})
 
 sets.midcast.SkillBasedEnfeebling = set_combine(sets.midcast['Enfeebling Magic'], {})
 
@@ -501,7 +495,7 @@ sets.midcast['Elemental Magic'] = {
 	legs=gear.BurstLegs,
 	feet="Vitiation Boots +3",
 	neck=gear.rdm_jse_neck,
-	waist=gear.ElementalObi,
+	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
 	left_ring="Metamor. Ring +1",
@@ -519,7 +513,7 @@ sets.midcast['Dark Magic'] = {
 	sub="Ammurapi Shield",
 	ammo="Pemphredo Tathlum",
 	head="Pixie Hairpin +1",
-	body=gear.jse_af_body,
+	body="Atrophy Tabard +3",
 	hands=gear.rdm_regal_hands,
 	legs=gear.BurstLegs,
 	feet="Jhakri Pigaches +2",

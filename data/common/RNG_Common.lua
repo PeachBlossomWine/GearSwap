@@ -10,6 +10,15 @@ else
 	gear.empy_earring = "Telos Earring"
 end
 
+if item_available("Nisroch Jerkin") then
+	gear.crit_body = "Nisroch Jerkin"
+	gear.town_body = "Nisroch Jerkin"
+else
+	gear.crit_body = "Meg. Cuirie +2"
+	gear.town_body = "Ikenga's Vest"
+end
+
+
 -- Weapons sets
 sets.weapons.Gastraphetes = {main="Tauret",sub="Nusku Shield",range="Gastraphetes",ammo="Quelling Bolt"}
 sets.weapons.Armageddon = {main="Perun +1",sub="Nusku Shield",range="Armageddon",ammo="Chrono Bullet"}
@@ -178,7 +187,7 @@ sets.midcast.RA = {
 
 sets.midcast.RA.AM = {
 	head="Meghanada Visor +2",
-	body="Meg. Cuirie +2",
+	body=gear.crit_body,
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Osh. Leggings +1",
@@ -225,7 +234,7 @@ sets.resting = sets.idle
 
 sets.idle.Town = {
 	head="Nyame Helm",
-	body="Ikenga's Vest",
+	body=gear.town_body,
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",

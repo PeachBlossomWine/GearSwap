@@ -7,7 +7,8 @@ gear.obi_cure_waist = "Porous Rope"
 gear.obi_low_nuke_waist = "Sacro Cord"
 gear.obi_high_nuke_waist = "Sacro Cord"
 
-gear.nuke_jse_back = {name="Taranus's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
+gear.jse_mab_back = {name="Taranus's Cape",augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
+gear.jse_fc_back = { name="Taranus's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','"Fast Cast"+10','Phys. dmg. taken-10%',}}
 
 -- Additional local binds
 send_command('bind ^` gs c cycle ElementalMode') 

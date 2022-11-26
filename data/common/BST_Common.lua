@@ -6,6 +6,12 @@ else
 	gear.empy_earring = "Nukumi Earring"
 end
 
+if item_available("Sacro Breastplate") then
+	gear.idle_body = "Sacro Breastplate"
+else
+	gear.idle_body = "Malignance Tabard"
+end
+
 -- Weapons sets
 sets.weapons.Aymur =      {main="Aymur", sub="Adapa Shield"}
 sets.weapons.Guttler =      {main="Guttler", sub="Adapa Shield"}
@@ -187,7 +193,7 @@ sets.resting = {}
 sets.idle = {
 	ammo="Staunch Tathlum +1",
 	head="Malignance Chapeau",
-	body="Malignance Tabard",
+	body=gear.idle_body,
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Malignance Boots",

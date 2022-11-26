@@ -2,6 +2,7 @@ sets.weapons.Ochain = {main="Burtgang", sub="Ochain"}
 sets.weapons.Aegis = {main="Burtgang", sub="Aegis"}
 sets.weapons.Duban = {main="Burtgang", sub="Duban"}
 sets.weapons.Srivatsa = {main="Burtgang", sub="Srivatsa"}
+sets.weapons.Sakpata = {main="Sakpata's Sword",sub="Duban"}
 sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield +1"}
 
 if item_available("Chevalier's Earring +2") then
@@ -12,23 +13,17 @@ else
 	gear.empy_earring = "Chevalier's Earring"
 end
 
-
-if item_available("Rev. Surcoat +3") then
-	gear.af_body = {name="Rev. Surcoat +3",priority=254}
-else
-	gear.af_body = {name="Rev. Surcoat +2",priority=254}
-end
-
 if item_available("Gold Mog. Belt") then
 	gear.hp_waist = {name="Gold Mog. Belt",priority=500}
 else
 	gear.hp_waist = {name="Silver Moogle Belt",priority=500}
 end
 
-
-
-
-
+if item_available("Sacro Breastplate") then
+	gear.idle_body = "Sacro Breastplate"
+else
+	gear.idle_body = "Sakpata's Plate"
+end
 
 --------------------------------------
 -- Precast sets
@@ -78,7 +73,7 @@ sets.precast.JA['Holy Circle'] = set_combine(sets.Enmity,{feet="Rev. Leggings +1
 sets.precast.JA['Sentinel'] = set_combine(sets.Enmity,{feet="Cab. Leggings +3", left_ear={name="Tuisto Earring",priority=150},})
 sets.precast.JA['Rampart'] = set_combine(sets.Enmity,{head={name="Cab. Coronet +2",priority=96}, left_ear={name="Tuisto Earring",priority=150},})
 sets.precast.JA['Fealty'] = set_combine(sets.Enmity,{body={name="Cab. Surcoat +2",priority=118}, left_ear={name="Tuisto Earring",priority=150},})
-sets.precast.JA['Divine Emblem'] = set_combine(sets.Enmity,{feet={name="Chev. Sabatons +2",priority=22}, left_ear={name="Tuisto Earring",priority=150},})
+sets.precast.JA['Divine Emblem'] = set_combine(sets.Enmity,{feet={name="Chev. Sabatons +3",priority=22}, left_ear={name="Tuisto Earring",priority=150},})
 sets.precast.JA['Cover'] = set_combine(sets.Enmity, {body={name="Cab. Surcoat +2",priority=118}, left_ear={name="Tuisto Earring",priority=150},}) 	-- head="Rev. Coronet +1", 
 sets.precast.JA['Shield Bash'] = set_combine(sets.Enmity, {hands="Cab. Gauntlets +3",})
 sets.precast.JA['Palisade'] = set_combine(sets.Enmity, {})
@@ -122,21 +117,21 @@ sets.precast.JA['Animated Flourish'] = set_combine(sets.Enmity, {})
 sets.precast.FC = {
 	ammo="Sapience Orb",																		-- 2%
 	head={name="Carmine Mask +1",priority=38},													-- 14%
-	body=gear.af_body,																			-- 10%
-	hands={name="Souv. Handsch. +1",priority=239},
-	legs=gear.odyssean_fc_legs,																	-- 6%
-	feet={name="Chev. Sabatons +2",priority=42},												-- 13%
-	neck="Baetyl Pendant",																		-- 4%
+	body={name="Rev. Surcoat +3",priority=254},													-- 10%
+	hands={name="Leyline Gloves",priority=5},													-- 8%
+	legs=gear.odyssean_fc_legs,																	-- 6% (8%)
+	feet={name="Chev. Sabatons +3",priority=42},												-- 13%
+	neck={name="Unmoving Collar +1", priority=500},												
 	waist=gear.hp_waist,
-	left_ear={name="Tuisto Earring",priority=150},
-	right_ear={name="Odnowa Earring +1", priority=110},
+	left_ear={name="Tuisto Earring",priority=500},
+	right_ear={name="Odnowa Earring +1", priority=500},
 	--left_ring={name="Moonlight Ring", priority=110},
-	left_ring="Weather. Ring +1",																-- 5%
-	right_ring={name="Gelatinous Ring +1",priority=125},
+	left_ring={name="Weather. Ring +1",priority=5},												-- 6%
+	right_ring={name="Gelatinous Ring +1",priority=500},
 	back=gear.tank_fc_back,																		-- 10%
 }
 	
-sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel Sash"})
+sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})--{waist="Siegel Sash"})
 
 sets.precast.FC.Cure = set_combine(sets.precast.FC, {})
 
@@ -256,17 +251,17 @@ sets.midcast.Cure = {
 -- 39% PDT/DT
 sets.midcast.Cure.SIRD = {
 	ammo="Staunch Tathlum +1",									-- 11
-	head={name="Souveran Schaller +1",priority=280},			-- 20
+	head={name="Souveran Schaller +1",priority=380},			-- 20
 	body={name="Souveran Cuirass +1",priority=171},				--		/	11%
-	hands={name="Souv. Handsch. +1",priority=239},
+	hands={name="Souv. Handsch. +1",priority=350},
 	legs={name="Founder's Hose",priority=54},					-- 30
 	feet=gear.odyssean_cure_feet,								-- 20	/	13%
 	neck={name="Sacro Gorget", priority=50},					--		/	10%
 	waist="Audumbla Sash",										-- 10				
-	left_ear={name="Tuisto Earring",priority=150},
+	left_ear={name="Tuisto Earring",priority=500},
 	right_ear="Nourish. Earring +1",							-- 5	/	6%		
 	left_ring={name="Moonlight Ring", priority=110},
-	right_ring={name="Gelatinous Ring +1", priority=125},
+	right_ring={name="Gelatinous Ring +1", priority=500},
 	back=gear.tank_cure_back,									--		/ 	10%
 }
 
@@ -300,11 +295,11 @@ sets.midcast['Enhancing Magic'] = {
 	hands={name="Regal Gauntlets",priority=205},															-- 10
 	legs={name="Founder's Hose",priority=54},																-- 30
 	feet={name="Souveran Schuhs +1",priority=500},															-- 20
-	neck="Moonlight Necklace",																				-- 15	/		/	15
-	waist="Audumbla Sash",																					-- 10	/	4
-	left_ear={name="Tuisto Earring",priority=500},
+	neck={name="Moonlight Necklace",priority=5},															-- 15	/		/	15
+	waist={name="Audumbla Sash",priority=5},																-- 10	/	4
+	left_ear={name="Andoaa Earring",priority=5},
 	right_ear={name="Odnowa Earring +1",priority=500},														--		/	3
-	left_ring="Defending Ring",																				--		/	5
+	left_ring={name="Defending Ring",priority=5},															--		/	5
 	right_ring={name="Gelatinous Ring +1",priority=500},													-- 		/	7	/	
 	back=gear.dt_moon_back,	
 }
@@ -321,16 +316,17 @@ sets.midcast.Shell.SIRD = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Phalanx = {
 	ammo="Staunch Tathlum +1",																				-- 11	/	3	/
 	head={name="Souveran Schaller +1",priority=280},														-- 20			/	9
-	body={name="Shab. Cuirass +1",priority=115},															--		/	10	/	20
+	--body={name="Shab. Cuirass +1",priority=115},															--		/	10	/	20
+	body={name="Valorous Mail",priority=55},
 	hands={name="Souv. Handsch. +1",priority=239},															-- 10
 	legs={name="Sakpata's Cuisses", priority=114},
 	feet={name="Souveran Schuhs +1",priority=227},
 	neck="Incanter's Torque",																				-- 15	/		/	15
 	waist="Audumbla Sash",																					-- 10	/	4
-	left_ear={name="Tuisto Earring",priority=150},
-	right_ear={name="Odnowa Earring +1",priority=110},														--		/	3
+	left_ear={name="Tuisto Earring",priority=500},
+	right_ear={name="Odnowa Earring +1",priority=500},														--		/	3
 	left_ring="Defending Ring",																				--		/	5
-	right_ring={name="Gelatinous Ring +1",priority=125},													-- 		/	7	/	
+	right_ring={name="Gelatinous Ring +1",priority=500},													-- 		/	7	/	
 	back=gear.phalanx_jse_back,	
 }
 	
@@ -345,11 +341,11 @@ sets.midcast['Divine Magic'].SIRD = sets.midcast['Divine Magic']
 sets.idle = {
 	ammo="Homiliary",												-- 1MP
 	head={name="Sakpata's Helm", priority=91},
-	body={name="Sakpata's Plate", priority=136},
+	body=gear.idle_body,
 	hands={name="Regal Gauntlets", priority=205},					-- 1MP
 	legs={name="Sakpata's Cuisses", priority=114},
 	feet={name="Sakpata's Leggings", priority=68},
-	neck={name="Unmoving Collar +1", priority=200},
+	neck="Sanctity Necklace",
 	waist={name="Carrier's Sash", priority=20},
 	left_ear={name="Tuisto Earring", priority=150},
 	right_ear={name="Odnowa Earring +1", priority=110},

@@ -49,10 +49,13 @@ end
 
 if item_available("Ebers Cap +3") then
 	gear.whm_empy_head = "Ebers Cap +3"
+	gear.fc_head = "Ebers Cap +3"
 elseif item_available("Ebers Cap +2") then
 	gear.whm_empy_head = "Ebers Cap +2"
+	gear.fc_head = "Ebers Cap +2"
 else
 	gear.whm_empy_head = "Ebers Cap +1"
+	gear.fc_head = "Vanya Hood"
 end
 
 if item_available("Ebers Duckbills +3") then
@@ -156,7 +159,7 @@ sets.precast.FC = {
 	main="C. Palug Hammer",																	-- 7
 	sub="Chanter's Shield",																	-- 3
 	ammo="Impatiens",																		-- QC 2
-	head="Vanya Hood",																		-- 10
+	head=gear.fc_head,																		-- 13 / 10
 	body={name="Inyanga Jubbah +2",priority=100},											-- 14
 	hands="Gende. Gages +1",																-- 7
 	legs="Ayanmo Cosciales +2",																-- 6
@@ -165,7 +168,7 @@ sets.precast.FC = {
 	waist="Embla Sash",																		-- 5
 	left_ear="Loquac. Earring",																-- 2
 	right_ear="Malignance Earring",															-- 4
-	left_ring=gear.macc_fc_ring,															-- 4
+	left_ring=gear.macc_fc_ring,															-- 6 / 4
 	right_ring="Lebeche Ring",																-- QC 2
 	back=gear.jse_macc_fc_back,																-- 10
 }

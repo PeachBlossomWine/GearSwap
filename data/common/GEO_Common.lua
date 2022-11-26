@@ -48,13 +48,17 @@ else
 end
 
 --Empy
-if item_available("Azimuth Hood +2") then
+if item_available("Azimuth Hood +3") then
+	gear.jse_empy_head = "Azimuth Hood +3"
+elseif item_available("Azimuth Hood +2") then
 	gear.jse_empy_head = "Azimuth Hood +2"
 else
 	gear.jse_empy_head = "Azimuth Hood +1"
 end
 
-if item_available("Azimuth Gaiters +2") then
+if item_available("Azimuth Gaiters +3") then
+	gear.jse_empy_feet = "Azimuth Gaiters +3"
+elseif item_available("Azimuth Gaiters +2") then
 	gear.jse_empy_feet = "Azimuth Gaiters +2"
 else
 	gear.jse_empy_feet = "Azimuth Gaiters +1"

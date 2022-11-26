@@ -110,7 +110,7 @@ sets.precast.WS.Proc = {
 	body="Adhemar Jacket +1",
 	hands="Adhemar Wrist. +1",
 	legs="Rawhide Trousers",
-	feet="Volte Spats",
+	feet="Hachi. Kyahan +1",
 	neck="Combatant's Torque",
 	waist="Gishdubar Sash",
 	left_ear="Infused Earring",
@@ -146,7 +146,7 @@ sets.precast.WS['Blade: Chi'] ={
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
-	neck={ name=gear.nin_jse_neck, augments={'Path: A',}},
+	neck=gear.nin_jse_neck,
 	waist="Sailfi Belt +1",
 	left_ear="Lugra Earring +1",
 	right_ear="Moonshade Earring",
@@ -259,7 +259,7 @@ sets.idle.Town = {
 }
 
 sets.defense.PDT = {
-	ammo="Staunch Tathlum +1",
+	ammo=gear.dt_ammo,
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
@@ -324,7 +324,7 @@ sets.engaged.DT = {
 	back=gear.jse_da_back,
 }
 
-sets.engaged.Proc = set_combine(sets.engaged.DT, {ammo="Staunch Tathlum +1",})
+sets.engaged.Proc = set_combine(sets.engaged.DT, {ammo=gear.dt_ammo,})
 
 --------------------------------------
 -- Custom buff sets

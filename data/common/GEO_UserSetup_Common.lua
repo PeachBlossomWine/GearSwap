@@ -31,6 +31,7 @@ send_command('bind @backspace input /ma "Sleep II" <t>')
 send_command('bind ^delete input /ma "Aspir III" <t>')
 send_command('bind @delete input /ma "Sleep" <t>')
 send_command('bind @f6 gs c toggle AutoZergMode')
+send_command('gs c set MagicBurstMode Lock')
 
 gear.jse_mab_back = { name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
 gear.jse_pet_back = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}}

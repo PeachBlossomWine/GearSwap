@@ -42,6 +42,14 @@ elseif item_available("Chass. Bottes +2") then
 	gear.jse_empy_feet = "Chass. Bottes +2"
 end
 
+if item_available("Nisroch Jerkin") then
+	gear.crit_body = "Nisroch Jerkin"
+	gear.town_body = "Nisroch Jerkin"
+else
+	gear.crit_body = "Meg. Cuirie +2"
+	gear.town_body = "Ikenga's Vest"
+end
+
 sets.weapons.DualSavage = 				{main="Naegling",sub=gear.offhand_savage ,range="Anarchy +2"}
 sets.weapons.DualLeaden = 				{main="Rostam",sub=gear.offhand_melee_dagger,range="Death Penalty"}
 sets.weapons.DualLeadenRanged = 		{main="Rostam",sub="Tauret",range="Death Penalty"}
@@ -330,8 +338,8 @@ sets.midcast.RA = {
 sets.midcast.RA.AM = {
 	ammo=gear.RAbullet,
 	head="Meghanada Visor +2",
-	body="Meg. Cuirie +2",
-	hands="Malignance Gloves",
+	body=gear.crit_body,
+	hands=gear.jse_empy_hands,
 	legs="Malignance Tights",
 	feet="Osh. Leggings +1",
 	neck="Iskur Gorget",
@@ -372,7 +380,7 @@ sets.idle = {
 sets.idle.Town = {
 	ammo=gear.RAbullet,
 	head="Nyame Helm",
-	body="Ikenga's Vest",
+	body=gear.town_body,
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
