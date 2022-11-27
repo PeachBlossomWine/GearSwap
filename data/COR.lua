@@ -121,15 +121,6 @@ function job_precast(spell, spellMap, eventArgs)
 		state.CombatWeapon:set(player.equipment.range)
     -- Check that proper ammo is available if we're using ranged attacks or similar.
     end
-    -- elseif spell.type == 'CorsairShot' then
-		-- if not player.inventory['Trump Card'] then
-			-- -- windower.chat.input('//get "Trump Card Case"; wait 1.1; /item "Trump Card Case" <me>')
-			-- eventArgs.cancel = true
-			-- windower.chat.input:schedule(2.5,'/ja "'..spell.english..'" '..spell.target.raw..'')
-			-- return
-		-- end
-        -- --do_bullet_checks(spell, spellMap, eventArgs)
-    -- end
 	
     if spell.action_type == 'Ranged Attack' or spell.name == 'Shadowbind' or (spell.type == 'WeaponSkill' and spell.skill == 'Marksmanship') then
         do_bullet_checks(spell, spellMap, eventArgs)

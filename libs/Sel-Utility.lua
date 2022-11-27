@@ -842,17 +842,6 @@ function can_use(spell)
 			if not S(available.job_abilities)[spell.id] then
 				add_to_chat(123,"Abort: You don't have access to ["..(res.job_abilities[spell.id][language] or spell.id).."].")
 				return false
-			elseif spell.type == 'CorsairShot' and not player.inventory['Trump Card'] then
-				if player.inventory['Trump Card Case'] then
-					--send_command.schedule(0.42, 'input /item "Trump Card Case" <me>')
-                    --send_command:schedule(1.53, 'input /item antidote <me>')
-                    return false
-				elseif player.satchel['Trump Card Case'] then
-					windower.send_command('get "Trump Card Case"')
-					send_command.schedule(1.52,'input /item "Trump Card Case" <me>')
-                    return false
-				end
-				return false
 			end
         end
     elseif category == 25 and (not player.main_job_id == 23 or not windower.ffxi.get_mjob_data().species or
@@ -1019,7 +1008,7 @@ function check_midaction(spell, spellMap, eventArgs)
 	if os.clock() < next_cast and not state.RngHelper.value then
 		if eventArgs and not (spell.type:startswith('BloodPact') and state.Buff["Astral Conduit"]) then
 			eventArgs.cancel = true
-			if delayed_cast == '' and state.MiniQueue.value then
+			if delayed_cast == '' and state.MiniQueue.value and (spell.skill ~= 'Elemental Magic') then
 				windower.send_command:schedule((next_cast - os.clock()),'gs c delayedcast')
 			end
 			delayed_cast = spell.english
@@ -1362,7 +1351,7 @@ function check_sub()
 					end
 				elseif state.AutoSubMode.value == 'On' then
 					if buffactive['Sublimation: Complete'] then
-						if player.mpp < 70 then
+						if player.mpp < 65 then
 							windower.chat.input('/ja Sublimation <me>')
 							tickdelay = os.clock() + 1.5
 							return true
@@ -1371,6 +1360,12 @@ function check_sub()
 						windower.chat.input('/ja Sublimation <me>')
 						tickdelay = os.clock() + 1.5
 						return true
+					elseif buffactive['Sublimation: Activated'] then
+						if player.mpp < 45 then
+							windower.chat.input('/ja Sublimation <me>')
+							tickdelay = os.clock() + 1.5
+							return true
+						end
 					end
 				end
 			end
@@ -2210,6 +2205,17 @@ function check_ammo()
 						return true
 					end
 				end
+			end
+		end
+	end
+	if player.main_job == 'COR' and state.AutoAmmoMode.value and not world.in_mog_house and not useItem then
+		if not player.inventory['Trump Card'] then
+			if player.inventory['Trump Card Case'] or player.sack['Trump Card Case'] or player.case['Trump Card Case'] or player.satchel['Trump Card Case'] then
+				send_command('input /item "Trump Card Case" <me>')
+				tickdelay = os.clock() + 7
+				return true
+			else
+				return false
 			end
 		end
 	end
