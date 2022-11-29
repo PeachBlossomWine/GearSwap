@@ -41,6 +41,15 @@ else
 	gear.jse_empy_hands = "Chasseur's Gants +1"
 end
 
+if item_available("Chass. Bottes +3") then
+	gear.jse_empy_feet = "Chass. Bottes +3"
+elseif item_available("Chass. Bottes +2") then
+	gear.jse_empy_feet = "Chass. Bottes +2"
+else
+	gear.jse_empy_feet = "Chass. Bottes +1"
+end
+
+
 sets.weapons.DualSavage = 			{main="Naegling",sub=gear.offhand_melee_dagger,range="Anarchy +2"}
 sets.weapons.DualLeaden = 			{main="Naegling",sub=gear.offhand_melee_dagger,range="Fomalhaut"}
 sets.weapons.DualLeadenRanged = 	{main="Naegling",sub="Tauret",range="Fomalhaut"}
@@ -62,7 +71,7 @@ sets.precast.FoldDoubleBust = {} --{hands="Lanun Gants +3"}
 sets.precast.CorsairRoll = {head="Lanun Tricorne",back="Camulus's Mantle",neck="Regal Necklace",hands=gear.jse_empy_hands}
 
 -- sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})
-sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet="Chass. Bottes +2"})
+sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet=gear.jse_empy_feet})
 -- sets.precast.CorsairRoll["Blitzer's Roll"] = set_combine(sets.precast.CorsairRoll, {head="Navarch's Tricorne +2"})
 
 sets.precast.CorsairRoll["Tactician's Roll"] = set_combine(sets.precast.CorsairRoll, {body=gear.jse_empy_body})
@@ -76,7 +85,7 @@ sets.precast.CorsairShot = {
 	body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
-	feet="Chass. Bottes +2",
+	feet=gear.jse_empy_feet,
 	neck="Baetyl Pendant",
 	waist="Eschan Stone",
 	left_ear="Friomisi Earring",
@@ -87,7 +96,7 @@ sets.precast.CorsairShot = {
 }
 	
 sets.precast.CorsairShot.Damage = sets.precast.CorsairShot
-sets.precast.CorsairShot.Resistant = set_combine({sets.precast.CorsairShot, feet="Chass. Bottes +2",})
+sets.precast.CorsairShot.Resistant = set_combine({sets.precast.CorsairShot, feet=gear.jse_empy_feet,})
 
 sets.precast.CorsairShot['Light Shot'] = {
 	ammo=gear.QDbullet,
@@ -159,7 +168,7 @@ sets.precast.WS = {
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
-	feet="Lanun Bottes +3",
+	feet="Nyame Sollerets",
 	neck="Fotia Gorget",
 	waist="Fotia Belt",
 	left_ear="Ishvara Earring",
@@ -190,7 +199,7 @@ sets.precast.WS['Evisceration'] = {
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
-	feet="Lanun Bottes +3",
+	feet="Nyame Sollerets",
 	neck="Fotia Gorget",
 	waist="Fotia Belt",
 	left_ear="Telos Earring",
@@ -207,7 +216,7 @@ sets.precast.WS['Savage Blade'] = {
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
-	feet="Lanun Bottes +3",
+	feet="Nyame Sollerets",
 	neck="Fotia Gorget",
 	waist="Sailfi Belt +1",
 	left_ear="Ishvara Earring",

@@ -7,22 +7,6 @@ else
 	gear.BurstHead = "Leth. Chappel +2"
 end
 
-if item_available("Ea Houppelande +1") then
-  gear.BurstBody = "Ea Houppelande +1"
-elseif item_available("Lethargy Sayon +3") then
-  gear.BurstBody = "Lethargy Sayon +3"
-else
-  gear.BurstBody = "Lethargy Sayon +2"
-end
-
-if item_available("Ea Slops +1") then
-	gear.BurstLegs = 'Ea Slops +1'
-elseif item_available("Leth. Fuseau +3") then
-	gear.BurstLegs = "Leth. Fuseau +3"
-else
-	gear.BurstLegs = "Leth. Fuseau +2"
-end
-
 if item_available("Crepuscular Cloak") then
 	gear.impact_body = "Crepuscular Cloak"
 else
@@ -209,17 +193,17 @@ sets.MagicBurst = {
 	main="Bunzi's Rod",																			-- 10
 	sub="Ammurapi Shield",
 	range=empty,
-	ammo="Pemphredo Tathlum",
-	head=gear.BurstHead,																		-- 8
-	body=gear.BurstBody,																		-- 9
+	ammo="Ghastly Tathlum +1",
+	head=gear.BurstHead,																		-- 7 / 7II
+	body=gear.jse_empy_body,
 	hands="Bunzi's Gloves",																		-- 8 / 5 II
-	legs=gear.BurstLegs,																		-- 8 / 15
+	legs=gear.jse_empy_legs,																	-- 15
 	feet=gear.jse_empy_feet,
 	neck="Mizu. Kubikazari",																	-- 10
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
-	left_ring="Mujin Band",																		
+	left_ring="Metamor. Ring +1",
 	right_ring="Freke Ring",
 	back=gear.jse_mab_back,
 }
@@ -492,7 +476,7 @@ sets.midcast['Elemental Magic'] = {
 	head=gear.jse_empy_head,
 	body="Shamash Robe",
 	hands=gear.jse_empy_hands,
-	legs=gear.BurstLegs,
+	legs=gear.jse_empy_legs,
 	feet="Vitiation Boots +3",
 	neck=gear.rdm_jse_neck,
 	waist="Sacro Cord",
@@ -515,7 +499,7 @@ sets.midcast['Dark Magic'] = {
 	head="Pixie Hairpin +1",
 	body="Atrophy Tabard +3",
 	hands=gear.rdm_regal_hands,
-	legs=gear.BurstLegs,
+	legs=gear.jse_empy_legs,
 	feet="Jhakri Pigaches +2",
 	neck="Erra Pendant",
 	waist="Fucho-no-obi",

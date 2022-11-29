@@ -1,7 +1,8 @@
 state.CastingMode:options('Normal','Resistant','Proc')
 state.OffenseMode:options('Normal')
 state.IdleMode:options('Normal','DT')
-state.Weapons:options('None','Khatvanga')
+state.Weapons:options('None','Marin','Khatvanga')
+state.AutoZergMode = M(false, 'Auto Zerg Mode')
 
 gear.obi_cure_waist = "Porous Rope"
 gear.obi_low_nuke_waist = "Sacro Cord"

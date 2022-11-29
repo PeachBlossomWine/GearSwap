@@ -108,12 +108,12 @@ sets.precast.JA['Last Resort'] = set_combine(sets.Enmity,{})
 
 sets.precast.JA['Lunge'] = {
 	ammo="Pemphredo Tathlum",
-	head={name="Nyame Helm",priority=91},
-	body={name="Nyame Mail",priority=136},
-	hands={name="Nyame Gauntlets",priority=91},
-	legs={name="Nyame Flanchard",priority=114},
-	feet={name="Nyame Sollerets",priority=68},
-	neck="Baetyl Pendant",
+	head={name="Agwu's Cap",priority=38},
+	body={name="Agwu's Robe",priority=88},
+	hands={name="Agwu's Gages",priority=38},
+	legs={name="Agwu's Slops",priority=50},
+	feet={name="Agwu's Pigaches",priority=27},
+	neck={name="Unmoving Collar +1",priority=500},
 	waist=gear.hp_belt,
 	left_ear={name="Odnowa Earring +1",priority=500},
 	right_ear="Telos Earring",

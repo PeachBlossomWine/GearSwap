@@ -35,18 +35,6 @@ else
 	gear.BurstHead = "Agwu's Cap"
 end
 
-if item_available("Ea Houppelande +1") then
-	gear.BurstBody = "Ea Houppelande +1"
-else
-	gear.BurstBody = "Agwu's Robe"
-end
-
-if item_available("Ea Slops +1") then
-	gear.BurstLegs = "Ea Slops +1"
-else
-	gear.BurstLegs = "Agwu's Slops"
-end
-
 --Empy
 if item_available("Azimuth Hood +3") then
 	gear.jse_empy_head = "Azimuth Hood +3"
@@ -54,6 +42,22 @@ elseif item_available("Azimuth Hood +2") then
 	gear.jse_empy_head = "Azimuth Hood +2"
 else
 	gear.jse_empy_head = "Azimuth Hood +1"
+end
+
+if item_available("Azimuth Coat +3") then
+	gear.jse_empy_body = "Azimuth Coat +3"
+elseif item_available("Azimuth Coat +2") then
+	gear.jse_empy_body = "Azimuth Coat +2"
+else
+	gear.jse_empy_body = "Azimuth Coat +1"
+end
+
+if item_available("Azimuth Tights +3") then
+	gear.jse_empy_legs = "Azimuth Tights +3"
+elseif item_available("Azimuth Tights +2") then
+	gear.jse_empy_legs = "Azimuth Tights +2"
+else
+	gear.jse_empy_legs = "Azimuth Tights +1"
 end
 
 if item_available("Azimuth Gaiters +3") then
@@ -124,12 +128,12 @@ sets.precast.FC.Geomancy.Indi.DT = sets.precast.FC.Geomancy.DT
 sets.precast.FC.Cure.DT = set_combine(sets.precast.FC.DT, {})
 sets.precast.FC.Curaga.DT = sets.precast.FC.Cure.DT
 
-sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {right_ring="Gelatinous Ring +1",})
+sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {left_ring="Kishar Ring",})
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})
 sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {})
 sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body})
 
-sets.precast.FC['Elemental Magic'].DT = set_combine(sets.precast.FC.DT, {right_ring="Gelatinous Ring +1",})
+sets.precast.FC['Elemental Magic'].DT = set_combine(sets.precast.FC.DT, {left_ring="Kishar Ring",})
 sets.precast.FC['Enhancing Magic'].DT = set_combine(sets.precast.FC.DT, {})
 sets.precast.FC.Stoneskin.DT = set_combine(sets.precast.FC['Enhancing Magic'].DT, {})
 sets.precast.FC.Impact.DT = set_combine(sets.precast.FC.DT, {head=empty,body=gear.impact_body})
@@ -261,9 +265,9 @@ sets.midcast['Elemental Magic'] = {
 	main="Bunzi's Rod",
 	sub="Ammurapi Shield",
 	head=gear.BurstHead,
-	body=gear.BurstBody,
+	body=gear.jse_empy_body,
 	hands="Agwu's Gages",
-	legs=gear.BurstLegs,
+	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
 	neck="Sanctity Necklace",
 	waist="Sacro Cord",
@@ -282,16 +286,16 @@ sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcas
 sets.MagicBurst = {
 	main="Bunzi's Rod",																				-- 10
 	sub="Ammurapi Shield",
-	head=gear.BurstHead,																			-- 7/7II		7
-	body=gear.BurstBody,																			-- 9/9II		10
-	hands="Agwu's Gages",																			-- 8/5II
-	legs=gear.BurstLegs,																			-- 8/8II		9
+	head=gear.BurstHead,																			-- 7/	7II
+	body=gear.jse_empy_body,																		-- 		5II
+	hands="Agwu's Gages",																			-- 8/	5II
+	legs=gear.jse_empy_legs,																		-- 15
 	feet=gear.jse_empy_feet,
 	neck="Mizu. Kubikazari",																		-- 10
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
-	left_ring="Mujin Band",																		
+	left_ring="Metamor. Ring +1",																		
 	right_ring="Freke Ring",
 	back=gear.jse_mab_back,
 }

@@ -76,11 +76,11 @@ sets.precast.FC.DT = set_combine(sets.precast.FC, {left_ear={name="Odnowa Earrin
 
 sets.precast.FC.Arts = set_combine{sets.precast.FC, {}}
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})
-sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {right_ring="Gelatinous Ring +1", back=gear.nuke_jse_back,})
+sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {left_ring="Kishar Ring", back=gear.nuke_jse_back,})
 
 sets.precast.FC.Arts.DT = set_combine{sets.precast.FC.DT, {}}
 sets.precast.FC['Enhancing Magic'].DT = set_combine(sets.precast.FC.DT, {})
-sets.precast.FC['Elemental Magic'].DT = set_combine(sets.precast.FC.DT, {right_ring="Gelatinous Ring +1", back=gear.nuke_jse_back,})
+sets.precast.FC['Elemental Magic'].DT = set_combine(sets.precast.FC.DT, {left_ring="Kishar Ring", back=gear.nuke_jse_back,})
 
 -- FC:	41%
 -- CCT: 51%
