@@ -278,6 +278,23 @@ sets.midcast['Elemental Magic'] = {
 	back=gear.jse_mab_back,
 }
 
+sets.midcast['Elemental Magic'].Proc = {
+	main="Bolelabunga",
+	sub="Genmei Shield",
+	head="Befouled Crown",
+	body=gear.telchine_enhancing_body,
+	hands=gear.telchine_enhancing_hands,
+	legs="Assid. Pants +1",
+	feet=gear.telchine_enhancing_feet,
+	neck="Loricate Torque +1",
+	waist="Porous Rope",
+	left_ear="Regal Earring",
+	right_ear=gear.empy_earring,
+	left_ring="Defending Ring",
+	right_ring="Gelatinous Ring +1",
+	back=gear.jse_mab_back,
+}
+
 sets.midcast['Elemental Magic'].Resistant = sets.midcast['Elemental Magic']
 sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {})
 sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant, {})
@@ -497,23 +514,9 @@ sets.idle.DT = {
 	back=gear.jse_pet_back,																
 }
 
-sets.idle.Town = {
+sets.idle.Town = set_combine(sets.idle.DT, {
 	main="Idris",
-	sub="Genmei Shield",																-- 10%
-	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-    head="Nyame Helm",
-    body="Nyame Mail",
-    hands="Nyame Gauntlets",
-    legs="Nyame Flanchard",
-    feet="Nyame Sollerets",
-	neck="Sanctity Necklace",
-	waist="Porous Rope",
-	left_ear="Infused Earring",
-	right_ear="Etiolation Earring",
-	left_ring="Defending Ring",															-- 10%
-	right_ring="Gelatinous Ring +1",													-- 7%
-	back=gear.jse_pet_back,
-}
+})
 
 -- Pet sets are for when Luopan is present.
 -- Regen:	27

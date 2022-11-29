@@ -120,6 +120,8 @@ sets.precast.FC = {
 	
 sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body})
 sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak",sub="Genmei Shield"})
+
+sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {ammo="Sapience Orb", left_ring="Petrov Ring", back=gear.jse_mab_back})
    
 -- Weaponskill sets
 sets.precast.WS = {
@@ -491,6 +493,25 @@ sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental 
 		
 sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {})
 sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant, {})
+
+-- Minimal damage gear, maximum recast gear for procs.
+sets.midcast['Elemental Magic'].Proc = {
+	main="Bolelabunga",
+	sub="Genmei Shield",
+	ammo="Pemphredo Tathlum",
+	head="Befouled Crown",
+	body="Shamash Robe",
+	hands=gear.telchine_enhancing_hands,
+	legs="Assid. Pants +1",
+	feet=gear.telchine_enhancing_feet,
+	neck="Loricate Torque +1",
+	waist="Embla Sash",
+	left_ear="Regal Earring",
+	right_ear=gear.empy_earring,
+	left_ring="Defending Ring",
+	right_ring="Freke Ring",
+	back=gear.jse_mab_back,
+}
 
 sets.midcast['Dark Magic'] = {
 	main="Bunzi's Rod",

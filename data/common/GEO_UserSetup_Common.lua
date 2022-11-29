@@ -1,5 +1,5 @@
 state.OffenseMode:options('Normal')
-state.CastingMode:options('DT','Normal', 'Resistant')
+state.CastingMode:options('DT','Normal','Resistant','Proc')
 state.IdleMode:options('DT','Normal')
 state.PhysicalDefenseMode:options('PDT', 'NukeLock', 'GeoLock', 'PetPDT')
 state.MagicalDefenseMode:options('MDT', 'NukeLock')

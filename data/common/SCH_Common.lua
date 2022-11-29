@@ -127,7 +127,7 @@ sets.RecoverMP = {body="Seidr Cotehardie"}
 sets.MagicBurst = {
 	main="Bunzi's Rod",										-- 10
 	sub="Ammurapi Shield",
-	ammo="Pemphredo Tathlum",	
+	ammo="Ghastly Tathlum +1",	
 	head="Peda. M.Board +3",								-- 4 II
 	body="Agwu's Robe",										-- 10
 	hands="Agwu's Gages",									-- 8 + 5 II 
@@ -137,7 +137,7 @@ sets.MagicBurst = {
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,	
-	left_ring="Mujin Band",									-- 5 II 
+	left_ring="Metamor. Ring +1",
 	right_ring="Freke Ring",																					
 	back=gear.nuke_jse_back,
 }

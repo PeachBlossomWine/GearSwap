@@ -268,6 +268,8 @@ function job_post_midcast(spell, spellMap, eventArgs)
 				elseif sets.HelixBurst then
 					equip(sets.HelixBurst)
 				end
+			elseif state.CastingMode.value:contains('Proc') then
+				equip(sets.midcast['Elemental Magic'].Proc)
 			elseif state.CastingMode.value:contains('Resistant') and sets.ResistantMagicBurst then
 				equip(sets.ResistantMagicBurst)
 			else
@@ -276,16 +278,6 @@ function job_post_midcast(spell, spellMap, eventArgs)
 		end
 		if not state.CastingMode.value:contains('Resistant') then
 			if spell.element == world.weather_element or spell.element == world.day_element then
-				-- if item_available('Twilight Cape') and not LowTierNukes:contains(spell.english) and not state.Capacity.value then
-					-- sets.TwilightCape = {back="Twilight Cape"}
-					-- equip(sets.TwilightCape)
-				-- end
-				if spell.element == world.day_element and state.CastingMode.value == 'Fodder' then
-					if item_available('Zodiac Ring') then
-						sets.ZodiacRing = {ring2="Zodiac Ring"}
-						equip(sets.ZodiacRing)
-					end
-				end
 				if state.Buff.Klimaform and spell.element == world.weather_element then
 					equip(sets.buff['Klimaform'])
 				end
@@ -306,6 +298,8 @@ function job_post_midcast(spell, spellMap, eventArgs)
 			if state.MagicBurstMode.value ~= 'Off' then
 				if state.CastingMode.value:contains('Resistant') and sets.ResistantRecoverBurst then
 					equip(sets.ResistantRecoverBurst)
+				elseif state.CastingMode.value:contains('Proc') then
+					equip(sets.midcast['Elemental Magic'].Proc)
 				elseif sets.RecoverBurst then
 					equip(sets.RecoverBurst)
 				elseif sets.RecoverMP then
@@ -1091,6 +1085,8 @@ end
 function check_buff()
 	if state.AutoBuffMode.value ~= 'Off' and not data.areas.cities:contains(world.area) then
 		local spell_recasts = windower.ffxi.get_spell_recasts()
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+		
 		for i in pairs(buff_spell_lists[state.AutoBuffMode.Value]) do
 			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or 
             (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or 
@@ -1100,7 +1096,7 @@ function check_buff()
             spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and 
             player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost and
             silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and 
-			(((buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise' and player.sub_job == 'WHM') or ((buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise' and not buffactive['Addendum: White'] and get_current_stratagem_count() > 0 and (state.AutoBuffMode.value == 'Auto' or state.AutoBuffMode.value == 'Healing')) or (buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise' and buffactive['Addendum: White']))) or not(buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise')) and
+			(((buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise' and player.sub_job == 'WHM') or (buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise' and (abil_recasts[235] < latency or buffactive["Enlightenment"])) or ((buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise' and not buffactive['Addendum: White'] and get_current_stratagem_count() > 0 and (state.AutoBuffMode.value == 'Auto' or state.AutoBuffMode.value == 'Healing')) or (buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise' and buffactive['Addendum: White']))) or not(buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Reraise')) and
             ((buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Embrava' and buffactive['Tabula Rasa']) or not(buff_spell_lists[state.AutoBuffMode.Value][i].Name == 'Embrava')) and
             (((data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and not buffactive['Addendum: White'] and get_current_stratagem_count() > 0) or (data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) and buffactive['Addendum: White'])) or not(data.spells.addendum_white:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name))) then
 				windower.chat.input('/ma "'..buff_spell_lists[state.AutoBuffMode.Value][i].Name..'" <me>')
