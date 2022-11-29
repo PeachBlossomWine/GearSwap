@@ -623,11 +623,11 @@ function check_geo()
 			windower.chat.input('/ma "Indi-'..autoindi..'" <me>')
 			tickdelay = os.clock() + 2.1
 			return true
-		elseif autoentrust ~= 'None' and abil_recasts[93] < latency and (player.in_combat or state.CombatEntrustOnly.value == false) and entrust_target.distance:sqrt() < 20.4 then
+		elseif autoentrust ~= 'None' and abil_recasts[93] < latency and (player.in_combat or state.CombatEntrustOnly.value == false) then --and entrust_target.distance:sqrt() < 20.4 then
 			windower.chat.input('/ja "Entrust" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
-		elseif autoentrust ~= 'None' and buffactive["Entrust"] and (player.in_combat or state.CombatEntrustOnly.value == false) and entrust_target.distance:sqrt() < 20.4 then
+		elseif autoentrust ~= 'None' and buffactive["Entrust"] and (player.in_combat or state.CombatEntrustOnly.value == false) then -- and entrust_target.distance:sqrt() < 20.4 then
 			send_command('@input /ma "Indi-'..autoentrust..'" '..autoentrustee)
 			tickdelay = os.clock() + 2.2
 			return true
@@ -816,6 +816,7 @@ function check_buff()
 	if state.AutoBuffMode.value ~= 'Off' and not data.areas.cities:contains(world.area) then
 		local spell_recasts = windower.ffxi.get_spell_recasts()
         local abil_recasts = windower.ffxi.get_ability_recasts()
+		
 		for i in pairs(buff_spell_lists[state.AutoBuffMode.Value]) do
 			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or 
             (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or 
@@ -831,9 +832,22 @@ function check_buff()
 				return true
 			end
 		end
-        if player.mpp < 65 and abil_recasts[252] < latency and pet.isvalid and pet.distance:sqrt() < 6 then
-            windower.send_command('input /ja "Radial Arcana" <me>')
-            return true
+        if player.mpp < 55 and abil_recasts[252] < latency and not silent_check_amnesia() then
+			local pet = windower.ffxi.get_mob_by_target("pet") or false
+			
+			if pet.isvalid and pet.distance:sqrt() < 7 then 
+				windower.send_command('input /ja "Radial Arcana" <me>')
+				tickdelay = os.clock() + 2.2
+				return true
+			-- elseif pet.isvalid and pet.distance:sqrt() > 7 and player.mp > res.spells[814].mp_cost and silent_can_use(814) then
+				-- windower.send_command('input /ma "Geo-Voidance" <me>')
+				-- tickdelay = os.clock() + 2.2
+				-- return true
+			-- elseif not pet.isvalid and player.mp > res.spells[814].mp_cost and silent_can_use(814) then
+				-- windower.send_command('input /ma "Geo-Voidance" <me>')
+				-- tickdelay = os.clock() + 2.2
+				-- return true
+			end
         end
 	else
 		return false

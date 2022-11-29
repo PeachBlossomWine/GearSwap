@@ -228,8 +228,13 @@ function job_self_command(commandArgs, eventArgs)
 
 		elseif player.sub_job == 'RUN' and not state.Buff['SJ Restriction'] and not silent_check_amnesia() then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
-			
-			if abil_recasts[23] < latency then
+			local spell_recasts = windower.ffxi.get_spell_recasts()
+
+			if spell_recasts[840] < spell_latency and not silent_check_silence() and player.mp > res.spells[840].mp_cost then
+				windower.chat.input('/ma "Foil" <me>')
+				tickdelay = os.clock() + 3.0
+				return true
+			elseif abil_recasts[23] < latency then
 				send_command('input /ja "Vallation" <me>')
 				tickdelay = os.clock() + 2.5
 				return true
