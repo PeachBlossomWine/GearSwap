@@ -741,10 +741,16 @@ function can_use(spell)
             return false
         -- At this point, we know that it is technically castable by this job combination if the right conditions are met.
 		elseif player.main_job == 'SCH' then
+			local abil_recasts = windower.ffxi.get_ability_recasts()
+			
 			if (spell_jobs[player.sub_job_id] and spell_jobs[player.sub_job_id] <= player.sub_job_level) or state.Buff['Enlightenment'] then
 				return true
 			elseif data.spells.addendum_white:contains(spell.english) and not state.Buff['Addendum: White'] then
-				if state.AutoArts.value and not state.Buff['Addendum: White'] and not silent_check_amnesia() and get_current_stratagem_count() > 0 then
+				if data.spells.reraise:contains(spell.english) and not silent_check_amnesia() and not state.Buff['Addendum: White'] and not state.Buff['Enlightenment'] and abil_recasts[235] < latency then
+					windower.chat.input('/ja "Enlightenment" <me>')
+					windower.chat.input:schedule(1.5,'/ma "'..spell.english..'" '..spell.target.raw..'')
+					tickdelay = os.clock() + 4.5
+				elseif state.AutoArts.value and not state.Buff['Addendum: White'] and not silent_check_amnesia() and get_current_stratagem_count() > 0 then
 					if state.Buff['Light Arts'] then
 						windower.chat.input('/ja "Addendum: White" <me>')
 						windower.chat.input:schedule(1.5,'/ma "'..spell.english..'" '..spell.target.raw..'')
@@ -1008,7 +1014,7 @@ function check_midaction(spell, spellMap, eventArgs)
 	if os.clock() < next_cast and not state.RngHelper.value then
 		if eventArgs and not (spell.type:startswith('BloodPact') and state.Buff["Astral Conduit"]) then
 			eventArgs.cancel = true
-			if delayed_cast == '' and state.MiniQueue.value and (spell.skill ~= 'Elemental Magic') then
+			if delayed_cast == '' and state.MiniQueue.value then -- and (spell.skill ~= 'Elemental Magic') then
 				windower.send_command:schedule((next_cast - os.clock()),'gs c delayedcast')
 			end
 			delayed_cast = spell.english

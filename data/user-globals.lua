@@ -137,52 +137,6 @@ data.equipment.rema_ranged_weapons_ammo_pouch = {
 	['Anarchy +2'] = 'Chr. Bul. Pouch'
 }
 
-spell_stepdown = {
-    ['Aspir III'] = 'Aspir II',
-    ['Aspir II'] = 'Aspir',
-    ['Sleepga II'] = 'Sleepga',
-    ['Sleep II'] = 'Sleep',
-    ['Arise'] = 'Raise III',
-    ['Raise III'] = 'Raise II',
-    ['Raise II'] = 'Raise',
-    ['Reraise IV'] = 'Reraise III',
-    ['Reraise III'] = 'Reraise II',
-    ['Reraise II'] = 'Reraise',
-    ['Gravity II'] = 'Gravity',
-    ['Horde Lullaby II'] = 'Horde Lullaby',
-    ['Foe Lullaby II'] = 'Foe Lullaby',
-	['Puppet\'s Operetta'] = 'Scop\'s Operetta',
-	['Scop\'s Operetta'] = 'Goblin Gavotte',
-	['Goblin Gavotte'] = 'Shining Fantasia',
-	['Stoneja'] = 'Stone VI',
-	['Stone VI'] = 'Stone V',
-	['Stone V'] = 'Stone IV',
-	['Stone IV'] = 'Stone III',
-	['Water VI'] = 'Water V',
-	['Water V'] = 'Water IV',
-	['Water IV'] = 'Water III',
-	['Aeroja'] = 'Aero VI',
-	['Aero VI'] = 'Aero V',
-	['Aero V'] = 'Aero IV',
-	['Aero IV'] = 'Aero III',
-	['Fire VI'] = 'Fire V',
-	['Fire V'] = 'Fire IV',
-	['Fire IV'] = 'Fire III',
-	['Blizzard VI'] = 'Blizzard V',
-	['Blizzard V'] = 'Blizzard IV',
-	['Blizzard IV'] = 'Blizzard III',
-	['Thundaja'] = 'Thunder VI',
-	['Thunder VI'] = 'Thunder V',
-	['Thunder V'] = 'Thunder IV',
-	['Thunder IV'] = 'Thunder III',
-	
-	['Spectral Floe'] = 'Tenebral Crush',
-	['Anvil Lightning'] = 'Silent Storm',
-	
-	['Utsusemi: San'] = 'Utsusemi: Ni',
-	['Utsusemi: Ni'] = 'Utsusemi: Ichi',
-}
-
 
 function user_unload()
 	currentPC=windower.ffxi.get_player()
