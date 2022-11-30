@@ -279,19 +279,20 @@ sets.midcast['Elemental Magic'] = {
 }
 
 sets.midcast['Elemental Magic'].Proc = {
-	main="Bolelabunga",
+	main="Daybreak",
 	sub="Genmei Shield",
+	ammo=gear.dt_ammo,
 	head="Befouled Crown",
-	body=gear.telchine_enhancing_body,
-	hands=gear.telchine_enhancing_hands,
-	legs="Assid. Pants +1",
-	feet=gear.telchine_enhancing_feet,
-	neck="Loricate Torque +1",
-	waist="Porous Rope",
+	body="Shango Robe",
+	hands="Shrieker's Cuffs",
+	legs="Psycloth Lappas",
+	feet="Vanya Clogs",
+	neck="Incanter's Torque",
+	waist="Luminary Sash",
 	left_ear="Regal Earring",
-	right_ear=gear.empy_earring,
-	left_ring="Defending Ring",
-	right_ring="Gelatinous Ring +1",
+	right_ear="Malignance Earring",
+	left_ring="Metamor. Ring +1",
+	right_ring=gear.stikini_ring,
 	back=gear.jse_mab_back,
 }
 
@@ -482,7 +483,7 @@ sets.idle = {
 	main="Daybreak",
 	sub="Genmei Shield",																-- 10%
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-	head="Befouled Crown",
+	head=gear.merlinic_refresh_head,
 	body=gear.geo_body_idle,
 	hands="Bagua Mitaines +3",
 	legs="Assid. Pants +1",
@@ -492,7 +493,7 @@ sets.idle = {
 	left_ear="Infused Earring",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",															-- 10%
-	right_ring="Gelatinous Ring +1",													-- 7%
+	right_ring=gear.stikini_ring,													
 	back=gear.jse_pet_back,
 }
 	
@@ -500,9 +501,9 @@ sets.idle.DT = {
 	main="Daybreak",
 	sub="Genmei Shield",																-- 10
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},	
-	head="Befouled Crown",
+	head=gear.jse_empy_head,
 	body=gear.geo_body_idle,
-	hands="Nyame Gauntlets",															-- 7
+	hands="Bagua Mitaines +3",															
 	legs="Nyame Flanchard",																-- 9
 	feet="Geomancy Sandals +3",
 	neck="Loricate Torque +1",															-- 6
@@ -510,7 +511,7 @@ sets.idle.DT = {
 	left_ear={name="Odnowa Earring +1",priority=500},									-- 3
 	right_ear={name="Etiolation Earring",priority=500},														
 	left_ring="Defending Ring",															-- 10
-	right_ring={name="Gelatinous Ring +1",priority=500},								-- 7
+	right_ring=gear.stikini_ring,
 	back=gear.jse_pet_back,																
 }
 
