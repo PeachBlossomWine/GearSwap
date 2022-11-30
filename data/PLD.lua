@@ -230,7 +230,7 @@ function job_self_command(commandArgs, eventArgs)
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 			local spell_recasts = windower.ffxi.get_spell_recasts()
 
-			if spell_recasts[840] < spell_latency and not silent_check_silence() and player.mp > res.spells[840].mp_cost then
+			if spell_recasts[840] < spell_latency and not silent_check_silence() and player.mp > res.spells[840].mp_cost and silent_can_use(840) then
 				windower.chat.input('/ma "Foil" <me>')
 				tickdelay = os.clock() + 3.0
 				return true
