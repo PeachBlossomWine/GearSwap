@@ -1196,4 +1196,8 @@ buff_spell_lists = {
 		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
         {Name='Reraise II',     Buff='Reraise',		    SpellID=141,	Reapply=true},
 	},
+	
+	Rebuff = {
+		{Name='Haste',			Buff='Haste',			SpellID=57,		Reapply=true},
+	},
 }

@@ -137,9 +137,9 @@ data.equipment.rema_ranged_weapons_ammo_pouch = {
 	['Anarchy +2'] = 'Chr. Bul. Pouch'
 }
 
-sets.buff.Doom = {neck="Nicander's Necklace",waist="Gishdubar Sash"}
-sets.precast.Item['Hallowed Water'] = {neck="Nicander's Necklace",waist="Gishdubar Sash"}
-sets.precast.Item['Holy Water'] = {neck="Nicander's Necklace",waist="Gishdubar Sash"}
+sets.buff.Doom = {neck="Nicander's Necklace",waist="Gishdubar Sash",right_ring="Purity Ring"}
+sets.precast.Item['Hallowed Water'] = {neck="Nicander's Necklace",waist="Gishdubar Sash",left_ring="Blenmot's Ring +1",right_ring="Purity Ring"}
+sets.precast.Item['Holy Water'] = {neck="Nicander's Necklace",waist="Gishdubar Sash",left_ring="Blenmot's Ring +1",right_ring="Purity Ring"}
 
 function user_unload()
 	currentPC=windower.ffxi.get_player()

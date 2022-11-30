@@ -651,14 +651,14 @@ end
 
 buff_spell_lists = {
 	Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
-		--{Name='Crusade',	Buff='Enmity Boost',	SpellID=476,	When='Combat'},
-		--{Name='Temper',		Buff='Multi Strikes',	SpellID=493,	When='Engaged'},
 		{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	When='Always'},
 		{Name='Refresh',	Buff='Refresh',			SpellID=109,	When='Always'},
 		{Name='Cocoon',		Buff='Defense Boost',	SpellID=547,	When='Always'},
 	},
 
 	Default = {
+		{Name='Protect IV',	Buff='Protect',			SpellID=46, 	Reapply=false},
+		{Name='Shell V',	Buff='Shell',			SpellID=52, 	Reapply=false},
 		{Name='Crusade',	Buff='Enmity Boost',	SpellID=476,	Reapply=false},
 		{Name='Temper',		Buff='Multi Strikes',	SpellID=493,	Reapply=false},
 		{Name='Haste',		Buff='Haste',			SpellID=57,		Reapply=false},
@@ -668,5 +668,13 @@ buff_spell_lists = {
 		{Name='Blink',		Buff='Blink',			SpellID=53,		Reapply=false},
 		{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	Reapply=false},
 		{Name='Regen IV',	Buff='Regen',			SpellID=477,	Reapply=false},
+	},
+	
+	Rebuff = {
+		{Name='Refresh',	Buff='Refresh',			SpellID=109,	Reapply=true},
+		{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	Reapply=true},
+		{Name='Crusade',	Buff='Enmity Boost',	SpellID=476,	Reapply=true},
+		{Name='Protect IV',	Buff='Protect',			SpellID=46, 	Reapply=false},
+		{Name='Shell V',	Buff='Shell',			SpellID=52, 	Reapply=false},
 	},
 }

@@ -94,7 +94,7 @@ sets.MagicBurst = {
 	sub="Ammurapi Shield",
 	ammo="Ghastly Tathlum +1",
 	head="Ea Hat +1",					-- 7 / 7 II
-		body="Ea Houppelande +1",			-- 	 / 5 II
+	body="Wicce Coat +3",				-- 	 / 5 II
 	hands="Agwu's Gages",				-- 8 / 5 II
 	legs="Wicce Chausses +3",			-- 15
 	feet="Wicce Sabots +3",
@@ -151,7 +151,7 @@ sets.midcast['Enhancing Magic'] = {
 	neck="Incanter's Torque",						-- 		-10 Skill
 	waist="Embla Sash",								-- 10%
 	left_ear="Andoaa Earring",						--		-5 Skill
-		right_ear="Etiolation Earring",
+	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
 	back="Perimede Cape",
@@ -250,7 +250,7 @@ sets.midcast['Elemental Magic'] = {
 	ammo="Pemphredo Tathlum",
 	head="Arch. Petasos +3",
 	body="Spaekona's Coat +3",
-	hands={ name="Amalric Gages +1", augments={'INT+12','Mag. Acc.+20','"Mag.Atk.Bns."+20',}},
+	hands="Agwu's Gages",
 	legs="Wicce Chausses +3",
 	feet="Arch. Sabots +3",
 	neck=gear.blm_jse_neck,
@@ -277,20 +277,20 @@ sets.midcast.Helix.Resistant = sets.midcast['Elemental Magic'].Resistant
 	
 -- Minimal damage gear, maximum recast gear for procs.
 sets.midcast['Elemental Magic'].Proc = {
-	main="Bolelabunga",
+	main="Daybreak",
 	sub="Genmei Shield",
-	ammo="Pemphredo Tathlum",
+	ammo=gear.dt_ammo,
 	head="Befouled Crown",
-	body="Spaekona's Coat +3",
-	hands=gear.telchine_enhancing_hands,
-	legs="Assid. Pants +1",
-	feet=gear.telchine_enhancing_feet,
-	neck="Loricate Torque +1",
-	waist="Embla Sash",
+	body="Shango Robe",
+	hands="Shrieker's Cuffs",
+	legs="Psycloth Lappas",
+	feet="Vanya Clogs",
+	neck="Incanter's Torque",
+	waist="Luminary Sash",
 	left_ear="Regal Earring",
-	right_ear=gear.empy_earring,
-	left_ring="Defending Ring",
-	right_ring="Freke Ring",
+	right_ear="Malignance Earring",
+	left_ring="Metamor. Ring +1",
+	right_ring=gear.stikini_ring,
 	back=gear.jse_mab_back,
 }
 	
@@ -299,49 +299,51 @@ sets.midcast['Elemental Magic'].Proc = {
 sets.idle = {
 	main="Daybreak",
 	sub="Genmei Shield",
-	ammo="Staunch Tathlum +1",
+	ammo=gear.dt_ammo,
 	head=gear.merlinic_refresh_head,
-	body="Shamash Robe",
+	body="Wicce Coat +3",
 	hands="Nyame Gauntlets",
 	legs="Assid. Pants +1",
-	feet="Nyame Sollerets",
+	feet="Wicce Sabots +3",
 	neck="Sanctity Necklace",
 	waist="Porous Rope",
 	left_ear="Infused Earring",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
-	right_ring="Gelatinous Ring +1",
+	right_ring=gear.stikini_ring,
 	back=gear.jse_mab_back,
 }
 
 sets.idle.DT = {
 	main="Daybreak",
 	sub="Genmei Shield",
-	ammo="Staunch Tathlum +1",
-	head="Nyame Helm",
-	body="Shamash Robe",
+	ammo=gear.dt_ammo,
+	head=gear.merlinic_refresh_head,
+	body="Wicce Coat +3",
 	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	legs="Assid. Pants +1",
+	feet="Wicce Sabots +3",
 	neck="Loricate Torque +1",
 	waist="Porous Rope",
 	left_ear="Odnowa Earring +1",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
-	right_ring="Gelatinous Ring +1",
+	right_ring=gear.stikini_ring,
 	back=gear.jse_mab_back,
 }
 	
 				sets.idle.Death = {}
 
-
+sets.idle.Town = set_combine(sets.idle.DT, {
+	body="Shamash Robe",
+})
 
 -- Defense sets
 
 sets.defense.PDT = {
 	main="Daybreak",
 	sub="Genmei Shield",
-	ammo="Staunch Tathlum +1",
+	ammo=gear.dt_ammo,
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",

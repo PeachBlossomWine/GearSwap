@@ -514,7 +514,7 @@ sets.engaged.Tank = {
 	body={name="Runeist's Coat +3",priority=218},											--					
 	hands={name="Turms Mittens +1",priority=74},											--					
 	legs=gear.jse_empy_legs,																--   		/ 8 DT	/
-	feet={name=gear.jse_empy_feet ,priority=76},												--			/ 10 DT /	
+	feet={name=gear.jse_empy_feet,priority=76},												--			/ 10 DT /	
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
 	waist=gear.dt_waist,																	-- 4 PDT 	/		/
 	left_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
@@ -530,7 +530,7 @@ sets.engaged.MEVA = {
 	body={name="Runeist's Coat +3",priority=218},											--					
 	hands={name="Nyame Gauntlets",priority=91},												--					
 	legs=gear.jse_empy_legs,																--   		/ 8 DT	/
-	feet={name=gear.jse_empy_feet ,priority=68},												--					
+	feet={name=gear.jse_empy_feet,priority=68},												--					
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
 	waist="Carrier's Sash",																	-- 4 PDT 	/		/
 	left_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT

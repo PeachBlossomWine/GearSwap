@@ -706,4 +706,10 @@ buff_spell_lists = {
 		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=false},
         {Name='Reraise',	    Buff='Reraise',		    SpellID=135,	Reapply=false},
 	},
+	Rebuff = {
+		{Name='Refresh III',	Buff='Refresh',			SpellID=894,	Reapply=true},
+		{Name='Haste II',		Buff='Haste',			SpellID=511,	Reapply=true},
+		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=true},
+		{Name='Aquaveil',		Buff='Aquaveil',		SpellID=55,		Reapply=true},
+	},
 }

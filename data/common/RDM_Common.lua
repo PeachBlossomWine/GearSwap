@@ -496,20 +496,20 @@ sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcas
 
 -- Minimal damage gear, maximum recast gear for procs.
 sets.midcast['Elemental Magic'].Proc = {
-	main="Bolelabunga",
+	main="Daybreak",
 	sub="Genmei Shield",
-	ammo="Pemphredo Tathlum",
+	ammo=gear.dt_ammo,
 	head="Befouled Crown",
-	body="Shamash Robe",
-	hands=gear.telchine_enhancing_hands,
-	legs="Assid. Pants +1",
-	feet=gear.telchine_enhancing_feet,
-	neck="Loricate Torque +1",
-	waist="Embla Sash",
+	body="Shango Robe",
+	hands="Shrieker's Cuffs",
+	legs="Psycloth Lappas",
+	feet="Vanya Clogs",
+	neck="Incanter's Torque",
+	waist="Luminary Sash",
 	left_ear="Regal Earring",
-	right_ear=gear.empy_earring,
-	left_ring="Defending Ring",
-	right_ring="Freke Ring",
+	right_ear="Malignance Earring",
+	left_ring="Metamor. Ring +1",
+	right_ring=gear.stikini_ring,
 	back=gear.jse_mab_back,
 }
 
