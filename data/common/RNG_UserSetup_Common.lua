@@ -19,7 +19,7 @@ WeaponType =  {['Fail-Not'] = "Bow",
 			   ['Anarchy +2'] = "Gun",
 			   ['Annihilator'] = "Gun",
 			   ['Gastraphetes'] = "Crossbow",
-			   }
+}
 
 DefaultAmmo = {
 	['Bow']  = {['Default'] = "Yoichi's Arrow",

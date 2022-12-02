@@ -3,29 +3,15 @@
 --------------------------------------
 
 if item_available('Shamash Robe') then
-	gear.geo_body_idle = 'Shamash Robe'
+	gear.town_body_idle = 'Shamash Robe'
 else
-	gear.geo_body_idle = "Agwu's Robe"
-end
-
-if item_available('Bagua Pants +3') then
-	gear.geo_relic_legs = 'Bagua Pants +3'
-	gear.geo_freenuke_legs = 'Bagua Pants +3'
-else
-	gear.geo_relic_legs = 'Bagua Pants +2'
-	gear.geo_freenuke_legs = 'Bagua Pants +2'
+	gear.town_body_idle = "Agwu's Robe"
 end
 
 if item_available('Crepuscular Cloak') then
 	gear.impact_body = "Crepuscular Cloak"
 else
 	gear.impact_body = "Twilight Cloak"
-end
-
-if item_available('Weather. Ring +1') then
-	gear.fc_ring = "Weather. Ring +1"
-else
-	gear.fc_ring = "Weather. Ring"
 end
 
 --Burst gear
@@ -82,7 +68,7 @@ end
 sets.precast.JA.Bolster = {body="Bagua Tunic"}
 sets.precast.JA['Life Cycle'] = {body="Geomancy Tunic +3", back=gear.jse_pet_back}
 sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +3"}
-sets.precast.JA['Mending Halation'] = {legs=gear.geo_relic_legs}
+sets.precast.JA['Mending Halation'] = {legs="Bagua Pants +3"}
 sets.precast.JA['Full Circle'] = {head=gear.jse_empy_head,hands="Bagua Mitaines +3"}
 
 sets.weapons.Idris = {main="Idris",sub="Genmei Shield"}
@@ -111,7 +97,7 @@ sets.precast.FC = {
 	waist="Embla Sash",																								-- 5
 	left_ear="Loquac. Earring",																						-- 2
 	right_ear="Etiolation Earring",																					-- 1
-	left_ring=gear.fc_ring,																							-- 4
+	left_ring=gear.weather_ring,																					-- 6
 	right_ring={name="Gelatinous Ring +1",priority=500},
 	back=gear.jse_skill_back,																						-- 7
 }
@@ -329,10 +315,10 @@ sets.midcast['Dark Magic'] = {
 	head="Pixie Hairpin +1",
 	body="Geomancy Tunic +3",
 	hands="Geomancy Mitaines +3",
-	legs="Geomancy Pants +3",
-	feet="Geomancy Sandals +3",
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
 	neck="Erra Pendant",
-	waist="Fucho-no-obi",
+	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Evanescence Ring",
@@ -340,24 +326,24 @@ sets.midcast['Dark Magic'] = {
 	back=gear.nuke_jse_back,
 }
 
-sets.midcast['Dark Magic'].DT = set_combine(sets.midcast['Dark Magic'], {back={name=gear.dt_moon_back,priority=1},})
+sets.midcast['Dark Magic'].DT = set_combine(sets.midcast['Dark Magic'], {})
 		
-sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {feet="Agwu's Pigaches"})
+sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {waist="Fucho-no-obi", feet="Agwu's Pigaches"})
 sets.midcast.Aspir = sets.midcast.Drain
-sets.midcast.Drain.DT = set_combine(sets.midcast['Dark Magic'].DT, {feet="Agwu's Pigaches"})
+sets.midcast.Drain.DT = set_combine(sets.midcast['Dark Magic'].DT, {waist="Fucho-no-obi", feet="Agwu's Pigaches"})
 sets.midcast.Aspir.DT = sets.midcast.Drain.DT
 	
 sets.midcast['Enfeebling Magic'] = {
 	main="Daybreak",
 	sub="Ammurapi Shield",
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-	head="C. Palug Crown",
-	body="Geomancy Tunic +3",
+	head=gear.jse_empy_head,
+	body=gear.jse_empy_body,
 	hands="Geomancy Mitaines +3",
-	legs={name="Geomancy Pants +3",priority=1},
-	feet="Geomancy Sandals +3",
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
 	neck=gear.geo_jse_neck,
-	waist="Luminary Sash",
+	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Kishar Ring",
@@ -365,32 +351,15 @@ sets.midcast['Enfeebling Magic'] = {
 	back=gear.jse_mab_back,
 }
 
-sets.midcast['Enfeebling Magic'].DT = set_combine(sets.midcast['Enfeebling Magic'], {back={name=gear.dt_moon_back,priority=1},})
+sets.midcast['Enfeebling Magic'].DT = set_combine(sets.midcast['Enfeebling Magic'], {})
+sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {left_ring=gear.stikini_ring})
 	
-sets.midcast['Enfeebling Magic'].Resistant = {
-	main="Daybreak",
-	sub="Ammurapi Shield",
-	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-	head="C. Palug Crown",
-	body="Geomancy Tunic +3",
-	hands="Geomancy Mitaines +3",
-	legs="Geomancy Pants +3",
-	feet="Geomancy Sandals +3",
-	neck=gear.geo_jse_neck,
-	waist="Luminary Sash",
-	left_ear="Regal Earring",
-	right_ear=gear.empy_earring,
-	left_ring="Vertigo Ring",
-	right_ring="Metamorph Ring +1",
-	back=gear.jse_mab_back,
-}
-	
-sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Enfeebling Magic'], {})
-sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
-sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
-sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
-sets.midcast.MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
-sets.midcast.MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
+sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Enfeebling Magic'], {waist="Sacro Cord",})
+sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {waist="Sacro Cord",})
+sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {waist="Sacro Cord",})
+sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {waist="Sacro Cord",})
+sets.midcast.MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {waist="Luminary Sash"})
+sets.midcast.MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {waist="Luminary Sash"})
 
 sets.midcast.Dia = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
@@ -440,12 +409,12 @@ sets.midcast['Enhancing Magic'] = {
 	neck="Incanter's Torque",						-- 		-10 Skill
 	waist="Embla Sash",								-- 10%
 	left_ear="Andoaa Earring",						--		-5 Skill
-		right_ear="Etiolation Earring",
+	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
 }
 
-sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic'], {neck="Loricate Torque +1",left_ear="Odnowa Earring +1",back={name=gear.dt_moon_back,priority=1},})
+sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic'], {neck="Loricate Torque +1",left_ear="Odnowa Earring +1",back={name=gear.dt_moon_back,priority=500},})
 	
 sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {neck="Nodens Gorget", waist="Siegel Sash"})
 sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {head="Amalric Coif +1",feet="Inspirited Boots", waist="Gishdubar Sash"})
@@ -484,7 +453,7 @@ sets.idle = {
 	sub="Genmei Shield",																-- 10%
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
 	head=gear.merlinic_refresh_head,
-	body=gear.geo_body_idle,
+	body=gear.jse_empy_body,
 	hands="Bagua Mitaines +3",
 	legs="Assid. Pants +1",
 	feet="Geomancy Sandals +3",
@@ -502,9 +471,9 @@ sets.idle.DT = {
 	sub="Genmei Shield",																-- 10
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},	
 	head=gear.jse_empy_head,
-	body=gear.geo_body_idle,
+	body=gear.jse_empy_body,
 	hands="Bagua Mitaines +3",															
-	legs="Nyame Flanchard",																-- 9
+	legs="Agwu's Slops",																-- 9
 	feet="Geomancy Sandals +3",
 	neck="Loricate Torque +1",															-- 6
 	waist="Porous Rope",
@@ -517,6 +486,7 @@ sets.idle.DT = {
 
 sets.idle.Town = set_combine(sets.idle.DT, {
 	main="Idris",
+	body=gear.town_body_idle,
 })
 
 -- Pet sets are for when Luopan is present.
@@ -528,7 +498,7 @@ sets.idle.Pet = {																										--Regen / Pet DT
 	sub="Genmei Shield",
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},											-- 0 / 5
 	head=gear.jse_empy_head,																							-- 4
-	body=gear.geo_body_idle,
+	body=gear.jse_empy_body,
 	hands="Geomancy Mitaines +3",																						-- 0 / 13
 	legs=gear.telchine_pet_legs,																						-- 3
 	feet="Bagua Sandals +3",																							-- 5
@@ -537,7 +507,7 @@ sets.idle.Pet = {																										--Regen / Pet DT
 	left_ear="Odnowa Earring +1",																						
 	right_ear="Etiolation Earring",																						
 	left_ring="Defending Ring",															-- 10%
-	right_ring="Gelatinous Ring +1",													-- 7%
+	right_ring=gear.stikini_ring,
 	back=gear.jse_pet_back,																								-- 15 / 0
 }
 
@@ -546,17 +516,17 @@ sets.idle.DT.Pet = {
 	main="Idris",
 	sub="Genmei Shield",																-- 10
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},	
-	head=gear.jse_empy_head,															-- 11							-- 4
-	body=gear.geo_body_idle,
+	head=gear.jse_empy_head,															-- 12							-- 4
+	body=gear.jse_empy_body,
 	hands="Geomancy Mitaines +3",														-- 3							-- 0 / 13
-	legs="Nyame Flanchard",																		
+	legs="Agwu's Slops",																-- 9/7		
 	feet="Bagua Sandals +3",																							-- 5
 	neck=gear.geo_jse_neck,
 	waist="Isa Belt",																									-- 1 / 0
 	left_ear={name="Odnowa Earring +1",priority=500},									-- 3
-	right_ear={name="Etiolation Earring",priority=350},														
+	right_ear="Genmei Earring",
 	left_ring="Defending Ring",															-- 10
-	right_ring="Gelatinous Ring +1",													-- 7
+	right_ring=gear.stikini_ring,
 	back=gear.jse_pet_back,																								-- 15 / 0
 }
 
