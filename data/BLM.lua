@@ -66,6 +66,7 @@ function job_setup()
 	state.DeathMode = M{['description'] = 'Death Mode', 'Off', 'Single', 'Lock'}
 	state.AutoManawell = M(true, 'Auto Manawell Mode')
 	state.RecoverMode = M('35%', '60%', 'Always', 'Never')
+	state.AutoConvert = M(false, 'Auto Convert Mode')
 
 	autows = 'Myrkr'
 	autofood = 'Pear Crepe'
@@ -516,11 +517,13 @@ function check_buff()
 				return true
 			end
 		end
-		if player.mp < 385 and abil_recasts[0] < latency and player.in_combat and (battle_target and battle_target.distance:sqrt() < (battle_target.model_size + 20.1) and battle_target.valid_target) then
-            windower.send_command('input /ja "Manafont" <me>')
-			tickdelay = os.clock() + 2
+		if (state.AutoConvert.value and player.sub_job == "RDM" and not buffactive['SJ Restriction'] and not buffactive['Manafont']) and 
+			player.mpp < 20 and player.hpp > 75 and abil_recasts[49] < latency and not silent_check_amnesia() and 
+			player.in_combat and (battle_target and battle_target.distance:sqrt() < (battle_target.model_size + 20.1) and battle_target.valid_target) then
+            windower.send_command('input /ja "Convert" <me>')
+			tickdelay = os.clock() + 2.5
             return true
-        end
+		end
 	else
 		return false
 	end
@@ -559,14 +562,17 @@ function check_buffup()
 end
 
 function check_zerg_sp()
-    if state.AutoZergMode.value and player.in_combat and not data.areas.cities:contains(world.area) then
+	local abil_recasts = windower.ffxi.get_ability_recasts()
+	local battle_target = windower.ffxi.get_mob_by_target('bt') or false
 
-        local abil_recasts = windower.ffxi.get_ability_recasts()
-		local battle_target = windower.ffxi.get_mob_by_target('bt') or false
-
-        if abil_recasts[254] < latency and not buffactive['Subtle Sorcery'] and (battle_target and battle_target.distance:sqrt() < (battle_target.model_size + 20.1) and battle_target.valid_target) then
+    if state.AutoZergMode.value and player.in_combat and (battle_target and battle_target.distance:sqrt() < (battle_target.model_size + 20.1) and battle_target.valid_target) and not data.areas.cities:contains(world.area) then
+        if abil_recasts[254] < latency and not buffactive['Subtle Sorcery'] then
 			windower.chat.input('/ja "Subtle Sorcery" <me>')
             tickdelay = os.clock() + 2.5
+            return true
+		elseif abil_recasts[0] < latency and not buffactive['Manafont'] then
+            windower.chat.input('/ja "Manafont" <me>')
+			tickdelay = os.clock() + 2.5
             return true
         else
             return false

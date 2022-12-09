@@ -14,6 +14,8 @@ end
 -- Weapons sets
 sets.weapons.Khatvanga = {main="Khatvanga",sub="Khonsu"}
 sets.weapons.Marin = {main="Marin Staff +1",sub="Khonsu"}
+sets.weapons.Xoanon = {main="Xoanon",sub="Khonsu"}
+
 sets.buff.Sublimation = {waist="Embla Sash"}
 sets.buff.DTSublimation = {waist="Embla Sash"}	
 
@@ -29,7 +31,8 @@ sets.precast.JA.Convert = {}
 -- Fast cast sets for spells
 -- BLM for elemental has -8% so 72% FC needed.
 
-
+-- 81% FC
+-- 3% QC
 sets.precast.FC = {
     main="Daybreak",																									
 	sub="Chanter's Shield",																								-- 3
@@ -45,7 +48,7 @@ sets.precast.FC = {
 	right_ear="Malignance Earring",																						-- 4
 	left_ring="Weather. Ring +1",																						-- 6
 	right_ring="Lebeche Ring",																							-- QC
-	back=gear.jse_fc_back,																								-- 4
+	back=gear.jse_fc_back,																								-- 10
 }
 
 	
@@ -62,22 +65,37 @@ sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak",sub="Ge
 			sets.precast.FC.Death = set_combine(sets.precast.FC, {
 			})
 
-		-- Weaponskill sets
-			sets.precast.WS = {}
+-- Weaponskill sets
+sets.precast.WS = {
+	ammo="Oshasha's Treatise",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Ishvara Earring",
+    right_ear="Moonshade Earring",
+    left_ring="Vertigo Ring",
+    right_ring="Rufescent Ring",
+	back=gear.dt_moon_back,
+}
 
 sets.precast.WS['Myrkr'] = {
-	head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},
-	body="Spaekona's Coat +3",
-	hands="Shrieker's Cuffs",
-	legs="Psycloth Lappas",
-	feet=gear.telchine_enhancing_feet,
-	neck="Sanctity Necklace",
-	waist="Luminary Sash",
-	left_ear="Moonshade Earring",
-	right_ear="Halasz Earring",
-	left_ring="Metamor. Ring +1",
-	right_ring="Lebeche Ring",
-	back=gear.jse_fc_back,		
+	ammo=gear.dt_ammo,
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck="Fotia Gorget",
+	waist="Fotia Belt",
+	left_ear="Ishvara Earring",
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ring="Vertigo Ring",
+	right_ring="Rufescent Ring",
+	back=gear.nuke_jse_back,
 }
 	
 sets.MaxTPMyrkr = {ear1="Etiolation Earring",ear2="Halasz Earring"}
@@ -116,7 +134,7 @@ sets.midcast.Cure = {
 	sub="Ammurapi Shield",
 	head={ name="Vanya Hood", augments={'MP+50','"Fast Cast"+10','Haste+2%',}},											-- 10
 	body="Vedic Coat",
-	hands="Shrieker's Cuffs",
+	hands="Nyame Gauntlets",
 	legs="Vanya Slops",
 	feet={ name="Vanya Clogs", augments={'"Cure" potency +5%','"Cure" spellcasting time -15%','"Conserve MP"+6',}},		-- 10
 	neck="Incanter's Torque",
@@ -130,14 +148,14 @@ sets.midcast.Cure = {
 	
 sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {
 	main="Chatoyant Staff",
-	sub="Enki Strap",
+	sub="Khonsu",
 	waist="Korin Obi",
 })
 	
 sets.midcast.LightDayCure = sets.midcast.LightWeatherCure
 
 sets.midcast.Curaga = sets.midcast.Cure
-sets.midcast.Cursna =  set_combine(sets.midcast.Cure, {})
+sets.midcast.Cursna = set_combine(sets.midcast.Cure, {neck="Debilis Medallion",ring1="Haoma's Ring",ring2="Menelaus's Ring"})
 sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {})
 
 sets.midcast['Enhancing Magic'] = {
@@ -154,29 +172,29 @@ sets.midcast['Enhancing Magic'] = {
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
-	back="Perimede Cape",
+	back="Solemnity Cape",
 }
 
 sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {neck="Nodens Gorget",waist="Siegel Sash"})
-sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {head="Amalric Coif +1", feet="Inspirited Boots"})
+sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {head="Amalric Coif +1",feet="Inspirited Boots",waist="Gishdubar Sash"})
 sets.midcast.Aquaveil = set_combine(sets.midcast['Enhancing Magic'], {main="Vadose Rod",sub="Genmei Shield",head="Amalric Coif +1",hands="Regal Cuffs"})
 sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {})
 
 sets.midcast['Enfeebling Magic'] = {
-	main="Daybreak",							-- 40
-	sub="Ammurapi Shield",						-- 38
-	ammo="Pemphredo Tathlum",					-- 8
-	head="C. Palug Crown",						-- 50
-	body="Spaekona's Coat +3",					-- 76
-	hands="Nyame Gauntlets",					-- 40
-	legs="Psycloth Lappas",						-- 35 + 18
-	feet="Arch. Sabots +3",						-- 42
-	neck="Erra Pendant",						-- 17
-	waist="Luminary Sash",						-- 10
+	main="Daybreak",
+	sub="Ammurapi Shield",
+	ammo="Pemphredo Tathlum",
+	head="C. Palug Crown",
+	body="Spaekona's Coat +3",
+	hands="Spae. Gloves +3",
+	legs="Wicce Chausses +3",
+	feet="Wicce Sabots +3",
+	neck=gear.blm_jse_neck,
+	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Kishar Ring",
-	right_ring="Metamorph Ring +1",
+	right_ring={name="Metamorph Ring +1",priority=500},
 	back=gear.jse_mab_back,
 }
 	
@@ -184,10 +202,10 @@ sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeeblin
 	left_ring="Vertigo Ring",
 })
 	
-sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {})
-sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
-sets.midcast.MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {ammo="Hydrocera",})
-sets.midcast.MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
+sets.midcast.IntEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {main="Bunzi's Rod", waist="Sacro Cord",})
+sets.midcast.IntEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {main="Bunzi's Rod", waist="Sacro Cord",})
+sets.midcast.MndEnfeebles = set_combine(sets.midcast['Enfeebling Magic'], {waist="Luminary Sash"})
+sets.midcast.MndEnfeebles.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {waist="Luminary Sash"})
 
 sets.midcast.Dia = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
@@ -195,7 +213,6 @@ sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHu
 sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 
 sets.midcast['Dispelga'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {main="Daybreak"})
-
 sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'], {})
 
 sets.midcast['Dark Magic'] = {
@@ -204,11 +221,11 @@ sets.midcast['Dark Magic'] = {
 	ammo="Pemphredo Tathlum",
 	head="Pixie Hairpin +1",
 	body="Spaekona's Coat +3",
-	hands="Nyame Gauntlets",
+	hands="Agwu's Gages",
 	legs="Wicce Chausses +3",
 	feet="Wicce Sabots +3",
 	neck="Erra Pendant",
-	waist="Fucho-no-obi",
+	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Evanescence Ring",
@@ -216,22 +233,17 @@ sets.midcast['Dark Magic'] = {
 	back=gear.jse_mab_back,
 }
 
-sets.midcast.Drain = sets.midcast['Dark Magic']
-sets.midcast.Aspir = set_combine(sets.midcast.Drain, {feet="Arch. Sabots +3",})
+sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {waist="Fucho-no-obi", feet="Agwu's Pigaches"})
+sets.midcast.Aspir = set_combine(sets.midcast['Dark Magic'], {waist="Fucho-no-obi", feet="Agwu's Pigaches"})
 		
-					sets.midcast.Aspir.Death = sets.midcast.Aspir
+					sets.midcast.Aspir.Death = set_combine(sets.midcast.Aspir, {})
 		
 sets.midcast.Death = set_combine(sets.MagicBurst, {
 	head="Pixie Hairpin +1",
 	right_ring="Archon Ring",
 })
 
-sets.midcast.Stun = set_combine(sets.midcast['Enfeebling Magic'], {
-	ammo="Impatiens",
-	left_ring="Metamorph Ring +1",
-	right_ring="Lebeche Ring",
-	back="Perimede Cape",
-})
+sets.midcast.Stun = set_combine(sets.midcast['Enfeebling Magic'], {})
 sets.midcast.Stun.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 
 sets.midcast.BardSong = {}
@@ -243,16 +255,15 @@ sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {
 })
 	
 -- Elemental Magic sets
-
 sets.midcast['Elemental Magic'] = {
 	main="Bunzi's Rod",
 	sub="Ammurapi Shield",
 	ammo="Pemphredo Tathlum",
 	head="Arch. Petasos +3",
-	body="Spaekona's Coat +3",
+	body="Wicce Coat +3",
 	hands="Agwu's Gages",
 	legs="Wicce Chausses +3",
-	feet="Arch. Sabots +3",
+	feet="Wicce Sabots +3",
 	neck=gear.blm_jse_neck,
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
@@ -264,14 +275,13 @@ sets.midcast['Elemental Magic'] = {
 	
 sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {
 	hands="Spae. Gloves +3",
-	legs="Wicce Chausses +3",
 })
 	
 sets.midcast['Elemental Magic'].HighTierNuke = set_combine(sets.midcast['Elemental Magic'], {})
 sets.midcast['Elemental Magic'].HighTierNuke.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant, {})
 
-sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Elemental Magic'], {})
-sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast['Elemental Magic'].Resistant, {})
+sets.midcast.ElementalEnfeeble = set_combine(sets.midcast['Elemental Magic'], {hands="Spae. Gloves +3",legs="Agwu's Slops",feet="Arch. Sabots +3"})
+sets.midcast.ElementalEnfeeble.Resistant = set_combine(sets.midcast.ElementalEnfeeble, {})
 sets.midcast.Helix = sets.midcast['Elemental Magic']
 sets.midcast.Helix.Resistant = sets.midcast['Elemental Magic'].Resistant
 	
@@ -339,7 +349,6 @@ sets.idle.Town = set_combine(sets.idle.DT, {
 })
 
 -- Defense sets
-
 sets.defense.PDT = {
 	main="Daybreak",
 	sub="Genmei Shield",
@@ -381,8 +390,21 @@ sets.buff['Mana Wall'] = {back=gear.jse_mab_back,feet="Wicce Sabots +3"}
 -- Gear for specific elemental nukes.
 sets.element.Dark = {head="Pixie Hairpin +1",ring2="Archon Ring"}
 
-		-- Engaged sets
-		sets.engaged = {}
+-- Engaged sets
+sets.engaged = {
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Combatant's Torque",
+    waist="Grunfeld Rope",
+    left_ear="Telos Earring",
+    right_ear="Crepuscular Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Petrov Ring",
+    back=gear.dt_moon_back,
+}
 
 --Situational sets: Gear that is equipped on certain targets
 sets.Self_Healing = {waist="Gishdubar Sash"}
