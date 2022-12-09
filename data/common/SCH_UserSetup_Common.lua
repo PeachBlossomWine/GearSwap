@@ -9,7 +9,7 @@ state.AutoAOE = M(false, 'AutoAOE')
 state.AutoBuffMode = M{['description'] = 'Auto Buff Mode','Off','Auto','Healing','Nuking'}
 state.AutoArts = M{['description'] = 'Auto Arts Mode','Off','On','Light','Dark'}
 
-gear.nuke_jse_back = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
+gear.jse_mab_back = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
 
 gear.obi_cure_back = "Solemnity Cape"
 gear.obi_cure_waist = "Porous Rope"

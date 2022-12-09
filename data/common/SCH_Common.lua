@@ -93,11 +93,11 @@ sets.precast.FC.DT = set_combine(sets.precast.FC, {})
 
 sets.precast.FC.Arts = set_combine{sets.precast.FC, {}}
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})
-sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {left_ring="Kishar Ring", back=gear.nuke_jse_back,})
+sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {left_ring="Kishar Ring", back=gear.jse_mab_back,})
 
 sets.precast.FC.Arts.DT = set_combine{sets.precast.FC.DT, {}}
 sets.precast.FC['Enhancing Magic'].DT = set_combine(sets.precast.FC.DT, {})
-sets.precast.FC['Elemental Magic'].DT = set_combine(sets.precast.FC.DT, {left_ring="Kishar Ring", back=gear.nuke_jse_back,})
+sets.precast.FC['Elemental Magic'].DT = set_combine(sets.precast.FC.DT, {left_ring="Kishar Ring", back=gear.jse_mab_back,})
 
 -- FC:	41%
 -- CCT: 51%
@@ -130,7 +130,7 @@ sets.precast.WS['Myrkr'] = {
 	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	left_ring="Vertigo Ring",
 	right_ring="Rufescent Ring",
-	back=gear.nuke_jse_back,
+	back=gear.jse_mab_back,
 }
 
 -- Midcast Sets
@@ -270,7 +270,7 @@ sets.midcast['Enfeebling Magic'] = {
 	right_ear=gear.empy_earring,
 	left_ring="Kishar Ring",
 	right_ring="Metamorph Ring +1",
-	back=gear.nuke_jse_back,
+	back=gear.jse_mab_back,
 }
 
 sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {})
@@ -305,7 +305,7 @@ sets.midcast['Dark Magic'] = {
 	right_ear=gear.empy_earring,
 	left_ring="Evanescence Ring",
 	right_ring="Archon Ring",
-	back=gear.nuke_jse_back,
+	back=gear.jse_mab_back,
 }
 
 sets.midcast.Kaustra = {
@@ -323,7 +323,7 @@ sets.midcast.Kaustra = {
 	right_ear=gear.empy_earring,
 	left_ring="Freke Ring",
 	right_ring="Archon Ring",
-	back=gear.nuke_jse_back,
+	back=gear.jse_mab_back,
 }
 	
 sets.midcast.Kaustra.Resistant = set_combine(sets.midcast.Kaustra,{})
@@ -361,7 +361,7 @@ sets.MagicBurst = {
 	right_ear=gear.empy_earring,	
 	left_ring="Metamor. Ring +1",
 	right_ring="Freke Ring",																					
-	back=gear.nuke_jse_back,
+	back=gear.jse_mab_back,
 }
 
 sets.midcast['Elemental Magic'] = {
@@ -379,7 +379,7 @@ sets.midcast['Elemental Magic'] = {
 	right_ear=gear.empy_earring,	
 	left_ring="Metamor. Ring +1",
 	right_ring="Freke Ring",																					
-	back=gear.nuke_jse_back,											
+	back=gear.jse_mab_back,											
 }
 
 sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental Magic'], {})
@@ -426,7 +426,7 @@ sets.midcast.Helix = {
 	right_ear=gear.empy_earring,	
 	left_ring="Metamor. Ring +1",
 	right_ring="Freke Ring",																					
-	back=gear.nuke_jse_back,		
+	back=gear.jse_mab_back,		
 }
 
 sets.midcast.Helix.Resistant = set_combine(sets.midcast.Helix, {})
@@ -456,7 +456,7 @@ sets.idle = {
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
 	right_ring=gear.stikini_ring,
-	back=gear.nuke_jse_back,
+	back=gear.jse_mab_back,
 }
 
 sets.idle.Town = set_combine(sets.idle, {
@@ -483,7 +483,7 @@ sets.idle.DT = {
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
 	right_ring=gear.stikini_ring,
-	back=gear.nuke_jse_back,
+	back=gear.jse_mab_back,
 }
 -- Defense sets
 
