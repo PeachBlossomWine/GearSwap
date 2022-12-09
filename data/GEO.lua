@@ -835,14 +835,6 @@ function check_buff()
 				windower.send_command('input /ja "Radial Arcana" <me>')
 				tickdelay = os.clock() + 2.2
 				return true
-			-- elseif pet.isvalid and pet.distance:sqrt() > 7 and player.mp > res.spells[814].mp_cost and silent_can_use(814) then
-				-- windower.send_command('input /ma "Geo-Voidance" <me>')
-				-- tickdelay = os.clock() + 2.2
-				-- return true
-			-- elseif not pet.isvalid and player.mp > res.spells[814].mp_cost and silent_can_use(814) then
-				-- windower.send_command('input /ma "Geo-Voidance" <me>')
-				-- tickdelay = os.clock() + 2.2
-				-- return true
 			end
         end
 	else
