@@ -45,5 +45,5 @@ send_command('gs c set MagicBurstMode Lock')
 send_command('wait 15; hb disable cure; hb disable curaga; hb disable na;')
 
 --Lockstyle
-send_command('wait 15; input /lockstyleset 18; wait 3; lua load dressup')
+send_command('wait 15; input /lockstyleset 20; wait 3; lua load dressup')
 select_default_macro_book()
