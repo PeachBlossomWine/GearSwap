@@ -63,6 +63,7 @@ state.AutoJumpMode = M(false, 'Auto Jump Mode')
 state.AutoRecoverHPMode = M(false, 'Auto Recover HP Mode')
 state.AutoShot = M(false, 'Auto Shot Mode')
 state.AutoCallPet = M(false, 'Auto Call Pet')
+state.DelayedWS = M(false, 'WS Wall Delay')
 
 data.weaponskills.mythic = {
     ["Conqueror"] = "King's Justice",

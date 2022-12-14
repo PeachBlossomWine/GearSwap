@@ -47,7 +47,7 @@
 -------------------------------------------------------------------------------------------------------------------
 -- Buff utility functions.
 -------------------------------------------------------------------------------------------------------------------
-
+local lastwstimestamp = 0
 local cancel_spells_to_check = S{'Sneak','Stoneskin','Spectral Jig','Trance','Monomi: Ichi','Utsusemi: Ichi','Utsusemi: Ni','Diamondhide','Magic Barrier','Valiance'}
 local cancel_types_to_check = S{'Waltz', 'Samba'}
 
@@ -1479,10 +1479,6 @@ function check_trust()
 					windower.chat.input('/ma "Ulmia" <me>')
 					tickdelay = os.clock() + 3
 					return true
-				elseif spell_recasts[900] < spell_latency and available_spells[900] and not have_trust("Ayame") then
-					windower.chat.input('/ma "Ayame" <me>')
-					tickdelay = os.clock() + 3
-					return true
 				else
 					return false
 				end
@@ -1672,6 +1668,16 @@ function check_ws()
 				windower.send_command('gs c smartws ' ..othertargetws)
 				tickdelay = os.clock() + 2.8
 				return true
+			elseif state.DelayedWS.value then
+				if os.clock() > (lastwstimestamp + 11) then
+					windower.chat.input('/ws "'..autows..'" <t>')
+					windower.add_to_chat(216, '-=Delayed WS=- Last WS Time: '..lastwstimestamp .. ' -Current Clock: '.. os.clock())
+					lastwstimestamp = os.clock()
+					tickdelay = os.clock() + 2.8
+					return true
+				else
+					return false
+				end
 			else
 				windower.chat.input('/ws "'..autows..'" <t>')
 				tickdelay = os.clock() + 2.8
