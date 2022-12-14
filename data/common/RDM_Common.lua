@@ -549,7 +549,7 @@ sets.idle = {
 	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 	body=gear.idle_body,
 	hands=gear.chironic_refresh_hands,
-	legs="Nyame Flanchard",
+	legs=gear.jse_empy_legs,
 	feet=gear.chironic_refresh_feet,
 	neck="Sanctity Necklace",
 	waist=gear.dt_waist,
@@ -567,7 +567,7 @@ sets.idle.DT = {
 	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 	body=gear.idle_body,																		-- 14
 	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
+	legs=gear.jse_empy_legs,
 	feet=gear.chironic_refresh_feet,
 	neck="Sanctity Necklace",
 	waist=gear.dt_waist,																		-- 4
