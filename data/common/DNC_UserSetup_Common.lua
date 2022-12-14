@@ -37,5 +37,5 @@ send_command('bind @f6 gs c toggle autoprestomode')
 send_command('bind @f7 gs c toggle autosambamode')
 send_command('bind @f8 gs c toggle autojumpmode')
 
-send_command('wait 15; input /lockstyleset 13;')
+send_command('wait 15; input /lockstyleset 19;')
 select_default_macro_book()

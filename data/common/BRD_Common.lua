@@ -34,6 +34,32 @@ else
 	gear.brd_empy_legs = "Fili Rhingrave +1"
 end
 
+--JSE
+
+if item_available("Mousai Turban +1") then
+	gear.jse_brd_head = "Mousai Turban +1"
+else
+	gear.jse_brd_head = "Mousai Turban"
+end
+
+if item_available("Mousai Manteel +1") then
+	gear.jse_brd_body = "Mousai Manteel +1"
+else
+	gear.jse_brd_body = "Mousai Manteel"
+end
+
+if item_available("Mousai Seraweels +1") then
+	gear.jse_brd_legs = "Mousai Seraweels +1"
+else
+	gear.jse_brd_legs = "Mousai Seraweels"
+end
+
+if item_available("Mousai Gages +1") then
+	gear.jse_brd_hands = "Mousai Gages +1"
+else
+	gear.jse_brd_hands = "Mousai Gages"
+end
+
 if item_available("Fili Earring +2") then
 	gear.empy_earring = "Fili. Earring +2"
 elseif item_available("Fili Earring +1") then
@@ -248,10 +274,10 @@ sets.midcast.Ballad = set_combine(sets.midcast.SongEffect, {}) --{legs=gear.brd_
 sets.midcast.Madrigal = set_combine(sets.midcast.SongEffect, {head=gear.brd_empy_head})
 sets.midcast.March = set_combine(sets.midcast.SongEffect, {hands=gear.brd_empy_hands})
 sets.midcast.Minuet = set_combine(sets.midcast.SongEffect, {body=gear.brd_empy_body})
-sets.midcast.Minne = set_combine(sets.midcast.SongEffect, {legs="Mousai Seraweels +1"})
-sets.midcast.Etude = set_combine(sets.midcast.SongEffect, {head="Mousai Turban +1", feet=gear.brd_empy_feet})
+sets.midcast.Minne = set_combine(sets.midcast.SongEffect, {legs=gear.jse_brd_legs})
+sets.midcast.Etude = set_combine(sets.midcast.SongEffect, {head=gear.jse_brd_head, feet=gear.brd_empy_feet})
 sets.midcast.Paeon = set_combine(sets.midcast.SongEffect, {head="Brioso Roundlet +3"})
-sets.midcast.Carol = set_combine(sets.midcast.SongEffect, {head=gear.brd_empy_head, hands="Mousai Gages +1"})
+sets.midcast.Carol = set_combine(sets.midcast.SongEffect, {head=gear.brd_empy_head, hands=gear.jse_brd_hands})
 sets.midcast["Sentinel's Scherzo"] = set_combine(sets.midcast.SongEffect, {feet=gear.brd_empy_feet})
 sets.midcast.Mazurka = {range=info.ExtraSongInstrument}
 sets.midcast["Honor March"] = set_combine(sets.midcast.SongEffect, {range="Marsyas"})
@@ -260,10 +286,10 @@ sets.midcast.Ballad.Melee = set_combine(sets.midcast.SongEffect.Melee, {}) --{le
 sets.midcast.Madrigal.Melee = set_combine(sets.midcast.SongEffect.Melee, {head=gear.brd_empy_head})
 sets.midcast.March.Melee = set_combine(sets.midcast.SongEffect.Melee, {hands=gear.brd_empy_hands})
 sets.midcast.Minuet.Melee = set_combine(sets.midcast.SongEffect.Melee, {body=gear.brd_empy_body})
-sets.midcast.Minne.Melee = set_combine(sets.midcast.SongEffect.Melee, {legs="Mousai Seraweels +1"})
-sets.midcast.Etude.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Mousai Turban +1", feet=gear.brd_empy_feet})
+sets.midcast.Minne.Melee = set_combine(sets.midcast.SongEffect.Melee, {legs=gear.jse_brd_legs})
+sets.midcast.Etude.Melee = set_combine(sets.midcast.SongEffect.Melee, {head=gear.jse_brd_head, feet=gear.brd_empy_feet})
 sets.midcast.Paeon.Melee = set_combine(sets.midcast.SongEffect.Melee, {head="Brioso Roundlet +3"})
-sets.midcast.Carol.Melee = set_combine(sets.midcast.SongEffect.Melee, {head=gear.brd_empy_head, hands="Mousai Gages +1"})
+sets.midcast.Carol.Melee = set_combine(sets.midcast.SongEffect.Melee, {head=gear.brd_empy_head, hands=gear.jse_brd_hands})
 sets.midcast["Sentinel's Scherzo"].Melee = set_combine(sets.midcast.SongEffect.Melee, {feet=gear.brd_empy_feet})
 sets.midcast.Mazurka.Melee = {range=info.ExtraSongInstrument}
 sets.midcast["Honor March"].Melee = set_combine(sets.midcast.SongEffect.Melee, {range="Marsyas"})	
@@ -293,7 +319,7 @@ sets.midcast.Lullaby = set_combine(sets.midcast.SongDebuff, {
 })
 
 sets.midcast.Threnody = set_combine(sets.midcast.SongDebuff, {
-	body="Mousai Manteel +1",
+	body=gear.jse_brd_body,
 })
 
 sets.midcast.SongDebuff.Melee = {
@@ -319,7 +345,7 @@ sets.midcast.Lullaby.Melee = set_combine(sets.midcast.SongDebuff.Melee, {
 })
 
 sets.midcast.Threnody.Melee = set_combine(sets.midcast.SongDebuff.Melee, {
-	body="Mousai Manteel +1",
+	body=gear.jse_brd_body,
 })
 
 -- Song-specific recast reduction

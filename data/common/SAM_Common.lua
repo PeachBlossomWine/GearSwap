@@ -12,6 +12,12 @@ else
 	gear.empy_wsd_earring = "Thrud Earring"
 end
 
+if item_available("Sacro Breastplate") then
+	gear.idle_body = "Sacro Breastplate"
+else
+	gear.idle_body = "Nyame Mail"
+end
+
 -- Weapons sets
 sets.weapons.Masamune = {main="Masamune",sub="Utu Grip"}
 sets.weapons.Dojikiri = {main="Dojikiri Yasutsuna",sub="Utu Grip"}
@@ -240,7 +246,7 @@ sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 sets.idle = {
 	ammo=gear.dt_ammo,
 	head="Wakido Kabuto +3",
-	body="Nyame Mail",
+	body=gear.idle_body,
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",

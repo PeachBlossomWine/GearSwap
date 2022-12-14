@@ -7,19 +7,26 @@ else
 	gear.impact_body = "Twilight Cloak"
 end
 
-if item_available("Beckoner's Horn +2") then
+
+if item_available("Beckoner's Horn +3") then
+	gear.jse_empy_head = "Beckoner's Horn +3"
+elseif item_available("Beckoner's Horn +2") then
 	gear.jse_empy_head = "Beckoner's Horn +2"
 else
 	gear.jse_empy_head = "Beckoner's Horn +1"
 end
 
-if item_available("Beck. Doublet +2") then
+if item_available("Beck. Doublet +3") then
+	gear.jse_empy_body = "Beck. Doublet +3"
+elseif item_available("Beck. Doublet +2") then
 	gear.jse_empy_body = "Beck. Doublet +2"
 else
 	gear.jse_empy_body = "Beck. Doublet +1"
 end
 
-if item_available("Beck. Spats +2") then
+if item_available("Beck. Spats +3") then
+	gear.jse_empy_legs = "Beck. Spats +3"
+elseif item_available("Beck. Spats +2") then
 	gear.jse_empy_legs = "Beck. Spats +2"
 else
 	gear.jse_empy_legs = "Beck. Spats +1"

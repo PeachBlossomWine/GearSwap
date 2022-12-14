@@ -589,6 +589,8 @@ function check_buff()
 	if state.AutoBuffMode.value ~= 'Off' and not data.areas.cities:contains(world.area) then
 		local spell_recasts = windower.ffxi.get_spell_recasts()
 		local abil_recasts = windower.ffxi.get_ability_recasts()
+		local battle_target = windower.ffxi.get_mob_by_target('bt') or false
+		
 		for i in pairs(buff_spell_lists[state.AutoBuffMode.Value]) do
 			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or 
             (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or 
@@ -606,7 +608,7 @@ function check_buff()
 		end
 
 		-- Convert
-		if abil_recasts[49] < latency and player.mpp < 10 and not silent_check_amnesia() then
+		if abil_recasts[49] < latency and player.mpp < 15 and not silent_check_amnesia() and player.in_combat and (battle_target and battle_target.distance:sqrt() < (battle_target.model_size + 20.1) and battle_target.valid_target) then
 			add_to_chat(122,'MP low, Converting!')
 			windower.chat.input('/ja Convert <me>')
 			tickdelay = os.clock() + 2

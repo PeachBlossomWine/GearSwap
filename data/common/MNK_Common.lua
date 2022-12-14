@@ -210,7 +210,7 @@ sets.engaged = {
 	head="Malignance Chapeau",
 	body="Mpaca's Doublet",
 	hands="Malignance Gloves",	
-	legs="Bhikku Hose +2",
+	legs="Bhikku Hose +3",
 	feet="Malignance Boots",
 	neck="Mnk. Nodowa +2",
 	waist=gear.mnk_tp_waist,					-- 15 II
@@ -257,10 +257,10 @@ sets.engaged.HF = set_combine(sets.engaged, {})
 
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
 sets.buff.Impetus = {body="Bhikku Cyclas +3", feet="Nyame Sollerets", ammo=gear.dt_ammo}
-sets.buff.Footwork = {legs="Bhikku Hose +2", feet="Anch. Gaiters +3"}
+sets.buff.Footwork = {legs="Bhikku Hose +3", feet="Anch. Gaiters +3"}
 sets.buff.Boost = {}
 
-sets.FootworkWS = {legs="Bhikku Hose +2", feet="Anch. Gaiters +3"}
+sets.FootworkWS = {legs="Bhikku Hose +3", feet="Anch. Gaiters +3"}
 sets.DayIdle = {}
 sets.NightIdle = {}
 sets.Knockback = {}

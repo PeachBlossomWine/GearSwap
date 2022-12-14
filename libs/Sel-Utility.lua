@@ -1669,7 +1669,7 @@ function check_ws()
 				tickdelay = os.clock() + 2.8
 				return true
 			elseif state.DelayedWS.value then
-				if os.clock() > (lastwstimestamp + 11) then
+				if os.clock() > (lastwstimestamp + 11.5) then
 					windower.chat.input('/ws "'..autows..'" <t>')
 					windower.add_to_chat(216, '-=Delayed WS=- Last WS Time: '..lastwstimestamp .. ' -Current Clock: '.. os.clock())
 					lastwstimestamp = os.clock()

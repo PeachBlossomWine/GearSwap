@@ -6,7 +6,7 @@ state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('DT','Normal')
-state.Weapons:options('Ochain','Aegis','Duban','Srivatsa','Sakpata','Naegling','None')
+state.Weapons:options('Duban','Aegis','Ochain','Srivatsa','Sakpata','Naegling','None')
 
 state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None'}
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')

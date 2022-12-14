@@ -27,5 +27,5 @@ else
 	send_command('unbind @f8')
 end
 
-send_command('wait 15; input /lockstyleset 12;')
+send_command('wait 15; input /lockstyleset 13;')
 select_default_macro_book()

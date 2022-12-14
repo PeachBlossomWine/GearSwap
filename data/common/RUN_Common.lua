@@ -59,26 +59,27 @@ sets.Enmity = {
 sets.Enmity.DT = sets.Enmity
 	 
 -- Merits: 	10%
--- Gear:	94%
--- Total: 	104%
+-- Gear:	104%
+-- Total: 	114%
 
--- PDT/DT:  40 = 65%
+-- PDT/DT:  52%
 -- Enmity: 	25 + 23 Weapon = 48
 
 sets.Enmity.SIRD = {															--SIRD	/	DT-PDT	/	Enmity
 	ammo=gear.sird_ammo,										        		-- 11	/	3
-	head={name="Agwu's Cap",priority=38},										-- 10				/	
+	head={name="Erilaz Galea +3",priority=111},									-- 20				/	
 	body={name="Nyame Mail",priority=136},										--		/	9
 	hands={name="Regal Gauntlets",priority=500},								-- 10
 	legs={name="Carmine Cuisses +1",priority=50},								-- 20
-	feet=gear.sird_feet,	                					    			--		/	7
+	feet={name="Erilaz Greaves +3",priority=48},				    			--		/	11
 	neck=gear.sird_neck,    													-- 15				/	15
 	waist="Audumbla Sash",														-- 10	/	4
 	left_ear={name="Odnowa Earring +1",priority=500},							-- 			3
 	right_ear="Magnetic Earring",												-- 8
 	left_ring={name=gear.moon_ring,priority=500},								--		/	5
 	right_ring={name="Gelatinous Ring +1",priority=500},						--			7
-	back=gear.sird_back,														-- 10	/			/	10
+	--back=gear.sird_back,														-- 10	/			/	10
+	back=gear.tank_back,
 }
 
 --------------------------------------
@@ -88,9 +89,9 @@ sets.Enmity.SIRD = {															--SIRD	/	DT-PDT	/	Enmity
 -- Item sets.
 
 -- Precast sets to enhance JAs
-sets.precast.JA['Vallation'] = set_combine(sets.Enmity,{body={name="Runeist's Coat +3",priority=218}, legs={name="Futhark Trousers +3",priority=107},})
-sets.precast.JA['Valiance'] = set_combine(sets.Enmity,{body={name="Runeist's Coat +3",priority=218}, legs={name="Futhark Trousers +3",priority=107},})
-sets.precast.JA['Pflug'] = set_combine(sets.Enmity,{feet={name="Runeist's Bottes +3",priority=74},})
+sets.precast.JA['Vallation'] = set_combine(sets.Enmity,{body={name="Runeist Coat +3",priority=218}, legs={name="Futhark Trousers +3",priority=107},})
+sets.precast.JA['Valiance'] = set_combine(sets.Enmity,{body={name="Runeist Coat +3",priority=218}, legs={name="Futhark Trousers +3",priority=107},})
+sets.precast.JA['Pflug'] = set_combine(sets.Enmity,{feet={name="Runeist Bottes +3",priority=74},})
 sets.precast.JA['Battuta'] = set_combine(sets.Enmity,{
 	head={name="Futhark Bandeau +3",priority=56}, 
 	legs=gear.jse_empy_legs,
@@ -98,7 +99,7 @@ sets.precast.JA['Battuta'] = set_combine(sets.Enmity,{
 	back=gear.tank_back
 })
 sets.precast.JA['Liement'] = set_combine(sets.Enmity,{body="Futhark Coat +3",back={name=gear.dt_moon_back,priority=500},})
-sets.precast.JA['Gambit'] = set_combine(sets.Enmity,{hands={name="Runeist's Mitons +3",priority=85},})
+sets.precast.JA['Gambit'] = set_combine(sets.Enmity,{hands={name="Runeist Mitons +3",priority=85},})
 sets.precast.JA['Rayke'] = set_combine(sets.Enmity,{feet="Futhark Boots +1"})
 sets.precast.JA['Elemental Sforzo'] = set_combine(sets.Enmity,{body={name="Futhark Coat +3",priority=119},})
 sets.precast.JA['Swordplay'] = set_combine(sets.Enmity,{hands={name="Futhark Mitons +3",priority=45},})
@@ -150,7 +151,7 @@ sets.precast.JA['Tenebrae'] = set_combine(sets.Enmity, {})
 -- FC: 67%
 sets.precast.FC = {
 	ammo="Sapience Orb",																							-- 2
-	head={name="Runeist's Bandeau +3",priority=109},																-- 14
+	head={name="Runeist Bandeau +3",priority=109},																-- 14
 	body=gear.jovian_fc_body,																						-- 10
 		hands={name="Leyline Gloves",priority=25},																			-- 6-8
 	legs={name="Aya. Cosciales +2",priority=45},																	-- 6
@@ -259,7 +260,7 @@ sets.midcast.FastRecast.DT = sets.precast.FC
 sets.midcast['Enhancing Magic'] = {
 	ammo=gear.dt_ammo,
 	head=gear.jse_empy_head,														-- 20%
-	body={name="Runeist's Coat +3",priority=218},
+	body={name="Runeist Coat +3",priority=218},
 	hands={name="Regal Gauntlets",priority=205},									-- 20%
 	legs={ name="Futhark Trousers +3",priority=107},								-- 30%
 	feet={name="Nyame Sollerets",priority=500},
@@ -298,8 +299,8 @@ sets.midcast['Phalanx'].DT = set_combine(sets.midcast['Phalanx'], {})
 sets.midcast['Temper'] = {
 	ammo=gear.dt_ammo,
 	head="Carmine Mask +1",																			-- 11
-	body={name="Runeist's Coat +3",priority=218},
-	hands="Runeist's Mitons +3",																	-- 19
+	body={name="Runeist Coat +3",priority=218},
+	hands="Runeist Mitons +3",																	-- 19
 	legs={name="Carmine Cuisses +1",priority=50},													-- 18
 	feet={name="Nyame Sollerets",priority=68},
 	neck="Incanter's Torque",																		-- 10
@@ -318,9 +319,9 @@ sets.midcast.BarElement = sets.midcast['Temper']
 sets.midcast.BarElement.SIRD = sets.midcast['Temper']
 sets.midcast.BarElement.DT = sets.midcast['Temper']
 
-sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist's Bandeau +3", neck="Sacro Gorget", waist="Sroda Belt", right_ear=gear.empy_earring}) 
-sets.midcast['Regen'].SIRD = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist's Bandeau +3", neck="Sacro Gorget", waist="Sroda Belt", right_ear=gear.empy_earring}) 
-sets.midcast['Regen'].DT = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist's Bandeau +3", neck="Sacro Gorget", waist="Sroda Belt", right_ear=gear.empy_earring}) 
+sets.midcast['Regen'] = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist Bandeau +3", neck="Sacro Gorget", waist="Sroda Belt", right_ear=gear.empy_earring}) 
+sets.midcast['Regen'].SIRD = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist Bandeau +3", neck="Sacro Gorget", waist="Sroda Belt", right_ear=gear.empy_earring}) 
+sets.midcast['Regen'].DT = set_combine(sets.midcast['Enhancing Magic'],{head="Runeist Bandeau +3", neck="Sacro Gorget", waist="Sroda Belt", right_ear=gear.empy_earring}) 
 
 sets.midcast['Refresh'] = set_combine(sets.midcast['Enhancing Magic'],{}) 
 sets.midcast['Refresh'].SIRD = set_combine(sets.midcast['Enhancing Magic'],{})
@@ -362,8 +363,19 @@ sets.midcast.Foil = set_combine(sets.Enmity, {})
 sets.midcast.Foil.SIRD = set_combine(sets.Enmity.SIRD, {})
 sets.midcast.Foil.DT = set_combine(sets.Enmity, {})
 
+
+sets.midcast['Healing Magic'] = set_combine(sets.Enmity.SIRD, {
+	--feet=gear.sird_cure_feet,
+	--neck="Sacro Gorget", 
+	waist="Sroda Belt", 	-- 35%
+	back=gear.sird_back,
+})
+sets.midcast['Healing Magic'].SIRD = set_combine(sets.midcast['Healing Magic'], {})
+sets.midcast['Healing Magic'].DT = set_combine(sets.midcast['Healing Magic'], {})
+
 -- BLU spells
-sets.midcast['Blue Magic'] =  set_combine(sets.Enmity.SIRD, {})
+sets.midcast['Magic Fruit'] = set_combine(sets.midcast['Healing Magic'], {})
+sets.midcast['Blue Magic'] = set_combine(sets.Enmity.SIRD, {})
 sets.midcast['Blue Magic'].SIRD = set_combine(sets.Enmity.SIRD, {})
 sets.midcast['Blue Magic'].DT = set_combine(sets.Enmity.SIRD, {})
 
@@ -388,9 +400,6 @@ sets.midcast['Raise'] = set_combine(sets.Enmity.SIRD, {})
 sets.midcast['Raise'].SIRD = set_combine(sets.Enmity.SIRD, {})
 sets.midcast['Raise'].DT = set_combine(sets.Enmity.SIRD, {})
 
-sets.midcast['Healing Magic'] = set_combine(sets.Enmity.SIRD, {feet=gear.sird_cure_feet, waist="Sroda Belt"})
-sets.midcast['Healing Magic'].SIRD = set_combine(sets.midcast['Healing Magic'], {})
-sets.midcast['Healing Magic'].DT = set_combine(sets.midcast['Healing Magic'], {})
 --------------------------------------
 -- Idle/resting/defense/etc sets
 --------------------------------------
@@ -400,7 +409,7 @@ sets.resting = {}
 sets.idle = {
 	ammo="Homiliary",																		-- 			/ 3 DT	/
 	head={name="Nyame Helm",priority=91},													-- 			/		/
-	body={name="Runeist's Coat +3",priority=218},																
+	body={name="Runeist Coat +3",priority=218},																
 	hands={name="Regal Gauntlets",priority=205},																
 	legs={name="Nyame Flanchard",priority=114},												-- 		 	/ 9 DT	/
 	feet={name=gear.jse_empy_feet,priority=500},										--			/ 10 DT /													
@@ -511,7 +520,7 @@ sets.engaged.Ongo = set_combine(sets.engaged.DTLite ,{
 sets.engaged.Tank = {
 	ammo=gear.dt_ammo,																		-- 			/ 3 DT	/			
 	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
-	body={name="Runeist's Coat +3",priority=218},											--					
+	body={name="Runeist Coat +3",priority=218},											--					
 	hands={name="Turms Mittens +1",priority=74},											--					
 	legs=gear.jse_empy_legs,																--   		/ 8 DT	/
 	feet={name=gear.jse_empy_feet,priority=76},												--			/ 10 DT /	
@@ -527,7 +536,7 @@ sets.engaged.Tank = {
 sets.engaged.MEVA = {
 	ammo=gear.dt_ammo,																		-- 			/ 3 DT	/			
 	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
-	body={name="Runeist's Coat +3",priority=218},											--					
+	body={name="Runeist Coat +3",priority=218},											--					
 	hands={name="Nyame Gauntlets",priority=91},												--					
 	legs=gear.jse_empy_legs,																--   		/ 8 DT	/
 	feet={name=gear.jse_empy_feet,priority=68},												--					
