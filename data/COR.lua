@@ -561,3 +561,7 @@ buff_spell_lists = {
         {Name='Reraise',	    Buff='Reraise',		    SpellID=141,	Reapply=true},
 	},
 }
+
+function select_default_macro_book()
+	set_macro_page(1, 17)
+end

@@ -38,5 +38,4 @@ send_command('lua r roller')
 
 -- Whether to use Luzaf's Ring
 state.LuzafRing = M(true, "Luzaf's Ring")
--- -- Whether a warning has been given for low ammo
--- state.warned = M(false)
+select_default_macro_book()

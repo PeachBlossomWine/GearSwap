@@ -603,3 +603,7 @@ buff_spell_lists = {
 		{Name='Boost-STR',		Buff='STR Boost',	SpellID=479,	Reapply=false},
 	},
 }
+
+function select_default_macro_book()
+	set_macro_page(1, 3)
+end

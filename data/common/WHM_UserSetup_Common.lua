@@ -35,3 +35,4 @@ send_command('bind ^\\\\ input /ma "Protectra V" <me>')
 send_command('bind @\\\\ input /ma "Shellra V" <me>')
 send_command('bind !\\\\ input /ma "Reraise IV" <me>')
 
+select_default_macro_book()
