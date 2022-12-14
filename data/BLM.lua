@@ -605,3 +605,7 @@ buff_spell_lists = {
 		{Name='Haste',			Buff='Haste',			SpellID=57,		Reapply=true},
 	},
 }
+
+function select_default_macro_book()
+	set_macro_page(1, 4)
+end
