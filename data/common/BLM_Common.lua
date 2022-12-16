@@ -373,7 +373,7 @@ sets.defense.MEVA = sets.defense.MDT
 sets.idle.Weak = sets.defense.PDT
 sets.resting = sets.defense.PDT
 
-sets.Kiting = {feet="Herald's Gaiters"}
+sets.Kiting = {feet=gear.movement_gaiters_feet}
 sets.latent_refresh = {waist="Fucho-no-obi"}
 sets.latent_refresh_grip = {}
 sets.TPEat = {}

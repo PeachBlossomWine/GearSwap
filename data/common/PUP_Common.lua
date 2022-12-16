@@ -40,7 +40,7 @@ sets.precast.JA['Tactical Switch'] = {} --{feet="Cirque Scarpe +2"}
 sets.precast.JA['Repair'] = {ammo="Automat. Oil +3"} --feet="Foire Babouches"
 sets.precast.JA['Maintenance'] = {ammo="Automat. Oil +3"}
 
-sets.precast.JA.Maneuver = {main="Midnights",body="Kara. Farsetto +1",neck="Bfn. Collar +1",back=gear.jse_pet_tank_back} --,hands="Foire Dastanas",
+sets.precast.JA.Maneuver = {main="Midnights",body="Kara. Farsetto +3",neck="Bfn. Collar +1",back=gear.jse_pet_tank_back} --,hands="Foire Dastanas",
 
 -- Waltz set (chr and vit)
 sets.precast.Waltz = {}
@@ -172,7 +172,7 @@ sets.idle.Pet = {
 -- Idle sets to wear while pet is engaged
 sets.idle.Pet.Engaged = {
 	head="Nyame Helm",
-	body="Kara. Farsetto +2",
+	body="Kara. Farsetto +3",
 	hands="Mpaca's Gloves",
 	legs="Nyame Flanchard",
 	feet="Mpaca's Boots",
@@ -281,7 +281,7 @@ sets.engaged.DT = {
 	   
 sets.engaged.HybridPET = {
 	head="Nyame Helm",										-- 6
-	body="Kara. Farsetto +2",								-- 9
+	body="Kara. Farsetto +3",								-- 9
 	hands="Mpaca's Gloves",									-- 8
 	legs="Nyame Flanchard",									-- 7
 	feet="Mpaca's Boots",									-- 6

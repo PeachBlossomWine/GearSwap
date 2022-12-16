@@ -640,7 +640,7 @@ function check_buff()
 				return true
 			end
 			
-			if abil_recasts[79] < latency and (player.mpp < 30 and player.tp > 1300) and not silent_check_amnesia() then
+			if abil_recasts[79] < latency and (player.mpp < 25 and player.tp > 1300) and not silent_check_amnesia() then
 				windower.chat.input('/ja "Chivalry" <me>')
 				tickdelay = os.clock() + 2.0
 				return true

@@ -31,13 +31,13 @@ sets.weapons.Naegling = {main="Naegling",sub="Nusku Shield",range="Sparrowhawk +
 sets.weapons.DualKCSavage = {main="Naegling",sub="Kraken Club",range="Sparrowhawk +2"}
 sets.weapons.DualKCTrueFlight = {main="Tauret",sub="Kraken Club",range="Gastraphetes",ammo="Quelling Bolt"}
 -- DW
-sets.weapons.DualGastra = {main="Tauret",sub="Ternion Dagger +1",range="Gastraphetes",ammo="Quelling Bolt"}
-sets.weapons.DualArma = {main="Tauret",sub="Ternion Dagger +1",range="Armageddon",ammo="Chrono Bullet"}
+sets.weapons.DualGastra = {main="Tauret",sub="Gleti's Knife",range="Gastraphetes",ammo="Quelling Bolt"}
+sets.weapons.DualArma = {main="Tauret",sub="Gleti's Knife",range="Armageddon",ammo="Chrono Bullet"}
 sets.weapons.DualFoma = {main="Perun +1",sub="Kustawi +1",range="Fomalhaut",ammo="Chrono Bullet"}
 sets.weapons.DualAnni = {main="Perun +1",sub="Kustawi +1",range="Annihilator",ammo="Chrono Bullet"}
 sets.weapons.DualYoichi = {main="Perun +1",sub="Kustawi +1",range="Yoichinoyumi",ammo="Chrono Arrow"}
 sets.weapons.DualFailNot = {main="Perun +1",sub="Kustawi +1",range="Fail-Not",ammo="Chrono Arrow"}
-sets.weapons.DualSavage = {main="Naegling",sub="Ternion Dagger +1",range="Sparrowhawk +2"}
+sets.weapons.DualSavage = {main="Naegling",sub="Gleti's Knife",range="Sparrowhawk +2"}
 
 --------------------------------------
 -- Precast sets
@@ -126,8 +126,8 @@ sets.precast.WS['Last Stand'] = sets.precast.WS
 sets.precast.WS['Coronach'] = sets.precast.WS
 	
 sets.precast.WS['Wildfire'] = {
-	head=empty,
-	body="Cohort Cloak +1",
+	head="Nyame Helm",
+	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",

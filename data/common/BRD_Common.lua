@@ -1,37 +1,49 @@
+
 if item_available("Brioso Justau. +3") then
 	gear.brd_af_body = "Brioso Justau. +3"	
 else
 	gear.brd_af_body = "Brioso Justau. +2"
 end
 
-if item_available("Fili Manchettes +2") then
-	gear.brd_empy_hands = "Fili Manchettes +2"
-else
-	gear.brd_empy_hands = "Fili Manchettes +1"
-end
-
-if item_available("Fili Hongreline +2") then
-	gear.brd_empy_body = "Fili Hongreline +2"
-else
-	gear.brd_empy_body = "Fili Hongreline +1"
-end
-
-if item_available("Fili Cothurnes +2") then
-	gear.brd_empy_feet = "Fili Cothurnes +2"
-else
-	gear.brd_empy_feet = "Fili Cothurnes +1"
-end
-
-if item_available("Fili Calot +2") then
+--Empy
+if item_available("Fili Calot +3") then
+	gear.brd_empy_head = "Fili Calot +3"
+elseif item_available("Fili Calot +2") then
 	gear.brd_empy_head = "Fili Calot +2"
 else
 	gear.brd_empy_head = "Fili Calot +1"
 end
 
-if item_available("Fili Rhingrave +2") then
+if item_available("Fili Hongreline +3") then
+	gear.brd_empy_body = "Fili Hongreline +3"
+elseif item_available("Fili Hongreline +2") then
+	gear.brd_empy_body = "Fili Hongreline +2"
+else
+	gear.brd_empy_body = "Fili Hongreline +1"
+end
+
+if item_available("Fili Manchettes +3") then
+	gear.brd_empy_hands = "Fili Manchettes +3"
+elseif item_available("Fili Manchettes +2") then
+	gear.brd_empy_hands = "Fili Manchettes +2"
+else
+	gear.brd_empy_hands = "Fili Manchettes +1"
+end
+
+if item_available("Fili Rhingrave +3") then
+	gear.brd_empy_legs = "Fili Rhingrave +3"
+elseif item_available("Fili Rhingrave +2") then
 	gear.brd_empy_legs = "Fili Rhingrave +2"
 else
 	gear.brd_empy_legs = "Fili Rhingrave +1"
+end
+
+if item_available("Fili Cothurnes +3") then
+	gear.brd_empy_feet = "Fili Cothurnes +3"
+elseif item_available("Fili Cothurnes +2") then
+	gear.brd_empy_feet = "Fili Cothurnes +2"
+else
+	gear.brd_empy_feet = "Fili Cothurnes +1"
 end
 
 --JSE

@@ -311,11 +311,11 @@ sets.buff['Nether Void'] = {legs="Heath. Flanchard +2"}
 sets.buff.Souleater = {}
 sets.buff.ScarletDelirium = {
     ammo="Coiste Bodhar",
-    head="Flam. Zucchetto +2",
+    head="Carmine Mask +1",
     body="Dagon Breast.",
     hands="Fall. Fin. Gaunt. +3",
     legs="Carmine Cuisses +1",
-    feet="Flam. Gambieras +2",
+    feet="Ostro Greaves",
     neck=gear.drk_jse_neck,
 	waist="Ioskeha Belt +1",
 	left_ear="Crep. Earring",

@@ -197,7 +197,7 @@ sets.defense.PDT = {
 sets.defense.MDT = sets.defense.PDT
 sets.defense.MEVA = sets.defense.MDT
 
-sets.Kiting = {feet="Herald's Gaiters"}
+sets.Kiting = {feet=gear.movement_gaiters_feet}
 
 -- Engaged sets
 

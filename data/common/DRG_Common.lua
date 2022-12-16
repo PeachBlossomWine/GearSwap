@@ -19,11 +19,11 @@ sets.precast.JA['Ancient Circle'] = {legs="Vishap Brais +3"}
 
 sets.precast.Jump = {
 	ammo="Coiste Bodhar",
-	head="Flam. Zucchetto +2",
+	head="Hjarrandi Helm",
 	body="Ptero. Mail +3",
 	hands="Vis. Fng. Gaunt. +3",
 	legs="Ptero. Brais +3",
-	feet="Ostro Greaves",
+	feet="Pelt. Schyn. +2",
 	neck="Dgn. Collar +2",
 	waist="Ioskeha Belt +1",
 	left_ear="Sherida Earring",

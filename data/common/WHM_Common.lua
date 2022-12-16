@@ -117,13 +117,6 @@ else
 	gear.whm_idle_feet = 'Inyanga Crackows +2'
 end
 
---Movement
-if item_available("Crier's Gaiters") then
-	gear.whm_kiting_feet = "Crier's Gaiters"
-else
-	gear.whm_kiting_feet = "Herald's Gaiters"
-end
-
 --DT
 if item_available("Staunch Tathlum +1") then
 	gear.whm_dt_ammo = "Staunch Tathlum +1"
@@ -261,7 +254,7 @@ sets.MaxTP.Dagan = {ear1="Etiolation Earring",ear2="Malignance Earring"}
 
 -- Midcast Sets
 
-sets.Kiting = {feet=gear.whm_kiting_feet}
+sets.Kiting = {feet=gear.movement_gaiters_feet}}
 sets.latent_refresh = {waist="Fucho-no-obi"}
 sets.DayIdle = {}
 sets.NightIdle = {}
