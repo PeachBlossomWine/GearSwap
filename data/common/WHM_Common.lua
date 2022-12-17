@@ -254,7 +254,7 @@ sets.MaxTP.Dagan = {ear1="Etiolation Earring",ear2="Malignance Earring"}
 
 -- Midcast Sets
 
-sets.Kiting = {feet=gear.movement_gaiters_feet}}
+sets.Kiting = {feet=gear.movement_gaiters_feet}
 sets.latent_refresh = {waist="Fucho-no-obi"}
 sets.DayIdle = {}
 sets.NightIdle = {}
