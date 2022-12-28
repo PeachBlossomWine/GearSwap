@@ -15,6 +15,24 @@ else
 	gear.drk_darkmagic_feet = "Ratri Sollerets"
 end
 
+if item_available("Heath. Cuirass +3") then
+	gear.jse_empy_body = "Heath. Cuirass +3"
+else
+	gear.jse_empy_body = "Heath. Cuirass +2"
+end
+
+if item_available("Heath. Gauntlets +3") then
+	gear.jse_empy_hands = "Heath. Gauntlets +3"
+else
+	gear.jse_empy_hands = "Heath. Gauntlets +2"
+end
+
+if item_available("Heath. Flanchard +3") then
+	gear.jse_empy_legs = "Heath. Flanchard +3"
+else
+	gear.jse_empy_legs = "Heath. Flanchard +2"
+end
+
 autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['KajaChopper']='Armor Break',['Naegling']='Savage Blade'}
 
 -- Weapons sets
@@ -32,7 +50,7 @@ sets.precast.JA['Diabolic Eye'] = {}
 sets.precast.JA['Arcane Circle'] = {}
 sets.precast.JA['Souleater'] = {}
 sets.precast.JA['Weapon Bash'] = {}
-sets.precast.JA['Nether Void'] = {legs="Heath. Flanchard +2"}
+sets.precast.JA['Nether Void'] = {legs=gear.jse_empy_legs}
 sets.precast.JA['Blood Weapon'] = {}
 sets.precast.JA['Dark Seal'] = {}
 sets.precast.JA['Last Resort'] = {back="Ankou's Mantle"}
@@ -207,9 +225,9 @@ sets.midcast.FastRecast = sets.precast.FC
 sets.midcast['Dark Magic'] = {
 	ammo="Pemphredo Tathlum",
 	head={ name="Fall. Burgeonet +3", augments={'Enhances "Dark Seal" effect',}},
-	body="Heath. Cuirass +2",
+	body=gear.jse_empy_body,
 	hands={ name="Fall. Fin. Gaunt. +3", augments={'Enhances "Diabolic Eye" effect',}},
-	legs="Heath. Flanchard +2",
+	legs=gear.jse_empy_legs,
 	feet="Nyame Sollerets",
 	neck="Erra Pendant",
 	waist="Eschan Stone",
@@ -223,9 +241,9 @@ sets.midcast['Dark Magic'] = {
 sets.midcast['Enfeebling Magic'] = {
 	ammo="Pemphredo Tathlum",
 	head="Hjarrandi Helm",
-	body="Heath. Cuirass +2",
-	hands="Heath. Gauntlets +2",
-	legs="Heath. Flanchard +2",
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs=gear.jse_empy_legs,
 	feet="Nyame Sollerets",
 	neck="Erra Pendant",
 	waist="Eschan Stone",
@@ -237,7 +255,7 @@ sets.midcast['Enfeebling Magic'] = {
 }
 	   
 sets.midcast['Dread Spikes'] = set_combine(sets.midcast['Dark Magic'], {})
-sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {hands="Heath. Gauntlets +2", feet=gear.drk_darkmagic_feet, back="Ankou's Mantle"})
+sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {hands=gear.jse_empy_hands, feet=gear.drk_darkmagic_feet, back="Ankou's Mantle"})
 sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {ring1="Evanescence Ring",ring2="Archon Ring", back=gear.Drain_back})
 sets.midcast.Aspir = sets.midcast.Drain
 sets.midcast.Impact = set_combine(sets.midcast['Dark Magic'], {head=empty,body="Twilight Cloak"})
@@ -305,7 +323,7 @@ sets.Kiting = {legs="Carmine Cuisses +1"}
 sets.passive.Reraise = {}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
 sets.buff['Dark Seal'] = {head="Fall. Burgeonet +3"}
-sets.buff['Nether Void'] = {legs="Heath. Flanchard +2"}
+sets.buff['Nether Void'] = {legs=gear.jse_empy_legs}
 
 --Extra Special Sets
 sets.buff.Souleater = {}

@@ -18,6 +18,30 @@ else
 	gear.idle_body = "Nyame Mail"
 end
 
+if item_available("Kasuga Kabuto +3") then
+	gear.jse_empy_head = "Kasuga Kabuto +3"
+elseif item_available("Kasuga Kabuto +2") then
+	gear.jse_empy_head = "Kasuga Kabuto +2"
+else
+	gear.jse_empy_head = "Kasuga Kabuto +1"
+end
+
+if item_available("Kasuga Domaru +3") then
+	gear.jse_empy_body = "Kasuga Domaru +3"
+elseif item_available("Kasuga Domaru +2") then
+	gear.jse_empy_body = "Kasuga Domaru +2"
+else
+	gear.jse_empy_body = "Kasuga Domaru +1"
+end
+
+if item_available("Kasuga Haidate +3") then
+	gear.jse_empy_legs = "Kasuga Haidate +3"
+elseif item_available("Kasuga Haidate +2") then
+	gear.jse_empy_legs = "Kasuga Haidate +2"
+else
+	gear.jse_empy_legs = "Kasuga Haidate +1"
+end
+
 -- Weapons sets
 sets.weapons.Masamune = {main="Masamune",sub="Utu Grip"}
 sets.weapons.Dojikiri = {main="Dojikiri Yasutsuna",sub="Utu Grip"}
@@ -262,9 +286,9 @@ sets.idle = {
 sets.idle.Town = {
 	ammo="Coiste Bodhar",
 	head="Nyame Helm",
-	body="Kasuga Domaru +3",
+	body=gear.jse_empy_body,
 	hands="Nyame Gauntlets",
-	legs="Kasuga Haidate +3",
+	legs=gear.jse_empy_legs,
 	feet="Nyame Sollerets",
 	neck="Sam. Nodowa +2",
 	waist="Sailfi Belt +1",
@@ -303,10 +327,10 @@ sets.defense.MEVA = sets.defense.PDT
 -- Engaged sets
 sets.engaged = {
 	ammo="Coiste Bodhar",
-	head="Kasuga Kabuto +3",
-	body="Kasuga Domaru +3",
+	head=gear.jse_empy_head,
+	body=gear.jse_empy_body,
 	hands="Mpaca's Gloves",
-	legs="Kasuga Haidate +3",
+	legs=gear.jse_empy_legs,
 	feet="Mpaca's Boots",
 	neck="Sam. Nodowa +2",
     waist="Ioskeha Belt +1",
@@ -321,10 +345,10 @@ sets.engaged = {
 -- 501 MEVA
 sets.engaged.DT = {
 	Ammo="Coiste Bodhar",
-	head="Kasuga Kabuto +3",
-	body="Kasuga Domaru +3",
-	hands="Mpaca's Gloves",
-	legs="Kasuga Haidate +3",
+	head=gear.jse_empy_head,
+	body=gear.jse_empy_body,
+	hands="Nyame Gauntlets",
+	legs=gear.jse_empy_legs,
 	feet="Nyame Sollerets",
 	neck="Sam. Nodowa +2",
 	waist="Ioskeha Belt +1",

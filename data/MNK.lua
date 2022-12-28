@@ -62,6 +62,8 @@ function job_setup()
 	state.AutoBoost = M(false, 'Auto Boost Mode')
 	
 	autows = 'Victory Smite'
+	autowsone = 'Victory Smite'
+	autowstwo = 'Tornado Kick'
 	autofood = 'Soy Ramen'
 	
     info.impetus_hit_count = 0
@@ -128,6 +130,15 @@ function job_precast(spell, spellMap, eventArgs)
 			windower.chat.input:schedule(2.5,'/ws "'..spell.english..'" '..spell.target.raw..'')
 			tickdelay = os.clock() + 1.25
 			return
+		end
+	end
+	if spell.type == 'WeaponSkill' and not spell.interrupted and state.AutoSwitchWS.value and autoaltws then
+		if spell.name == autowstwo then
+			add_to_chat(123,'Swapping to original WS: ' ..autowsone)
+			windower.send_command('gs c autows '..autowsone)
+		else
+			add_to_chat(123,'Swapping to alternate WS: ' ..autowstwo)
+			windower.send_command('gs c autows '..autowstwo)
 		end
 	end
 end

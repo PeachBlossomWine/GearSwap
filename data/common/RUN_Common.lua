@@ -469,10 +469,10 @@ sets.AccMaxTP = {ear1="Telos Earring"}
 
 -- 1297 Acc
 sets.engaged = {
-	ammo="Yamarang",
+	ammo="Coiste Bodhar",
 	head="Nyame Helm",
-	body=gear.run_dd_body,
-	hands="Adhemar Wrist. +1",
+	body="Ashera Harness",
+	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Anu Torque",
@@ -490,7 +490,7 @@ sets.engaged = {
 sets.engaged.DTLite = {
 	ammo="Yamarang",
 	head={name="Nyame Helm",priority=91},
-	body={name=gear.run_dd_body,priority=500},
+	body={name="Ashera Harness",priority=500},
 	hands={name="Regal Gauntlets",priority=500},
 	legs="Nyame Flanchard",
 	feet={name="Nyame Sollerets",priority=68},

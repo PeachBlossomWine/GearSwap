@@ -1,11 +1,5 @@
 autows_list = {['TizThib']='Expiacion',['TizThib']='Expiacion',['NaegThib']='Savage Blade',['NaegZan']='Savage Blade',['Maxentius']='Black Halo',}
 
-if item_available('Shamash Robe') then
-	gear.body_idle = 'Shamash Robe'
-else
-	gear.body_idle = "Hashishin Mintan +3"
-end
-
 if item_available("Hashi. Earring +2") then
 	gear.empy_earring = "Hashi. Earring +2"
 	gear.empy_nuke_earring = "Hashi. Earring +2"
@@ -18,6 +12,36 @@ elseif item_available("Hashishin Earring") then
 else
 	gear.empy_earring = "Telos Earring"
 	gear.empy_nuke_earring = "Friomisi Earring"
+end
+
+if item_available("Hashishin Kavuk +3") then
+	gear.jse_empy_head = "Hashishin Kavuk +3"
+else
+	gear.jse_empy_head = "Hashishin Kavuk +2"
+end
+
+if item_available("Hashishin Mintan +3") then
+	gear.jse_empy_body = "Hashishin Mintan +3"
+else
+	gear.jse_empy_body = "Hashishin Mintan +2"
+end
+
+if item_available("Hashi. Bazu. +3") then
+	gear.jse_empy_hands = "Hashi. Bazu. +3"
+else
+	gear.jse_empy_hands = "Hashi. Bazu. +2"
+end
+
+if item_available("Hashishin Tayt +3") then
+	gear.jse_empy_legs = "Hashishin Tayt +3"
+else
+	gear.jse_empy_legs = "Hashishin Tayt +2"
+end
+
+if item_available("Hashi. Basmak +3") then
+	gear.jse_empy_feet = "Hashi. Basmak +3"
+else
+	gear.jse_empy_feet = "Hashi. Basmak +2"
 end
 
 -- Weapons sets
@@ -35,7 +59,7 @@ sets.weapons.MACC = {main="Sakpata's Sword",sub="Bunzi's Rod"}
 sets.weapons.Learn = {main="Nihility",sub="Qutrub Knife"}
 
 -- Buff sets
-sets.buff['Burst Affinity'] = {feet="Hashi. Basmak +2"}
+sets.buff['Burst Affinity'] = {feet=gear.jse_empy_feet}
 sets.buff['Chain Affinity'] = {} --feet="Assim. Charuqs +2"
 sets.buff.Convergence = {} --head="Luh. Keffiyeh +1"
 sets.buff.Diffusion = {feet="Luhlaza Charuqs +3"}
@@ -237,12 +261,11 @@ sets.midcast['Blue Magic'].PhysicalHP.Resistant = set_combine(sets.midcast['Blue
 -- Magical Spells --
 sets.midcast['Blue Magic'].Magical = {
 	ammo="Pemphredo Tathlum",
-	head="Nyame Helm",
-	body="Hashishin Mintan +3",
-	hands="Hashi. Bazu. +3",
-	--legs="Luhlaza Shalwar +3",
-	legs="Hashishin Tayt +3",
-	feet="Hashi. Basmak +2",
+	head=gear.jse_empy_head,
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
 	neck=gear.blu_jse_neck,
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
@@ -290,7 +313,7 @@ sets.midcast['Blue Magic'].MagicAccuracy = sets.midcast['Blue Magic'].Magical.Re
 sets.midcast['Enfeebling Magic'] = {
 	ammo="Pemphredo Tathlum",
 	head="Malignance Chapeau",
-	body="Hashishin Mintan +3",
+	body=gear.jse_empy_body,
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Malignance Boots",
@@ -350,7 +373,7 @@ sets.element.Light = {}
 sets.midcast.Cure = {
 	ammo="Hydrocera",
 	head="Nyame Helm",
-	body="Hashishin Mintan +3",
+	body=gear.jse_empy_body,
 	hands=gear.telchine_enhancing_hands,
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -398,7 +421,7 @@ sets.midcast['Blue Magic'].Stun.Resistant = set_combine(sets.midcast['Blue Magic
 sets.midcast['Blue Magic']['White Wind'] = {
 	ammo="Hydrocera",
 	head="Nyame Helm",
-	body="Hashishin Mintan +3",
+	body=gear.jse_empy_body,
 	hands=gear.telchine_enhancing_hands,
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -416,7 +439,7 @@ sets.midcast['Blue Magic']['Healing Breeze'] = sets.midcast['Blue Magic']['White
 sets.midcast['Blue Magic'].Healing = {
 	ammo="Hydrocera",
 	head="Nyame Helm",
-	body="Hashishin Mintan +3",
+	body=gear.jse_empy_body,
 	hands=gear.telchine_enhancing_hands,
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -468,7 +491,7 @@ sets.Learning = {}
 sets.idle = {
 	ammo="Staunch Tathlum +1",
 	head="Gleti's Mask",
-	body=gear.body_idle,		
+	body=gear.jse_empy_body,		
 	hands="Gleti's Gauntlets",
 	legs="Gleti's Breeches",
 	feet="Gleti's Boots",
@@ -483,7 +506,7 @@ sets.idle = {
 
 sets.idle.DT = set_combine(sets.idle, {
 	head="Nyame Helm",
-	body=gear.body_idle,
+	body=gear.jse_empy_body,
 	hands="Nyame Gauntlets",
 	legs="Carmine Cuisses +1",
 	feet="Nyame Sollerets",
@@ -492,7 +515,7 @@ sets.idle.DT = set_combine(sets.idle, {
 sets.idle.Town = {
 	ammo="Staunch Tathlum +1",
 	head="Nyame Helm",
-	body="Nyame Mail",
+	body="Shamash Robe",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",

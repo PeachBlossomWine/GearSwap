@@ -19,6 +19,14 @@ else
 end
 
 
+if item_available("Amini Caban +3") then
+	gear.jse_empy_body = "Amini Caban +3"
+elseif item_available("Amini Caban +2") then
+	gear.jse_empy_body = "Amini Caban +2"
+else
+	gear.jse_empy_body = "Amini Caban +1"
+end
+
 -- Weapons sets
 sets.weapons.Gastraphetes = {main="Tauret",sub="Nusku Shield",range="Gastraphetes",ammo="Quelling Bolt"}
 sets.weapons.Armageddon = {main="Perun +1",sub="Nusku Shield",range="Armageddon",ammo="Chrono Bullet"}
@@ -51,7 +59,7 @@ sets.precast.JA['Scavenge'] = {}	--{feet="Orion Socks +1"}
 sets.precast.JA['Shadowbind'] = {hands="Orion Bracers +3"}
 sets.precast.JA['Sharpshot'] = {legs="Orion Braccae +3"}
 sets.precast.JA['Double Shot'] = {body="Arc. Jerkin +3", back=gear.jse_midshot_back}
-sets.precast.JA['Velocity Shot'] = {body="Amini Caban +2"}
+sets.precast.JA['Velocity Shot'] = {body=gear.jse_empy_body}
 
 -- Fast cast sets for spells
 sets.precast.FC = {
@@ -85,7 +93,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket"})
 -- 60% + 10% = 70%
 sets.precast.RA = {
 	head={ name="Taeon Chapeau", augments={'"Snapshot"+5','"Snapshot"+5',}},							-- 10
-	body="Amini Caban +2",
+	body=gear.jse_empy_body,
 	hands={ name="Carmine Fin. Ga. +1", augments={'Rng.Atk.+20','"Mag.Atk.Bns."+12','"Store TP"+6',}},	-- 8
 	legs="Orion Braccae +3",																			-- 15
 	feet="Meg. Jam. +2",																				-- 10
@@ -193,8 +201,8 @@ sets.midcast.RA.AM = {
 	feet="Osh. Leggings +1",
 	neck="Scout's Gorget +2",
 	waist="K. Kachina Belt +1",
-	left_ear="Telos Earring",
-	right_ear="Odr Earring",
+	left_ear="Odr Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Dingir Ring",
 	right_ring="Ilabrat Ring",
 	back=gear.jse_crit_back,

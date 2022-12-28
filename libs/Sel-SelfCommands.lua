@@ -722,6 +722,46 @@ function handle_autows(cmdParams)
 	end
 end
 
+function handle_autowsone(cmdParams)
+	if #cmdParams == 0 then
+		add_to_chat(122,'You must specify a ws to auto-weaponskill with.')
+	-- elseif state.RngHelper.value then
+		-- if cmdParams[1] == 'tp' then
+			-- rangedautowstp = tonumber(cmdParams[2])
+			-- add_to_chat(122,'Your ranged autows tp value is set to '..rangedautowstp..'.')
+			-- if state.DisplayMode.value then update_job_states()	end
+		-- else
+			-- rangedautows = table.concat(cmdParams, ' '):ucfirst()
+			-- add_to_chat(122,'Your ranged autows weaponskill is set to '..rangedautows..'.')
+			-- if state.DisplayMode.value then update_job_states()	end
+		-- end
+	else
+		autoaltws = table.concat(cmdParams, ' '):ucfirst()
+		add_to_chat(122,'Your alternate autows #1 weaponskill is set to '..autowsone..'.')
+		if state.DisplayMode.value then update_job_states()	end
+	end
+end
+
+function handle_autowstwo(cmdParams)
+	if #cmdParams == 0 then
+		add_to_chat(122,'You must specify a ws to auto-weaponskill with.')
+	-- elseif state.RngHelper.value then
+		-- if cmdParams[1] == 'tp' then
+			-- rangedautowstp = tonumber(cmdParams[2])
+			-- add_to_chat(122,'Your ranged autows tp value is set to '..rangedautowstp..'.')
+			-- if state.DisplayMode.value then update_job_states()	end
+		-- else
+			-- rangedautows = table.concat(cmdParams, ' '):ucfirst()
+			-- add_to_chat(122,'Your ranged autows weaponskill is set to '..rangedautows..'.')
+			-- if state.DisplayMode.value then update_job_states()	end
+		-- end
+	else
+		autoaltws = table.concat(cmdParams, ' '):ucfirst()
+		add_to_chat(122,'Your alternate autows #2 weaponskill is set to '..autowstwo..'.')
+		if state.DisplayMode.value then update_job_states()	end
+	end
+end
+
 function handle_autofood(cmdParams)
 	if #cmdParams == 0 then
 		add_to_chat(122,'You must specify a food to automatically eat.')
@@ -1121,6 +1161,8 @@ selfCommandMaps = {
 	['quietdisable']	= handle_quietdisable,
 	['autonuke'] 		= handle_autonuke,
 	['autows'] 			= handle_autows,
+	['autowsone']		= handle_autowsone,
+	['autowstwo']		= handle_autowstwo,
 	['autofood']		= handle_autofood,
 	['facemob']			= handle_facemob,
     ['test']        	= handle_test,

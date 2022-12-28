@@ -135,6 +135,7 @@ function init_include()
 	state.AutoRemoveDoomMode  = M(true, 'Auto Remove Doom Mode')
 	state.AutoWSMode		  = M(false, 'Auto Weaponskill Mode')
 	state.AutoWSRestore		  = M(false, 'Auto Weaponskill Restore Mode')
+	state.AutoSwitchWS = 		M(false, 'Alternate WS')
 	state.AutoFoodMode		  = M(false, 'Auto Food Mode')
 	state.AutoSubMode 		  = M(false, 'Auto Sublimation Mode')
 	state.AutoCleanupMode  	  = M(false, 'Auto Cleanup Mode')
@@ -233,6 +234,8 @@ function init_include()
 	petWillAct = 0
 	autonuke = 'Fire'
 	autows = ''
+	autowsone = ''
+	autowstwo = ''
     original_autows = ''
     original_weapon = ''
 	othertargetws = ''

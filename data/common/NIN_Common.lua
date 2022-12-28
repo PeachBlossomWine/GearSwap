@@ -8,6 +8,14 @@ else
 	gear.empy_earring = "Crep. Earring"
 end
 
+if item_available("Hattori Kyahan +3") then
+	gear.jse_empy_feet = "Hattori Kyahan +3"
+elseif item_available("Hattori Kyahan +2") then
+	gear.jse_empy_feet = "Hattori Kyahan +2"
+else
+	gear.jse_empy_feet = "Hattori Kyahan +1"
+end
+
 
 -- Weapons sets
 sets.weapons.Kikoku = {main="Kikoku",sub="Kunimitsu"}
@@ -80,7 +88,7 @@ sets.precast.FC = {
 	back=gear.jse_da_back,
 }
 
-sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Mochi. Chainmail +3", feet="Hattori Kyahan +2" })
+sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {neck="Magoraga Beads",body="Mochi. Chainmail +3", feet=gear.jse_empy_feet })
 sets.precast.FC.Shadows = set_combine(sets.precast.FC.Utsusemi, {})
 
 -- Snapshot for ranged

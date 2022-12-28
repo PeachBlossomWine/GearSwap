@@ -333,7 +333,7 @@ sets.midcast.LightWeatherCuraga = set_combine(sets.midcast.Cure ,{ main="Chatoya
 sets.midcast.LightDayCuraga = set_combine(sets.midcast.Cure, { main="Chatoyant Staff", sub="Enki Strap", waist="Korin Obi" } )
 
 --	Cure:	50% + 6% II
--- 	PDT/DT:	-45%
+-- 	PDT/DT:	-46%
 sets.midcast.Cure.DT = {											-- Cure 	/	PDT/DT
 	main="Queller Rod",												-- 10% / 2% II
 	sub="Genmei Shield",

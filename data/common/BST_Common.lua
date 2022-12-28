@@ -12,6 +12,12 @@ else
 	gear.idle_body = "Malignance Tabard"
 end
 
+if item_available("Nukumi Manoplas +3") then
+	gear.jse_empy_hands = "Nukumi Manoplas +3"
+else
+	gear.jse_empy_hands = "Nukumi Manoplas +2"
+end
+
 -- Weapons sets
 sets.weapons.Aymur =      {main="Aymur", sub="Adapa Shield"}
 sets.weapons.Guttler =      {main="Guttler", sub="Adapa Shield"}
@@ -150,7 +156,7 @@ sets.midcast.Pet.WS = {
 	ammo="Hesperiidae",
 	head="Nyame Helm",
 	body="Nyame Mail",
-	hands="Nukumi Manoplas +2",
+	hands=gear.jse_empy_hands,
 	legs="Gleti's Breeches",
 	feet="Gleti's Boots",
 	neck="Adad Amulet",
@@ -166,7 +172,7 @@ sets.midcast.Pet.MagicReady = {
 	ammo="Hesperiidae",
 	head="Nyame Helm",
 	body="Nyame Mail",
-	hands="Nukumi Manoplas +2",
+	hands=gear.jse_empy_hands,
 	legs="Gleti's Breeches",
 	feet="Gleti's Boots",
 	neck="Adad Amulet",

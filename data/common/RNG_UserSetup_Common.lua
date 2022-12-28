@@ -30,7 +30,7 @@ DefaultAmmo = {
 				['Unlimited'] = "Yoichi's Arrow",
 				['MagicUnlimited'] ="Yoichi's Arrow",
 				['MagicAccUnlimited'] ="Yoichi's Arrow"},
-				
+
 	['Gun']  = {['Default'] = "Chrono Bullet",
 				['WS'] = "Chrono Bullet",
 				['Acc'] = "Chrono Bullet",
@@ -48,6 +48,7 @@ DefaultAmmo = {
 					['Unlimited'] = "Quelling Bolt",
 					['MagicUnlimited'] = "Quelling Bolt",
 					['MagicAccUnlimited'] ="Quelling Bolt"}
+				
 }
 
 gear.jse_agi_back = { name="Belenus's Cape", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','AGI+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}

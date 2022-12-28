@@ -604,7 +604,7 @@ function check_buff()
 				windower.chat.input('/ja "Aggressor" <me>')
 				tickdelay = os.clock() + 1.1
 				return true
-            elseif (player.sub_job == 'DRK' and not buffactive['SJ Restriction']) and not buffactive.Aggressor and abil_recasts[87] < latency  and state.HybridMode.value:contains('DTLite','Normal') then
+            elseif (player.sub_job == 'DRK' and not buffactive['SJ Restriction']) and abil_recasts[87] < latency and not (state.HybridMode.value:contains('Ongo','MEVA','Tank')) then
 				windower.chat.input('/ja "Last Resort" <me>')
 				tickdelay = os.clock() + 1.1
 				return true

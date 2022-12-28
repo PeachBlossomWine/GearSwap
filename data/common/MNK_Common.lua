@@ -6,6 +6,22 @@ else
 	gear.empy_earring = "Bhikku Earring"
 end
 
+if item_available("Bhikku Cyclas +3") then
+	gear.jse_empy_body = "Bhikku Cyclas +3"
+elseif item_available("Bhikku Cyclas +2") then
+	gear.jse_empy_body = "Bhikku Cyclas +2"
+else
+	gear.jse_empy_body = "Bhikku Cyclas +1"
+end
+
+if item_available("Bhikku Hose +3") then
+	gear.jse_empy_legs = "Bhikku Hose +3"
+elseif item_available("Bhikku Hose +2") then
+	gear.jse_empy_legs = "Bhikku Hose +2"
+else
+	gear.jse_empy_legs = "Bhikku Hose +1"
+end
+
 -- Weapons sets
 sets.weapons.Verethragna = {main="Verethragna"}
 sets.weapons.Godhands = {main="Godhands"}
@@ -210,7 +226,7 @@ sets.engaged = {
 	head="Malignance Chapeau",
 	body="Mpaca's Doublet",
 	hands="Malignance Gloves",	
-	legs="Bhikku Hose +3",
+	legs=gear.jse_empy_legs,
 	feet="Malignance Boots",
 	neck="Mnk. Nodowa +2",
 	waist=gear.mnk_tp_waist,					-- 15 II
@@ -256,11 +272,11 @@ sets.engaged.Tank = {
 sets.engaged.HF = set_combine(sets.engaged, {})
 
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
-sets.buff.Impetus = {body="Bhikku Cyclas +3", feet="Nyame Sollerets", ammo=gear.dt_ammo}
-sets.buff.Footwork = {legs="Bhikku Hose +3", feet="Anch. Gaiters +3"}
+sets.buff.Impetus = {body=gear.jse_empy_body, feet="Nyame Sollerets", ammo=gear.dt_ammo}
+sets.buff.Footwork = {legs=gear.jse_empy_legs, feet="Anch. Gaiters +3"}
 sets.buff.Boost = {}
 
-sets.FootworkWS = {legs="Bhikku Hose +3", feet="Anch. Gaiters +3"}
+sets.FootworkWS = {legs=gear.jse_empy_legs, feet="Anch. Gaiters +3"}
 sets.DayIdle = {}
 sets.NightIdle = {}
 sets.Knockback = {}
