@@ -109,7 +109,7 @@ sets.precast.CorsairShot['Light Shot'] = {
 	waist="Eschan Stone",
 	left_ear="Digni. Earring",
 	right_ear="Crep. Earring",
-	left_ring="Weather. Ring +1",
+	left_ring=gear.weather_ring,
 	right_ring="Regal Ring",
 	back=gear.jse_mab_back,
 }
@@ -133,10 +133,10 @@ sets.precast.FC = {
 	legs="Rawhide Trousers",																							-- 5
 	feet={ name="Carmine Greaves +1", augments={'HP+80','MP+80','Phys. dmg. taken -4',}},								-- 8
 	neck="Baetyl Pendant",																								-- 4
-	waist="Flume Belt +1",
+	waist=gear.dt_waist,
 	left_ear="Loquac. Earring",																							-- 2
 	right_ear="Etiolation Earring",																						-- 1
-	left_ring="Weather. Ring +1",																							-- 4
+	left_ring=gear.weather_ring,																						-- 4
 	right_ring="Lebeche Ring",
 }
 
@@ -148,7 +148,7 @@ sets.precast.FC.Cure = set_combine(sets.precast.FC, {right_ear="Mendi. Earring"}
 -- 43 + 10 JP = 53
 sets.precast.RA = {
 	ammo=gear.RAbullet,
-	head="Taeon Chapeau",					-- 10
+	--head="Taeon Chapeau",					-- 10
 	body=gear.jse_ws_body,
 	hands="Carmine Finger Gauntlets +1",	-- 8
 	--legs="Laksamana's Trews +3",			-- 15
@@ -406,7 +406,7 @@ sets.engaged = {
 	ammo=gear.RAbullet,
 	head="Malignance Chapeau",			
 	body="Malignance Tabard",
-	hands="Adhemar Wrist. +1",
+	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Malignance Boots",
 	neck="Combatant's Torque",
@@ -420,11 +420,11 @@ sets.engaged = {
 	
 sets.engaged.Acc = {
 	ammo=gear.RAbullet,
-	head="Carmine Mask +1",
-	body="Malignance Tabard",
-	hands="Adhemar Wrist. +1",
-	legs="Carmine Cuisses +1",
-	feet="Malignance Boots",
+	head="Malignance Chapeau",	
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs="Malignance Tights",
+	feet=gear.jse_empy_feet,
 	neck="Combatant's Torque",
 	waist=gear.tp_dw_waist,
 	left_ear="Cessance Earring",

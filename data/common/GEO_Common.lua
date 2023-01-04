@@ -173,7 +173,7 @@ sets.midcast.Geomancy = {
 	right_ear="Calamitous Earring",													-- CMP 4
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
-	--back="Solemnity Cape",															-- CMP 5
+	--back="Solemnity Cape",														-- CMP 5
     back={name=gear.dt_moon_back,priority=500},
 }
 
@@ -611,4 +611,4 @@ sets.engaged = {
 
 -- Gear that converts elemental damage done to recover MP.	
 sets.RecoverMP = {}
-sets.buff.Sleep = set_combine(sets.buff.Sleep, {main="Prime Maul"})
+sets.buff.Sleep = set_combine(sets.buff.Sleep, {main="Lorg Mor"})

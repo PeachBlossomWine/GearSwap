@@ -23,6 +23,7 @@ gear.jse_stp_back = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Atta
 gear.jse_wsd_back = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 gear.jse_str_back = {name="Senuna's Mantle",augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 gear.waltz_back = { name="Toetapper Mantle", augments={'"Store TP"+1','"Dual Wield"+2','"Rev. Flourish"+30',}}
+
 -- Additional local binds
 send_command('bind !` gs c step')
 send_command('bind ^!@` gs c toggle usealtstep')

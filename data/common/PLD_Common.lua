@@ -316,8 +316,8 @@ sets.midcast.Shell.SIRD = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Phalanx = {
 	ammo="Staunch Tathlum +1",																				-- 11	/	3	/
 	head={name="Souveran Schaller +1",priority=280},														-- 20			/	9
-	--body={name="Shab. Cuirass +1",priority=115},															--		/	10	/	20
-	body={name="Valorous Mail",priority=55},
+	body={name="Shab. Cuirass +1",priority=115},															--		/	10	/	20
+	--body={name="Valorous Mail",priority=55},
 	hands={name="Souv. Handsch. +1",priority=239},															-- 10
 	legs={name="Sakpata's Cuisses", priority=114},
 	feet={name="Souveran Schuhs +1",priority=227},

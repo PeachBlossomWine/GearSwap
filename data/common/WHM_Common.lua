@@ -117,13 +117,6 @@ else
 	gear.whm_idle_feet = 'Inyanga Crackows +2'
 end
 
---DT
-if item_available("Staunch Tathlum +1") then
-	gear.whm_dt_ammo = "Staunch Tathlum +1"
-else
-	gear.whm_dt_ammo = "Crepuscular Pebble"
-end
-
 if item_available("Moonlight Cape") then
 	gear.whm_dt_back = {name="Moonlight Cape",priority=500}
 else
@@ -140,7 +133,7 @@ end
 sets.weapons.Yagrush = {main="Yagrush",sub="Genmei Shield"}
 sets.weapons.Tishtrya = {main="Tishtrya",sub="Genmei Shield"}
 sets.weapons.Maxentius = {main="Maxentius",sub="Genmei Shield"}
-sets.weapons.DualYag = {main="Yagrush",sub="Vadose Rod"}
+sets.weapons.DualYag = {main="Yagrush",sub="Daybreak"}
 sets.weapons.DualTish = {main="Tishtrya",sub="Daybreak"}
 sets.weapons.DualMaxen = {main="Maxentius",sub="Daybreak"}
 
@@ -270,7 +263,7 @@ sets.Self_Refresh = {waist="Gishdubar Sash",feet="Inspirited Boots"}
 sets.ConserveMP = {
 	main="Malignance Pole",
 	sub="Enki Strap",
-	ammo=gear.whm_dt_ammo,
+	ammo=gear.dt_ammo,
 	head="Vanya Hood",																-- CMP 6
 	body="Vedic Coat",																-- CMP 10
 	hands="Shrieker's Cuffs",														-- CMP 7
@@ -337,7 +330,7 @@ sets.midcast.LightDayCuraga = set_combine(sets.midcast.Cure, { main="Chatoyant S
 sets.midcast.Cure.DT = {											-- Cure 	/	PDT/DT
 	main="Queller Rod",												-- 10% / 2% II
 	sub="Genmei Shield",
-	ammo=gear.whm_dt_ammo,											--			/	3
+	ammo=gear.dt_ammo,											--			/	3
 	head=gear.whm_empy_head,										-- 19%
 	body="Theo. Bliaut +3",
 	hands="Theophany Mitts +3",										-- 4% II
@@ -378,7 +371,7 @@ sets.midcast.MeleeLightDayCuraga = set_combine(sets.midcast.MeleeCure, {waist="K
 sets.midcast.Cursna = {
 	main=gear.whm_aoe_weapon, 
 	sub="Genmei Shield",
-	ammo=gear.whm_dt_ammo,
+	ammo=gear.dt_ammo,
 	head="Nyame Helm",
 	body=gear.whm_empy_body,
 	hands="Fanatic Gloves",
@@ -398,7 +391,7 @@ sets.midcast.Cursna.DT = sets.midcast.Cursna
 sets.midcast.StatusRemoval = {
 	main=gear.whm_aoe_weapon,
 	sub="Genmei Shield",
-	ammo=gear.whm_dt_ammo,
+	ammo=gear.dt_ammo,
 	head=gear.whm_empy_head,
 	body=gear.whm_body_idle,
 	hands=gear.whm_empy_hands,
@@ -435,7 +428,7 @@ sets.midcast['Enhancing Magic'] = {
 }
 
 sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic'], {
-	ammo=gear.whm_dt_ammo,
+	ammo=gear.dt_ammo,
 	neck="Loricate Torque +1",
 	left_ear="Odnowa Earring +1",
 	right_ear="Genmei Earring",
@@ -464,7 +457,7 @@ sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
 })
 
 sets.midcast.Regen.DT = set_combine(sets.midcast.Regen, {
-	ammo=gear.whm_dt_ammo,
+	ammo=gear.dt_ammo,
 	neck="Loricate Torque +1",
 	left_ear="Odnowa Earring +1",
 	right_ear="Genmei Earring",
@@ -473,7 +466,7 @@ sets.midcast.Regen.DT = set_combine(sets.midcast.Regen, {
 -- Buff for duration
 sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Protectra.DT = set_combine(sets.midcast.Protectra, {
-	ammo=gear.whm_dt_ammo,
+	ammo=gear.dt_ammo,
 	neck="Loricate Torque +1",
 	left_ear="Odnowa Earring +1",
 	right_ear="Genmei Earring",
@@ -481,7 +474,7 @@ sets.midcast.Protectra.DT = set_combine(sets.midcast.Protectra, {
 })
 sets.midcast.Protect = sets.midcast.Protectra 
 sets.midcast.Protect.DT = set_combine(sets.midcast.Protect, {
-	ammo=gear.whm_dt_ammo,
+	ammo=gear.dt_ammo,
 	neck="Loricate Torque +1",
 	left_ear="Odnowa Earring +1",
 	right_ear="Genmei Earring",
@@ -489,7 +482,7 @@ sets.midcast.Protect.DT = set_combine(sets.midcast.Protect, {
 })
 sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Shellra.DT = set_combine(sets.midcast.Shellra, {
-	ammo=gear.whm_dt_ammo,
+	ammo=gear.dt_ammo,
 	neck="Loricate Torque +1",
 	left_ear="Odnowa Earring +1",
 	right_ear="Genmei Earring",
@@ -497,7 +490,7 @@ sets.midcast.Shellra.DT = set_combine(sets.midcast.Shellra, {
 })
 sets.midcast.Shell = sets.midcast.Shellra
 sets.midcast.Shell.DT = set_combine(sets.midcast.Shell, {
-	ammo=gear.whm_dt_ammo,
+	ammo=gear.dt_ammo,
 	neck="Loricate Torque +1",
 	left_ear="Odnowa Earring +1",
 	right_ear="Genmei Earring",
@@ -653,7 +646,7 @@ sets.idle.Town = set_combine(sets.idle, {
 sets.idle.DT = {
 	main="Daybreak",								-- 			/		/	1 MP
 	sub="Genmei Shield",							-- 10 PDT	/		/
-	ammo=gear.whm_dt_ammo,							-- 			/ 3 DT	/
+	ammo=gear.dt_ammo,							-- 			/ 3 DT	/
 	head="Inyanga Tiara +2",						--			/		/	1 MP
 	body=gear.whm_body_idle,						--			/		/	3 MP
 	hands=gear.whm_dt_hands,						--			/ 3 DT	/
@@ -674,7 +667,7 @@ sets.idle.Weak = sets.idle.DT
 sets.defense.PDT = {
 	main="Daybreak",
 	sub="Genmei Shield",
-	ammo=gear.whm_dt_ammo,
+	ammo=gear.dt_ammo,
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
@@ -724,4 +717,4 @@ sets.buff['Divine Caress'] = {main=gear.whm_aoe_weapon, hands=gear.whm_empy_hand
 sets.HPDown = {}
 sets.HPCure = {}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
-sets.buff.Sleep = set_combine(sets.buff.Sleep, {main="Prime Maul"})
+sets.buff.Sleep = set_combine(sets.buff.Sleep, {main="Lorg Mor"})

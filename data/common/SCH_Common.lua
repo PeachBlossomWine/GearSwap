@@ -516,7 +516,21 @@ sets.DayIdle = {}
 sets.NightIdle = {}
 
 -- Engaged sets
-sets.engaged = {}
+sets.engaged = {
+	ammo="Oshasha's Treatise",
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Combatant's Torque",
+    waist="Grunfeld Rope",
+    left_ear="Telos Earring",
+    right_ear="Crepuscular Earring",
+    left_ring="Chirich Ring +1",
+    right_ring="Petrov Ring",
+    back="Moonbeam Cape",
+}
 
 
 -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.

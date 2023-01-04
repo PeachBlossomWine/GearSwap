@@ -8,7 +8,15 @@ else
 	gear.empy_earring = "Telos Earring"
 end
 
--- Extra Melee sets.  Apply these on top of melee sets.
+if item_available("Maculele Tiara +3") then
+	gear.jse_empy_head = "Maculele Tiara +3"
+elseif item_available("Maculele Tiara +2") then
+	gear.jse_empy_head = "Maculele Tiara +2"
+else
+	gear.jse_empy_head = "Maculele Tiara +1"
+end
+
+
 
 -- Weapons sets
 sets.weapons.Aeneas = {main="Aeneas",sub="Crepuscular Knife"}
@@ -108,17 +116,17 @@ sets.precast.Flourish3 = {}
 sets.precast.Flourish3['Striking Flourish'] = {}
 sets.precast.Flourish3['Climactic Flourish'] = {
 	ammo="C. Palug Stone",
-	head="Maculele Tiara +2",
+	head=gear.jse_empy_head,
 	body="Nyame Mail",
-	hands="Maxixi Bangles +3",
-	legs={ name="Horos Tights +3", augments={'Enhances "Saber Dance" effect',}},
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Etoile Gorget +2",
 	waist="Fotia Belt",
 	left_ear="Moonshade Earring",
 	right_ear="Odr Earring",
 	left_ring="Regal Ring",
-	right_ring="Illbrat Ring",
+	right_ring="Ilabrat Ring",
 	back=gear.jse_wsd_back,
 }
 
@@ -128,7 +136,7 @@ sets.precast.FC = {
 	ammo="Sapience Orb",
 	head="Nyame Helm",
 	body="Adhemar Jacket +1",
-	hands={ name="Leyline Gloves", augments={'Accuracy+5','"Mag.Atk.Bns."+7','"Fast Cast"+1',}},
+	hands="Leyline Gloves",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Baetyl Pendant",
@@ -149,8 +157,8 @@ sets.precast.WS = {
 	ammo="Oshasha's Treatise",
 	head="Nyame Helm",
 	body="Nyame Mail",
-	hands="Maxixi Bangles +3",
-	legs={ name="Horos Tights +3", augments={'Enhances "Saber Dance" effect',}},
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Etoile Gorget +2",
 	waist="Fotia Belt",
@@ -166,26 +174,26 @@ sets.precast.WS["Rudra's Storm"] = {
 	ammo="Oshasha's Treatise",
 	head="Nyame Helm",
 	body="Nyame Mail",
-	hands="Maxixi Bangles +3",
-	legs={ name="Horos Tights +3", augments={'Enhances "Saber Dance" effect',}},
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Etoile Gorget +2",
 	waist="Fotia Belt",
 	left_ear="Moonshade Earring",
 	right_ear="Odr Earring",
 	left_ring="Regal Ring",
-	right_ring="Illbrat Ring",
+	right_ring="Ilabrat Ring",
 	back=gear.jse_wsd_back,
 }
 
 sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Pyrrhic Kleos'] = {
 	ammo="Oshasha's Treatise",
-	head="Gleti's Mask",
-	body="Gleti's Cuirass",
-	hands="Gleti's Gauntlets",
-	legs="Gleti's Breeches",
-	feet="Gleti's Boots",
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
 	neck="Etoile Gorget +2",
 	waist="Fotia Belt",
 	left_ear="Sherida Earring",
@@ -265,7 +273,7 @@ sets.defense.PDT = {
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
-	back="Moonbeam Cape",
+	back=gear.dt_moon_back,
 }
 
 sets.defense.MDT = sets.defense.PDT
@@ -308,5 +316,5 @@ sets.engaged.DT = {
 
 -- Buff sets: Gear that needs to be worn to actively enhance a current player buff.
 sets.buff['Saber Dance'] = {legs="Horos Tights +3"}
-sets.buff['Climactic Flourish'] = {head="Maculele Tiara +2"} --ammo="Charis Feather", 
+sets.buff['Climactic Flourish'] = {head=gear.jse_empy_head} --ammo="Charis Feather", 
 sets.buff.Doom = set_combine(sets.buff.Doom, {})

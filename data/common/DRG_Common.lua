@@ -207,8 +207,13 @@ sets.idle.Town = {
 	back=gear.jse_da_back,
 }
 	
-sets.idle.Refresh = {}
-sets.idle.Reraise = set_combine(sets.idle, {})
+sets.idle.Refresh = set_combine(sets.idle, {
+	head="Nyame Helm",
+	body="Chozoron Coselete",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	right_ring=gear.stikini_ring,
+})
 
 -- Defense sets
 sets.defense.PDT = {

@@ -736,7 +736,7 @@ function handle_autowsone(cmdParams)
 			-- if state.DisplayMode.value then update_job_states()	end
 		-- end
 	else
-		autoaltws = table.concat(cmdParams, ' '):ucfirst()
+		autowsone = table.concat(cmdParams, ' '):ucfirst()
 		add_to_chat(122,'Your alternate autows #1 weaponskill is set to '..autowsone..'.')
 		if state.DisplayMode.value then update_job_states()	end
 	end
@@ -756,7 +756,7 @@ function handle_autowstwo(cmdParams)
 			-- if state.DisplayMode.value then update_job_states()	end
 		-- end
 	else
-		autoaltws = table.concat(cmdParams, ' '):ucfirst()
+		autowstwo = table.concat(cmdParams, ' '):ucfirst()
 		add_to_chat(122,'Your alternate autows #2 weaponskill is set to '..autowstwo..'.')
 		if state.DisplayMode.value then update_job_states()	end
 	end

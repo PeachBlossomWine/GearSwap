@@ -99,7 +99,7 @@ sets.precast.FC = {
 	waist="Embla Sash",																										-- 5
 	left_ear="Loquac. Earring",																								-- 2
 	right_ear="Malignance Earring",																							-- 4
-	left_ring="Weather. Ring +1",																								-- 4
+	left_ring=gear.weather_ring,																							-- 4
 	right_ring="Lebeche Ring",																								-- QC
 	back=gear.magic_jse_back,																								-- 10
 }
@@ -271,7 +271,7 @@ sets.midcast.Pet.BloodPactWard = {
 	head=gear.jse_empy_head,				-- 13
 	body=gear.jse_empy_body,				-- 14
 	hands="Lamassu Mitts +1",				-- 22
-	legs=gear.jse_empy_legs,					-- 20
+	legs=gear.jse_empy_legs,				-- 20
 	feet=gear.jse_empy_feet,
 	neck="Incanter's Torque",				-- 10
 	waist="Lucidity Sash",					-- 7

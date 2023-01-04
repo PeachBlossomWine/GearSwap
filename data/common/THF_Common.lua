@@ -14,7 +14,15 @@ else
 	gear.empy_earring = "Telos Earring"
 end
 
-sets.TreasureHunter = set_combine(sets.TreasureHunterTHF, {hands="Plunderer's Armlets +3", waist="Chaac Belt", feet="Skulker's Poulaines +2"})
+if item_available("Skulker's Poulaines +3") then
+	gear.jse_empy_feet = "Skulker's Poulaines +3"
+elseif item_available("Skulker's Poulaines +2") then
+	gear.jse_empy_feet = "Skulker's Poulaines +2"
+else
+	gear.jse_empy_feet = "Skulker's Poulaines +1"
+end
+
+sets.TreasureHunter = set_combine(sets.TreasureHunterTHF, {hands="Plunderer's Armlets +3", waist="Chaac Belt", feet=gear.jse_empy_feet})
 sets.Kiting = {feet="Jute Boots +1"}
 
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
@@ -48,7 +56,7 @@ sets.precast.JA['Hide'] = {}
 sets.precast.JA['Conspirator'] = {}
 sets.precast.JA['Steal'] = {}
 sets.precast.JA['Mug'] = {}
-sets.precast.JA['Despoil'] = {feet="Skulker's Poulaines +2"}
+sets.precast.JA['Despoil'] = {feet=gear.jse_empy_feet}
 sets.precast.JA['Perfect Dodge'] = {hands="Plunderer's Armlets +3"}
 sets.precast.JA['Feint'] = {}
 
