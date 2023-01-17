@@ -45,3 +45,5 @@ elseif player.sub_job == "WHM" then
 else
 	send_command('wait 5; hb mincure 4')
 end
+
+send_command('wait 15; input /lockstyleset 21')

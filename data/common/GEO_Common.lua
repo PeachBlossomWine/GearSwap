@@ -102,7 +102,7 @@ sets.precast.FC = {
 	back=gear.jse_skill_back,																						-- 7
 }
 
-sets.precast.FC.DT = set_combine(sets.precast.FC, {back={gear.dt_moon_back,priority=500},left_ear={name="Odnowa Earring +1",priority=500},})
+sets.precast.FC.DT = set_combine(sets.precast.FC, {back="Solemnity Cape",left_ear={name="Odnowa Earring +1",priority=500},})
 
 sets.precast.FC.Geomancy = set_combine(sets.precast.FC, { neck=gear.geo_jse_neck })
 sets.precast.FC.Geomancy.Indi = sets.precast.FC.Geomancy		
@@ -173,8 +173,7 @@ sets.midcast.Geomancy = {
 	right_ear="Calamitous Earring",													-- CMP 4
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
-	--back="Solemnity Cape",														-- CMP 5
-    back={gear.dt_moon_back,priority=500},
+	back="Solemnity Cape",															-- CMP 5
 }
 
 sets.midcast.Geomancy.DT = set_combine(sets.midcast.Geomancy, {})
@@ -185,7 +184,7 @@ sets.midcast.Geomancy.Indi = {
 	main="Idris",
 	sub="Genmei Shield",
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-	head="Nyame Helm",
+	head=gear.jse_empy_head,
 	body="Vedic Coat",
 	hands="Nyame Gauntlets",													
 	legs=gear.geo_relic_legs, 															-- 15s
@@ -244,7 +243,7 @@ sets.midcast.Cursna = set_combine(sets.midcast.Cure, {neck="Debilis Medallion",r
 sets.midcast.StatusRemoval = set_combine(sets.midcast.FastRecast, {})
 
 --DT
-sets.midcast.LightWeatherCure.DT = {back={gear.dt_moon_back,priority=1},waist="Korin Obi"}
+sets.midcast.LightWeatherCure.DT = {waist="Korin Obi"}
 sets.midcast.LightDayCure.DT = sets.midcast.LightWeatherCure.DT
 sets.midcast.Curaga.DT = sets.midcast.Cure.DT
 sets.midcast.Cursna.DT = set_combine(sets.midcast.Cure.DT, {neck="Debilis Medallion",ring1="Haoma's Ring",ring2="Menelaus's Ring"})
