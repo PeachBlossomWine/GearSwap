@@ -694,9 +694,9 @@ sets.element.Earth = {}
 
 sets.engaged = {
 	ammo="Crepuscular Pebble",
-	head="Nyame Helm",
+	head="Bunzi's Hat",
     body="Nyame Mail",
-    hands="Nyame Gauntlets",
+    hands="Bunzi's Gloves",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Combatant's Torque",

@@ -95,7 +95,7 @@ sets.precast.WS['Myrkr'] = {
 	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	left_ring="Vertigo Ring",
 	right_ring="Rufescent Ring",
-	back=gear.nuke_jse_back,
+	back=gear.jse_mab_back,
 }
 	
 sets.MaxTPMyrkr = {ear1="Etiolation Earring",ear2="Halasz Earring"}

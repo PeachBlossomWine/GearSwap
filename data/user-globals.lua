@@ -12,7 +12,6 @@ send_command('bind @f2 mc dispelga')
 send_command('bind ^pagedown sa fullcircle')
 send_command('exec SI.txt')
 send_command('wait 5; lua r healbot')
---send_command('wait 7; gs org')
 autofood = 'Grape Daifuku'
 --Binds
 send_command('bind !@^f7 gs c toggle AutoWSMode') --Turns auto-ws mode on and off.

@@ -629,7 +629,7 @@ sets.buff.DTSublimation = {waist="Embla Sash"}
 -- Engaged sets
 sets.engaged = {
 	ammo="Coiste Bodhar",
-	head="Malignance Chapeau",
+	head="Bunzi's Hat",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
 	legs="Malignance Tights",

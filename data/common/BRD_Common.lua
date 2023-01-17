@@ -13,6 +13,13 @@ if item_available("Annoint. Kalasiris") then
 else
 	gear.idle_body = "Inyanga Jubbah +2"
 end
+
+--Melee body
+if item_available("Ashera Harness") then
+	gear.melee_body = "Ashera Harness"
+else
+	gear.melee_body = "Nyame Mail"
+end
  
 --Empy
 if item_available("Fili Calot +3") then
@@ -583,10 +590,10 @@ sets.latent_refresh = {waist="Fucho-no-obi"}
 -- Engaged sets
 sets.engaged = {
 	range=gear.tp_linos,
-	head=gear.jse_empy_head,
-	body="Nyame Mail",
+	head="Bunzi's Hat",
+	body=gear.melee_body,
 	hands="Bunzi's Gloves",
-	legs="Nyame Flanchard",
+	legs=gear.jse_empy_legs,
 	feet="Nyame Sollerets",
 	neck="Bard's Charm +1",
 	waist="Windbuffet Belt +1",

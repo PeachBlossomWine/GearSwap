@@ -536,9 +536,9 @@ sets.CureObi = {waist="Korin Obi"}
 
 sets.engaged = {
 	ammo="Epitaph",
-	head="Nyame Helm",
+	head="Bunzi's Hat",
 	body="Nyame Mail",
-	hands="Nyame Gauntlets",
+	hands="Bunzi's Gloves",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Combatant's Torque",
