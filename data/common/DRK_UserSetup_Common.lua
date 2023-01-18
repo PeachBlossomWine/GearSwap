@@ -35,7 +35,6 @@ gear.jse_VIT_Back 	={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Att
 gear.jse_STR_Back 	={ name="Ankou's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 gear.jse_FC_Back	={ name="Ankou's Mantle", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','Mag. Acc.+10','"Fast Cast"+10','Phys. dmg. taken-10%',}}
 gear.jse_TP_Back	={ name="Ankou's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','"Dbl.Atk."+10','Accuracy+10','Phys. dmg. taken-10%',}}
-gear.Drain_back		={ name="Niht Mantle", augments={'Attack+7','Dark magic skill +7','"Drain" and "Aspir" potency +25',}}
 
 send_command('wait 15; input /lockstyleset 8;')
 

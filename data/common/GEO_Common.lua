@@ -157,18 +157,18 @@ sets.midcast.FastRecast = sets.precast.FC
 -- Skill gear + MP not depleted + Conserve MP
 -- 850 Skill + 55
 -- 101% Conserve MP goal, GEO has 43%, need 57% to cap
--- CMP: 59%
+-- CMP: 58%
 sets.midcast.Geomancy = {
 	main="Idris",			
 	sub="Genmei Shield",
-	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},		-- 				GEO +18
-	head="Vanya Hood",															    -- CMP 6
+	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+	head=gear.jse_empy_head,
 	body="Vedic Coat",																-- CMP 10
 	hands="Shrieker's Cuffs",														-- CMP 7
 	legs="Vanya Slops",																-- CMP 12
-	feet="Vanya Clogs",																-- CMP 6
+	feet=gear.jse_empy_feet,
 	neck="Loricate Torque +1",
-	waist="Luminary Sash",															-- CMP 4
+	waist="Shinjutsu-no-Obi +1",													-- CMP 15
 	left_ear="Magnetic Earring",													-- CMP 5
 	right_ear="Calamitous Earring",													-- CMP 4
 	left_ring="Defending Ring",
@@ -190,7 +190,7 @@ sets.midcast.Geomancy.Indi = {
 	legs=gear.geo_relic_legs, 															-- 15s
 	feet=gear.jse_empy_feet,															-- 30s
 	neck="Incanter's Torque",
-	waist="Luminary Sash",															
+	waist="Shinjutsu-no-Obi +1",														
 	left_ear="Magnetic Earring",
 	right_ear="Calamitous Earring",
 	left_ring="Defending Ring",
