@@ -33,6 +33,12 @@ else
 	gear.jse_empy_legs = "Heath. Flanchard +2"
 end
 
+if item_available('Crepuscular Cloak') then
+	gear.impact_body = "Crepuscular Cloak"
+else
+	gear.impact_body = "Twilight Cloak"
+end
+
 autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['KajaChopper']='Armor Break',['Naegling']='Savage Blade'}
 
 -- Weapons sets
@@ -78,14 +84,14 @@ sets.precast.FC = {
 	waist="Flume Belt +1",
 	left_ear="Loquac. Earring",																		-- 2
 	right_ear="Malignance Earring",																	-- 4
-	left_ring="Weather. Ring +1",																	-- 5
+	left_ring=gear.weather_ring,																	-- 5
 	right_ring="Kishar Ring",																		-- 4
 	back=gear.jse_FC_Back,																			-- 10
 }
 
 sets.precast.FC['Dark Magic'] = set_combine(sets.precast.FC, {})
 
-sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
+sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body})
 
 -- Weaponskill sets
 -- Default set for any weaponskill that isn't any more specifically defined
@@ -189,7 +195,7 @@ sets.precast.WS['Armor Break'] = {
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear="Malignance Earring",
 	left_ring="Metamor. Ring +1",
-	right_ring="Weather. Ring +1",
+	right_ring=gear.weather_ring,
 	back=gear.jse_FC_Back,
 }
 
@@ -258,7 +264,7 @@ sets.midcast['Dread Spikes'] = set_combine(sets.midcast['Dark Magic'], {})
 sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {hands=gear.jse_empy_hands, feet=gear.drk_darkmagic_feet, back="Ankou's Mantle"})
 sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {ring1="Evanescence Ring",ring2="Archon Ring", back=gear.Drain_back})
 sets.midcast.Aspir = sets.midcast.Drain
-sets.midcast.Impact = set_combine(sets.midcast['Dark Magic'], {head=empty,body="Twilight Cloak"})
+sets.midcast.Impact = set_combine(sets.midcast['Dark Magic'], {head=empty,body=gear.impact_body})
 sets.midcast.Stun = sets.midcast['Enfeebling Magic']
 sets.midcast.Cure = {}
 
