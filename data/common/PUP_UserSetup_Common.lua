@@ -3,7 +3,7 @@ state.HybridMode:options('DT','HybridPET','PetTank','Normal')
 state.WeaponskillMode:options('Normal')
 state.PhysicalDefenseMode:options('PDT')
 state.IdleMode:options('Normal','Refresh')
-state.Weapons:options('Verethragna','Godhands','Sakpata','Midnights','DivinatorII','None')
+state.Weapons:options('Verethragna','Godhands','Xiucoatl','Sakpata','Midnights','DivinatorII','None')
 state.PetWSGear = M(true, 'Pet WS Gear')
 
 --state.AutoBuffMode:options('auto')

@@ -11,9 +11,10 @@ end
 -- Weapons sets
 sets.weapons.Verethragna = {main="Verethragna",range="Neo Animator",}
 sets.weapons.Godhands = {main="Godhands",range="Neo Animator",}
+sets.weapons.Xiucoatl = {main="Xiucoatl",range="Neo Animator",}
 sets.weapons.Sakpata = {main="Sakpata's Fists",range="Neo Animator",}
 sets.weapons.Midnights = {main="Midnights",range="Neo Animator",}
-sets.weapons.DivinatorII = {main="Sakpata's Fists",range="Divinator II",}
+sets.weapons.DivinatorII = {main="Xiucoatl",range="Divinator II",}
 
 
 -- Fast cast sets for spells
