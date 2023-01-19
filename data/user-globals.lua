@@ -3,6 +3,7 @@ X_pos_view = OurReso.x_res - 305
 X_pos_ffxidb = OurReso.x_res - 370
 send_command('lua l equipviewer; wait 2; equipviewer pos ' .. X_pos_view .. ' 280')
 send_command('wait 3; ffxidb map pos ' .. X_pos_ffxidb .. ' 40')
+send_command('wait 5; input /cm party')
 
 send_command('bind ^= gs c cycle treasuremode')
 send_command('bind !f2 mc fin')

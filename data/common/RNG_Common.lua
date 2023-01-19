@@ -27,6 +27,12 @@ else
 	gear.jse_empy_body = "Amini Caban +1"
 end
 
+if item_available("Amini Bragues +3") then
+	gear.jse_empy_legs = "Amini Bragues +3"
+else
+	gear.jse_empy_legs = "Amini Bragues +2"
+end
+
 -- Weapons sets
 sets.weapons.Gastraphetes = {main="Tauret",sub="Nusku Shield",range="Gastraphetes",ammo="Quelling Bolt"}
 sets.weapons.Armageddon = {main="Perun +1",sub="Nusku Shield",range="Armageddon",ammo="Chrono Bullet"}
@@ -197,7 +203,7 @@ sets.midcast.RA.AM = {
 	head="Meghanada Visor +2",
 	body=gear.crit_body,
 	hands="Malignance Gloves",
-	legs="Malignance Tights",
+	legs=gear.jse_empy_legs,
 	feet="Osh. Leggings +1",
 	neck="Scout's Gorget +2",
 	waist="K. Kachina Belt +1",
