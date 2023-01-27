@@ -574,11 +574,11 @@ end
 buff_spell_lists = {
 	Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
 		{Name='Reraise IV',		Buff='Reraise',		SpellID=848,	When='Always'},
+		{Name='Shellra V',		Buff='Shell',		SpellID=134,	When='Always'},
+		{Name='Protectra V',	Buff='Protect',		SpellID=129,	When='Always'},
 		{Name='Haste',			Buff='Haste',		SpellID=57,		When='Always'},
 		{Name='Aurorastorm',	Buff='Aurorastorm',	SpellID=119,	When='Always'},
 		{Name='Refresh',		Buff='Refresh',		SpellID=109,	When='Always'},
-		{Name='Shellra V',		Buff='Shell',		SpellID=134,	When='Always'},
-		{Name='Protectra V',	Buff='Protect',		SpellID=129,	When='Always'},
 	},
 
 	Default = {

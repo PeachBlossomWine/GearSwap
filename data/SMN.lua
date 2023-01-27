@@ -982,6 +982,12 @@ buff_spell_lists = {
 		{Name='Refresh',		Buff='Refresh',		SpellID=109,	When='Idle'},
         {Name='Reraise',	    Buff='Reraise',	    SpellID=135,	When='Always'},
 	},
+	Rebuff = {
+		{Name='Refresh',		Buff='Refresh',		SpellID=109,	Reapply=true},
+		{Name='Haste',			Buff='Haste',		SpellID=57,		Reapply=true},
+		{Name='Stoneskin',		Buff='Stoneskin',	SpellID=54,		Reapply=true},
+		{Name='Aquaveil',		Buff='Aquaveil',	SpellID=55,		Reapply=true},
+	},
 	Default = {
 		{Name='Refresh',		Buff='Refresh',		SpellID=109,	Reapply=false},
 		{Name='Haste',			Buff='Haste',		SpellID=57,		Reapply=false},

@@ -1171,11 +1171,11 @@ buff_spell_lists = {
 	},
 	
 	Healing = {
-		{Name='Protect V',		Buff='Protect',			SpellID=47, 	When='Always'},
-		{Name='Shell V',		Buff='Shell',			SpellID=52, 	When='Always'},
+        {Name='Reraise',    	Buff='Reraise', 		SpellID=135,	When='Always'},
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
 		{Name='Aurorastorm II', Buff='Aurorastorm',		SpellID=864,	When='Always'},
-        {Name='Reraise',    	Buff='Reraise', 		SpellID=135,	When='Always'},
+		{Name='Protect V',		Buff='Protect',			SpellID=47, 	When='Always'},
+		{Name='Shell V',		Buff='Shell',			SpellID=52, 	When='Always'},
         {Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
 	},
 	

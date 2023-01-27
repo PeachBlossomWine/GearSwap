@@ -323,6 +323,10 @@ function check_buff()
 			windower.chat.input('/ja "Chakra" <me>')
 			tickdelay = os.clock() + 3.1
 			return true
+		elseif not (buffactive['Mantra']) and abil_recasts[19] < latency and player.target and player.target.name == 'Shinryu' then
+			windower.chat.input('/ja "Mantra" <me>')
+			tickdelay = os.clock() + 3.1
+			return true
 		elseif not (buffactive.Impetus or buffactive.Footwork) and abil_recasts[31] < latency then
 			windower.chat.input('/ja "Impetus" <me>')
 			tickdelay = os.clock() + 3.1

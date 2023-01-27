@@ -920,8 +920,9 @@ buff_spell_lists = {
 	},
 	
 	Rebuff = {
-		{Name='Refresh',		Buff='Refresh',			SpellID=109,	Reapply=true},
-		{Name='Haste',			Buff='Haste',			SpellID=57,		Reapply=true},
+		{Name='Refresh',		Buff='Refresh',		SpellID=109,	Reapply=true},
+		{Name='Haste',			Buff='Haste',		SpellID=57,		Reapply=true},
+		{Name='Stoneskin',		Buff='Stoneskin',	SpellID=54,		Reapply=true},
 	},
 }
 
