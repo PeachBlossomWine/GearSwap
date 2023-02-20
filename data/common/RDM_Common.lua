@@ -76,6 +76,7 @@ sets.weapons.Murgleis = {main="Murgleis",sub="Ammurapi Shield"}
 sets.weapons.Crocea = {main="Crocea Mors",sub="Ammurapi Shield"}
 sets.weapons.Sequence = {main="Sequence",sub="Ammurapi Shield"}
 sets.weapons.Naegling = {main="Naegling",sub="Ammurapi Shield"}
+sets.weapons.Maxentius = {main="Maxentius",sub="Ammurapi Shield"}
 -- DW
 sets.weapons.DualMurCea = {main="Murgleis",sub="Crocea Mors"}
 sets.weapons.DualMurgleis = {main="Murgleis",sub="Gleti's Knife"}

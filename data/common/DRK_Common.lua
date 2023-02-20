@@ -73,12 +73,12 @@ sets.precast.FC = {
 	body="Fall. Cuirass +3",																		-- 10
 	hands="Leyline Gloves",																			-- 7
 	legs=gear.odyssean_fc_legs,																		-- 6
-	feet=gear.odyssean_fc_feet,																		-- 10
+	feet=gear.odyssean_fc_feet,																		-- 11
 	neck="Baetyl Pendant",																			-- 4
 	waist="Flume Belt +1",
 	left_ear="Loquac. Earring",																		-- 2
 	right_ear="Malignance Earring",																	-- 4
-	left_ring="Weather. Ring +1",																	-- 5
+	left_ring="Weather. Ring +1",																	-- 6
 	right_ring="Kishar Ring",																		-- 4
 	back=gear.jse_FC_Back,																			-- 10
 }
@@ -254,7 +254,7 @@ sets.midcast['Enfeebling Magic'] = {
 	back=gear.jse_FC_Back,
 }
 	   
-sets.midcast['Dread Spikes'] = set_combine(sets.midcast['Dark Magic'], {})
+sets.midcast['Dread Spikes'] = set_combine(sets.midcast['Dark Magic'], {body=gear.jse_empy_body})
 sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {hands=gear.jse_empy_hands, feet=gear.drk_darkmagic_feet, back="Ankou's Mantle"})
 sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {ring1="Evanescence Ring",ring2="Archon Ring", back=gear.Drain_back})
 sets.midcast.Aspir = sets.midcast.Drain
@@ -282,7 +282,7 @@ sets.DayWSEars = {ear1="Lugra Earring +1",ear2="Moonshade Earring",}
 sets.idle = {
 	ammo="Staunch Tathlum +1",
 	head="Sakpata's Helm",
-	body="Chozor. Coselete",
+	body="Crepuscular Mail",
 	hands="Sakpata's Gauntlets",
 	legs="Sakpata's Cuisses",
 	feet="Sakpata's Leggings",

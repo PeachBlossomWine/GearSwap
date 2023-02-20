@@ -102,9 +102,9 @@ end
 sets.weapons.Aeneas = {main="Aeneas",sub="Genmei Shield"}
 sets.weapons.Carnwenhan = {main=gear.song_dagger,sub="Genmei Shield"}
 sets.weapons.Naegling = {main="Naegling",sub="Genmei Shield"}
-sets.weapons.DualAeneas = {main="Aeneas",sub="Gleti's Knife"}
-sets.weapons.DualCarn = {main=gear.song_dagger,sub="Gleti's Knife"}
-sets.weapons.DualSavage = {main="Naegling", sub="Gleti's Knife"}
+sets.weapons.DualAeneas = {main="Aeneas",sub="Crepuscular Knife"}
+sets.weapons.DualCarn = {main=gear.song_dagger,sub="Crepuscular Knife"}
+sets.weapons.DualSavage = {main="Naegling", sub="Crepuscular Knife"}
 -- Precast Sets
 
 -- 78%

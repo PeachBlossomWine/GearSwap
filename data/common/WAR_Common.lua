@@ -128,6 +128,8 @@ sets.precast.WS['Upheaval'].Enmity = set_combine(sets.precast.WS, {
 	left_ear="Schere Earring",	
 })
 
+sets.precast.WS['Judgment'] = set_combine(sets.precast.WS, {})
+sets.precast.WS['Judgment'].KI = set_combine(sets.precast.WS.KI, {})
 
 -- Proc WS
 sets.precast.WS['Freezebite'] = set_combine(sets.precast.WS.Proc, {})

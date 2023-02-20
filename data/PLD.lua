@@ -222,7 +222,7 @@ function job_self_command(commandArgs, eventArgs)
 
 	elseif commandArgs[1] == 'SubJobEnmity' then
 
-		if player.target.type ~= "MONSTER" then
+		if player.target.type ~= "MONSTER" and player.sub_job ~= 'RUN' then
 			add_to_chat(123,'Abort: You are not targeting a monster.')
 			return
 
@@ -539,10 +539,10 @@ function check_flash()
 		windower.chat.input('/ma "Crusade" <me>')
 		tickdelay = os.clock() + 2.5
 		return true
-	elseif abil_recasts[73] < latency and not silent_check_amnesia() then
-		send_command('input /ja "Shield Bash" <t>')
-		tickdelay = os.clock() + 2.5
-		return true
+	-- elseif abil_recasts[73] < latency and not silent_check_amnesia() then
+		-- send_command('input /ja "Shield Bash" <t>')
+		-- tickdelay = os.clock() + 2.5
+		-- return true
 	elseif state.AutoWSMode.value and player.tp > 1001 and not (player.mpp < 35 and abil_recasts[79] < latency) and player.in_combat and player.target.type == "MONSTER" and not silent_check_amnesia() then
 		send_command('input /ws "' .. autows .. '" <t>')
 		add_to_chat(262,'WS -> ' .. autows)

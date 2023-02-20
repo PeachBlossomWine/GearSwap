@@ -19,11 +19,26 @@ else
 	gear.hp_waist = {name="Silver Moogle Belt",priority=500}
 end
 
-if item_available("Sacro Breastplate") then
+if item_available("Crepuscular Mail") then
+	gear.idle_body = "Crepuscular Mail"
+elseif item_available("Sacro Breastplate") then
 	gear.idle_body = "Sacro Breastplate"
 else
 	gear.idle_body = "Sakpata's Plate"
 end
+
+if item_available("Crepuscular Mail") then
+	gear.idle_refresh_body = "Crepuscular Mail"
+else
+	gear.idle_refresh_body = "Sakpata's Plate"
+end
+
+if item_available("Enif Cosciales") then
+	gear.fc_legs = "Enif Cosciales"
+else
+	gear.fc_legs = gear.odyssean_fc_legs
+end
+
 
 --------------------------------------
 -- Precast sets
@@ -119,7 +134,7 @@ sets.precast.FC = {
 	head={name="Carmine Mask +1",priority=38},													-- 14%
 	body={name="Rev. Surcoat +3",priority=254},													-- 10%
 	hands={name="Leyline Gloves",priority=5},													-- 8%
-	legs=gear.odyssean_fc_legs,																	-- 6% (8%)
+	legs=gear.fc_legs,																			-- 8%
 	feet={name="Chev. Sabatons +3",priority=42},												-- 13%
 	neck={name="Unmoving Collar +1", priority=500},												
 	waist=gear.hp_waist,
@@ -378,7 +393,7 @@ sets.idle.Weak = sets.idle.Tank
 sets.resting = sets.idle
 sets.Kiting = {legs="Carmine Cuisses +1"}
 
-sets.latent_refresh = {waist="Fucho-no-obi"}
+sets.latent_refresh = {body=gear.idle_refresh_body, waist="Fucho-no-obi"}
 sets.latent_refresh_grip = {}
 sets.latent_regen = {}
 sets.DayIdle = {}

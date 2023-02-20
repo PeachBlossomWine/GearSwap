@@ -1,6 +1,6 @@
 state.OffenseMode:options('Normal')
-state.CastingMode:options('Normal','Resistant','DT')
-state.IdleMode:options('Normal','DT')
+state.CastingMode:options('Normal','Resistant','DT','SIRD')
+state.IdleMode:options('DT','Normal')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')

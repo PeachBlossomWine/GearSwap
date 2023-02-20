@@ -510,7 +510,7 @@ end
 
 buff_spell_lists = {
 	Auto = {	
-		{Name='Dread Spikes',Buff='Dread Spikes',SpellID=277,When='Idle'},
+		{Name='Dread Spikes',Buff='Dread Spikes',SpellID=277,When='Always'},
 	},
 	
 	Default = {

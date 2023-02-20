@@ -253,6 +253,22 @@ sets.engaged.DT = {
 	back=gear.jse_da_back,																-- 10
 }
 
+sets.engaged.SubtleBlow = {
+	ammo="Coiste Bodhar",
+	head="Malignance Chapeau",
+	body="Mpaca's Doublet",
+	hands="Malignance Gloves",	
+	legs="Mpaca's Hose",						-- 5
+	feet="Malignance Boots",
+	neck="Mnk. Nodowa +2",
+	waist=gear.mnk_tp_waist,					-- 15 II
+	left_ear="Sherida Earring",					-- 5 II
+	right_ear=gear.empy_earring,
+	left_ring=gear.mnk_tp_ring,					-- 10
+	right_ring="Niqmaddu Ring",					-- 5 II
+	back=gear.jse_da_back,
+}
+
 sets.engaged.Tank = {
 	ammo=gear.dt_ammo,			
 	head="Malignance Chapeau",

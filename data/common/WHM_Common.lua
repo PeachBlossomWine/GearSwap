@@ -117,11 +117,13 @@ else
 	gear.whm_idle_feet = 'Inyanga Crackows +2'
 end
 
-if item_available("Moonlight Cape") then
-	gear.whm_dt_back = {name="Moonlight Cape",priority=500}
-else
-	gear.whm_dt_back = {name="Moonbeam Cape",priority=500}
-end
+-- if item_available("Moonlight Cape") then
+	-- gear.whm_dt_back = {name="Moonlight Cape",priority=500}
+-- else
+	-- gear.whm_dt_back = {name="Moonbeam Cape",priority=500}
+-- end
+
+gear.whm_dt_back = "Solemnity Cape"
 
 if item_available('Crepuscular Cloak') then
 	gear.impact_body = "Crepuscular Cloak"
@@ -299,7 +301,7 @@ sets.midcast['Full Cure'] = sets.midcast.FastRecast
 -- CPII:	6
 
 sets.midcast.Cure = {
-	main={ name="Queller Rod", augments={'Healing magic skill +15','"Cure" potency +10%','"Cure" spellcasting time -7%',}},		-- 10 / 2
+	main="Queller Rod",																											-- 10 / 2
 	sub="Sors Shield",																											-- 3
 	ammo="Hydrocera",
 	head=gear.whm_empy_head,																									-- 19
@@ -318,41 +320,79 @@ sets.midcast.Cure = {
 
 sets.midcast.CureSolace = set_combine(sets.midcast.Cure, { body=gear.whm_empy_body } )
 sets.midcast.Curaga = sets.midcast.Cure
-sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, { main="Chatoyant Staff", sub="Enki Strap", waist="Korin Obi" } )
-sets.midcast.LightWeatherCureSolace = set_combine(sets.midcast.Cure, { main="Chatoyant Staff", sub="Enki Strap", body=gear.whm_empy_body, waist="Korin Obi" } )
-sets.midcast.LightDayCureSolace = set_combine(sets.midcast.Cure, { main="Chatoyant Staff", sub="Enki Strap", body=gear.whm_empy_body, waist="Korin Obi" } )
-sets.midcast.LightDayCure = set_combine(sets.midcast.Cure, { main="Chatoyant Staff", sub="Enki Strap", waist="Korin Obi" } )
-sets.midcast.LightWeatherCuraga = set_combine(sets.midcast.Cure ,{ main="Chatoyant Staff", sub="Enki Strap", waist="Korin Obi" } )
-sets.midcast.LightDayCuraga = set_combine(sets.midcast.Cure, { main="Chatoyant Staff", sub="Enki Strap", waist="Korin Obi" } )
+sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, { main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
+sets.midcast.LightWeatherCureSolace = set_combine(sets.midcast.Cure, { main="Chatoyant Staff", sub="Alber Strap", body=gear.whm_empy_body, waist="Korin Obi" } )
+sets.midcast.LightDayCureSolace = set_combine(sets.midcast.Cure, { main="Chatoyant Staff", sub="Alber Strap", body=gear.whm_empy_body, waist="Korin Obi" } )
+sets.midcast.LightDayCure = set_combine(sets.midcast.Cure, { main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
+sets.midcast.LightWeatherCuraga = set_combine(sets.midcast.Cure ,{ main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
+sets.midcast.LightDayCuraga = set_combine(sets.midcast.Cure, { main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
 
---	Cure:	50% + 6% II
--- 	PDT/DT:	-46%
+--	Cure:	52% + 8% II
+-- 	PDT/DT:	-56%
 sets.midcast.Cure.DT = {											-- Cure 	/	PDT/DT
-	main="Queller Rod",												-- 10% / 2% II
-	sub="Genmei Shield",
-	ammo=gear.dt_ammo,											--			/	3
-	head=gear.whm_empy_head,										-- 19%
+	main="Queller Rod",												-- 10% / 2%
+	sub="Genmei Shield",											--			/ 	10
+	ammo=gear.dt_ammo,												--			/	3
+	head=gear.whm_empy_head,										-- 22%
 	body="Theo. Bliaut +3",
 	hands="Theophany Mitts +3",										-- 4% II
 	legs=gear.whm_empy_legs,										--			/ 	12
-	feet="Vanya Clogs",												-- 10%
+	feet=gear.whm_empy_feet,										--			/	11
 	neck="Cleric's Torque",											-- 5%
 	waist="Korin Obi",
-	left_ear={name="Odnowa Earring +1",priority=1},					--   			3
+	left_ear="Mendi. Earring",										-- 5%
 	right_ear="Glorious Earring",									-- 2% II
 	left_ring="Defending Ring",										--				10
-	right_ring={name="Gelatinous Ring +1",priority=1},				--				7
+	right_ring="Stikini Ring +1",									--				
 	back=gear.jse_cure_back,										-- 10%			10
 }
 
 sets.midcast.CureSolace.DT = set_combine(sets.midcast.Cure.DT, { body=gear.whm_empy_body } )
 sets.midcast.Curaga.DT = sets.midcast.Cure.DT
-sets.midcast.LightWeatherCure.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Enki Strap", waist="Korin Obi" } )
-sets.midcast.LightWeatherCureSolace.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Enki Strap", body=gear.whm_empy_body, waist="Korin Obi" } )
-sets.midcast.LightDayCureSolace.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Enki Strap", body=gear.whm_empy_body, waist="Korin Obi" } )
-sets.midcast.LightDayCure.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Enki Strap", waist="Korin Obi" } )
-sets.midcast.LightWeatherCuraga.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Enki Strap", waist="Korin Obi" } )
-sets.midcast.LightDayCuraga.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Enki Strap", waist="Korin Obi" } )
+-- Light Weather/Day:
+-- PDT/DT: -49%
+-- Cure: 50%
+sets.midcast.LightWeatherCure.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
+sets.midcast.LightWeatherCureSolace.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Alber Strap", body=gear.whm_empy_body, waist="Korin Obi" } )
+sets.midcast.LightDayCureSolace.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Alber Strap", body=gear.whm_empy_body, waist="Korin Obi" } )
+sets.midcast.LightDayCure.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
+sets.midcast.LightWeatherCuraga.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
+sets.midcast.LightDayCuraga.DT = set_combine(sets.midcast.Cure.DT, { main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
+
+
+--	Cure: 48% + 2% II
+-- 	PDT/DT:	-50%+
+-- 	SIRD: 10% + 99% = 109%
+sets.midcast.Cure.SIRD = {											-- Cure 	/	PDT/DT	/	SIRD
+	main="Queller Rod",												-- 10% / 2% 
+	sub="Genmei Shield",											--			/ 	10
+	ammo=gear.dt_ammo,												--			/	3			11
+	head=gear.whm_empy_head,										-- 22%
+	body="Theo. Bliaut +3",
+	hands=gear.chironic_sird_hands,									--	 						31
+	legs=gear.whm_empy_legs,										--			/ 	12
+	feet="Theo. Duckbills +3",										--							29
+	neck="Loricate Torque +1",										--			/	6			5
+	waist="Korin Obi",
+	left_ear="Nourish. Earring +1",									-- 6%						5
+	right_ear="Magnetic Earring",									-- 							8
+	left_ring="Defending Ring",										--				10
+	right_ring="Freke Ring",										--							10
+	back=gear.jse_cure_back,										-- 10%			10
+}
+
+sets.midcast.CureSolace.SIRD = set_combine(sets.midcast.Cure.SIRD, { body=gear.whm_empy_body } )
+sets.midcast.Curaga.SIRD = sets.midcast.Cure.SIRD
+-- Light Weather/Day:
+-- PDT/DT: -44%
+-- Cure: 50%
+-- SIRD: 10% + 99% = 109%
+sets.midcast.LightWeatherCure.SIRD = set_combine(sets.midcast.Cure.SIRD, { main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
+sets.midcast.LightWeatherCureSolace.SIRD = set_combine(sets.midcast.Cure.SIRD, { main="Chatoyant Staff", sub="Alber Strap", body=gear.whm_empy_body, waist="Korin Obi" } )
+sets.midcast.LightDayCureSolace.SIRD = set_combine(sets.midcast.Cure.SIRD, { main="Chatoyant Staff", sub="Alber Strap", body=gear.whm_empy_body, waist="Korin Obi" } )
+sets.midcast.LightDayCure.SIRD = set_combine(sets.midcast.Cure.SIRD, { main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
+sets.midcast.LightWeatherCuraga.SIRD = set_combine(sets.midcast.Cure.SIRD, { main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
+sets.midcast.LightDayCuraga.SIRD = set_combine(sets.midcast.Cure.SIRD, { main="Chatoyant Staff", sub="Alber Strap", waist="Korin Obi" } )
 
 sets.midcast["Reraise"] = sets.midcast.Cure.DT
 sets.midcast["Reraise"].DT = sets.midcast.Cure.DT
@@ -387,6 +427,7 @@ sets.midcast.Cursna = {
 }
 
 sets.midcast.Cursna.DT = sets.midcast.Cursna
+sets.midcast.Cursna.SIRD = sets.midcast.Cursna
 
 sets.midcast.StatusRemoval = {
 	main=gear.whm_aoe_weapon,
@@ -406,6 +447,7 @@ sets.midcast.StatusRemoval = {
 	back=gear.jse_cure_back,
 }
 sets.midcast.StatusRemoval.DT = sets.midcast.StatusRemoval
+sets.midcast.StatusRemoval.SIRD = sets.midcast.StatusRemoval
 	
 -- 110 total Enhancing Magic Skill; caps even without Light Arts
 -- Duration gear
@@ -435,6 +477,8 @@ sets.midcast['Enhancing Magic'].DT = set_combine(sets.midcast['Enhancing Magic']
 	back=gear.whm_dt_back,
 })
 
+sets.midcast['Enhancing Magic'].SIRD = set_combine(sets.midcast['Enhancing Magic'].DT, {})
+
 sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {
 	main="Beneficus",
 	head=gear.whm_empy_head,
@@ -445,7 +489,8 @@ sets.midcast.BarElement = set_combine(sets.midcast['Enhancing Magic'], {
 	back=gear.whm_dt_back,
 })
 
-sets.midcast.BarElement.DT = set_combine(sets.midcast.BarElement, {left_ear={name="Odnowa Earring +1",priority=1},})
+sets.midcast.BarElement.DT = set_combine(sets.midcast.BarElement, {left_ear={name="Odnowa Earring +1",priority=500},})
+sets.midcast.BarElement.SIRD = set_combine(sets.midcast.BarElement.DT, {})
 
 sets.midcast.Regen = set_combine(sets.midcast['Enhancing Magic'], {
 	main="Bolelabunga",
@@ -463,6 +508,8 @@ sets.midcast.Regen.DT = set_combine(sets.midcast.Regen, {
 	right_ear="Genmei Earring",
 })
 
+sets.midcast.Regen.SIRD = set_combine(sets.midcast.Regen, {})
+
 -- Buff for duration
 sets.midcast.Protectra = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Protectra.DT = set_combine(sets.midcast.Protectra, {
@@ -472,14 +519,11 @@ sets.midcast.Protectra.DT = set_combine(sets.midcast.Protectra, {
 	right_ear="Genmei Earring",
 	back=gear.whm_dt_back,
 })
+sets.midcast.Protectra.SIRD = set_combine(sets.midcast.Protectra.DT, {})
 sets.midcast.Protect = sets.midcast.Protectra 
-sets.midcast.Protect.DT = set_combine(sets.midcast.Protect, {
-	ammo=gear.dt_ammo,
-	neck="Loricate Torque +1",
-	left_ear="Odnowa Earring +1",
-	right_ear="Genmei Earring",
-	back=gear.whm_dt_back,
-})
+sets.midcast.Protect.DT = set_combine(sets.midcast.Protectra.DT, {})
+sets.midcast.Protect.SIRD = set_combine(sets.midcast.Protect.DT, {})
+
 sets.midcast.Shellra = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Shellra.DT = set_combine(sets.midcast.Shellra, {
 	ammo=gear.dt_ammo,
@@ -488,14 +532,10 @@ sets.midcast.Shellra.DT = set_combine(sets.midcast.Shellra, {
 	right_ear="Genmei Earring",
 	back=gear.whm_dt_back,
 })
+sets.midcast.Shellra.SIRD = set_combine(sets.midcast.Shellra.DT, {})
 sets.midcast.Shell = sets.midcast.Shellra
-sets.midcast.Shell.DT = set_combine(sets.midcast.Shell, {
-	ammo=gear.dt_ammo,
-	neck="Loricate Torque +1",
-	left_ear="Odnowa Earring +1",
-	right_ear="Genmei Earring",
-	back=gear.whm_dt_back,
-})
+sets.midcast.Shell.DT = set_combine(sets.midcast.Shellra.DT, {})
+sets.midcast.Shell.SIRD = set_combine(sets.midcast.Shell.DT, {})
 
 sets.midcast.Refresh = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {neck="Nodens Gorget", waist="Siegel Sash"})
@@ -506,6 +546,12 @@ sets.midcast.Refresh.DT  = set_combine(sets.midcast['Enhancing Magic'].DT , {})
 sets.midcast.Stoneskin.DT  = set_combine(sets.midcast['Enhancing Magic'].DT , {neck="Nodens Gorget", waist="Siegel Sash"})
 sets.midcast.Aquaveil.DT  = set_combine(sets.midcast['Enhancing Magic'].DT , {main="Vadose Rod", head="Chironic Hat"})
 sets.midcast.Auspice.DT = set_combine(sets.midcast['Enhancing Magic'].DT,{feet=gear.whm_empy_feet})
+
+sets.midcast.Refresh.SIRD  = set_combine(sets.midcast['Enhancing Magic'].DT , {})
+sets.midcast.Stoneskin.SIRD  = set_combine(sets.midcast['Enhancing Magic'].DT , {neck="Nodens Gorget", waist="Siegel Sash"})
+sets.midcast.Aquaveil.SIRD  = set_combine(sets.midcast['Enhancing Magic'].DT , {main="Vadose Rod", head="Chironic Hat"})
+sets.midcast.Auspice.SIRD = set_combine(sets.midcast['Enhancing Magic'].DT,{feet=gear.whm_empy_feet})
+
 
 		sets.midcast.Impact = {}
 
@@ -560,7 +606,8 @@ sets.midcast['Enfeebling Magic'] = {
 }
 
 sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {hands=gear.whm_hands_enfeebling_resist, right_ring=gear.macc_fc_ring})
-sets.midcast['Enfeebling Magic'].DT = set_combine(sets.midcast['Enfeebling Magic'], {})--{back=gear.whm_dt_back,})
+sets.midcast['Enfeebling Magic'].DT = set_combine(sets.midcast['Enfeebling Magic'], {})
+sets.midcast['Enfeebling Magic'].SIRD = set_combine(sets.midcast['Enfeebling Magic'], {})
 	
 sets.midcast.Dia = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast.Diaga = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
@@ -582,6 +629,7 @@ sets.midcast.Stun.Resistant = sets.midcast.Stun
 
 sets.midcast['Dispelga'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {main="Daybreak"})
 sets.midcast['Dispelga'].DT = set_combine(sets.midcast['Enfeebling Magic'].DT, {main="Daybreak"})
+sets.midcast['Dispelga'].SIRD = set_combine(sets.midcast['Enfeebling Magic'].DT, {main="Daybreak"})
 
 sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {
 	main="Bunzi's Rod",
@@ -590,6 +638,7 @@ sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {
 })
 
 sets.midcast.Impact.DT = set_combine(sets.midcast.Impact, {})
+sets.midcast.Impact.SIRD = set_combine(sets.midcast.Impact, {})
 
 --MEVA
 sets.midcast.Dia.DT = set_combine(sets.midcast['Enfeebling Magic'].DT, sets.TreasureHunter)
@@ -602,6 +651,18 @@ sets.midcast.ElementalEnfeeble.DT = set_combine(sets.midcast['Enfeebling Magic']
 sets.midcast.IntEnfeebles.DT = set_combine(sets.midcast['Enfeebling Magic'].DT, {})
 sets.midcast.MndEnfeebles.DT = set_combine(sets.midcast['Enfeebling Magic'].DT, {})
 sets.midcast.Stun.DT = sets.midcast['Enfeebling Magic'].DT
+
+--SIRD
+sets.midcast.Dia.SIRD = set_combine(sets.midcast['Enfeebling Magic'].DT, sets.TreasureHunter)
+sets.midcast.Diaga.SIRD = set_combine(sets.midcast['Enfeebling Magic'].DT, sets.TreasureHunter)
+sets.midcast['Dia II'].SIRD = set_combine(sets.midcast['Enfeebling Magic'].DT, sets.TreasureHunter)
+sets.midcast.Bio.SIRD = set_combine(sets.midcast['Enfeebling Magic'].DT, sets.TreasureHunter)
+sets.midcast['Bio II'].SIRD = set_combine(sets.midcast['Enfeebling Magic'].DT, sets.TreasureHunter)
+
+sets.midcast.ElementalEnfeeble.SIRD = set_combine(sets.midcast['Enfeebling Magic'].DT, {})
+sets.midcast.IntEnfeebles.SIRD = set_combine(sets.midcast['Enfeebling Magic'].DT, {})
+sets.midcast.MndEnfeebles.SIRD = set_combine(sets.midcast['Enfeebling Magic'].DT, {})
+sets.midcast.Stun.SIRD = sets.midcast['Enfeebling Magic'].DT
 
 
 -- Idle sets
@@ -661,6 +722,7 @@ sets.idle.DT = {
 	back=gear.jse_macc_fc_back,						-- 			/ 5 DT	/
 }
 sets.idle.Weak = sets.idle.DT
+sets.idle.SIRD = sets.idle.DT
 
  -- Defense sets
 
