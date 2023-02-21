@@ -1,5 +1,5 @@
 state.OffenseMode:options('Normal')
-state.WeaponskillMode:options('Normal','Emnity','Tank')
+state.WeaponskillMode:options('Normal','Enmity','Tank')
 state.HybridMode:options('Normal','DT','SubtleBlow','Tank')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')

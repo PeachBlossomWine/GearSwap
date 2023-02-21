@@ -19,7 +19,7 @@ state.Weapons:options('Chango','ShiningOne','Nandaka','Drepanum','Dolichenus','N
 
 gear.jse_str_back ={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 gear.jse_da_back={ name="Cichol's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
-gear.jse_vit_back ={ name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%',}}
+gear.jse_vit_back ={ name="Cichol's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 
 send_command('bind !` input /ja "Hasso" <me>')
 send_command('bind ^` input /ja "Seigan" <me>')
