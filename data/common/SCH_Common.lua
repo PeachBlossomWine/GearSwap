@@ -386,21 +386,21 @@ sets.midcast['Elemental Magic'].Resistant = set_combine(sets.midcast['Elemental 
 sets.midcast['Elemental Magic']['9k'] = set_combine(sets.midcast['Elemental Magic'], {})
 	
 sets.midcast['Elemental Magic'].Proc = {
-	main="Daybreak",
-	sub="Genmei Shield",
+	main="Chatoyant Staff",
+	sub="Khonsu",
 	ammo=gear.dt_ammo,
 	head="Befouled Crown",
-	body="Shango Robe",
+	body="Shamash Robe",
 	hands="Shrieker's Cuffs",
 	legs="Psycloth Lappas",
 	feet="Vanya Clogs",
-	neck="Incanter's Torque",
+	neck="Loricate Torque +1",
 	waist="Luminary Sash",
-	left_ear="Regal Earring",
-	right_ear="Malignance Earring",
-	left_ring="Metamor. Ring +1",
-	right_ring=gear.stikini_ring,
-	back=gear.jse_mab_back,
+	left_ear="Lugalbanda Earring",
+	right_ear="Etiolation Earring",
+	left_ring="Defending Ring",
+	right_ring="Gelatinous Ring +1",
+	back="Solemnity Cape",
 }
 
 sets.midcast['Elemental Magic'].OccultAcumen = {}

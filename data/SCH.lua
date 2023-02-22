@@ -272,6 +272,8 @@ function job_post_midcast(spell, spellMap, eventArgs)
 				equip(sets.midcast['Elemental Magic'].Proc)
 			elseif state.CastingMode.value:contains('Resistant') and sets.ResistantMagicBurst then
 				equip(sets.ResistantMagicBurst)
+			elseif state.Buff['Immanence'] then
+				equip(sets.midcast['Elemental Magic'].Proc)
 			else
 				equip(sets.MagicBurst)
 			end
