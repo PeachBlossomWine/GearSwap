@@ -11,6 +11,7 @@ autows = 'Dimidiation'
 autofood = 'Om. Sandwich'
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
 state.MaintainTenebrae = M(false, 'Maintain Tenebrae')
+state.MaintainVorV = M(false, 'MaintainVorV')
 
 state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None'}
 

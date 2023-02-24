@@ -2297,19 +2297,35 @@ function check_rune()
 			return false
 			
 		elseif not buffactive['Vallation'] and not buffactive['Liement'] and buffactive[state.RuneElement.value] and state.HybridMode.value ~= 'Ongo' then
-			if player.main_job == 'RUN' and abil_recasts[23] < latency then
-				send_command('input /ja "Vallation" <me>')
-				tickdelay = os.clock() + 2.5
-				return true
+			if state.MaintainVorV then
+				if player.main_job == 'RUN' then
+					if not (state.Buff['Vallation'] or state.Buff['Valiance']) then
+						if abil_recasts[23] < latency and not state.Buff['Vallation'] then
+							send_command('input /ja "Vallation" <me>')
+							tickdelay = os.clock() + 2.5
+							return true
+						elseif abil_recasts[113] < latency and not state.Buff['Valiance'] then
+							send_command('input /ja "Valiance" <me>')
+							tickdelay = os.clock() + 2.5
+							return true
+						end
+					end
+				else
+					return false
+				end
 			else
-				return false
+				if player.main_job == 'RUN' and abil_recasts[23] < latency then
+					send_command('input /ja "Vallation" <me>')
+					tickdelay = os.clock() + 2.5
+					return true
+				else
+					return false
+				end
 			end
 		else
 			return false
 		end
-	
 	end
-	
 	return false
 end
 
