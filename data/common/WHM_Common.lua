@@ -208,7 +208,7 @@ sets.precast.FC.Cure.DT = set_combine(sets.precast.FC['Healing Magic'].DT, {
 
 sets.precast.FC.Curaga.DT = sets.precast.FC.Cure.DT
 sets.precast.FC.CureSolace.DT = sets.precast.FC.Cure.DT
-sets.precast.FC.Impact.DT =  set_combine(sets.precast.FC.DT, {head=empty,body="Twilight Cloak"})
+sets.precast.FC.Impact.DT =  set_combine(sets.precast.FC.DT, {head=empty,body=gear.impact_body})
 
 -- Precast sets to enhance JAs
 sets.precast.JA.Benediction = {body="Piety Bliaut +3"}
