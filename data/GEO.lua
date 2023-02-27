@@ -448,6 +448,11 @@ function job_self_command(commandArgs, eventArgs)
 		add_to_chat(122,'Your Auto Entrust Indi- spell is set to '..autoentrust..'.')
 		if state.DisplayMode.value then update_job_states()	end
 	elseif lowerCommand:contains('trustee') and commandArgs[2] then
+		if job_list(commandArgs[2]) then
+			autoentrustee = getPlayerNameFromJob(commandArgs[2])
+		else
+			autoentrustee = commandArgs[2]:ucfirst()
+		end
 		autoentrustee = commandArgs[2]:ucfirst()
 		add_to_chat(122,'Your Auto Entrustee target is set to '..autoentrustee..'.')
 		if state.DisplayMode.value then update_job_states()	end
@@ -455,7 +460,11 @@ function job_self_command(commandArgs, eventArgs)
 		handle_elemental(commandArgs)
 		eventArgs.handled = true
 	elseif lowerCommand:contains('geotar') and commandArgs[2] then
-		autogeotar = commandArgs[2]:ucfirst()
+		if job_list(commandArgs[2]) then
+			autogeotar = getPlayerNameFromJob(commandArgs[2])
+		else
+			autogeotar = commandArgs[2]:ucfirst()
+		end
 		add_to_chat(122,'Your Auto Geo target is set to '..autogeotar..'.')
 		if state.DisplayMode.value then update_job_states()	end
 	end
