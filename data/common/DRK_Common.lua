@@ -1,6 +1,12 @@
 --------------------------------------
 -- Start defining the sets
 --------------------------------------
+if item_available('Crepuscular Cloak') then
+	gear.impact_body = "Crepuscular Cloak"
+else
+	gear.impact_body = "Twilight Cloak"
+end
+
 if item_available("Heath. Earring +2") then
 	gear.empy_earring = "Heath. Earring +2"
 elseif item_available("Heath. Earring +1") then
@@ -85,7 +91,7 @@ sets.precast.FC = {
 
 sets.precast.FC['Dark Magic'] = set_combine(sets.precast.FC, {})
 
-sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body="Twilight Cloak"})
+sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body})
 
 -- Weaponskill sets
 -- Default set for any weaponskill that isn't any more specifically defined
@@ -258,7 +264,7 @@ sets.midcast['Dread Spikes'] = set_combine(sets.midcast['Dark Magic'], {body=gea
 sets.midcast.Absorb = set_combine(sets.midcast['Dark Magic'], {hands=gear.jse_empy_hands, feet=gear.drk_darkmagic_feet, back="Ankou's Mantle"})
 sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {ring1="Evanescence Ring",ring2="Archon Ring", back=gear.Drain_back})
 sets.midcast.Aspir = sets.midcast.Drain
-sets.midcast.Impact = set_combine(sets.midcast['Dark Magic'], {head=empty,body="Twilight Cloak"})
+sets.midcast.Impact = set_combine(sets.midcast['Dark Magic'], {head=empty,body=gear.impact_body})
 sets.midcast.Stun = sets.midcast['Enfeebling Magic']
 sets.midcast.Cure = {}
 
