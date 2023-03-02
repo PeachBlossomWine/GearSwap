@@ -192,7 +192,7 @@ function job_precast(spell, spellMap, eventArgs)
 			end
 		elseif accession_spells:contains(spell.english) then -- and not data.areas.cities:contains(world.area) then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
-			if player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia()) and not buffactive['SJ Restriction'] then
+			if not buffactive['SJ Restriction'] and (player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia())) then
 				if state.Buff['Light Arts'] then
 					windower.chat.input('/ja "Accession" <me>')
 					windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')

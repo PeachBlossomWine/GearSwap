@@ -30,4 +30,4 @@ utsusemi_ni_cancel_delay = .06
 
 select_default_macro_book()
 
-send_command('wait 15; input /lockstyleset 14; wait 3; lua l dressup')
+send_command('wait 15; input /lockstyleset 13; wait 3; lua l dressup')

@@ -288,6 +288,7 @@ sets.DayWSEars = {ear1="Lugra Earring +1",ear2="Moonshade Earring",}
 sets.idle = {
 	ammo="Staunch Tathlum +1",
 	head="Sakpata's Helm",
+	--head="Crepuscular Helm",
 	body="Crepuscular Mail",
 	hands="Sakpata's Gauntlets",
 	legs="Sakpata's Cuisses",
