@@ -2427,7 +2427,7 @@ function get_current_stratagem_count()
     local stratsRecast = allRecasts[231]
 	local StratagemChargeTimer = 240
 	local maxStratagems = 1
-	if buffactive['SJ Restriction'] then
+	if player.sub_job == 'SCH' and buffactive['SJ Restriction'] then
 		return
 	end
 	
