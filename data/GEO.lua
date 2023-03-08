@@ -453,7 +453,6 @@ function job_self_command(commandArgs, eventArgs)
 		else
 			autoentrustee = commandArgs[2]:ucfirst()
 		end
-		autoentrustee = commandArgs[2]:ucfirst()
 		add_to_chat(122,'Your Auto Entrustee target is set to '..autoentrustee..'.')
 		if state.DisplayMode.value then update_job_states()	end
 	elseif lowerCommand == 'elemental' then
