@@ -16,6 +16,14 @@ else
 	gear.jse_empy_head = "Erilaz Galea +1"
 end
 
+if item_available("Erilaz Surcoat +3") then
+	gear.jse_empy_body = "Erilaz Surcoat +3"
+elseif item_available("Erilaz Surcoat +2") then
+	gear.jse_empy_body = "Erilaz Surcoat +2"
+else
+	gear.jse_empy_body = "Erilaz Surcoat +1"
+end
+
 if item_available("Erilaz Greaves +3") then
 	gear.jse_empy_feet = "Erilaz Greaves +3"
 elseif item_available("Erilaz Greaves +2") then
@@ -145,24 +153,23 @@ sets.precast.JA['Unda'] = set_combine(sets.Enmity, {})
 sets.precast.JA['Lux'] = set_combine(sets.Enmity, {})
 sets.precast.JA['Tenebrae'] = set_combine(sets.Enmity, {})
 
-
 -- Fast cast sets for spells
 -- Insipiration: 26% [2/5]
--- FC: 67%
+-- FC: 72%
 sets.precast.FC = {
-	ammo="Sapience Orb",																							-- 2
-	head={name="Runeist Bandeau +3",priority=109},																-- 14
-	body=gear.jovian_fc_body,																						-- 10
-		hands={name="Leyline Gloves",priority=25},																			-- 6-8
-	legs={name="Aya. Cosciales +2",priority=45},																	-- 6
-	feet={name="Carmine Greaves +1",priority=95},																	-- 8
-	neck="Baetyl Pendant",																							-- 4
+	ammo="Sapience Orb",																-- 2
+	head={name="Runeist Bandeau +3",priority=109},										-- 14
+	body=gear.jse_empy_body,															-- 13
+	hands={name="Leyline Gloves",priority=25},											-- 6-8
+	legs={name="Aya. Cosciales +2",priority=45},										-- 6
+	feet={name="Carmine Greaves +1",priority=95},										-- 8
+	neck="Baetyl Pendant",																-- 4
 	waist={name=gear.hp_belt,priority=500},
-	left_ear={name="Odnowa Earring +1",priority=500},																-- 1
+	left_ear={name="Odnowa Earring +1",priority=500},									-- 1
 	right_ear={name="Tuisto Earring",priority=500},
-	left_ring="Weather. Ring +1",																					-- 6
+	left_ring=gear.weather_ring,														-- 6
 	right_ring={name="Gelatinous Ring +1",priority=500},
-	back=gear.fc_back,																								-- 10
+	back=gear.fc_back,																	-- 10
 }
 		
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {legs="Futhark Trousers +3"})
