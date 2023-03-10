@@ -426,7 +426,7 @@ sets.midcast['Blue Magic']['White Wind'] = {
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Incanter's Torque",
-	waist="Luminary Sash",
+	waist="Plat. Mog. Belt",
 	left_ear="Mendi. Earring",
 	right_ear="Odnowa Earring +1",
 	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},

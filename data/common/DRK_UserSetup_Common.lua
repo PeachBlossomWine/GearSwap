@@ -23,12 +23,12 @@ send_command('bind @f7 gs c toggle AutoTPReductionMode')
 send_command('bind ^backspace input /ja "Third Eye" <me>')
 send_command('bind !backspace gs c toggle DrainAbsSwapMode')
 send_command('bind ^\\\\ input /ja "Weapon Bash" <t>')
-send_command('bind @\\\\ gs c set toggle weapons Caladbolg')
+send_command('bind @\\\\ gs c set toggle weapons Lycurgos')
 
 if player.sub_job == "DRG" then
 	send_command('bind @f8 gs c toggle AutoJumpMode')
 else
-	send_command('unbind @f8')
+	send_command('bind @f8 gs c toggle AutoNukeMode')
 end
 
 gear.jse_VIT_Back 	={ name="Ankou's Mantle", augments={'VIT+20','Accuracy+20 Attack+20','VIT+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
