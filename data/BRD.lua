@@ -64,6 +64,7 @@
     'Terpander', and info.ExtraSongs to 1.
 --]]
 singeron = true
+used_meds = os.clock()
 -- Initialization function for this job file.
 function get_sets()
     -- Load and initialize the include file.
@@ -435,11 +436,47 @@ end
 
 function job_tick()
 	if check_song() then return true end
+	if state.AutoTankMode.value and player.in_combat and player.target.type == "MONSTER" and not moving then
+		if check_enmity() then return true end
+	end
 	if check_buff() then return true end
 	if check_buffup() then return true end
 	if check_zerg_sp() then return true end
 	if check_steps_subjob() then return true end
 	return false
+end
+
+function check_enmity()
+	local spell_recasts = windower.ffxi.get_spell_recasts()
+	
+	if (os.clock()-used_meds) > 10 then
+		windower.chat.input('/item "Eye Drops" <me>')
+		used_meds = os.clock()
+		tickdelay = os.clock() + 3.8
+		return true
+	elseif spell_recasts[466] < spell_latency and not silent_check_silence() then
+		windower.chat.input('/ma "'..res.spells[466].en..'" <t>')
+		tickdelay = os.clock() + 4.2
+		return true
+	elseif spell_recasts[376] < spell_latency and not silent_check_silence() then
+		windower.chat.input('/ma "'..res.spells[376].en..'" <t>')
+		tickdelay = os.clock() + 4.2
+		return true
+	elseif spell_recasts[377] < spell_latency and not silent_check_silence() then
+		windower.chat.input('/ma "'..res.spells[377].en..'" <t>')
+		tickdelay = os.clock() + 4.2
+		return true
+	elseif spell_recasts[463] < spell_latency and not silent_check_silence() then
+		windower.chat.input('/ma "'..res.spells[463].en..'" <t>')
+		tickdelay = os.clock() + 4.2
+		return true
+	elseif spell_recasts[471] < spell_latency and not silent_check_silence() then
+		windower.chat.input('/ma "'..res.spells[471].en..'" <t>')
+		tickdelay = os.clock() + 4.2
+		return true
+	else
+		return false
+	end
 end
 
 function check_song()

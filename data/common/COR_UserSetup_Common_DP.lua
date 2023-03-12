@@ -1,7 +1,7 @@
 state.OffenseMode:options('Normal','Acc')
 state.HybridMode:options('DT','Tank','Normal')
 state.RangedMode:options('Normal')
-state.WeaponskillMode:options('Normal','SubtleBlow')
+state.WeaponskillMode:options('Normal','SubtleBlow','STP')
 state.CastingMode:options('Normal','Resistant')
 state.IdleMode:options('Normal','Refresh')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}

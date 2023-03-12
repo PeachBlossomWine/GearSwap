@@ -170,7 +170,7 @@ end
 function check_recover_hp()
 	if moving or data.areas.cities:contains(world.area) then return false end
 	
-	if state.AutoRecoverHPMode.value and player.hpp < 27 and (player.inventory['Vile Elixir +1'] or player.inventory['Vile Elixir']) then
+	if state.AutoRecoverHPMode.value and player.hpp < 30 and (player.inventory['Vile Elixir +1'] or player.inventory['Vile Elixir']) then
 		if player.inventory['Vile Elixir +1'] then
 			windower.chat.input('/item "Vile Elixir +1" <me>')
 			tickdelay = os.clock() + 1.5

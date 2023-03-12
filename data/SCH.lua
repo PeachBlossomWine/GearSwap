@@ -1168,7 +1168,7 @@ buff_spell_lists = {
 	Auto = {	
 		--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
-        {Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
+        --{Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
         {Name='Reraise',	    Buff='Reraise',		    SpellID=135,	When='Always'},
 	},
 	
@@ -1178,7 +1178,7 @@ buff_spell_lists = {
 		{Name='Aurorastorm II', Buff='Aurorastorm',		SpellID=864,	When='Always'},
 		{Name='Protect V',		Buff='Protect',			SpellID=47, 	When='Always'},
 		{Name='Shell V',		Buff='Shell',			SpellID=52, 	When='Always'},
-        {Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
+        --{Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
 	},
 	
 	Nuking = {
