@@ -1,7 +1,7 @@
 state.OffenseMode:options('Normal')
 state.HybridMode:options('Normal')
-state.CastingMode:options('Normal','Melee')
-state.IdleMode:options('DT', 'Normal')
+state.CastingMode:options('Normal','Melee','Tank')
+state.IdleMode:options('DT', 'Normal','Tank')
 state.WeaponskillMode:options('Normal','SubtleBlow')
 state.Weapons:options('None','Carnwenhan','Aeneas','Naegling','DualCarn','DualAeneas','DualSavage')
 
@@ -32,7 +32,7 @@ send_command('bind @` input /ma "Chocobo Mazurka" <me>')
 send_command('bind ^Backspace input /ma "Puppet\'s Operetta" <me>; wait 5; input /ma "Scop\'s Operetta" <me>; wait 5; input /ma "Goblin Gavotte" <me>; wait 5; input /ma "Shining Fantasia" <me>;')
 send_command('bind !Backspace input /ma "Puppet\'s Operetta" <me>;')
 send_command('bind ^\\\\ input /ma "Dispelga" <t>;')
-send_command('bind @f8 gs c toggle autotankmode')
+send_command('bind @f8 gs c toggle autotankmode; gs c set toggle idlemode Tank; gs c set toggle castingmode Tank')
 send_command('wait 5; hb mincure 4')
 
 --Lockstyle + Dressup

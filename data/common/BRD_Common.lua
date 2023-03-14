@@ -135,6 +135,14 @@ sets.precast.FC.BardSong = set_combine(sets.precast.FC, {
 	body="Brioso Justau. +3",													-- 15
 })
 
+sets.precast.FC.BardSong.Tank = set_combine(sets.precast.FC, {
+	waist={name="Plat. Mog. Belt",priority=500},
+	left_ear={name="Odnowa Earring +1",priority=500},
+	right_ear={name="Tuisto Earring",priority=500},
+	right_ring={name="Gelatinous Ring +1",priority=500},
+	back={name="Moonbeam Cape",priority=500},
+})
+
 sets.precast.FC.Daurdabla = set_combine(sets.precast.FC.BardSong, {range=info.ExtraSongInstrument})
 sets.precast.FC["Honor March"] = set_combine(sets.precast.FC.BardSong, {range="Marsyas"})
 
@@ -367,10 +375,46 @@ sets.midcast.SongDebuff.Melee = {
 	back=gear.jse_back,
 }
 
+sets.midcast.SongDebuff.Tank = {
+    main="Daybreak",
+    sub="Genmei Shield",
+    range={ name="Terpander", augments={'HP+30','Mag. Acc.+10','Damage Taken -3%',}},
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body="Fili Hongreline +3",
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet="Fili Cothurnes +3",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Etiolation Earring",
+    left_ring="Defending Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonbeam Cape",
+}
+
 sets.midcast.Lullaby.Melee = set_combine(sets.midcast.SongDebuff.Melee, {
 	range=info.ExtraSongInstrument, 
 	hands="Brioso Cuffs +3",
 })
+
+sets.midcast.Lullaby.Tank = {
+    main="Daybreak",
+    sub="Genmei Shield",
+    range={ name="Terpander", augments={'HP+30','Mag. Acc.+10','Damage Taken -3%',}},
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body="Fili Hongreline +3",
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet="Fili Cothurnes +3",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Etiolation Earring",
+    left_ring="Defending Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonbeam Cape",
+}
 
 sets.midcast.Threnody.Melee = set_combine(sets.midcast.SongDebuff.Melee, {
 	body=gear.jse_brd_body,
@@ -507,7 +551,7 @@ sets.midcast.Cursna.Melee = set_combine(sets.midcast.Cure.Melee, {
 sets.idle = {
 	main="Daybreak",						-- 1
 	sub="Genmei Shield",
-	range="Terpander",
+	range="Nibiru Harp",
 	head=gear.chironic_refresh_head,		-- 2
 	body="Annoint. Kalasiris",				-- 2
 	hands=gear.chironic_refresh_hands,		-- 2
@@ -546,7 +590,7 @@ sets.idle.Town = {
 sets.idle.DT = {
 	main="Daybreak",
 	sub="Genmei Shield",
-	range="Terpander",
+	range="Nibiru Harp",
 	head="Inyanga Tiara +2",
 	body="Annoint. Kalasiris",
 	hands="Nyame Gauntlets",
@@ -559,6 +603,24 @@ sets.idle.DT = {
 	left_ring="Defending Ring",
 	right_ring="Inyanga Ring",
 	back=gear.tp_back,
+}
+
+sets.idle.Tank = {
+    main="Daybreak",
+    sub="Genmei Shield",
+    range={ name="Terpander", augments={'HP+30','Mag. Acc.+10','Damage Taken -3%',}},
+    head={ name="Nyame Helm", augments={'Path: B',}},
+    body="Fili Hongreline +3",
+    hands={ name="Nyame Gauntlets", augments={'Path: B',}},
+    legs={ name="Nyame Flanchard", augments={'Path: B',}},
+    feet="Fili Cothurnes +3",
+    neck={ name="Loricate Torque +1", augments={'Path: A',}},
+    waist="Plat. Mog. Belt",
+    left_ear={ name="Odnowa Earring +1", augments={'Path: A',}},
+    right_ear="Etiolation Earring",
+    left_ring="Defending Ring",
+    right_ring={ name="Gelatinous Ring +1", augments={'Path: A',}},
+    back="Moonbeam Cape",
 }
 
 -- Defense sets

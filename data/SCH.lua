@@ -1155,7 +1155,7 @@ function check_zerg_sp()
 			return true		
         elseif buffactive['Tabula Rasa'] and tabularasa == true then
             tabularasa = false
-            windower.send_command:schedule(175,'cancel embrava; gs c set autozergmode off;')
+           -- windower.send_command:schedule(175,'cancel embrava; gs c set autozergmode off;')
 		else
 			return false
 		end

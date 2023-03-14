@@ -52,9 +52,9 @@ blueflag = true
 function select_default_macro_book()
 	-- Default macro set/book
 	if player.sub_job == 'BLU' then
-		set_macro_page(1, 20)
+		set_macro_page(3, 20)
 	elseif player.sub_job == 'DRK' then
-		set_macro_page(1, 20)
+		set_macro_page(3, 20)
 	elseif player.sub_job == 'PLD' then
 		set_macro_page(3, 20)
 	else

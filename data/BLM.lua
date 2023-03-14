@@ -437,7 +437,26 @@ function handle_elemental(cmdParams)
 				add_to_chat(123,'Abort: All '..data.elements.nuke_of[state.ElementalMode.value]..' nukes on cooldown or or not enough MP.')
 			end
 		end
-			
+	elseif command == 'impact' then
+		local spell_recasts = windower.ffxi.get_spell_recasts()
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+		if spell_recasts[503] < spell_latency and actual_cost(get_spell_table_by_name('Impact')) < player.mp then
+			if abil_recasts[35] < latency and not buffactive['amnesia'] then
+				windower.send_command('@input /ja "Manawell" <me>; wait 1; input /ma "Impact" '..target..'')
+			else
+				windower.chat.input('/ma "Impact" '..target..'')
+			end
+		end
+	elseif command == 'burn' then
+		local spell_recasts = windower.ffxi.get_spell_recasts()
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+		if spell_recasts[235] < spell_latency and actual_cost(get_spell_table_by_name('Burn')) < player.mp then
+			if abil_recasts[38] < latency and not buffactive['amnesia'] then
+				windower.send_command('@input /ja "Elemental Seal" <me>; wait 1; input /ma "Burn" '..target..'')
+			else
+				windower.chat.input('/ma "Burn" '..target..'')
+			end
+		end
 	elseif command == 'ninjutsu' then
 		windower.chat.input('/ma "'..data.elements.ninjutsu_nuke_of[state.ElementalMode.value]..': Ni" '..target..'')
 			

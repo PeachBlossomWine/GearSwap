@@ -87,7 +87,7 @@ function job_setup()
 	state.AutoSongMode = M(false, 'Auto Song Mode')
 
 	update_melee_groups()
-	init_job_states({"Capacity","AutoRuneMode","AutoTrustMode","AutoNukeMode","AutoWSMode","AutoShadowMode","AutoFoodMode","AutoStunMode","AutoDefenseMode","AutoSongMode",},{"AutoBuffMode","AutoSambaMode","Weapons","OffenseMode","WeaponskillMode","IdleMode","Passive","RuneElement","ExtraSongsMode","CastingMode","TreasureMode",})
+	init_job_states({"Capacity","AutoRuneMode","AutoTrustMode","AutoTankMode","AutoNukeMode","AutoWSMode","AutoShadowMode","AutoFoodMode","AutoStunMode","AutoDefenseMode","AutoSongMode",},{"AutoBuffMode","AutoSambaMode","Weapons","OffenseMode","WeaponskillMode","IdleMode","Passive","RuneElement","ExtraSongsMode","CastingMode","TreasureMode",})
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -436,7 +436,7 @@ end
 
 function job_tick()
 	if check_song() then return true end
-	if state.AutoTankMode.value and player.in_combat and player.target.type == "MONSTER" and not moving then
+	if state.AutoTankMode.value and player.in_combat and not moving then
 		if check_enmity() then return true end
 	end
 	if check_buff() then return true end
@@ -449,31 +449,31 @@ end
 function check_enmity()
 	local spell_recasts = windower.ffxi.get_spell_recasts()
 	
-	if (os.clock()-used_meds) > 10 then
+	if (os.clock()-used_meds) > 3 then
 		windower.chat.input('/item "Eye Drops" <me>')
 		used_meds = os.clock()
-		tickdelay = os.clock() + 3.8
+		tickdelay = os.clock() + 2.5
 		return true
 	elseif spell_recasts[466] < spell_latency and not silent_check_silence() then
 		windower.chat.input('/ma "'..res.spells[466].en..'" <t>')
 		tickdelay = os.clock() + 4.2
 		return true
-	elseif spell_recasts[376] < spell_latency and not silent_check_silence() then
-		windower.chat.input('/ma "'..res.spells[376].en..'" <t>')
-		tickdelay = os.clock() + 4.2
-		return true
-	elseif spell_recasts[377] < spell_latency and not silent_check_silence() then
-		windower.chat.input('/ma "'..res.spells[377].en..'" <t>')
-		tickdelay = os.clock() + 4.2
-		return true
-	elseif spell_recasts[463] < spell_latency and not silent_check_silence() then
-		windower.chat.input('/ma "'..res.spells[463].en..'" <t>')
-		tickdelay = os.clock() + 4.2
-		return true
-	elseif spell_recasts[471] < spell_latency and not silent_check_silence() then
-		windower.chat.input('/ma "'..res.spells[471].en..'" <t>')
-		tickdelay = os.clock() + 4.2
-		return true
+	-- elseif spell_recasts[376] < spell_latency and not silent_check_silence() then
+		-- windower.chat.input('/ma "'..res.spells[376].en..'" <t>')
+		-- tickdelay = os.clock() + 4.2
+		-- return true
+	-- elseif spell_recasts[377] < spell_latency and not silent_check_silence() then
+		-- windower.chat.input('/ma "'..res.spells[377].en..'" <t>')
+		-- tickdelay = os.clock() + 4.2
+		-- return true
+	-- elseif spell_recasts[463] < spell_latency and not silent_check_silence() then
+		-- windower.chat.input('/ma "'..res.spells[463].en..'" <t>')
+		-- tickdelay = os.clock() + 4.2
+		-- return true
+	-- elseif spell_recasts[471] < spell_latency and not silent_check_silence() then
+		-- windower.chat.input('/ma "'..res.spells[471].en..'" <t>')
+		-- tickdelay = os.clock() + 4.2
+		-- return true
 	else
 		return false
 	end

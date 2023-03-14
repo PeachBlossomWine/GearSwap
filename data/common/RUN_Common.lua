@@ -307,16 +307,16 @@ sets.midcast['Phalanx'].DT = set_combine(sets.midcast['Phalanx'], {})
 sets.midcast['Temper'] = {
 	ammo=gear.dt_ammo,
 	head="Carmine Mask +1",																			-- 11
-	body={name="Runeist Coat +3",priority=218},
-	hands="Runeist Mitons +3",																	-- 19
+	body={name="Nyame Mail",priority=136},
+	hands="Runeist Mitons +3",																		-- 19
 	legs={name="Carmine Cuisses +1",priority=50},													-- 18
 	feet={name="Nyame Sollerets",priority=68},
 	neck="Incanter's Torque",																		-- 10
-	waist=gear.dt_waist,
-	left_ear={name="Odnowa Earring +1",priority=500},
+	waist={name="Plat. Mog. Belt",priority=500},
+	left_ear={name="Mimir Earring",priority=10},
 	right_ear="Andoaa Earring",																		-- 5
 	left_ring="Defending Ring",
-	right_ring={name="Gelatinous Ring +1",priority=500},
+	right_ring={name="Stikini Ring +1",priority=10},
 	back={name=gear.dt_moon_back,priority=500},
 }
 sets.midcast['Temper'].SIRD = set_combine(sets.midcast['Temper'], {})
