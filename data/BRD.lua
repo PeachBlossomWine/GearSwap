@@ -458,22 +458,6 @@ function check_enmity()
 		windower.chat.input('/ma "'..res.spells[466].en..'" <t>')
 		tickdelay = os.clock() + 4.2
 		return true
-	-- elseif spell_recasts[376] < spell_latency and not silent_check_silence() then
-		-- windower.chat.input('/ma "'..res.spells[376].en..'" <t>')
-		-- tickdelay = os.clock() + 4.2
-		-- return true
-	-- elseif spell_recasts[377] < spell_latency and not silent_check_silence() then
-		-- windower.chat.input('/ma "'..res.spells[377].en..'" <t>')
-		-- tickdelay = os.clock() + 4.2
-		-- return true
-	-- elseif spell_recasts[463] < spell_latency and not silent_check_silence() then
-		-- windower.chat.input('/ma "'..res.spells[463].en..'" <t>')
-		-- tickdelay = os.clock() + 4.2
-		-- return true
-	-- elseif spell_recasts[471] < spell_latency and not silent_check_silence() then
-		-- windower.chat.input('/ma "'..res.spells[471].en..'" <t>')
-		-- tickdelay = os.clock() + 4.2
-		-- return true
 	else
 		return false
 	end

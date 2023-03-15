@@ -1,4 +1,4 @@
-state.OffenseMode:options('Normal')
+	state.OffenseMode:options('Normal')
 state.HybridMode:options('DT','Normal')
 state.RangedMode:options('Normal')
 state.WeaponskillMode:options('Normal')
@@ -22,8 +22,8 @@ send_command('bind ^backspace input /item "Thief\'s Tools" <t>')
 send_command('bind ^\\\\ input /ja "Despoil" <t>')
 send_command('bind !\\\\ input /ja "Mug" <t>')
 
-gear.jse_tp_back = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Phys. dmg. taken-10%',}}
-gear.jse_wsd_back = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
+gear.jse_tp_back = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','"Store TP"+10','Accuracy+10','Phys. dmg. taken-10%',}}
+gear.jse_wsd_back = { name="Toutatis's Cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 
 send_command('wait 15; input /lockstyleset 6;')
 select_default_macro_book()

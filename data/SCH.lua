@@ -580,10 +580,19 @@ function handle_elemental(cmdParams)
 		windower.chat.input('/ma "'..data.elements.nukega_of[state.ElementalMode.value]..'ga" '..target..'')
 		
 	elseif command == 'helix' then
+		local abil_recasts = windower.ffxi.get_ability_recasts() 
 		if player.job_points[(res.jobs[player.main_job_id].ens):lower()].jp_spent > 1199 then
-			windower.chat.input('/ma "'..data.elements.helix_of[state.ElementalMode.value]..'helix II" '..target..'')
+			if get_current_stratagem_count() > 0 and abil_recasts[233] < latency and not (buffactive['Ebullience'] or silent_check_amnesia()) and not (buffactive['Enlightenment'] or silent_check_amnesia()) then
+				windower.send_command('@input /ja "Ebullience" <me>; wait 1; input /ma "'..data.elements.helix_of[state.ElementalMode.value]..'helix II" '..target..'')
+			else
+				windower.chat.input('/ma "'..data.elements.helix_of[state.ElementalMode.value]..'helix II" '..target..'')
+			end
 		else
-			windower.chat.input('/ma "'..data.elements.helix_of[state.ElementalMode.value]..'helix" '..target..'')
+			if get_current_stratagem_count() > 0 and abil_recasts[233] < latency and not (buffactive['Ebullience'] or silent_check_amnesia()) and not (buffactive['Enlightenment'] or silent_check_amnesia()) then
+				windower.send_command('@input /ja "Ebullience" <me>; wait 1; input /ma "'..data.elements.helix_of[state.ElementalMode.value]..'helix " '..target..'')
+			else
+				windower.chat.input('/ma "'..data.elements.helix_of[state.ElementalMode.value]..'helix " '..target..'')
+			end
 		end
 		
 	elseif command == 'enfeeble' then
