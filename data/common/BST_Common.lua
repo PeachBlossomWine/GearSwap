@@ -19,7 +19,7 @@ else
 end
 
 -- Weapons sets
-sets.weapons.Aymur =      {main="Aymur", sub="Adapa Shield"}
+sets.weapons.Aymur =      	{main="Aymur", sub="Adapa Shield"}
 sets.weapons.Guttler =      {main="Guttler", sub="Adapa Shield"}
 sets.weapons.Agwu =         {main="Agwu's Axe", sub="Adapa Shield"}
 sets.weapons.Dolichenus =   {main="Dolichenus", sub="Adapa Shield"}

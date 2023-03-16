@@ -574,11 +574,11 @@ end
 function check_tp_lower()
 	local spell_recasts = windower.ffxi.get_spell_recasts()
 
-	if spell_recasts[573] < spell_latency then
+	if spell_recasts[573] < spell_latency and silent_can_use(573) then
 		windower.chat.input('/ma "Feather Tickle" <t>')
 		tickdelay = os.clock() + 2
 		return true
-	elseif spell_recasts[684] < spell_latency then
+	elseif spell_recasts[684] < spell_latency and silent_can_use(684) then
 		windower.chat.input('/ma "Reaving Wind" <t>')
 		tickdelay = os.clock() + 2
 		return true

@@ -47,6 +47,7 @@ end
 -- Weapons sets
 sets.weapons.TizThib = {main="Tizona",sub="Thibron"}
 sets.weapons.TizZan = {main="Tizona",sub="Zantetsuken"}
+sets.weapons.TizSak = {main="Tizona",sub="Sakpata's Sword"}
 sets.weapons.NaegThib = {main="Naegling",sub="Thibron"}
 sets.weapons.NaegZan = {main="Naegling",sub="Zantetsuken"}
 sets.weapons.TizBunzi = {main="Tizona",sub="Bunzi's Rod"}

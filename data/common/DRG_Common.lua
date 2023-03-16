@@ -260,7 +260,7 @@ sets.DayWSEars = {}
 --46% PDT/DT
 --379 MEVA
 sets.engaged = {
-	ammo="Coiste Bodhar",
+	ammo="Hesperiidae",
 	head="Hjarrandi Helm",
 	body="Gleti's Cuirass",
 	hands="Pel. Vambraces +2",
@@ -277,7 +277,7 @@ sets.engaged = {
 
 -- 1329 ACC
 sets.engaged.Acc = {
-	ammo="Coiste Bodhar",
+	ammo="Hesperiidae",
 	head="Vishap Armet +3",
 	body="Hjarrandi Breast.",
 	hands="Vis. Fng. Gaunt. +3",
@@ -297,7 +297,7 @@ sets.engaged.Acc = {
 -- 1264 ACC
 -- 599 MEVA
 sets.engaged.DT = {
-	ammo="Coiste Bodhar",
+	ammo="Hesperiidae",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Gleti's Gauntlets",

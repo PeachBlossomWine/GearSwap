@@ -24,8 +24,8 @@ defaultManeuvers = {
 	},
 	TankMEVA = {
 		{Name='Earth Maneuver',	  Amount=0},
-		{Name='Fire Maneuver',	  Amount=0},
-		{Name='Light Maneuver',	  Amount=2},
+		{Name='Fire Maneuver',	  Amount=1},
+		{Name='Light Maneuver',	  Amount=1},
 		{Name='Water Maneuver',	  Amount=1},
 	},
 	Melee = {

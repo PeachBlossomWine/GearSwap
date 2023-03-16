@@ -720,6 +720,11 @@ buff_spell_lists = {
         {Name='Enlight II',Buff='Enlight',SpellID=855,When='Always'},
         {Name='Protect V',Buff='Protect',SpellID=47,When='Always'},
 	},
+	Crucial = {	
+		{Name='Reprisal',Buff='Reprisal',SpellID=97,When='Combat'},
+		{Name='Phalanx',Buff='Phalanx',SpellID=106,When='Always'},
+		{Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
+	},
 	
 	Default = {
 		{Name='Crusade',Buff='Enmity Boost',SpellID=476,Reapply=true},
