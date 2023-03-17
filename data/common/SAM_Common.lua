@@ -194,7 +194,7 @@ sets.precast.WS['Tachi: Goten'].SubtleBlow = set_combine(sets.precast.WS['Tachi:
 sets.precast.WS['Tachi: Goten'].KI = set_combine(sets.precast.WS['Tachi: Goten'], {body="Found. Breastplate"})
 sets.precast.WS['Tachi: Goten'].KI.SubtleBlow = set_combine(sets.precast.WS['Tachi: Goten'].KI, {})
 
-sets.precast.WS['Tachi: Koki'] = set_combine(sets.precast.WS['Tachi: Kagero'], {right_ring="Weather. Ring +1"})
+sets.precast.WS['Tachi: Koki'] = set_combine(sets.precast.WS['Tachi: Kagero'], {right_ring=gear.weather_ring,})
 sets.precast.WS['Tachi: Koki'].Enmity = set_combine(sets.precast.WS['Tachi: Koki'], {left_ear="Schere Earring"})
 sets.precast.WS['Tachi: Koki'].SubtleBlow = set_combine(sets.precast.WS['Tachi: Koki'], {})
 sets.precast.WS['Tachi: Koki'].KI = set_combine(sets.precast.WS['Tachi: Koki'], {body="Found. Breastplate"})
@@ -212,7 +212,7 @@ sets.precast.WS['Tachi: Ageha'] = {
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear=gear.empy_wsd_earring,														-- 3
 	left_ring="Metamor. Ring +1",
-	right_ring="Weather. Ring +1",
+	right_ring=gear.weather_ring,
 	back=gear.ws_jse_back,
 }
 

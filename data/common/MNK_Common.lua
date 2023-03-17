@@ -59,7 +59,7 @@ sets.precast.FC = {
 	hands="Leyline Gloves",
 	legs="Rawhide Trousers",
 	left_ear="Loquacious Earring",
-	left_ring="Weather. Ring +1",
+	left_ring=gear.weather_ring,
 	right_ring="Lebeche Ring",
 }
 
@@ -121,7 +121,7 @@ sets.precast.WS['Shell Crusher']   = set_combine(sets.precast.WS.Multi, {
 	waist="Luminary Sash",
 	left_ear="Digni. Earring",
 	right_ear="Crep. Earring",
-	left_ring="Weather. Ring +1",
+	left_ring=gear.weather_ring,
 	right_ring="Metamor. Ring +1",
 	back=gear.jse_da_back,
 })

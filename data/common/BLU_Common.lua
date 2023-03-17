@@ -100,7 +100,7 @@ sets.precast.FC = {
 	left_ear="Loquac. Earring",																							-- 2
 	right_ear="Etiolation Earring",																						-- 1
 	left_ring="Kishar Ring",																							-- 4
-	right_ring="Weather. Ring +1",																							-- 5 + QC
+	right_ring=gear.weather_ring,																							-- 5 + QC
 	back="Perimede Cape",
 }
 
@@ -272,7 +272,7 @@ sets.midcast['Blue Magic'].Magical = {
 	left_ear="Regal Earring",
 	right_ear=gear.empy_nuke_earring,
 	left_ring="Metamorph Ring +1",
-	right_ring="Weather. Ring +1",
+	right_ring=gear.weather_ring,
 	back=gear.jse_mab_back,
 }
 				 
@@ -293,7 +293,7 @@ sets.midcast['Blue Magic'].Magical.Resistant = {
 	left_ear="Digni. Earring",
 	right_ear="Regal Earring",
 	left_ring="Metamorph Ring +1",
-	right_ring="Weather. Ring +1",			-- 6% FC
+	right_ring=gear.weather_ring,			-- 6% FC
 	back=gear.jse_macc_fc_back,				-- 10% FC
 }
 sets.midcast['Tenebral Crush'] = set_combine(sets.midcast['Blue Magic'].Magical, {})
@@ -468,7 +468,7 @@ sets.midcast['Blue Magic'].SkillBasedBuff = {
 	left_ear="Regal Earring",
 	right_ear=gear.empy_nuke_earring,
 	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-	right_ring="Weather. Ring +1",
+	right_ring=gear.weather_ring,
 	back=gear.jse_mab_back,
 }
 

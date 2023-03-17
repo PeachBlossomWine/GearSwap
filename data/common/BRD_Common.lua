@@ -120,7 +120,7 @@ sets.precast.FC = {
 	waist="Embla Sash",																		-- 5
 	left_ear="Loquacious Earring",															-- 2
 	right_ear="Etiolation Earring",															-- 1
-	left_ring="Weather. Ring +1",															-- 4
+	left_ring=gear.weather_ring,															-- 4
 	right_ring="Lebeche Ring",
 	back=gear.jse_back,																		-- 10
 }
@@ -345,7 +345,7 @@ sets.midcast.SongDebuff = {
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Metamorph Ring +1",
-	right_ring="Weather. Ring +1",
+	right_ring=gear.weather_ring,
 	back=gear.jse_back,
 }
 
@@ -371,7 +371,7 @@ sets.midcast.SongDebuff.Melee = {
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Metamorph Ring +1",
-	right_ring="Weather. Ring +1",
+	right_ring=gear.weather_ring,
 	back=gear.jse_back,
 }
 

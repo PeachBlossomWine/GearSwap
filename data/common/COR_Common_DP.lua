@@ -112,7 +112,7 @@ sets.precast.CorsairShot['Light Shot'] = {
 	waist="Eschan Stone",
 	left_ear="Digni. Earring",
 	right_ear="Crep. Earring",
-	left_ring="Weather. Ring +1",
+	left_ring=gear.weather_ring,
 	right_ring="Regal Ring",
 	back=gear.jse_mab_back,
 }
@@ -139,7 +139,7 @@ sets.precast.FC = {
 	waist=gear.dt_waist,
 	left_ear="Loquac. Earring",								-- 2
 	right_ear="Etiolation Earring",							-- 1
-	left_ring="Weather. Ring +1",								-- 4
+	left_ring=gear.weather_ring,								-- 4
 	right_ring="Lebeche Ring",
 }
 

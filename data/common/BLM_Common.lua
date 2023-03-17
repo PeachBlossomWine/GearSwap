@@ -46,7 +46,7 @@ sets.precast.FC = {
 	waist="Embla Sash",																									-- 5
 	left_ear="Loquac. Earring",																							-- 2
 	right_ear="Malignance Earring",																						-- 4
-	left_ring="Weather. Ring +1",																						-- 6
+	left_ring=gear.weather_ring,																						-- 6
 	right_ring="Lebeche Ring",																							-- QC
 	back=gear.jse_fc_back,																								-- 10
 }
