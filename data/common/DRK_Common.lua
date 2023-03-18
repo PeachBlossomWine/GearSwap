@@ -287,8 +287,7 @@ sets.DayWSEars = {ear1="Lugra Earring +1",ear2="Moonshade Earring",}
 	   
 sets.idle = {
 	ammo="Staunch Tathlum +1",
-	head="Sakpata's Helm",
-	--head="Crepuscular Helm",
+	head="Crepuscular Helm",
 	body="Crepuscular Mail",
 	hands="Sakpata's Gauntlets",
 	legs="Sakpata's Cuisses",
@@ -301,6 +300,8 @@ sets.idle = {
 	right_ring="Gelatinous Ring +1",
 	back=gear.jse_TP_Back,
 }
+
+sets.AutoReraise = {head="Crepuscular Helm", body="Crepuscular Mail",}
 
 sets.idle.Reraise = set_combine(sets.idle, {})
 	   

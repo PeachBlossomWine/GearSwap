@@ -221,6 +221,9 @@ function job_customize_melee_set(meleeSet)
             meleeSet = set_combine(meleeSet, sets.buff.ScarletDelirium)
         end
 	end
+	if player.hpp < 19 then
+		meleeSet = set_combine(meleeSet, sets.AutoReraise)
+	end
     return meleeSet
 end
 
