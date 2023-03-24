@@ -142,7 +142,14 @@ sets.precast.WS = {
 	back=gear.jse_str_back,
 }
 
-sets.precast.WS['Death Blossom'] = set_combine(sets.precast.WS, {})
+sets.precast.WS['Death Blossom'] = set_combine(sets.precast.WS, {
+	neck="Dls. Torque +2",
+	waist="Sailfi Belt +1",
+	left_ear="Regal Earring",
+	left_ring="Beithir Ring",																		
+	right_ring="Metamor. Ring +1",
+	back=gear.jse_mnd_back,
+})
 sets.precast.WS['Requiescat'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Chant Du Cygne'] = set_combine(sets.precast.WS, {})
 

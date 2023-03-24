@@ -202,7 +202,6 @@ function job_post_precast(spell, spellMap, eventArgs)
 	if spell.type == 'BardSong' then
 	
 		if state.Buff['Nightingale'] then
-		
 			-- Replicate midcast in precast for nightingale including layering.
             local generalClass = get_song_class(spell)
 			if generalClass and sets.midcast[generalClass] then
@@ -266,14 +265,6 @@ function job_post_midcast(spell, spellMap, eventArgs)
 				else
 					equip(sets.midcast[spellMap])
 				end
-			end
-			
-			if can_dual_wield and sets.midcast.SongDebuff.DW then
-				equip(sets.midcast.SongDebuff.DW)
-			end
-		else
-			if can_dual_wield and sets.midcast.SongEffect.DW then
-				equip(sets.midcast.SongEffect.DW)
 			end
 		end
 		

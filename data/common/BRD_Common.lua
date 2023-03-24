@@ -289,7 +289,23 @@ sets.midcast.SongEffect = {
 }
 
 sets.midcast.SongEffect.Melee = {
-	main=gear.song_dagger,
+--	main=gear.song_dagger,
+	range="Gjallarhorn",
+	head=gear.jse_empy_head,
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs="Inyanga Shalwar +2",
+	feet="Brioso Slippers +3",
+	neck=gear.brd_potency_neck,
+	waist=gear.dt_waist,					-- 4
+	left_ear="Odnowa Earring +1",			-- 3
+	right_ear="Genmei Earring",				-- 2
+	left_ring="Defending Ring",				-- 10
+	right_ring="Gelatinous Ring +1",		-- 7
+	back=gear.jse_back,						-- 10	
+}
+
+sets.midcast.SongEffect.Pianissimo = {
 	range="Gjallarhorn",
 	head=gear.jse_empy_head,
 	body=gear.jse_empy_body,
@@ -329,6 +345,18 @@ sets.midcast.Carol.Melee = set_combine(sets.midcast.SongEffect.Melee, {head=gear
 sets.midcast["Sentinel's Scherzo"].Melee = set_combine(sets.midcast.SongEffect.Melee, {feet=gear.jse_empy_feet})
 sets.midcast.Mazurka.Melee = {range=info.ExtraSongInstrument}
 sets.midcast["Honor March"].Melee = set_combine(sets.midcast.SongEffect.Melee, {range="Marsyas"})	
+
+sets.midcast.Ballad.Pianissimo = set_combine(sets.midcast.SongEffect.Pianissimo, {}) --{legs=gear.jse_empy_legs})
+sets.midcast.Madrigal.Pianissimo = set_combine(sets.midcast.SongEffect.Pianissimo, {head=gear.jse_empy_head})
+sets.midcast.March.Pianissimo = set_combine(sets.midcast.SongEffect.Pianissimo, {hands=gear.jse_empy_hands})
+sets.midcast.Minuet.Pianissimo = set_combine(sets.midcast.SongEffect.Pianissimo, {body=gear.jse_empy_body})
+sets.midcast.Minne.Pianissimo = set_combine(sets.midcast.SongEffect.Pianissimo, {legs=gear.jse_brd_legs})
+sets.midcast.Etude.Pianissimo = set_combine(sets.midcast.SongEffect.Pianissimo, {head=gear.jse_brd_head, feet=gear.jse_empy_feet})
+sets.midcast.Paeon.Pianissimo = set_combine(sets.midcast.SongEffect.Pianissimo, {head="Brioso Roundlet +3"})
+sets.midcast.Carol.Pianissimo = set_combine(sets.midcast.SongEffect.Pianissimo, {head=gear.jse_empy_head, hands=gear.jse_brd_hands})
+sets.midcast["Sentinel's Scherzo"].Pianissimo = set_combine(sets.midcast.SongEffect.Pianissimo, {feet=gear.jse_empy_feet})
+sets.midcast.Mazurka.Pianissimo = {range=info.ExtraSongInstrument}
+sets.midcast["Honor March"].Pianissimo = set_combine(sets.midcast.SongEffect.Pianissimo, {range="Marsyas"})	
 
 -- For song defbuffs (duration primary, accuracy secondary)
 sets.midcast.SongDebuff = {

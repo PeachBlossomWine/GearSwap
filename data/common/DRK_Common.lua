@@ -407,13 +407,13 @@ sets.engaged.SubtleBlow ={
 	ammo="Staunch Tathlum +1",
 	head="Sakpata's Helm",
 	body="Dagon Breast.",												-- 10 II
-	hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},			-- 8
+	hands="Sakpata's Gauntlets",										-- 8
 	legs="Sakpata's Cuisses",
 	feet="Sakpata's Leggings",											-- 13
 	neck=gear.drk_jse_neck,
 	waist="Sarissapho. Belt",											-- 5
 	left_ear="Digni. Earring",											-- 5
-	right_ear="Telos Earring",											
+	right_ear="Schere Earring", 										
 	left_ring="Chirich Ring +1",										-- 10
 	right_ring="Niqmaddu Ring",											-- 5 II
 	back=gear.jse_TP_Back;			

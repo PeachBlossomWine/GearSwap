@@ -27,13 +27,6 @@ else
 	gear.idle_refresh_body = "Sakpata's Plate"
 end
 
-if item_available("Enif Cosciales") then
-	gear.fc_legs = "Enif Cosciales"
-else
-	gear.fc_legs = gear.odyssean_fc_legs
-end
-
-
 --------------------------------------
 -- Precast sets
 --------------------------------------
@@ -128,7 +121,7 @@ sets.precast.FC = {
 	head={name="Carmine Mask +1",priority=38},													-- 14%
 	body={name="Rev. Surcoat +3",priority=254},													-- 10%
 	hands={name="Leyline Gloves",priority=5},													-- 8%
-	legs=gear.fc_legs,																			-- 8%
+	legs={name="Enif Cosciales",priority=45},													-- 8%
 	feet={name="Chev. Sabatons +3",priority=42},												-- 13%
 	neck={name="Unmoving Collar +1", priority=500},												
 	waist={name="Plat. Mog. Belt",priority=500},

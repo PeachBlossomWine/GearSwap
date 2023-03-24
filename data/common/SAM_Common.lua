@@ -362,15 +362,15 @@ sets.engaged.DT = {
 --43 SB
 sets.engaged.SubtleBlow = {
     ammo="Staunch Tathlum +1",
-    head={ name="Nyame Helm", augments={'Path: B',}},
+    head="Nyame Helm",
     body="Dagon Breast.",                                           -- 10 II
     hands="Wakido Kote +3",
-    legs={ name="Mpaca's Hose", augments={'Path: A',}},             -- 5 II
-    feet={ name="Nyame Sollerets", augments={'Path: B',}},
-    neck={ name="Sam. Nodowa +2", augments={'Path: A',}},
+    legs="Mpaca's Hose",								            -- 5 II
+    feet="Nyame Sollerets",
+    neck="Sam. Nodowa +2",
     waist="Sarissapho. Belt",                                       -- 5
     left_ear="Digni. Earring",                                      -- 5
-    right_ear={ name="Schere Earring", augments={'Path: A',}},      -- 3
+    right_ear="Schere Earring",									    -- 3
     left_ring="Niqmaddu Ring",                                      -- 5 II
     right_ring="Chirich Ring +1",                                   -- 10
 	back=gear.da_jse_back,

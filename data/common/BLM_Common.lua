@@ -54,7 +54,7 @@ sets.precast.FC = {
 	
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})
 sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {})
-sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {ammo="Sapience Orb", left_ring="Kishar Ring", ring_right="Crepuscular Ring"})
+sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {ammo="Sapience Orb", left_ring="Kishar Ring", right_ring="Crepuscular Ring"})
 sets.precast.FC.Cure = set_combine(sets.precast.FC, {})
 sets.precast.FC.Curaga = sets.precast.FC.Cure
 

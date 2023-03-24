@@ -45,7 +45,7 @@ sets.precast.JA['Warcry'] = {head="Agoge Mask +3"}
 sets.precast.JA['Defender'] = {}
 sets.precast.JA['Mighty Strikes'] = {}
 sets.precast.JA["Warrior's Charge"] = {}
-sets.precast.JA['Tomahawk'] = {ammo="Thr. Tomahawk"}
+sets.precast.JA['Tomahawk'] = {ammo="Thr. Tomahawk", feet="Agoge Calligae +3"}
 sets.precast.JA['Retaliation'] = {}
 sets.precast.JA['Restraint'] = {}
 sets.precast.JA['Blood Rage'] = {}
@@ -78,9 +78,7 @@ sets.precast.WS = {
 	back=gear.jse_str_back,
 }
 
-sets.precast.WS.Enmity = set_combine(sets.precast.WS, {
-	left_ear="Schere Earring",	
-})
+sets.precast.WS.Enmity = set_combine(sets.precast.WS, {left_ear="Schere Earring",})
 
 -- 31 SB
 sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
@@ -113,23 +111,24 @@ sets.precast.WS['Savage Blade'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Savage Blade'].SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {})
 sets.precast.WS['Savage Blade'].KI = set_combine(sets.precast.WS.KI, {})
 sets.precast.WS['Savage Blade'].KI.SubtleBlow = set_combine(sets.precast.WS.KI.SubtleBlow, {})
+sets.precast.WS['Savage Blade'].Enmity = set_combine(sets.precast.WS.Enmity, {})
 
 sets.precast.WS['Impulse Drive'] = set_combine(sets.precast.WS, {body="Dagon Breast."})
 sets.precast.WS['Impulse Drive'].SubtleBlow = set_combine(sets.precast.WS.SubtleBlow, {body="Dagon Breast."})
 sets.precast.WS['Impulse Drive'].KI = set_combine(sets.precast.WS.KI, {})
 sets.precast.WS['Impulse Drive'].KI.SubtleBlow = set_combine(sets.precast.WS.KI.SubtleBlow, {})
+sets.precast.WS['Impulse Drive'].Enmity = set_combine(sets.precast.WS.Enmity, {})
 
 sets.precast.WS['Upheaval'] = set_combine(sets.precast.WS, {
 	waist="Fotia Belt",
 	back=gear.jse_vit_back,
 })
 
-sets.precast.WS['Upheaval'].Enmity = set_combine(sets.precast.WS, {
-	left_ear="Schere Earring",	
-})
+sets.precast.WS['Upheaval'].Enmity = set_combine(sets.precast.WS['Upheaval'], {left_ear="Schere Earring",})
 
 sets.precast.WS['Judgment'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Judgment'].KI = set_combine(sets.precast.WS.KI, {})
+sets.precast.WS['Judgment'].Enmity = set_combine(sets.precast.WS.Enmity, {})
 
 -- Proc WS
 sets.precast.WS['Freezebite'] = set_combine(sets.precast.WS.Proc, {})
