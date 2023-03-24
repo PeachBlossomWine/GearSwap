@@ -332,8 +332,6 @@ function default_zone_change(new_id,old_id)
 	state.AutoSMNSCMode:reset()
 	state.AutoOtherTargetWS:reset()
 	state.AutoTPReductionMode:reset()
-	state.AutoRecoverHPMode:reset()
-	state.AutoRecoverMPMode:reset()
 	--state.MaintainTenebrae:reset()
 	if state.CraftingMode.value ~= 'None' then
 		enable('main','sub','range','ammo','head','neck','lear','rear','body','hands','lring','rring','back','waist','legs','feet')
