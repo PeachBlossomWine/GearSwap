@@ -299,18 +299,18 @@ function job_filter_precast(spell, spellMap, eventArgs)
 			add_to_chat(123,'Abort: Unbridled Learning and Diffusion not active.')
 		end
 	end
-	if spell.skill == 'Blue Magic' and not buffactive['Diffusion'] and spell.id == 710 then
-		if windower.ffxi.get_ability_recasts()[184] < latency then
-			eventArgs.cancel = true
-			windower.chat.input('/ja "Diffusion" <me>')
-			windower.chat.input:schedule(1.8,'/ma "'..spell.en..'" <me>')
-			return
-		else
-			eventArgs.cancel = true
-			add_to_chat(123,'Abort: Unbridled Learning and Diffusion not active.')
-			return
-		end
-	end
+	-- if spell.skill == 'Blue Magic' and not buffactive['Diffusion'] and spell.id == 710 then
+		-- if windower.ffxi.get_ability_recasts()[184] < latency then
+			-- eventArgs.cancel = true
+			-- windower.chat.input('/ja "Diffusion" <me>')
+			-- windower.chat.input:schedule(1.8,'/ma "'..spell.en..'" <me>')
+			-- return
+		-- else
+			-- eventArgs.cancel = true
+			-- add_to_chat(123,'Abort: Unbridled Learning and Diffusion not active.')
+			-- return
+		-- end
+	-- end
 end
 	
 function job_precast(spell, spellMap, eventArgs)
@@ -659,7 +659,7 @@ buff_spell_lists = {
 		{Name='Battery Charge',		Buff='Refresh',			SpellID=662,	When='Idle'},
 		{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	When='Always'},
 		{Name='Refresh',			Buff='Refresh',			SpellID=109,	When='Idle'},
-		--{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
+		{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
 	},
 	Default = {
 		{Name='Erratic Flutter',	Buff='Haste',			SpellID=710,	Reapply=false},
