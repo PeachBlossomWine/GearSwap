@@ -39,7 +39,7 @@ else
 	gear.jse_empy_legs = "Heath. Flanchard +2"
 end
 
-autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['KajaChopper']='Armor Break',['Naegling']='Savage Blade'}
+autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['Lycurgos']='Armor Break',['Naegling']='Savage Blade'}
 
 -- Weapons sets
 sets.weapons.Caladbolg = {main="Caladbolg",sub="Utu Grip"}

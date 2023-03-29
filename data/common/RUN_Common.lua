@@ -53,8 +53,8 @@ sets.Enmity = {
 	head={name="Halitus Helm",priority=88},										-- 			8
 	body={name="Nyame Mail",priority=136},										-- 10
 	hands={name="Kurys Gloves",priority=25},									-- 2	/	9
-	legs={name=gear.jse_empy_legs,priority=100},								-- 7	/	11
-	feet={name=gear.jse_empy_feet ,priority=48},								-- 13	/	13
+	legs={name=gear.jse_empy_legs,priority=100},								-- 13	/	11
+	feet={name=gear.jse_empy_feet ,priority=48},								-- 11	/	13
 	neck={name="Unmoving Collar +1",priority=500},								--		/	10
 	waist={name="Plat. Mog. Belt",priority=500},
 	left_ear={name="Odnowa Earring +1",priority=500},							-- 3
@@ -528,15 +528,15 @@ sets.engaged.Ongo = set_combine(sets.engaged.DTLite ,{
 sets.engaged.Tank = {
 	ammo=gear.dt_ammo,																		-- 			/ 3 DT	/			
 	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
-	body={name="Runeist Coat +3",priority=218},											--					
+	body={name="Runeist Coat +3",priority=218},												--					
 	hands={name="Turms Mittens +1",priority=74},											--					
-	legs=gear.jse_empy_legs,																--   		/ 8 DT	/
-	feet={name=gear.jse_empy_feet,priority=76},												--			/ 10 DT /	
+	legs=gear.jse_empy_legs,																--   		/ 13 DT	/
+	feet={name=gear.jse_empy_feet,priority=76},												--			/ 11 DT /	
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
 	waist=gear.dt_waist,																	-- 4 PDT 	/		/
 	left_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
 	right_ear={name="Etiolation Earring",priority=50},
-	left_ring={name=gear.moon_ring,priority=500},
+	left_ring={name=gear.moon_ring,priority=500},											--			/ 5 DT  /
 	right_ring={name="Gelatinous Ring +1",priority=500},									-- 7  PDT	/		/	-1 MDT
 	back=gear.tank_back,																	-- 10 PDT	/		/
 }
@@ -545,14 +545,30 @@ sets.engaged.MEVA = {
 	ammo=gear.dt_ammo,																		-- 			/ 3 DT	/			
 	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
 	body=gear.jse_empy_body,
-	hands={name="Nyame Gauntlets",priority=91},												--					
-	legs=gear.jse_empy_legs,																--   		/ 8 DT	/
-	feet={name=gear.jse_empy_feet,priority=68},												--					
+	hands={name="Nyame Gauntlets",priority=91},												--			/ 7 DT  /		
+	legs=gear.jse_empy_legs,																--   		/ 13 DT	/
+	feet={name=gear.jse_empy_feet,priority=68},												--			/ 11 DT /		
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
-	waist="Carrier's Sash",																	-- 4 PDT 	/		/
+	waist="Carrier's Sash",																	-- 			/		/
 	left_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
 	right_ear={name="Etiolation Earring",priority=50},
-	left_ring={name=gear.moon_ring,priority=500},
+	left_ring={name=gear.moon_ring,priority=500},											--			/ 5 DT  /
+	right_ring={name="Gelatinous Ring +1",priority=500},									-- 7  PDT	/		/	-1 MDT
+	back=gear.tank_back,																	-- 10 PDT	/		/
+}
+
+sets.engaged.Parry = {
+	ammo=gear.dt_ammo,																		-- 			/ 3 DT	/			
+	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
+	body=gear.jse_empy_body,
+	hands={name="Nyame Gauntlets",priority=91},												--			/ 7 DT  /		
+	legs=gear.jse_empy_legs,																--   		/ 13 DT	/
+	feet={name="Turms Leggings +1",priority=76},											--					
+	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
+	waist="Carrier's Sash",																	-- 			/		/
+	left_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
+	right_ear={name="Etiolation Earring",priority=50},
+	left_ring={name=gear.moon_ring,priority=500},											--			/ 5 DT  /
 	right_ring={name="Gelatinous Ring +1",priority=500},									-- 7  PDT	/		/	-1 MDT
 	back=gear.tank_back,																	-- 10 PDT	/		/
 }

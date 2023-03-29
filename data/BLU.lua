@@ -659,7 +659,7 @@ buff_spell_lists = {
 		{Name='Battery Charge',		Buff='Refresh',			SpellID=662,	When='Idle'},
 		{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	When='Always'},
 		{Name='Refresh',			Buff='Refresh',			SpellID=109,	When='Idle'},
-		{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
+		--{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
 	},
 	Default = {
 		{Name='Erratic Flutter',	Buff='Haste',			SpellID=710,	Reapply=false},

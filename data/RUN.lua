@@ -483,11 +483,6 @@ function check_flash_foil()
 	
 	if state.AutoWSMode.value and player.tp > 1001 and player.in_combat and player.target.type == "MONSTER" and math.sqrt(player.target.distance) < 4 and not silent_check_amnesia() then
 		windower.send_command:schedule(1.2, 'input /ws "' .. autows .. '" <t>')
-			-- if autows:lower() == 'freezebite' then
-				-- windower.send_command:schedule(1.2, 'mc rngsc Freezebite')
-			-- elseif autows:lower() == 'frostbite' then
-				-- windower.send_command:schedule(1.2, 'mc rngsc Frostbite')
-			-- end
 		add_to_chat(262,'WS -> ' .. autows)
 		tickdelay = os.clock() + 4.6
 		return true
@@ -526,11 +521,11 @@ function check_autotankfull()
 	if (silent_check_amnesia() or not buffactive[state.RuneElement.value]) then return false end
 	local abil_recasts = windower.ffxi.get_ability_recasts()
 
-	if abil_recasts[113] < latency and not buffactive['Liement'] then
-		windower.chat.input('/ja "Valiance" <me>')
-		tickdelay = os.clock() + 5.5
-		return true
-	elseif abil_recasts[59] < latency then
+	-- if abil_recasts[113] < latency and not buffactive['Liement'] then
+		-- windower.chat.input('/ja "Valiance" <me>')
+		-- tickdelay = os.clock() + 5.5
+		-- return true
+	if abil_recasts[59] < latency then
 		windower.chat.input('/ja "Pflug" <me>')
 		tickdelay = os.clock() + 5.5
 		return true
@@ -542,11 +537,11 @@ function check_autotankfull()
 		windower.chat.input('/ja "One for All" <me>')
 		tickdelay = os.clock() + 5.5
 		return true
-	elseif abil_recasts[117] < latency and (buffactive['Valiance'] or buffactive['Vallation']) then
-		windower.chat.input('/ja "Liement" <me>')
-		windower.chat.input:schedule(1.6,'//cancel liement')
-		tickdelay = os.clock() + 5.5
-		return true
+	-- elseif abil_recasts[117] < latency and (buffactive['Valiance'] or buffactive['Vallation']) then
+		-- windower.chat.input('/ja "Liement" <me>')
+		-- windower.chat.input:schedule(1.6,'//cancel liement')
+		-- tickdelay = os.clock() + 5.5
+		-- return true
 	else
 		return false
 	end
