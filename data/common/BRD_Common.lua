@@ -289,7 +289,7 @@ sets.midcast.SongEffect = {
 }
 
 sets.midcast.SongEffect.Melee = {
---	main=gear.song_dagger,
+	main=gear.song_dagger,
 	range="Gjallarhorn",
 	head=gear.jse_empy_head,
 	body=gear.jse_empy_body,
@@ -463,7 +463,7 @@ sets.midcast['Dispelga'] = set_combine(sets.midcast.SongDebuff, {main="Daybreak"
 -- Duration gear
 -- 70%
 sets.midcast['Enhancing Magic'] = {
-	main=gear.gada_enhancing_club, 													-- 6%
+	main="Daybreak",
 	sub="Ammurapi Shield",															-- 10%
 	head=gear.telchine_enhancing_head,												-- 8%
 	body=gear.telchine_enhancing_body,												-- 8%
