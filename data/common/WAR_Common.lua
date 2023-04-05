@@ -42,8 +42,8 @@ sets.weapons.ProcStaff = {main="Sophistry",sub="Utu Grip"}
 sets.precast.JA['Berserk'] = {back="Cichol's Mantle", body="Pummeler's Lorica +3", feet="Agoge Calligae +3"}
 sets.precast.JA['Aggressor'] = {head="Pumm. Mask +1", body="Agoge Lorica +3"}
 sets.precast.JA['Warcry'] = {head="Agoge Mask +3"}
-sets.precast.JA['Defender'] = {}
-sets.precast.JA['Mighty Strikes'] = {}
+sets.precast.JA['Defender'] = {hands="Agoge Mufflers +3"}
+sets.precast.JA['Mighty Strikes'] = {hands="Agoge Mufflers +3"}
 sets.precast.JA["Warrior's Charge"] = {}
 sets.precast.JA['Tomahawk'] = {ammo="Thr. Tomahawk", feet="Agoge Calligae +3"}
 sets.precast.JA['Retaliation'] = {}

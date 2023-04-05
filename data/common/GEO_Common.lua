@@ -77,7 +77,7 @@ sets.weapons.DualClub = {main="Idris",sub="Bunzi's Rod"}
 -- Indi Duration in slots that would normally have skill here to make entrust more efficient.
 
 -- Relic hat for Blaze of Glory HP increase.
-sets.buff['Blaze of Glory'] = {}
+sets.buff['Blaze of Glory'] = {head="Bagua Galero +3"}
 
 -- Fast cast sets for spells
 -- RDM sub = %15
