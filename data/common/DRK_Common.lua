@@ -39,7 +39,7 @@ else
 	gear.jse_empy_legs = "Heath. Flanchard +2"
 end
 
-autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['KajaChopper']='Armor Break',['Naegling']='Savage Blade'}
+autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['Lycurgos']='Armor Break',['Naegling']='Savage Blade'}
 
 -- Weapons sets
 sets.weapons.Caladbolg = {main="Caladbolg",sub="Utu Grip"}
@@ -84,7 +84,7 @@ sets.precast.FC = {
 	waist="Flume Belt +1",
 	left_ear="Loquac. Earring",																		-- 2
 	right_ear="Malignance Earring",																	-- 4
-	left_ring="Weather. Ring +1",																	-- 6
+	left_ring=gear.weather_ring,																	-- 6
 	right_ring="Kishar Ring",																		-- 4
 	back=gear.jse_FC_Back,																			-- 10
 }
@@ -195,7 +195,7 @@ sets.precast.WS['Armor Break'] = {
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear="Malignance Earring",
 	left_ring="Metamor. Ring +1",
-	right_ring="Weather. Ring +1",
+	right_ring=gear.weather_ring,
 	back=gear.jse_FC_Back,
 }
 
@@ -287,8 +287,7 @@ sets.DayWSEars = {ear1="Lugra Earring +1",ear2="Moonshade Earring",}
 	   
 sets.idle = {
 	ammo="Staunch Tathlum +1",
-	head="Sakpata's Helm",
-	--head="Crepuscular Helm",
+	head="Crepuscular Helm",
 	body="Crepuscular Mail",
 	hands="Sakpata's Gauntlets",
 	legs="Sakpata's Cuisses",
@@ -301,6 +300,8 @@ sets.idle = {
 	right_ring="Gelatinous Ring +1",
 	back=gear.jse_TP_Back,
 }
+
+sets.AutoReraise = {head="Crepuscular Helm", body="Crepuscular Mail",}
 
 sets.idle.Reraise = set_combine(sets.idle, {})
 	   
@@ -406,13 +407,13 @@ sets.engaged.SubtleBlow ={
 	ammo="Staunch Tathlum +1",
 	head="Sakpata's Helm",
 	body="Dagon Breast.",												-- 10 II
-	hands={ name="Sakpata's Gauntlets", augments={'Path: A',}},			-- 8
+	hands="Sakpata's Gauntlets",										-- 8
 	legs="Sakpata's Cuisses",
 	feet="Sakpata's Leggings",											-- 13
 	neck=gear.drk_jse_neck,
 	waist="Sarissapho. Belt",											-- 5
 	left_ear="Digni. Earring",											-- 5
-	right_ear="Telos Earring",											
+	right_ear="Schere Earring", 										
 	left_ring="Chirich Ring +1",										-- 10
 	right_ring="Niqmaddu Ring",											-- 5 II
 	back=gear.jse_TP_Back;			

@@ -299,6 +299,18 @@ function job_filter_precast(spell, spellMap, eventArgs)
 			add_to_chat(123,'Abort: Unbridled Learning and Diffusion not active.')
 		end
 	end
+	-- if spell.skill == 'Blue Magic' and not buffactive['Diffusion'] and spell.id == 710 then
+		-- if windower.ffxi.get_ability_recasts()[184] < latency then
+			-- eventArgs.cancel = true
+			-- windower.chat.input('/ja "Diffusion" <me>')
+			-- windower.chat.input:schedule(1.8,'/ma "'..spell.en..'" <me>')
+			-- return
+		-- else
+			-- eventArgs.cancel = true
+			-- add_to_chat(123,'Abort: Unbridled Learning and Diffusion not active.')
+			-- return
+		-- end
+	-- end
 end
 	
 function job_precast(spell, spellMap, eventArgs)
@@ -543,7 +555,8 @@ function check_buff()
 	if state.AutoBuffMode.value ~= 'Off' and not data.areas.cities:contains(world.area) then
 		local spell_recasts = windower.ffxi.get_spell_recasts()
 		for i in pairs(buff_spell_lists[state.AutoBuffMode.Value]) do
-			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost then
+			if not (buffactive['Slow'] and buff_spell_lists[state.AutoBuffMode.Value][i].Buff == 'Haste') and
+			not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'OutOfCombat' and not (player.in_combat or being_attacked))) and spell_recasts[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID] < spell_latency and silent_can_use(buff_spell_lists[state.AutoBuffMode.Value][i].SpellID) and player.mp > res.spells[buff_spell_lists[state.AutoBuffMode.Value][i].SpellID].mp_cost then
 				if not unbridled_spells:contains(buff_spell_lists[state.AutoBuffMode.Value][i].Name) or (unbridled_ready() and windower.ffxi.get_ability_recasts()[184] < latency) then
 					windower.chat.input('/ma "'..buff_spell_lists[state.AutoBuffMode.Value][i].Name..'" <me>')
 					tickdelay = os.clock() + 5.5
@@ -574,11 +587,11 @@ end
 function check_tp_lower()
 	local spell_recasts = windower.ffxi.get_spell_recasts()
 
-	if spell_recasts[573] < spell_latency then
+	if spell_recasts[573] < spell_latency and silent_can_use(573) then
 		windower.chat.input('/ma "Feather Tickle" <t>')
 		tickdelay = os.clock() + 2
 		return true
-	elseif spell_recasts[684] < spell_latency then
+	elseif spell_recasts[684] < spell_latency and silent_can_use(684) then
 		windower.chat.input('/ma "Reaving Wind" <t>')
 		tickdelay = os.clock() + 2
 		return true
@@ -647,7 +660,7 @@ buff_spell_lists = {
 		{Name='Battery Charge',		Buff='Refresh',			SpellID=662,	When='Idle'},
 		{Name='Phalanx',			Buff='Phalanx',			SpellID=106,	When='Always'},
 		{Name='Refresh',			Buff='Refresh',			SpellID=109,	When='Idle'},
-		{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
+		--{Name='Mighty Guard',		Buff='Mighty Guard',	SpellID=750,	When='Combat'},
 	},
 	Default = {
 		{Name='Erratic Flutter',	Buff='Haste',			SpellID=710,	Reapply=false},

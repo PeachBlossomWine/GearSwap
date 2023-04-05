@@ -13,12 +13,6 @@ else
 	gear.empy_earring = "Chevalier's Earring"
 end
 
-if item_available("Gold Mog. Belt") then
-	gear.hp_waist = {name="Gold Mog. Belt",priority=500}
-else
-	gear.hp_waist = {name="Silver Moogle Belt",priority=500}
-end
-
 if item_available("Crepuscular Mail") then
 	gear.idle_body = "Crepuscular Mail"
 elseif item_available("Sacro Breastplate") then
@@ -32,13 +26,6 @@ if item_available("Crepuscular Mail") then
 else
 	gear.idle_refresh_body = "Sakpata's Plate"
 end
-
-if item_available("Enif Cosciales") then
-	gear.fc_legs = "Enif Cosciales"
-else
-	gear.fc_legs = gear.odyssean_fc_legs
-end
-
 
 --------------------------------------
 -- Precast sets
@@ -127,22 +114,21 @@ sets.precast.JA['Violent Flourish'] = {}
 sets.precast.JA['Animated Flourish'] = set_combine(sets.Enmity, {})
 
 -- Fast cast sets for spells
--- 61% FC 
+-- 75% FC 
 -- 43% PDT 
 sets.precast.FC = {
 	ammo="Sapience Orb",																		-- 2%
 	head={name="Carmine Mask +1",priority=38},													-- 14%
 	body={name="Rev. Surcoat +3",priority=254},													-- 10%
 	hands={name="Leyline Gloves",priority=5},													-- 8%
-	legs=gear.fc_legs,																			-- 8%
+	legs={name="Enif Cosciales",priority=45},													-- 8%
 	feet={name="Chev. Sabatons +3",priority=42},												-- 13%
 	neck={name="Unmoving Collar +1", priority=500},												
-	waist=gear.hp_waist,
+	waist={name="Plat. Mog. Belt",priority=500},
 	left_ear={name="Tuisto Earring",priority=500},
 	right_ear={name="Odnowa Earring +1", priority=500},
-	--left_ring={name="Moonlight Ring", priority=110},
-	left_ring={name="Weather. Ring +1",priority=5},												-- 6%
-	right_ring={name="Gelatinous Ring +1",priority=500},
+	left_ring={name=gear.weather_ring ,priority=5},												-- 6%
+	right_ring={name="Kishar Ring",priority=20},												-- 4%
 	back=gear.tank_fc_back,																		-- 10%
 }
 	
@@ -176,7 +162,7 @@ sets.precast.WS.Tank = {
 	legs={name="Nyame Flanchard", priority=114},
 	feet={name="Nyame Sollerets", priority=68},
 	neck={name="Unmoving Collar +1", priority=200},
-	waist=gear.hp_waist,
+	waist={name="Plat. Mog. Belt",priority=330},
 	left_ear={name="Tuisto Earring",priority=150},
 	right_ear={name="Odnowa Earring +1", priority=110},
 	left_ring={name="Moonlight Ring", priority=110},

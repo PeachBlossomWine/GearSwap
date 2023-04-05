@@ -46,7 +46,7 @@ sets.precast.FC = {
 	waist="Embla Sash",																									-- 5
 	left_ear="Loquac. Earring",																							-- 2
 	right_ear="Malignance Earring",																						-- 4
-	left_ring="Weather. Ring +1",																						-- 6
+	left_ring=gear.weather_ring,																						-- 6
 	right_ring="Lebeche Ring",																							-- QC
 	back=gear.jse_fc_back,																								-- 10
 }
@@ -54,7 +54,7 @@ sets.precast.FC = {
 	
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})
 sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {})
-sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {ammo="Sapience Orb", left_ring="Kishar Ring", ring_right="Crepuscular Ring"})
+sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {ammo="Sapience Orb", left_ring="Kishar Ring", right_ring="Crepuscular Ring"})
 sets.precast.FC.Cure = set_combine(sets.precast.FC, {})
 sets.precast.FC.Curaga = sets.precast.FC.Cure
 

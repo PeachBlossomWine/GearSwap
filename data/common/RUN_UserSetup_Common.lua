@@ -1,5 +1,5 @@
 state.OffenseMode:options('Normal')
-state.HybridMode:options('Tank','MEVA','DTLite','Ongo','Normal')
+state.HybridMode:options('Tank','MEVA','Parry','DTLite','Ongo','Normal')
 state.WeaponskillMode:options('Tank','Normal')
 state.CastingMode:options('Normal','SIRD','DT')
 state.PhysicalDefenseMode:options('PDT')
@@ -21,6 +21,8 @@ gear.sird_back={ name="Ogma's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','
 gear.jse_da_back = { name="Ogma's cape", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 gear.jse_wsd_back = { name="Ogma's cape", augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 gear.jse_str_back = { name="Ogma's cape", augments={'STR+20','Accuracy+20 Attack+20','STR+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
+
+gear.jovian_fc_body={ name="Adhemar Jacket +1", augments={'HP+105','"Fast Cast"+10','Magic dmg. taken -4',}, priority=168}
 
 -- Additional local binds
 send_command('bind !` gs c SubJobEnmity')

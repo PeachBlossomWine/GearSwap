@@ -64,6 +64,7 @@
     'Terpander', and info.ExtraSongs to 1.
 --]]
 singeron = true
+used_meds = os.clock()
 -- Initialization function for this job file.
 function get_sets()
     -- Load and initialize the include file.
@@ -86,7 +87,7 @@ function job_setup()
 	state.AutoSongMode = M(false, 'Auto Song Mode')
 
 	update_melee_groups()
-	init_job_states({"Capacity","AutoRuneMode","AutoTrustMode","AutoNukeMode","AutoWSMode","AutoShadowMode","AutoFoodMode","AutoStunMode","AutoDefenseMode","AutoSongMode",},{"AutoBuffMode","AutoSambaMode","Weapons","OffenseMode","WeaponskillMode","IdleMode","Passive","RuneElement","ExtraSongsMode","CastingMode","TreasureMode",})
+	init_job_states({"Capacity","AutoRuneMode","AutoTrustMode","AutoTankMode","AutoNukeMode","AutoWSMode","AutoShadowMode","AutoFoodMode","AutoStunMode","AutoDefenseMode","AutoSongMode",},{"AutoBuffMode","AutoSambaMode","Weapons","OffenseMode","WeaponskillMode","IdleMode","Passive","RuneElement","ExtraSongsMode","CastingMode","TreasureMode",})
 end
 
 -------------------------------------------------------------------------------------------------------------------
@@ -201,7 +202,6 @@ function job_post_precast(spell, spellMap, eventArgs)
 	if spell.type == 'BardSong' then
 	
 		if state.Buff['Nightingale'] then
-		
 			-- Replicate midcast in precast for nightingale including layering.
             local generalClass = get_song_class(spell)
 			if generalClass and sets.midcast[generalClass] then
@@ -265,14 +265,6 @@ function job_post_midcast(spell, spellMap, eventArgs)
 				else
 					equip(sets.midcast[spellMap])
 				end
-			end
-			
-			if can_dual_wield and sets.midcast.SongDebuff.DW then
-				equip(sets.midcast.SongDebuff.DW)
-			end
-		else
-			if can_dual_wield and sets.midcast.SongEffect.DW then
-				equip(sets.midcast.SongEffect.DW)
 			end
 		end
 		
@@ -435,11 +427,31 @@ end
 
 function job_tick()
 	if check_song() then return true end
+	if state.AutoTankMode.value and player.in_combat and not moving then
+		if check_enmity() then return true end
+	end
 	if check_buff() then return true end
 	if check_buffup() then return true end
 	if check_zerg_sp() then return true end
 	if check_steps_subjob() then return true end
 	return false
+end
+
+function check_enmity()
+	local spell_recasts = windower.ffxi.get_spell_recasts()
+	
+	if (os.clock()-used_meds) > 3 then
+		windower.chat.input('/item "Eye Drops" <me>')
+		used_meds = os.clock()
+		tickdelay = os.clock() + 2.5
+		return true
+	elseif spell_recasts[466] < spell_latency and not silent_check_silence() then
+		windower.chat.input('/ma "'..res.spells[466].en..'" <t>')
+		tickdelay = os.clock() + 4.2
+		return true
+	else
+		return false
+	end
 end
 
 function check_song()
@@ -468,7 +480,8 @@ function check_buff()
 	if state.AutoBuffMode.value ~= 'Off' and not data.areas.cities:contains(world.area) then
 		local spell_recasts = windower.ffxi.get_spell_recasts()
 		for i in pairs(buff_spell_lists[state.AutoBuffMode.Value]) do
-			if not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or 
+			if not (buffactive['Slow'] and buff_spell_lists[state.AutoBuffMode.Value][i].Buff == 'Haste') and
+			not buffactive[buff_spell_lists[state.AutoBuffMode.Value][i].Buff] and (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Always' or 
             (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Combat' and (player.in_combat or being_attacked)) or 
             (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Engaged' and player.status == 'Engaged') or 
             (buff_spell_lists[state.AutoBuffMode.Value][i].When == 'Idle' and player.status == 'Idle') or 

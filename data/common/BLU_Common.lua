@@ -47,6 +47,7 @@ end
 -- Weapons sets
 sets.weapons.TizThib = {main="Tizona",sub="Thibron"}
 sets.weapons.TizZan = {main="Tizona",sub="Zantetsuken"}
+sets.weapons.TizSak = {main="Tizona",sub="Sakpata's Sword"}
 sets.weapons.NaegThib = {main="Naegling",sub="Thibron"}
 sets.weapons.NaegZan = {main="Naegling",sub="Zantetsuken"}
 sets.weapons.TizBunzi = {main="Tizona",sub="Bunzi's Rod"}
@@ -99,7 +100,7 @@ sets.precast.FC = {
 	left_ear="Loquac. Earring",																							-- 2
 	right_ear="Etiolation Earring",																						-- 1
 	left_ring="Kishar Ring",																							-- 4
-	right_ring="Weather. Ring +1",																							-- 5 + QC
+	right_ring=gear.weather_ring,																							-- 5 + QC
 	back="Perimede Cape",
 }
 
@@ -271,7 +272,7 @@ sets.midcast['Blue Magic'].Magical = {
 	left_ear="Regal Earring",
 	right_ear=gear.empy_nuke_earring,
 	left_ring="Metamorph Ring +1",
-	right_ring="Weather. Ring +1",
+	right_ring=gear.weather_ring,
 	back=gear.jse_mab_back,
 }
 				 
@@ -292,7 +293,7 @@ sets.midcast['Blue Magic'].Magical.Resistant = {
 	left_ear="Digni. Earring",
 	right_ear="Regal Earring",
 	left_ring="Metamorph Ring +1",
-	right_ring="Weather. Ring +1",			-- 6% FC
+	right_ring=gear.weather_ring,			-- 6% FC
 	back=gear.jse_macc_fc_back,				-- 10% FC
 }
 sets.midcast['Tenebral Crush'] = set_combine(sets.midcast['Blue Magic'].Magical, {})
@@ -426,7 +427,7 @@ sets.midcast['Blue Magic']['White Wind'] = {
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Incanter's Torque",
-	waist="Luminary Sash",
+	waist="Plat. Mog. Belt",
 	left_ear="Mendi. Earring",
 	right_ear="Odnowa Earring +1",
 	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
@@ -467,7 +468,7 @@ sets.midcast['Blue Magic'].SkillBasedBuff = {
 	left_ear="Regal Earring",
 	right_ear=gear.empy_nuke_earring,
 	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-	right_ring="Weather. Ring +1",
+	right_ring=gear.weather_ring,
 	back=gear.jse_mab_back,
 }
 

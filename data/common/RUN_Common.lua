@@ -1,11 +1,11 @@
 autows_list = {['Epeolatry']='Dimidiation',['Lionheart']='Resolution',['Lycurgos']='Upheaval',}
 
 if item_available("Eri. Leg Guards +3") then
-	gear.jse_empy_legs = {name="Eri. Leg Guards +3",priority=100}
+	gear.jse_empy_legs = "Eri. Leg Guards +3"
 elseif item_available("Eri. Leg Guards +2") then
-	gear.jse_empy_legs = {name="Eri. Leg Guards +2",priority=100}
+	gear.jse_empy_legs = "Eri. Leg Guards +2"
 else
-	gear.jse_empy_legs = {name="Eri. Leg Guards +1",priority=100}
+	gear.jse_empy_legs = "Eri. Leg Guards +1"
 end
 
 if item_available("Erilaz Galea +3") then
@@ -53,14 +53,14 @@ sets.Enmity = {
 	head={name="Halitus Helm",priority=88},										-- 			8
 	body={name="Nyame Mail",priority=136},										-- 10
 	hands={name="Kurys Gloves",priority=25},									-- 2	/	9
-	legs=gear.jse_empy_legs,													-- 7	/	11
-	feet={name=gear.jse_empy_feet ,priority=18},								-- 13	/	13
+	legs={name=gear.jse_empy_legs,priority=100},								-- 13	/	11
+	feet={name=gear.jse_empy_feet ,priority=48},								-- 11	/	13
 	neck={name="Unmoving Collar +1",priority=500},								--		/	10
-	waist={name=gear.hp_belt,priority=500},
+	waist={name="Plat. Mog. Belt",priority=500},
 	left_ear={name="Odnowa Earring +1",priority=500},							-- 3
 	right_ear={name="Cryptic Earring",priority=40},								--		/	4
-	left_ring={name=gear.moon_ring,priority=500},								--		/	5
-	right_ring={name="Gelatinous Ring +1",priority=500},						-- 7
+	left_ring={name="Petrov Ring",priority=10},									-- 		/	4
+	right_ring={name="Eihwaz Ring",priority=70},								-- 		/   5
 	back=gear.tank_back,														-- 10	/	10
 }
 
@@ -86,7 +86,7 @@ sets.Enmity.SIRD = {															--SIRD	/	DT-PDT	/	Enmity
 	right_ear="Magnetic Earring",												-- 8
 	left_ring={name=gear.moon_ring,priority=500},								--		/	5
 	right_ring={name="Gelatinous Ring +1",priority=500},						--			7
-	--back=gear.sird_back,														-- 10	/			/	10
+	--back=gear.sird_back,	
 	back=gear.tank_back,
 }
 
@@ -123,7 +123,7 @@ sets.precast.JA['Lunge'] = {
 	legs={name="Agwu's Slops",priority=50},
 	feet={name="Agwu's Pigaches",priority=27},
 	neck={name="Unmoving Collar +1",priority=500},
-	waist=gear.hp_belt,
+	waist={name="Plat. Mog. Belt",priority=500},
 	left_ear={name="Odnowa Earring +1",priority=500},
 	right_ear="Telos Earring",
 	left_ring={name=gear.moon_ring,priority=500},
@@ -153,23 +153,24 @@ sets.precast.JA['Unda'] = set_combine(sets.Enmity, {})
 sets.precast.JA['Lux'] = set_combine(sets.Enmity, {})
 sets.precast.JA['Tenebrae'] = set_combine(sets.Enmity, {})
 
+
 -- Fast cast sets for spells
 -- Insipiration: 26% [2/5]
--- FC: 72%
+-- FC: 74%
 sets.precast.FC = {
-	ammo="Sapience Orb",																-- 2
-	head={name="Runeist Bandeau +3",priority=109},										-- 14
-	body=gear.jse_empy_body,															-- 13
-	hands={name="Leyline Gloves",priority=25},											-- 6-8
-	legs={name="Aya. Cosciales +2",priority=45},										-- 6
-	feet={name="Carmine Greaves +1",priority=95},										-- 8
-	neck="Baetyl Pendant",																-- 4
-	waist={name=gear.hp_belt,priority=500},
-	left_ear={name="Odnowa Earring +1",priority=500},									-- 1
+	ammo="Sapience Orb",																							-- 2
+	head={name="Runeist Bandeau +3",priority=109},																	-- 14
+	body=gear.jse_empy_body,																						-- 13
+	hands={name="Leyline Gloves",priority=25},																		-- 6-8
+	legs={name="Aya. Cosciales +2",priority=45},																	-- 6
+	feet={name="Carmine Greaves +1",priority=95},																	-- 8
+	neck="Baetyl Pendant",																							-- 4
+	waist={name="Plat. Mog. Belt",priority=500},
+	left_ear={name="Odnowa Earring +1",priority=500},																
 	right_ear={name="Tuisto Earring",priority=500},
-	left_ring=gear.weather_ring,														-- 6
-	right_ring={name="Gelatinous Ring +1",priority=500},
-	back=gear.fc_back,																	-- 10
+	left_ring=gear.weather_ring,																					-- 6
+	right_ring={name="Kishar Ring",priority=50},
+	back=gear.fc_back,																								-- 10
 }
 		
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {legs="Futhark Trousers +3"})
@@ -306,16 +307,16 @@ sets.midcast['Phalanx'].DT = set_combine(sets.midcast['Phalanx'], {})
 sets.midcast['Temper'] = {
 	ammo=gear.dt_ammo,
 	head="Carmine Mask +1",																			-- 11
-	body={name="Runeist Coat +3",priority=218},
-	hands="Runeist Mitons +3",																	-- 19
+	body={name="Nyame Mail",priority=136},
+	hands="Runeist Mitons +3",																		-- 19
 	legs={name="Carmine Cuisses +1",priority=50},													-- 18
 	feet={name="Nyame Sollerets",priority=68},
 	neck="Incanter's Torque",																		-- 10
-	waist=gear.dt_waist,
-	left_ear={name="Odnowa Earring +1",priority=500},
+	waist={name="Plat. Mog. Belt",priority=500},
+	left_ear={name="Mimir Earring",priority=10},
 	right_ear="Andoaa Earring",																		-- 5
 	left_ring="Defending Ring",
-	right_ring={name="Gelatinous Ring +1",priority=500},
+	right_ring={name="Stikini Ring +1",priority=10},
 	back={name=gear.dt_moon_back,priority=500},
 }
 sets.midcast['Temper'].SIRD = set_combine(sets.midcast['Temper'], {})
@@ -527,15 +528,15 @@ sets.engaged.Ongo = set_combine(sets.engaged.DTLite ,{
 sets.engaged.Tank = {
 	ammo=gear.dt_ammo,																		-- 			/ 3 DT	/			
 	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
-	body={name="Runeist Coat +3",priority=218},											--					
+	body={name="Runeist Coat +3",priority=218},												--					
 	hands={name="Turms Mittens +1",priority=74},											--					
-	legs=gear.jse_empy_legs,																--   		/ 8 DT	/
-	feet={name=gear.jse_empy_feet,priority=76},												--			/ 10 DT /	
+	legs=gear.jse_empy_legs,																--   		/ 13 DT	/
+	feet={name=gear.jse_empy_feet,priority=76},												--			/ 11 DT /	
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
 	waist=gear.dt_waist,																	-- 4 PDT 	/		/
 	left_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
 	right_ear={name="Etiolation Earring",priority=50},
-	left_ring={name=gear.moon_ring,priority=500},
+	left_ring={name=gear.moon_ring,priority=500},											--			/ 5 DT  /
 	right_ring={name="Gelatinous Ring +1",priority=500},									-- 7  PDT	/		/	-1 MDT
 	back=gear.tank_back,																	-- 10 PDT	/		/
 }
@@ -543,15 +544,31 @@ sets.engaged.Tank = {
 sets.engaged.MEVA = {
 	ammo=gear.dt_ammo,																		-- 			/ 3 DT	/			
 	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
-	body={name="Runeist Coat +3",priority=218},											--					
-	hands={name="Nyame Gauntlets",priority=91},												--					
-	legs=gear.jse_empy_legs,																--   		/ 8 DT	/
-	feet={name=gear.jse_empy_feet,priority=68},												--					
+	body=gear.jse_empy_body,
+	hands={name="Nyame Gauntlets",priority=91},												--			/ 7 DT  /		
+	legs=gear.jse_empy_legs,																--   		/ 13 DT	/
+	feet={name=gear.jse_empy_feet,priority=68},												--			/ 11 DT /		
 	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
-	waist="Carrier's Sash",																	-- 4 PDT 	/		/
+	waist="Carrier's Sash",																	-- 			/		/
 	left_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
 	right_ear={name="Etiolation Earring",priority=50},
-	left_ring={name=gear.moon_ring,priority=500},
+	left_ring={name=gear.moon_ring,priority=500},											--			/ 5 DT  /
+	right_ring={name="Gelatinous Ring +1",priority=500},									-- 7  PDT	/		/	-1 MDT
+	back=gear.tank_back,																	-- 10 PDT	/		/
+}
+
+sets.engaged.Parry = {
+	ammo=gear.dt_ammo,																		-- 			/ 3 DT	/			
+	head={name="Nyame Helm",priority=91},													-- 			/ 7 DT	/
+	body=gear.jse_empy_body,
+	hands={name="Nyame Gauntlets",priority=91},												--			/ 7 DT  /		
+	legs=gear.jse_empy_legs,																--   		/ 13 DT	/
+	feet={name="Turms Leggings +1",priority=76},											--					
+	neck={name=gear.run_jse_neck,priority=60},												-- 			/ 6 DT	/
+	waist="Carrier's Sash",																	-- 			/		/
+	left_ear={name="Odnowa Earring +1",priority=500},										--			/ 3 DT	/	2 MDT
+	right_ear={name="Etiolation Earring",priority=50},
+	left_ring={name=gear.moon_ring,priority=500},											--			/ 5 DT  /
 	right_ring={name="Gelatinous Ring +1",priority=500},									-- 7  PDT	/		/	-1 MDT
 	back=gear.tank_back,																	-- 10 PDT	/		/
 }

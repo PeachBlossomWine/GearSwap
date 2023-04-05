@@ -60,7 +60,6 @@ state.AutoOtherTargetWS = M(false, 'AutoOtherTargetWS')
 state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
 state.AutoTomahawkMode = M(false, 'AutoTomahawkMode')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
-state.AutoRecoverHPMode = M(false, 'Auto Recover HP Mode')
 state.AutoShot = M(false, 'Auto Shot Mode')
 state.AutoCallPet = M(false, 'Auto Call Pet')
 state.DelayedWS = M(false, 'WS Wall Delay')
@@ -164,27 +163,6 @@ function user_unload()
 
 	send_command('lua u dressup')
 	send_command('lua u healbot')
-end
-
---Recover HP if very low, using items
-function check_recover_hp()
-	if moving or data.areas.cities:contains(world.area) then return false end
-	
-	if state.AutoRecoverHPMode.value and player.hpp < 27 and (player.inventory['Vile Elixir +1'] or player.inventory['Vile Elixir']) then
-		if player.inventory['Vile Elixir +1'] then
-			windower.chat.input('/item "Vile Elixir +1" <me>')
-			tickdelay = os.clock() + 1.5
-			return true
-		elseif player.inventory['Vile Elixir'] then
-			windower.chat.input('/item "Vile Elixir" <me>')
-			tickdelay = os.clock() + 1.5
-			return true
-		else
-			return false
-		end
-	else
-		return false
-	end
 end
 
 function check_shadows()
@@ -354,7 +332,6 @@ function default_zone_change(new_id,old_id)
 	state.AutoSMNSCMode:reset()
 	state.AutoOtherTargetWS:reset()
 	state.AutoTPReductionMode:reset()
-	state.AutoRecoverHPMode:reset()
 	--state.MaintainTenebrae:reset()
 	if state.CraftingMode.value ~= 'None' then
 		enable('main','sub','range','ammo','head','neck','lear','rear','body','hands','lring','rring','back','waist','legs','feet')
