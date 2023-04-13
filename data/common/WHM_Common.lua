@@ -693,11 +693,6 @@ sets.resting = sets.idle
 
 sets.idle.Town = set_combine(sets.idle, {
 	main=gear.whm_aoe_weapon,
-	head="Nyame Helm",
-	body="Nyame Mail",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
 })
 
 -- Defense sets
