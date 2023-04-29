@@ -6,12 +6,6 @@ else
 	gear.empy_earring = "Nukumi Earring"
 end
 
-if item_available("Sacro Breastplate") then
-	gear.idle_body = "Sacro Breastplate"
-else
-	gear.idle_body = "Malignance Tabard"
-end
-
 if item_available("Nukumi Manoplas +3") then
 	gear.jse_empy_hands = "Nukumi Manoplas +3"
 else
@@ -198,9 +192,9 @@ sets.resting = {}
 
 sets.idle = {
 	ammo="Staunch Tathlum +1",
-	head="Malignance Chapeau",
-	body=gear.idle_body,
-	hands="Malignance Gloves",
+	head="Crepuscular Helm",
+	body="Crepuscular Mail",
+	hands="Gleti's Gauntlets",
 	legs="Malignance Tights",
 	feet="Malignance Boots",
 	neck="Sanctity Necklace",
@@ -212,10 +206,10 @@ sets.idle = {
 	back=gear.jse_tp_back,
 }
 
-sets.idle.Town = {
+sets.idle.DT = {
 	ammo="Staunch Tathlum +1",
-	head="Nyame Helm",
-	body="Nyame Mail",
+	head="Crepuscular Helm",
+	body="Crepuscular Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -224,7 +218,7 @@ sets.idle.Town = {
 	left_ear="Infused Earring",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
-	right_ring="Beithir Ring",
+	right_ring="Gelatinous Ring +1",
 	back=gear.jse_tp_back,
 }
 
@@ -297,11 +291,11 @@ sets.engaged.Acc = set_combine(sets.engaged, {})
 -- MELEE (SINGLE-WIELD) HYBRID SETS
 sets.engaged.DT = {
 	ammo="Coiste Bodhar",
-	head="Malignance Chapeau",
+	head="Nyame Helm",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
-	feet="Malignance Boots",
+	feet="Nyame Sollerets",
 	neck="Combatant's Torque",
 	waist="Windbuffet Belt +1",
 	left_ear="Sherida Earring",

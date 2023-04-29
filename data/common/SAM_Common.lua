@@ -108,7 +108,7 @@ sets.precast.WS = {
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear=gear.empy_wsd_earring,														-- 3
 	left_ring="Regal Ring",
-	right_ring="Beithir Ring",																-- 3
+	right_ring="Rufescent Ring",
 	back=gear.ws_jse_back,																	-- 10
 }
 sets.precast.WS.Enmity = set_combine(sets.precast.WS, {left_ear="Schere Earring"})

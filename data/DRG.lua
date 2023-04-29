@@ -380,11 +380,11 @@ function check_zerg_sp()
             windower.chat.input('/ja "Angon" <t>')
             tickdelay = os.clock() + 1.1
             return true
-        elseif abil_recasts[58] < latency and player.target.name == 'Bumba' then
+        elseif abil_recasts[58] < latency and S{'Bumba','Kouryu'}:contains(player.target.name) then
             windower.chat.input('/ja "Dragon Breaker" <t>')
             tickdelay = os.clock() + 1.1
             return true
-        elseif abil_recasts[157] < latency and player.target.name == 'Bumba' then
+        elseif abil_recasts[157] < latency and S{'Bumba','Kouryu'}:contains(player.target.name) then
             windower.chat.input('/ja "Ancient Circle" <me>')
             tickdelay = os.clock() + 1.1
             return true

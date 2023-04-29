@@ -146,7 +146,7 @@ sets.precast.WS['Death Blossom'] = set_combine(sets.precast.WS, {
 	neck="Dls. Torque +2",
 	waist="Sailfi Belt +1",
 	left_ear="Regal Earring",
-	left_ring="Beithir Ring",																		
+	left_ring="Rufescent Ring",																		
 	right_ring="Metamor. Ring +1",
 	back=gear.jse_mnd_back,
 })

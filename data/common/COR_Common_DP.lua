@@ -182,6 +182,21 @@ sets.precast.WS = {
 	back=gear.jse_str_back,
 }
 
+sets.precast.WS.STP = {
+	head="Malignance Chapeau",
+    body="Malignance Tabard",
+    hands="Malignance Gloves",
+    legs="Malignance Tights",
+    feet="Malignance Boots",
+    neck="Fotia Gorget",
+    waist="Fotia Belt",
+    left_ear="Telos Earring",
+    right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+    left_ring="Ilabrat Ring",
+    right_ring="Rufescent Ring",
+	back=gear.jse_midshot_back,
+}
+
 -- 31 SB
 sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
     neck="Bathy Choker +1",
@@ -227,7 +242,7 @@ sets.precast.WS['Last Stand'] = {
 	ammo=gear.WSbullet,
 	head="Nyame Helm",
 	body="Nyame Mail",
-	hands="Nyame Gauntlets",
+	hands=gear.jse_empy_hands,
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck=gear.cor_jse_neck,

@@ -10,15 +10,6 @@ else
 	gear.empy_earring = "Telos Earring"
 end
 
-if item_available("Nisroch Jerkin") then
-	gear.crit_body = "Nisroch Jerkin"
-	gear.town_body = "Nisroch Jerkin"
-else
-	gear.crit_body = "Meg. Cuirie +2"
-	gear.town_body = "Ikenga's Vest"
-end
-
-
 if item_available("Amini Caban +3") then
 	gear.jse_empy_body = "Amini Caban +3"
 elseif item_available("Amini Caban +2") then
@@ -123,7 +114,7 @@ sets.precast.WS = {
 	head="Nyame Helm",																										-- 10
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
-	legs={ name="Arc. Braccae +3", augments={'Enhances "Eagle Eye Shot" effect',}},											-- 10
+	legs="Nyame Flanchard",						
 	feet="Nyame Sollerets",
 	neck="Scout's Gorget +2",
 	waist="Fotia Belt",
@@ -186,9 +177,9 @@ sets.midcast.FastRecast = sets.precast.FC
 -- Ranged sets
 sets.midcast.RA = {
 	head={ name="Arcadian Beret +3", augments={'Enhances "Recycle" effect',}},
-	body="Ikenga's Vest",
+	body=gear.jse_empy_body,
 	hands="Malignance Gloves",
-	legs="Malignance Tights",
+	legs=gear.jse_empy_legs,
 	feet="Malignance Boots",
 	neck="Scout's Gorget +2",
 	waist="Yemaya Belt",
@@ -201,7 +192,7 @@ sets.midcast.RA = {
 
 sets.midcast.RA.AM = {
 	head="Meghanada Visor +2",
-	body=gear.crit_body,
+	body="Nisroch Jerkin",
 	hands="Malignance Gloves",
 	legs=gear.jse_empy_legs,
 	feet="Osh. Leggings +1",
@@ -248,7 +239,7 @@ sets.resting = sets.idle
 
 sets.idle.Town = {
 	head="Nyame Helm",
-	body=gear.town_body,
+	body="Nisroch Jerkin",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
@@ -299,7 +290,7 @@ sets.engaged = {
 	left_ear="Sherida Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Petrov Ring",
-	right_ring="Epona's Ring",
+	right_ring="Chirich Ring +1",
 	back=gear.jse_tp_back,
 }
 
@@ -314,7 +305,7 @@ sets.engaged.DT = {
 	left_ear="Sherida Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",
-	right_ring="Epona's Ring",
+	right_ring="Chirich Ring +1",
 	back=gear.jse_tp_back,
 }
 	

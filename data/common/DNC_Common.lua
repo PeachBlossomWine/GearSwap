@@ -221,11 +221,11 @@ sets.ExtraRegen = {}
 -- Idle sets
 sets.idle = {
 	ammo="Staunch Tathlum +1",			-- 3%
-	head="Gleti's Mask",
+	head="Malignance Chapeau",
 	body="Gleti's Cuirass",
 	hands="Gleti's Gauntlets",
-	legs="Gleti's Breeches",
-	feet="Gleti's Boots",
+	legs="Malignance Tights",
+	feet="Malignance Boots",
 	neck="Sanctity Necklace",
 	waist="Flume Belt +1",				-- 4%
 	left_ear="Infused Earring",
@@ -237,10 +237,9 @@ sets.idle = {
 	
 sets.idle.DT = set_combine(sets.idle, {
 	head="Nyame Helm",
-	body="Nyame Mail",
-	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
+	neck="Loricate Torque +1",
 })
 
 sets.idle.Town = {
@@ -286,7 +285,7 @@ sets.engaged = {
 	ammo="Coiste Bodhar",
 	head="Malignance Chapeau",
 	body="Horos Casaque +3",
-	hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+	hands="Gleti's Gauntlets",
 	legs="Malignance Tights",
 	feet="Horos T. Shoes +3",
 	neck="Etoile Gorget +2",
@@ -300,11 +299,11 @@ sets.engaged = {
 
 sets.engaged.DT = {
 	ammo="Coiste Bodhar",
-	head="Malignance Chapeau",
+	head="Nyame Helm",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
-	feet="Malignance Boots",
+	feet="Nyame Sollerets",
 	neck="Etoile Gorget +2",
 	waist="Windbuffet Belt +1",
 	left_ear="Sherida Earring",

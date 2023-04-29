@@ -153,8 +153,8 @@ sets.midcast.RA = {
 sets.idle = {
 	ammo=gear.dt_ammo,
 	head="Malignance Chapeau",
-	body="Malignance Tabard",
-	hands="Malignance Gloves",
+	body="Gleti's Cuirass",
+	hands="Gleti's Gauntlets",
 	legs="Malignance Tights",
 	feet="Malignance Boots",
 	neck="Sanctity Necklace",
@@ -165,6 +165,13 @@ sets.idle = {
 	right_ring="Gelatinous Ring +1",
 	back=gear.jse_tp_back,
 }
+
+sets.idle.DT = set_combine(sets.idle, {
+	head="Nyame Helm",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck="Loricate Torque +1",
+})
 
 sets.idle.Town = set_combine(sets.idle, {
 	head="Nyame Helm",
@@ -208,7 +215,7 @@ sets.engaged = {
 	ammo="Coiste Bodhar",
 	head="Malignance Chapeau",
 	body="Malignance Tabard",
-	hands="Adhemar Wrist. +1",
+	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Malignance Boots",
 	neck="Lissome Necklace",
@@ -222,11 +229,11 @@ sets.engaged = {
 	
 sets.engaged.DT ={
 	ammo=gear.dt_ammo,
-	head="Malignance Chapeau",
+	head="Nyame Helm",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
-	feet="Malignance Boots",
+	feet="Nyame Sollerets",
 	neck="Combatant's Torque",
 	waist="Reiki Yotai",
 	left_ear="Sherida Earring",

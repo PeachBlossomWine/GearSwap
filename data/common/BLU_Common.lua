@@ -142,7 +142,6 @@ sets.precast.WS['Chant du Cygne'] = {
 	right_ear="Odr Earring",
 	left_ring="Begrudging Ring",
 	right_ring="Beithir Ring",
-	--right_ring="Epona's Ring",
 	back=gear.jse_crit_back,
 }
 
@@ -491,11 +490,11 @@ sets.Learning = {}
 
 sets.idle = {
 	ammo="Staunch Tathlum +1",
-	head="Gleti's Mask",
+	head="Nyame Helm",
 	body=gear.jse_empy_body,		
 	hands="Gleti's Gauntlets",
-	legs="Gleti's Breeches",
-	feet="Gleti's Boots",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
 	neck="Sanctity Necklace",
 	waist="Flume Belt +1",
 	left_ear="Infused Earring",
@@ -505,13 +504,7 @@ sets.idle = {
 	back=gear.jse_da_back,
 }
 
-sets.idle.DT = set_combine(sets.idle, {
-	head="Nyame Helm",
-	body=gear.jse_empy_body,
-	hands="Nyame Gauntlets",
-	legs="Carmine Cuisses +1",
-	feet="Nyame Sollerets",
-})
+sets.idle.DT = set_combine(sets.idle, {})
 
 sets.idle.Town = {
 	ammo="Staunch Tathlum +1",
@@ -586,11 +579,11 @@ sets.engaged = {
 
 sets.engaged.DT = {
 	ammo="Staunch Tathlum +1",
-	head="Malignance Chapeau",
+	head="Nyame Helm",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
-	feet="Malignance Boots",
+	feet="Nyame Sollerets",
 	neck=gear.blu_jse_neck,
 	waist="Reiki Yotai",
 	left_ear="Suppanomimi",
