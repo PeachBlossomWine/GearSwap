@@ -1,20 +1,6 @@
 
 autows_list = {['DualSavage']='Savage Blade',['DualLeaden']='Leaden Salute',['DualLeadenRanged']='Leaden Salute',['DualWildfire']='Wildfire',['DualWildfireRanged']='Wildfire',['DualLastStand']='Last Stand',['DualLastStandRanged']='Last Stand',['DeathPenalty']='Leaden Salute',['Armageddon']='Wildfire',['Fomalhaut']='Last Stand',['Naegling']='Savage Blade',}
 
-if item_available('Chirich Ring +1') then
-	gear.ring_tp = 'Chirich Ring +1'
-else
-	gear.ring_tp = 'Petrov Ring'
-end
-
-if item_available('Crepuscular Knife') then
-	gear.offhand_melee_dagger = "Crepuscular Knife"
-    gear.offhand_savage = "Crepuscular Knife"
-else
-	gear.offhand_melee_dagger = "Gleti's Knife"
-    gear.offhand_savage = "Gleti's Knife"
-end
-
 if item_available("Chas. Earring +2") then
 	gear.empy_earring = "Chas. Earring +2"
 elseif item_available("Chas. Earring +1") then
@@ -22,7 +8,6 @@ elseif item_available("Chas. Earring +1") then
 else
 	gear.empy_earring = "Telos Earring"
 end
-
 
 if item_available("Chasseur's Frac +3") then
 	gear.jse_empy_body = "Chasseur's Frac +3"
@@ -42,6 +27,12 @@ elseif item_available("Chass. Bottes +2") then
 	gear.jse_empy_feet = "Chass. Bottes +2"
 end
 
+if item_available("Lanun Tricorne +3") then
+	gear.jse_relic_head = "Lanun Tricorne +3"
+else
+	gear.jse_relic_head = "Lanun Tricorne"
+end
+
 if item_available("Nisroch Jerkin") then
 	gear.crit_body = "Nisroch Jerkin"
 	gear.town_body = "Nisroch Jerkin"
@@ -50,12 +41,12 @@ else
 	gear.town_body = "Ikenga's Vest"
 end
 
-sets.weapons.DualSavage = 				{main="Naegling",sub=gear.offhand_savage ,range="Anarchy +2"}
-sets.weapons.DualLeaden = 				{main="Rostam",sub=gear.offhand_melee_dagger,range="Death Penalty"}
+sets.weapons.DualSavage = 				{main="Naegling",sub="Gleti's Knife",range="Anarchy +2"}
+sets.weapons.DualLeaden = 				{main="Rostam",sub="Gleti's Knife",range="Death Penalty"}
 sets.weapons.DualLeadenRanged = 		{main="Rostam",sub="Tauret",range="Death Penalty"}
-sets.weapons.DualWildfire = 			{main="Rostam",sub=gear.offhand_melee_dagger,range="Armageddon"}
+sets.weapons.DualWildfire = 			{main="Rostam",sub="Gleti's Knife",range="Armageddon"}
 sets.weapons.DualWildfireRanged = 		{main="Rostam",sub="Tauret",range="Armageddon"}
-sets.weapons.DualLastStand = 			{main="Rostam",sub=gear.offhand_melee_dagger,range="Fomalhaut"}
+sets.weapons.DualLastStand = 			{main="Rostam",sub="Gleti's Knife",range="Fomalhaut"}
 sets.weapons.DualLastStandRanged = 		{main="Rostam",sub="Kustawi +1",range="Fomalhaut"}
 sets.weapons.DeathPenalty = 			{main="Rostam",sub="Nusku Shield",range="Death Penalty"}
 sets.weapons.Armageddon =				{main="Rostam",sub="Nusku Shield",range="Armageddon"}
@@ -65,13 +56,13 @@ sets.weapons.Naegling = 				{main="Naegling",sub="Nusku Shield",range="Anarchy +
 -- Precast sets to enhance JAs
 
 sets.precast.JA['Triple Shot'] = {body=gear.jse_empy_body}
-sets.precast.JA['Snake Eye'] = {legs="Comm. Trews +2"}
+sets.precast.JA['Snake Eye'] = {legs="Lanun Trews"}
 sets.precast.JA['Wild Card'] = {feet="Lanun Bottes +3"}
 sets.precast.JA['Random Deal'] = {body="Lanun Frac +3"}
 sets.precast.FoldDoubleBust = {hands="Lanun Gants +3"}
 
 
-sets.precast.CorsairRoll = {head="Lanun Tricorne +3",back="Camulus's Mantle",neck="Regal Necklace",hands=gear.jse_empy_hands}
+sets.precast.CorsairRoll = {head=gear.jse_relic_head,back="Camulus's Mantle",neck="Regal Necklace",hands=gear.jse_empy_hands}
 
 -- sets.precast.CorsairRoll["Caster's Roll"] = set_combine(sets.precast.CorsairRoll, {legs="Navarch's Culottes +2"})
 sets.precast.CorsairRoll["Courser's Roll"] = set_combine(sets.precast.CorsairRoll, {feet=gear.jse_empy_feet})
@@ -188,7 +179,7 @@ sets.precast.WS.STP = {
     hands="Malignance Gloves",
     legs="Malignance Tights",
     feet="Malignance Boots",
-    neck="Fotia Gorget",
+    neck="Iskur Gorget",
     waist="Fotia Belt",
     left_ear="Telos Earring",
     right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -199,7 +190,6 @@ sets.precast.WS.STP = {
 
 -- 31 SB
 sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
-    neck="Bathy Choker +1",
 	waist="Sarissapho. Belt",
     left_ear="Digni. Earring",
 	right_ring="Chirich Ring +1",
@@ -229,7 +219,7 @@ sets.precast.WS['Savage Blade'] = {
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
-	neck=gear.cor_jse_neck,
+	neck=gear.cor_sav_neck,
 	waist="Sailfi Belt +1",
 	left_ear="Ishvara Earring",
 	right_ear="Moonshade Earring",
@@ -241,11 +231,11 @@ sets.precast.WS['Savage Blade'] = {
 sets.precast.WS['Last Stand'] = {
 	ammo=gear.WSbullet,
 	head="Nyame Helm",
-	body="Nyame Mail",
+	body="Ikenga's Vest",
 	hands=gear.jse_empy_hands,
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
-	neck=gear.cor_jse_neck,
+	neck="Fotia Gorget",
 	waist="Fotia Belt",
 	left_ear="Telos Earring",
 	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -256,7 +246,7 @@ sets.precast.WS['Last Stand'] = {
 
 -- 31 SB
 sets.precast.WS['Last Stand'].SubtleBlow = set_combine(sets.precast.WS['Last Stand'] , {
-    neck="Bathy Choker +1",
+	head="Ikenga's Hat",
 	waist="Sarissapho. Belt",
     left_ear="Digni. Earring",
 	right_ring="Chirich Ring +1",
@@ -336,11 +326,11 @@ sets.Self_Refresh = {}
 
 sets.midcast.RA = {
 	ammo=gear.RAbullet,
-	head="Malignance Chapeau",
+	head="Ikenga's Hat",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
-	legs="Malignance Tights",
-	feet="Malignance Boots",
+	legs="Ikenga's Trousers",
+	feet="Ikenga's Clogs",
 	neck="Iskur Gorget",
 	waist="Yemaya Belt",
 	left_ear="Crep. Earring",
@@ -355,7 +345,7 @@ sets.midcast.RA.AM = {
 	head="Meghanada Visor +2",
 	body=gear.crit_body,
 	hands=gear.jse_empy_hands,
-	legs="Malignance Tights",
+	legs="Ikenga's Trousers",
 	feet="Osh. Leggings +1",
 	neck="Iskur Gorget",
 	waist="K. Kachina Belt +1",
@@ -369,10 +359,7 @@ sets.midcast.RA.AM = {
 sets.buff['Triple Shot'] = {hands="Lanun Gants +3", body=gear.jse_empy_body, legs="Osh. Trousers +1", feet="Osh. Leggings +1", back=gear.jse_midshot_back}
 
 -- Sets to return to when not performing an action.
-sets.DayIdle = {}
-sets.NightIdle = {}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
-sets.resting = {}
 
 
 -- Idle sets
@@ -450,7 +437,7 @@ sets.engaged = {
 	left_ear="Cessance Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Ilabrat Ring",
-	right_ring=gear.ring_tp,
+	right_ring="Chirich Ring +1",
 	back=gear.jse_tp_back
 }
 	
@@ -482,7 +469,7 @@ sets.engaged.DT = {
 	left_ear="Cessance Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",
-	right_ring=gear.ring_tp,
+	right_ring="Chirich Ring +1",
 	back=gear.jse_tp_back,
 }
 
@@ -498,7 +485,7 @@ sets.engaged.Tank = {
 	left_ear="Cessance Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",
-	right_ring=gear.ring_tp,
+	right_ring="Chirich Ring +1",
 	back=gear.jse_tp_back,
 }
 
