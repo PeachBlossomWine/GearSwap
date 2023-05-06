@@ -78,12 +78,12 @@ sets.precast.FC = {
 sets.precast.RA = {}
 
 sets.precast.Jump = {
-	ammo="Ginsen",
+	ammo="Coiste Bodhar",
 	head="Mpaca's Cap",														
-	body="Wakido Domaru +3",																
+	body=gear.jse_empy_body,																
 	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",																
-	feet="Maenadic Gambieras",
+	legs=gear.jse_empy_legs,															
+	feet="Nyame Sollerets",
 	neck="Sam. Nodowa +2",
 	waist="Sailfi Belt +1",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -293,7 +293,7 @@ sets.idle.Town = {
 	neck="Sam. Nodowa +2",
 	waist="Sailfi Belt +1",
 	left_ear="Telos Earring",
-	right_ear="Dedition Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Niqmaddu Ring",
 	right_ring=gear.tp_ring,
 	back=gear.da_jse_back,

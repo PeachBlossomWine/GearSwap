@@ -98,7 +98,7 @@ sets.precast.WS['Myrkr'] = {
 	back=gear.jse_mab_back,
 }
 	
-sets.MaxTPMyrkr = {ear1="Etiolation Earring",ear2="Halasz Earring"}
+sets.MaxTPMyrkr = {}
 
 
 ---- Midcast Sets ----

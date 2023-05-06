@@ -12,10 +12,14 @@ end
 
 if item_available("Amini Caban +3") then
 	gear.jse_empy_body = "Amini Caban +3"
-elseif item_available("Amini Caban +2") then
-	gear.jse_empy_body = "Amini Caban +2"
 else
-	gear.jse_empy_body = "Amini Caban +1"
+	gear.jse_empy_body = "Amini Caban +2"
+end
+
+if item_available("Amini Glove. +3") then
+	gear.jse_empy_hands = "Amini Glove. +3"
+else
+	gear.jse_empy_hands = "Amini Glove. +2"
 end
 
 if item_available("Amini Bragues +3") then
@@ -32,6 +36,7 @@ sets.weapons.Annihilator = {main="Perun +1",sub="Nusku Shield",range="Annihilato
 sets.weapons.Yoichinoyumi = {main="Perun +1",sub="Nusku Shield",range="Yoichinoyumi",ammo="Chrono Arrow"}
 sets.weapons.FailNot = {main="Perun +1",sub="Nusku Shield",range="Fail-Not",ammo="Chrono Arrow"}
 sets.weapons.Naegling = {main="Naegling",sub="Nusku Shield",range="Sparrowhawk +2"}
+sets.weapons.Tauret = {main="Tauret",sub="Nusku Shield",range="Sparrowhawk +2"}
 -- K club
 sets.weapons.DualKCSavage = {main="Naegling",sub="Kraken Club",range="Sparrowhawk +2"}
 sets.weapons.DualKCTrueFlight = {main="Tauret",sub="Kraken Club",range="Gastraphetes",ammo="Quelling Bolt"}
@@ -43,6 +48,7 @@ sets.weapons.DualAnni = {main="Perun +1",sub="Kustawi +1",range="Annihilator",am
 sets.weapons.DualYoichi = {main="Perun +1",sub="Kustawi +1",range="Yoichinoyumi",ammo="Chrono Arrow"}
 sets.weapons.DualFailNot = {main="Perun +1",sub="Kustawi +1",range="Fail-Not",ammo="Chrono Arrow"}
 sets.weapons.DualSavage = {main="Naegling",sub="Gleti's Knife",range="Sparrowhawk +2"}
+sets.weapons.DualAeolian = {main="Tauret",sub="Malevolence",range="Sparrowhawk +2"}
 
 --------------------------------------
 -- Precast sets
@@ -62,7 +68,7 @@ sets.precast.JA['Velocity Shot'] = {body=gear.jse_empy_body}
 sets.precast.FC = {
 	head={ name="Carmine Mask +1", augments={'Accuracy+20','Mag. Acc.+12','"Fast Cast"+4',}},
 	body="Adhemar Jacket +1",
-		hands="Malignance Gloves",	-- leyline
+	hands="Leyline Gloves",
 	legs={ name="Rawhide Trousers", augments={'MP+50','"Fast Cast"+5','"Refresh"+1',}},
 	feet={ name="Carmine Greaves +1", augments={'HP+80','MP+80','Phys. dmg. taken -4',}},
 	neck="Baetyl Pendant",
@@ -111,24 +117,51 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA, {})
 -- Default set for any weaponskill that isn't any more specifically defined
 -- 51% WSD
 sets.precast.WS = {
-	head="Nyame Helm",																										-- 10
+	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",						
 	feet="Nyame Sollerets",
-	neck="Scout's Gorget +2",
+	neck="Fotia Gorget",
 	waist="Fotia Belt",
-	left_ear="Telos Earring",																								-- 2
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ear="Moonshade Earring",
+	right_ear="Telos Earring",
 	left_ring="Regal Ring",
 	right_ring="Dingir Ring",																								
-	back=gear.jse_agi_back,																									-- 10
+	back=gear.jse_agi_back,
 }
 
 -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 
-sets.precast.WS['Last Stand'] = sets.precast.WS
-sets.precast.WS['Coronach'] = sets.precast.WS
+sets.precast.WS['Last Stand'] = {
+	head="Nyame Helm",
+	body=gear.jse_empy_body,
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",						
+	feet="Nyame Sollerets",
+	neck="Fotia Gorget",
+	waist="Fotia Belt",
+	left_ear="Moonshade Earring",
+	right_ear=gear.empy_earring,
+	left_ring="Regal Ring",
+	right_ring="Dingir Ring",																								
+	back=gear.jse_agi_back,
+}
+
+sets.precast.WS['Coronach'] = {
+	head="Nyame Helm",
+	body=gear.jse_empy_body,
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",						
+	feet="Nyame Sollerets",
+	neck="Fotia Gorget",
+	waist="Fotia Belt",
+	left_ear="Moonshade Earring",
+	right_ear=gear.empy_earring,
+	left_ring="Regal Ring",
+	right_ring="Dingir Ring",																								
+	back=gear.jse_agi_back,
+}
 	
 sets.precast.WS['Wildfire'] = {
 	head="Nyame Helm",
@@ -138,14 +171,48 @@ sets.precast.WS['Wildfire'] = {
 	feet="Nyame Sollerets",
 	neck="Scout's Gorget +2",
 	waist="Eschan Stone",
-	left_ear="Friomisi Earring",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ear="Moonshade Earring",
+	right_ear="Friomisi Earring",
 	left_ring="Regal Ring",
 	right_ring="Dingir Ring",
 	back=gear.jse_mab_back,
 }
 
+sets.precast.WS['Hotshot'] = set_combine(sets.precast.WS['Wildfire'], {left_ear="Ishvara Earring",right_ring="Beithir Ring"})
 sets.precast.WS['Trueflight'] = set_combine(sets.precast.WS['Wildfire'], {left_ring=gear.weather_ring,})
+
+sets.precast.WS['Jishnu\'s Radiance'] = {
+	head="Nyame Helm",
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck="Fotia Gorget",
+	waist="Fotia Belt",
+	left_ear="Odr Earring",
+	right_ear=gear.empy_earring,
+	left_ring="Regal Ring",
+	right_ring="Dingir Ring",
+	back=gear.jse_agi_back,
+}
+
+sets.precast.WS['Namas Arrow'] = set_combine(sets.precast.WS['Jishnu\'s Radiance'], {left_ear="Ishvara Earring",right_ring="Beithir Ring"})
+sets.precast.WS['Apex Arrow'] = set_combine(sets.precast.WS['Jishnu\'s Radiance'], {left_ear="Ishvara Earring",right_ring="Beithir Ring"})
+
+sets.precast.WS['Flaming Arrow'] = {
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck="Fotia Gorget",
+	waist="Eschan Stone",
+	left_ear="Moonshade Earring",
+	right_ear=gear.empy_earring,
+	left_ring="Regal Ring",
+	right_ring="Beithir Ring",
+	back=gear.jse_mab_back,
+}
 
 sets.precast.WS['Savage Blade'] = {
 	ammo="Hauksbok Arrow",
@@ -156,11 +223,27 @@ sets.precast.WS['Savage Blade'] = {
 	feet="Nyame Sollerets",
 	neck="Fotia Gorget",
 	waist="Sailfi Belt +1",
-	left_ear="Sherida Earring",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ear="Moonshade Earring",
+	right_ear=gear.empy_earring,
 	left_ring="Regal Ring",
 	right_ring="Beithir Ring",
 	back=gear.jse_str_back,
+}
+
+sets.precast.WS['Aeolian Edge'] = {
+	ammo="Hauksbok Arrow",
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck="Baetyl Pendant",
+	waist="Eschan Stone",
+	left_ear="Moonshade Earring",
+	right_ear="Friomisi Earring",
+	left_ring="Dingir Ring",
+	right_ring="Beithir Ring",
+	back=gear.jse_mab_back,
 }
 
 -- Swap to these on Moonshade using WS if at 3000 TP
@@ -177,15 +260,15 @@ sets.midcast.FastRecast = sets.precast.FC
 -- Ranged sets
 sets.midcast.RA = {
 	head={ name="Arcadian Beret +3", augments={'Enhances "Recycle" effect',}},
-	body=gear.jse_empy_body,
-	hands="Malignance Gloves",
+	body="Ikenga's Vest",
+	hands=gear.jse_empy_hands,
 	legs=gear.jse_empy_legs,
-	feet="Malignance Boots",
+	feet="Ikenga's Clogs",
 	neck="Scout's Gorget +2",
 	waist="Yemaya Belt",
-	left_ear="Telos Earring",
-	right_ear="Crepuscular Earring",
-	left_ring="Dingir Ring",
+	left_ear="Crepuscular Earring",
+	right_ear="Telos Earring",
+	left_ring="Regal Ring",
 	right_ring="Ilabrat Ring",
 	back=gear.jse_midshot_back,
 }
@@ -193,22 +276,22 @@ sets.midcast.RA = {
 sets.midcast.RA.AM = {
 	head="Meghanada Visor +2",
 	body="Nisroch Jerkin",
-	hands="Malignance Gloves",
+	hands=gear.jse_empy_hands,
 	legs=gear.jse_empy_legs,
 	feet="Osh. Leggings +1",
 	neck="Scout's Gorget +2",
 	waist="K. Kachina Belt +1",
 	left_ear="Odr Earring",
 	right_ear=gear.empy_earring,
-	left_ring="Dingir Ring",
+	left_ring="Regal Ring",
 	right_ring="Ilabrat Ring",
 	back=gear.jse_crit_back,
 }
 
 --These sets will overlay based on accuracy level, regardless of other options.
-sets.buff.Camouflage = {} 	--{body="Orion Jerkin +1"}
+sets.buff.Camouflage = {}
 sets.buff['Double Shot'] = {head="Arcadian Beret +3", body="Arc. Jerkin +3", hands="Oshosi Gloves +1", legs="Osh. Trousers +1", feet="Osh. Leggings +1", back=gear.jse_midshot_back,}
-sets.buff.Barrage = {hands="Orion Bracers +3"}
+sets.buff.Barrage = {head="Ikenga's Hat", body="Ikenga's Vest",hands="Orion Bracers +3", legs="Ikenga's Trousers", feet="Ikenga's Clogs", waist="K. Kachina Belt +1", right_ear=gear.empy_earring}
 
 sets.Self_Healing = {waist="Gishdubar Sash"}
 sets.Cure_Received = {waist="Gishdubar Sash"}
@@ -245,8 +328,8 @@ sets.idle.Town = {
 	feet="Nyame Sollerets",
 	neck="Scout's Gorget +2",
 	waist="Windbuffet Belt +1",
-	left_ear="Telos Earring",
-	right_ear="Crepuscular Earring",
+	left_ear="Crepuscular Earring",
+	right_ear="Telos Earring",
 	left_ring="Regal Ring",
 	right_ring="Dingir Ring",
 	back=gear.jse_midshot_back,
@@ -272,9 +355,6 @@ sets.defense.MDT = sets.defense.PDT
 sets.defense.MEVA = sets.defense.PDT
 
 sets.Kiting = {legs="Carmine Cuisses +1"}
-sets.DayIdle = {}
-sets.NightIdle = {}
-
 --------------------------------------
 -- Engaged sets
 --------------------------------------
@@ -282,7 +362,7 @@ sets.NightIdle = {}
 sets.engaged = {
 	head="Malignance Chapeau",
 	body="Malignance Tabard",
-	hands={ name="Adhemar Wrist. +1", augments={'DEX+12','AGI+12','Accuracy+20',}},
+	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Malignance Boots",
 	neck="Combatant's Torque",

@@ -4,9 +4,9 @@ state.RangedMode:options('Normal')
 state.WeaponskillMode:options('Normal')
 state.IdleMode:options('Normal')
 if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
-	state.Weapons:options('DualGastra','DualArma','DualFoma','DualAnni','DualYoichi','DualFailNot','DualSavage','None')
+	state.Weapons:options('DualGastra','DualArma','DualFoma','DualAnni','DualYoichi','DualFailNot','DualSavage','DualAeolian','None')
 else
-	state.Weapons:options('Gastraphetes','Armageddon','Fomalhaut','Annihilator','Yoichinoyumi','FailNot','Naegling','None')
+	state.Weapons:options('Gastraphetes','Armageddon','Fomalhaut','Annihilator','Yoichinoyumi','FailNot','Naegling','Tauret','None')
 end
 --state.Weapons:options('DualGastra','DualFoma','DualAnni','DualYoichi','DualFailNot','DualSavage','Gastraphetes','Fomalhaut','Annihilator','Yoichinoyumi','FailNot','Naegling','None')
 --state.Weapons:options('Fomalhaut','Annihilator','Gastraphetes','Yoichinoyumi','FailNot','Naegling','DualFoma','DualAnni','DualGastra','DualYoichi','DualFailNot','DualKCSavage','DualKCTrueFlight','None')

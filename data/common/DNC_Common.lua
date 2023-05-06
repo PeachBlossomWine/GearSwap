@@ -115,7 +115,7 @@ sets.precast.Flourish2['Reverse Flourish'] = {back=gear.waltz_back}
 sets.precast.Flourish3 = {}
 sets.precast.Flourish3['Striking Flourish'] = {}
 sets.precast.Flourish3['Climactic Flourish'] = {
-	ammo="C. Palug Stone",
+	ammo="Yamarang",
 	head=gear.jse_empy_head,
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",

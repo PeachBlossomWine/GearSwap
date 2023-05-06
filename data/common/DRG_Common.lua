@@ -218,7 +218,7 @@ sets.idle.Town = sets.idle
 	
 sets.idle.Refresh = set_combine(sets.idle, {
 	head="Nyame Helm",
-	body="Chozoron Coselete",
+	body="Crepuscular Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	right_ring=gear.stikini_ring,

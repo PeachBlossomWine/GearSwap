@@ -421,7 +421,7 @@ sets.defense.MDT = sets.defense.MEVA
 --------------------------------------
 
 sets.engaged = {
-	ammo="Ginsen",
+	ammo="Coiste Bodhar",
 	head={name="Sakpata's Helm", priority=91},
 	body={name="Sakpata's Plate", priority=136},
 	hands={name="Sakpata's Gauntlets", priority=91},
@@ -458,7 +458,7 @@ sets.engaged.Tank = {
 }
 
 sets.engaged.DTLite = {
-	ammo="Ginsen",
+	ammo="Coiste Bodhar",
 	head={name="Sakpata's Helm", priority=91},
 	body={name="Sakpata's Plate", priority=136},
 	hands={name="Sakpata's Gauntlets", priority=91},

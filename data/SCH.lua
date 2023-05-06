@@ -1179,11 +1179,11 @@ buff_spell_lists = {
 		--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
         --{Name='Embrava',		Buff='Embrava',			SpellID=478,	When='Always'},
-        {Name='Reraise',	    Buff='Reraise',		    SpellID=135,	When='Always'},
+        {Name='Reraise III',    Buff='Reraise',		    SpellID=142,	When='Always'},
 	},
 	
 	Healing = {
-        {Name='Reraise',    	Buff='Reraise', 		SpellID=135,	When='Always'},
+        {Name='Reraise III',   	Buff='Reraise', 		SpellID=142,	When='Always'},
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
 		{Name='Aurorastorm II', Buff='Aurorastorm',		SpellID=864,	When='Always'},
 		{Name='Protect V',		Buff='Protect',			SpellID=47, 	When='Always'},
@@ -1194,7 +1194,7 @@ buff_spell_lists = {
 	Nuking = {
 		{Name='Klimaform',		Buff='Klimaform',		SpellID=287,	When='Combat'},
 		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
-		{Name='Reraise',    	Buff='Reraise', 		SpellID=135,	When='Always'},
+		{Name='Reraise III',   	Buff='Reraise', 		SpellID=142,	When='Always'},
 	},
 	
 	Default = {
@@ -1206,7 +1206,7 @@ buff_spell_lists = {
 		{Name='Stoneskin',		Buff='Stoneskin',		SpellID=54,		Reapply=false},
 		{Name='Blink',			Buff='Blink',			SpellID=53,		Reapply=false},
 		{Name='Phalanx',		Buff='Phalanx',			SpellID=106,	Reapply=false},
-        {Name='Reraise II',     Buff='Reraise',		    SpellID=141,	Reapply=true},
+        {Name='Reraise III',    Buff='Reraise',		    SpellID=142,	Reapply=true},
 	},
 	
 	Rebuff = {

@@ -562,7 +562,7 @@ sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 -- Engaged sets
 
 sets.engaged = {
-	ammo="Ginsen",
+	ammo="Coiste Bodhar",
 	head="Malignance Chapeau",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
@@ -600,5 +600,5 @@ sets.engaged.DT.AM = sets.engaged.DT
 sets.Self_Healing = {waist="Gishdubar Sash"}
 sets.Cure_Received = {waist="Gishdubar Sash"}
 sets.Self_Refresh = {waist="Gishdubar Sash"}
-sets.MagicBurst = {hands="Amalric Gages +1",ring1="Mujin Band"}
+sets.MagicBurst = {ring1="Mujin Band"}
 sets.Phalanx_Received = {} -- Taeon set
