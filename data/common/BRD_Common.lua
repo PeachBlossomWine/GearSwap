@@ -218,10 +218,10 @@ sets.precast.WS['Savage Blade'] = {
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck=gear.brd_jse_neck,
-	waist="Grunfeld Rope",
+	waist="Sailfi Belt +1",
 	left_ear="Ishvara Earring",
 	right_ear="Moonshade Earring",
-	left_ring="Rufescent Ring",
+	left_ring="Ilabrat Ring",
 	right_ring="Rufescent Ring",
 	back=gear.wsd_str_back,
 }

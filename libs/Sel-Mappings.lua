@@ -370,23 +370,27 @@ data.equipment.rema_ranged_weapons = S{'Fomalhaut','Gastraphetes','Death Penalty
 data.equipment.rema_ranged_weapons_ammo = {
 	['Fomalhaut'] = 'Chrono Bullet',
 	['Death Penalty'] = 'Living Bullet',
-	['Armageddon'] = 'Devastating Bullet',
+	['Armageddon'] = 'Chrono Bullet',
 	['Fail-Not'] = 'Chrono Arrow',
-	['Gandiva'] = "Artemis's Arrow",
+	['Gandiva'] = 'Chrono Arrow',
 	['Gastraphetes'] = "Quelling Bolt",
-	['Yoichinoyumi'] = "Yoichi's Arrow",
-	['Annihilator'] = 'Eradicating Bullet'}
+	['Yoichinoyumi'] = 'Chrono Arrow',
+	['Annihilator'] = 'Chrono Bullet',
+	['Anarchy +2'] = 'Chrono Bullet'
+}
 
 data.equipment.rema_ranged_weapons_ammo_pouch = {
 	['Fomalhaut'] = 'Chr. Bul. Pouch',
 	['Death Penalty'] = 'Liv. Bul. Pouch',
-	['Armageddon'] = 'Dev. Bul. Pouch',
+	['Armageddon'] = 'Chr. Bul. Pouch',
 	['Fail-Not'] = 'Chrono Quiver',
-	['Gandiva'] = "Artemis's Quiver",
+	['Gandiva'] = 'Chrono Quiver',
 	['Gastraphetes'] = "Quelling B. Quiver",
-	['Yoichinoyumi'] = "Yoichi's Quiver",
-	['Annihilator'] = 'Era. Bul. Pouch'}
-	
+	['Yoichinoyumi'] = 'Chrono Quiver',
+	['Annihilator'] = 'Chr. Bul. Pouch',
+	['Anarchy +2'] = 'Chr. Bul. Pouch'
+}
+
 data.equipment.rema_ammo_weapon_of = {
 	['Chrono Bullet'] = 'Fomalhaut',
 	['Living Bullet'] = 'Death Penalty',

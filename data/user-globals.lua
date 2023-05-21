@@ -113,30 +113,6 @@ data.equipment.mythic_weapons = S{'Conqueror','Glanzfaust','Yagrush','Laevateinn
 	
 data.equipment.rema_ranged_weapons = S{'Fomalhaut','Gastraphetes','Death Penalty','Armageddon','Fail-Not','Gandiva','Yoichinoyumi','Annihilator','Anarchy +2'}
 
-data.equipment.rema_ranged_weapons_ammo = {
-	['Fomalhaut'] = 'Chrono Bullet',
-	['Death Penalty'] = 'Living Bullet',
-	['Armageddon'] = 'Devastating Bullet',
-	['Fail-Not'] = 'Chrono Arrow',
-	['Gandiva'] = "Artemis's Arrow",
-	['Gastraphetes'] = "Quelling Bolt",
-	['Yoichinoyumi'] = "Yoichi's Arrow",
-	['Annihilator'] = 'Chrono Bullet',
-	['Anarchy +2'] = 'Chrono Bullet'
-}
-
-data.equipment.rema_ranged_weapons_ammo_pouch = {
-	['Fomalhaut'] = 'Chr. Bul. Pouch',
-	['Death Penalty'] = 'Liv. Bul. Pouch',
-	['Armageddon'] = 'Dev. Bul. Pouch',
-	['Fail-Not'] = 'Chrono Quiver',
-	['Gandiva'] = "Artemis's Quiver",
-	['Gastraphetes'] = "Quelling B. Quiver",
-	['Yoichinoyumi'] = "Yoichi's Quiver",
-	['Annihilator'] = 'Chr. Bul. Pouch',
-	['Anarchy +2'] = 'Chr. Bul. Pouch'
-}
-
 sets.buff.Doom = {neck="Nicander's Necklace",waist="Gishdubar Sash",right_ring="Purity Ring"}
 sets.precast.Item['Hallowed Water'] = {neck="Nicander's Necklace",waist="Gishdubar Sash",left_ring="Blenmot's Ring +1",right_ring="Purity Ring"}
 sets.precast.Item['Holy Water'] = {neck="Nicander's Necklace",waist="Gishdubar Sash",left_ring="Blenmot's Ring +1",right_ring="Purity Ring"}

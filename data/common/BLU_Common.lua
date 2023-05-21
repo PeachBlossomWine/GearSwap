@@ -277,16 +277,17 @@ sets.midcast['Blue Magic'].Magical = {
 				 
 -- For MACC / Recast
 -- 427 MACC
--- 39% FC
+-- 39% FC (16%)
+-- 32% SRCT
 -- 523 Blue Magic
 -- +243 INT
 sets.midcast['Blue Magic'].Magical.Resistant = {
 	ammo="Pemphredo Tathlum",
-	head="Carmine Mask +1",					-- 14% FC
-	body="Luhlaza Jubbah +3",				-- 9% FC
-	hands="Nyame Gauntlets",
-	legs="Assim. Shalwar +3",
-	feet="Luhlaza Charuqs +3",
+	head=gear.jse_empy_head,
+	body=gear.jse_empy_body,				-- 16% SRCT		/ -13% DT
+	hands=gear.jse_empy_hands,				-- 16% SRCT		/ -10% DT
+	legs=gear.jse_empy_legs,				--				/ -12% DT
+	feet=gear.jse_empy_feet,
 	neck=gear.blu_jse_neck,
 	waist="Acuity Belt +1",
 	left_ear="Digni. Earring",
