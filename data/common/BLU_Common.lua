@@ -100,7 +100,7 @@ sets.precast.FC = {
 	left_ear="Loquac. Earring",																							-- 2
 	right_ear="Etiolation Earring",																						-- 1
 	left_ring="Kishar Ring",																							-- 4
-	right_ring=gear.weather_ring,																							-- 5 + QC
+	right_ring=gear.weather_ring,																						-- 5 + QC
 	back="Perimede Cape",
 }
 
@@ -157,7 +157,7 @@ sets.precast.WS['Black Halo'] = {
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear="Regal Earring",
 	left_ring="Metamorph Ring +1",
-	right_ring="Beithir Ring",
+	right_ring="Medada's Ring",
 	back=gear.jse_hybrid_back,
 }
 
@@ -173,7 +173,7 @@ sets.precast.WS['Seraph Blade'] = {
 	left_ear="Moonshade Earring",
 	right_ear="Regal Earring",
 	left_ring="Metamorph Ring +1",
-	right_ring="Beithir Ring",
+	right_ring="Medada's Ring",
 	back=gear.jse_hybrid_back
 }
 
@@ -270,17 +270,17 @@ sets.midcast['Blue Magic'].Magical = {
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_nuke_earring,
-	left_ring="Metamorph Ring +1",
+	left_ring="Medada's Ring",
 	right_ring=gear.weather_ring,
 	back=gear.jse_mab_back,
 }
 				 
 -- For MACC / Recast
--- 427 MACC
--- 39% FC (16%)
+-- 476 MACC
+-- 26% FC (16%)
 -- 32% SRCT
--- 523 Blue Magic
--- +243 INT
+-- 572 Blue Magic
+-- +304 INT
 sets.midcast['Blue Magic'].Magical.Resistant = {
 	ammo="Pemphredo Tathlum",
 	head=gear.jse_empy_head,
@@ -292,7 +292,7 @@ sets.midcast['Blue Magic'].Magical.Resistant = {
 	waist="Acuity Belt +1",
 	left_ear="Digni. Earring",
 	right_ear="Regal Earring",
-	left_ring="Metamorph Ring +1",
+	left_ring="Medada's Ring",
 	right_ring=gear.weather_ring,			-- 6% FC
 	back=gear.jse_macc_fc_back,				-- 10% FC
 }

@@ -76,7 +76,7 @@ sets.precast.FC = {
 	left_ear="Loquac. Earring",
 	right_ear="Etiolation Earring",
 	left_ring=gear.weather_ring,
-	right_ring="Lebeche Ring",
+	right_ring="Medada's Ring",
 }
 
 sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket"})
@@ -173,7 +173,7 @@ sets.precast.WS['Wildfire'] = {
 	waist="Eschan Stone",
 	left_ear="Moonshade Earring",
 	right_ear="Friomisi Earring",
-	left_ring="Regal Ring",
+	left_ring="Medada's Ring",
 	right_ring="Dingir Ring",
 	back=gear.jse_mab_back,
 }
@@ -209,7 +209,7 @@ sets.precast.WS['Flaming Arrow'] = {
 	waist="Eschan Stone",
 	left_ear="Moonshade Earring",
 	right_ear=gear.empy_earring,
-	left_ring="Regal Ring",
+	left_ring="Medada's Ring",
 	right_ring="Beithir Ring",
 	back=gear.jse_mab_back,
 }
@@ -242,7 +242,7 @@ sets.precast.WS['Aeolian Edge'] = {
 	left_ear="Moonshade Earring",
 	right_ear="Friomisi Earring",
 	left_ring="Dingir Ring",
-	right_ring="Beithir Ring",
+	right_ring="Medada's Ring",
 	back=gear.jse_mab_back,
 }
 

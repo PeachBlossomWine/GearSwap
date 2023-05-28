@@ -114,7 +114,7 @@ sets.precast.JA['Violent Flourish'] = {}
 sets.precast.JA['Animated Flourish'] = set_combine(sets.Enmity, {})
 
 -- Fast cast sets for spells
--- 75% FC 
+-- 81% FC 
 -- 43% PDT 
 sets.precast.FC = {
 	ammo="Sapience Orb",																		-- 2%
@@ -128,7 +128,7 @@ sets.precast.FC = {
 	left_ear={name="Tuisto Earring",priority=500},
 	right_ear={name="Odnowa Earring +1", priority=500},
 	left_ring={name=gear.weather_ring ,priority=5},												-- 6%
-	right_ring={name="Kishar Ring",priority=20},												-- 4%
+	right_ring={name="Medada's Ring",priority=20},												-- 10%
 	back=gear.tank_fc_back,																		-- 10%
 }
 	

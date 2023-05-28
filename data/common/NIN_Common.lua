@@ -84,7 +84,7 @@ sets.precast.FC = {
 	left_ear="Loquac. Earring",
 	right_ear="Etiolation Earring",
 	left_ring=gear.weather_ring,
-	right_ring="Lebeche Ring",
+	right_ring="Medada's Ring",
 	back=gear.jse_da_back,
 }
 
@@ -158,7 +158,7 @@ sets.precast.WS['Blade: Chi'] ={
 	waist="Sailfi Belt +1",
 	left_ear="Lugra Earring +1",
 	right_ear="Moonshade Earring",
-	left_ring={name="Gere Ring",priority=250},
+	left_ring={name="Medada's Ring",priority=250},
 	right_ring={name="Beithir Ring",priority=500},
 	back=gear.jse_str_back,
 }
@@ -190,7 +190,7 @@ sets.midcast.ElementalNinjutsu = {
 	left_ear="Friomisi Earring",
 	right_ear="Crep. Earring",
 	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-	right_ring="Crepuscular Ring",
+	right_ring="Medada's Ring",
 	--back="",
 }
 
@@ -208,7 +208,7 @@ sets.midcast.NinjutsuDebuff = {
 	left_ear="Digni. Earring",
 	right_ear="Crep. Earring",
 	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-	right_ring="Crepuscular Ring",
+	right_ring="Medada's Ring",
 	--back
 }
 

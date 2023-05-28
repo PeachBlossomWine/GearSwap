@@ -6,7 +6,7 @@ state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('Normal','Refresh')
-state.Weapons:options('Epeolatry','Lionheart','Lycurgos','None')
+state.Weapons:options('Epeolatry','Lionheart','Lycurgos','Helheim','None')
 autows = 'Dimidiation'
 autofood = 'Om. Sandwich'
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')

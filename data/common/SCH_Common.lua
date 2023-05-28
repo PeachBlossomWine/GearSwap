@@ -61,6 +61,7 @@ end
 
 sets.weapons.Musa = {main="Musa",sub="Khonsu"}
 sets.weapons.Khatvanga = {main="Khatvanga",sub="Khonsu"}
+sets.weapons.Opashoro = {main="Opashoro",sub="Khonsu"}
 
 -- Precast sets to enhance JAs
 
@@ -359,7 +360,7 @@ sets.MagicBurst = {
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,	
-	left_ring="Metamor. Ring +1",
+	left_ring="Medada's Ring",
 	right_ring="Freke Ring",																					
 	back=gear.jse_mab_back,
 }
@@ -377,7 +378,7 @@ sets.midcast['Elemental Magic'] = {
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,	
-	left_ring="Metamor. Ring +1",
+	left_ring="Medada's Ring",
 	right_ring="Freke Ring",																					
 	back=gear.jse_mab_back,											
 }
@@ -424,7 +425,7 @@ sets.midcast.Helix = {
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,	
-	left_ring="Metamor. Ring +1",
+	left_ring="Medada's Ring",
 	right_ring="Freke Ring",																					
 	back=gear.jse_mab_back,		
 }

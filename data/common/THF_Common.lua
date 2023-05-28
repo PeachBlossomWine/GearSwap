@@ -80,7 +80,7 @@ sets.precast.FC = {
 	left_ear="Loquac. Earring",
 	right_ear="Etiolation Earring",
 	left_ring=gear.weather_ring,
-	right_ring="Lebeche Ring",
+	right_ring="Medada's Ring",
 	back=gear.jse_tp_back,
 }
 

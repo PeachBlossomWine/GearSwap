@@ -44,6 +44,7 @@ end
 sets.weapons.Epeolatry = {main="Epeolatry", sub="Utu Grip"}
 sets.weapons.Lionheart = {main="Lionheart", sub="Utu Grip"}
 sets.weapons.Lycurgos = {main="Lycurgos", sub="Khonsu"}
+sets.weapons.Helheim = {main="Helheim", sub="Utu Grip"}
 
 -- 50 DT/PDT
 -- 68 + 23 Weapon = 85
@@ -156,7 +157,7 @@ sets.precast.JA['Tenebrae'] = set_combine(sets.Enmity, {})
 
 -- Fast cast sets for spells
 -- Insipiration: 26% [2/5]
--- FC: 74%
+-- FC: 80%
 sets.precast.FC = {
 	ammo="Sapience Orb",																							-- 2
 	head={name="Runeist Bandeau +3",priority=109},																	-- 14
@@ -169,7 +170,7 @@ sets.precast.FC = {
 	left_ear={name="Odnowa Earring +1",priority=500},																
 	right_ear={name="Tuisto Earring",priority=500},
 	left_ring=gear.weather_ring,																					-- 6
-	right_ring={name="Kishar Ring",priority=50},
+	right_ring={name="Medada's Ring",priority=50},																	-- 10
 	back=gear.fc_back,																								-- 10
 }
 		

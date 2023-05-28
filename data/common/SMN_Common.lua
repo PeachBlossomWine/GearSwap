@@ -173,7 +173,7 @@ sets.midcast['Elemental Magic'] = {
 	waist="Porous Rope",
 	left_ear="Dignitary's Earring",
 	right_ear="Malignance Earring",	
-	left_ring="Metamor. Ring +1",
+	left_ring="Medada's Ring",
 	right_ring="Freke Ring",																					
 	back=gear.phys_jse_back,
 }

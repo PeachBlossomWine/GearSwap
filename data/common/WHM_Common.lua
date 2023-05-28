@@ -117,24 +117,19 @@ else
 	gear.whm_idle_feet = 'Inyanga Crackows +2'
 end
 
--- if item_available("Moonlight Cape") then
-	-- gear.whm_dt_back = {name="Moonlight Cape",priority=500}
--- else
-	-- gear.whm_dt_back = {name="Moonbeam Cape",priority=500}
--- end
-
-gear.whm_dt_back = "Solemnity Cape"
-
 if item_available('Crepuscular Cloak') then
 	gear.impact_body = "Crepuscular Cloak"
 else
 	gear.impact_body = "Twilight Cloak"
 end
 
+gear.whm_dt_back = "Solemnity Cape"
+
 -- Weapons sets
 sets.weapons.Yagrush = {main="Yagrush",sub="Genmei Shield"}
 sets.weapons.Tishtrya = {main="Tishtrya",sub="Genmei Shield"}
 sets.weapons.Maxentius = {main="Maxentius",sub="Genmei Shield"}
+sets.weapons.LorgMor = {main="Lorg Mor",sub="Genmei Shield"}
 sets.weapons.DualYag = {main="Yagrush",sub="Daybreak"}
 sets.weapons.DualTish = {main="Tishtrya",sub="Daybreak"}
 sets.weapons.DualMaxen = {main="Maxentius",sub="Daybreak"}

@@ -85,7 +85,7 @@ sets.precast.FC = {
 	left_ear="Loquac. Earring",																		-- 2
 	right_ear="Malignance Earring",																	-- 4
 	left_ring=gear.weather_ring,																	-- 6
-	right_ring="Kishar Ring",																		-- 4
+	right_ring="Medada's Ring",																		-- 4
 	back=gear.jse_FC_Back,																			-- 10
 }
 
@@ -178,7 +178,7 @@ sets.precast.WS['Shadow of Death'] = {
 	waist="Hachirin-no-Obi",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear="Malignance Earring",
-	left_ring="Regal Ring",
+	left_ring="Medada's Ring",
 	right_ring="Archon Ring",
 	back=gear.jse_STR_Back,
 }
@@ -195,7 +195,7 @@ sets.precast.WS['Armor Break'] = {
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear="Malignance Earring",
 	left_ring="Metamor. Ring +1",
-	right_ring=gear.weather_ring,
+	right_ring="Medada's Ring",
 	back=gear.jse_FC_Back,
 }
 
@@ -256,7 +256,7 @@ sets.midcast['Enfeebling Magic'] = {
 	left_ear="Digni. Earring",
 	right_ear="Malignance Earring",
 	left_ring="Archon Ring",
-	right_ring="Evanescence Ring",
+	right_ring="Medada's Ring",
 	back=gear.jse_FC_Back,
 }
 	   

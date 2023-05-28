@@ -28,8 +28,8 @@ sets.precast.FC = {
 	waist="Moonbow Belt +1",
 	left_ear="Loquac. Earring",
 	right_ear="Etiolation Earring",
-	left_ring="Defending Ring",
-	right_ring="Lebeche Ring",
+	left_ring=gear.weather_ring,
+	right_ring="Medada's Ring",
 	back="Perimede Cape",
 }
 

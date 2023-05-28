@@ -1,7 +1,7 @@
 state.CastingMode:options('Normal','Resistant','Proc')
 state.OffenseMode:options('Normal')
 state.IdleMode:options('Normal','DT')
-state.Weapons:options('None','Marin','Khatvanga','Xoanon')
+state.Weapons:options('None','Marin','Khatvanga','Xoanon','Opashoro')
 state.AutoZergMode = M(false, 'Auto Zerg Mode')
 
 gear.obi_cure_waist = "Porous Rope"

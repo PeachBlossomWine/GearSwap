@@ -102,6 +102,7 @@ end
 sets.weapons.Aeneas = {main="Aeneas",sub="Genmei Shield"}
 sets.weapons.Carnwenhan = {main=gear.song_dagger,sub="Genmei Shield"}
 sets.weapons.Naegling = {main="Naegling",sub="Genmei Shield"}
+sets.weapons.MpuGandring = {main="Mpu Gandring",sub="Genmei Shield"}
 sets.weapons.DualAeneas = {main="Aeneas",sub="Crepuscular Knife"}
 sets.weapons.DualCarn = {main=gear.song_dagger,sub="Crepuscular Knife"}
 sets.weapons.DualSavage = {main="Naegling", sub="Crepuscular Knife"}
@@ -120,7 +121,7 @@ sets.precast.FC = {
 	waist="Embla Sash",																		-- 5
 	left_ear="Loquacious Earring",															-- 2
 	right_ear="Etiolation Earring",															-- 1
-	left_ring=gear.weather_ring,															-- 4
+	left_ring=gear.weather_ring,															-- 6
 	right_ring="Lebeche Ring",
 	back=gear.jse_back,																		-- 10
 }
@@ -243,7 +244,7 @@ sets.precast.WS['Aeolian Edge'] = {
 	left_ear="Regal Earring",
 	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',},priority=1},
 	left_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
-	right_ring="Rufescent Ring",
+	right_ring="Medada's Ring",
 	back=gear.wsd_mab_back,
 }
 

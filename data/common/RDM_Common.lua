@@ -183,7 +183,7 @@ sets.precast.WS['Seraph Blade'] = {
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
 	left_ring=gear.weather_ring,																		
-	right_ring="Freke Ring",
+	right_ring="Medada's Ring",
 	back=gear.jse_mnd_back,
 }
 	
@@ -213,7 +213,7 @@ sets.MagicBurst = {
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
-	left_ring="Metamor. Ring +1",
+	left_ring="Medada's Ring",
 	right_ring="Freke Ring",
 	back=gear.jse_mab_back,
 }
@@ -492,7 +492,7 @@ sets.midcast['Elemental Magic'] = {
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
-	left_ring="Metamor. Ring +1",
+	left_ring="Medada's Ring",
 	right_ring="Freke Ring",
 	back=gear.jse_mab_back,
 }

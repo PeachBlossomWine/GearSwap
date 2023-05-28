@@ -83,7 +83,7 @@ sets.precast.FC = {
 	neck="Baetyl Pendant",
 	ear2="Loquacious Earring",
 	hands="Leyline Gloves",
-	ring1="Lebeche Ring",
+	ring1="Medada's Ring",
 	feet="Carmine Greaves +1"
 }
 

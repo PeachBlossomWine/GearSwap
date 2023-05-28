@@ -72,6 +72,7 @@ sets.precast.JA['Mending Halation'] = {legs="Bagua Pants +3"}
 sets.precast.JA['Full Circle'] = {head=gear.jse_empy_head,hands="Bagua Mitaines +3"}
 
 sets.weapons.Idris = {main="Idris",sub="Genmei Shield"}
+sets.weapons.LorgMor = {main="Lorg Mor",sub="Genmei Shield"}
 sets.weapons.DualClub = {main="Idris",sub="Bunzi's Rod"}
 
 -- Indi Duration in slots that would normally have skill here to make entrust more efficient.
@@ -265,7 +266,7 @@ sets.MagicBurst = {
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
-	left_ring="Metamor. Ring +1",																		
+	left_ring="Medada's Ring",																		
 	right_ring="Freke Ring",
 	back=gear.jse_mab_back,
 }
@@ -284,7 +285,7 @@ sets.midcast['Elemental Magic'] = {
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
-	left_ring="Metamor. Ring +1",
+	left_ring="Medada's Ring",
 	right_ring="Freke Ring",
 	back=gear.jse_mab_back,
 }

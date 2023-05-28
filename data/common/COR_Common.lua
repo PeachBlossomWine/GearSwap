@@ -48,10 +48,12 @@ sets.weapons.DualWildfire = 			{main="Rostam",sub="Gleti's Knife",range="Armaged
 sets.weapons.DualWildfireRanged = 		{main="Rostam",sub="Tauret",range="Armageddon"}
 sets.weapons.DualLastStand = 			{main="Rostam",sub="Gleti's Knife",range="Fomalhaut"}
 sets.weapons.DualLastStandRanged = 		{main="Rostam",sub="Kustawi +1",range="Fomalhaut"}
+sets.weapons.DualEarp = 				{main="Rostam",sub="Kustawi +1",range="Earp"}
 sets.weapons.DeathPenalty = 			{main="Rostam",sub="Nusku Shield",range="Death Penalty"}
 sets.weapons.Armageddon =				{main="Rostam",sub="Nusku Shield",range="Armageddon"}
 sets.weapons.Fomalhaut = 				{main="Rostam",sub="Nusku Shield",range="Fomalhaut"}
 sets.weapons.Naegling = 				{main="Naegling",sub="Nusku Shield",range="Anarchy +2"}
+sets.weapons.Earp = 					{main="Rostam",sub="Nusku Shield",range="Earp"}
 
 -- Precast sets to enhance JAs
 
@@ -130,8 +132,8 @@ sets.precast.FC = {
 	waist=gear.dt_waist,
 	left_ear="Loquac. Earring",								-- 2
 	right_ear="Etiolation Earring",							-- 1
-	left_ring=gear.weather_ring,								-- 4
-	right_ring="Lebeche Ring",
+	left_ring=gear.weather_ring,							-- 6
+	right_ring="Medada's Ring",
 }
 
 sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket", neck="Magoraga Beads"})
@@ -264,7 +266,7 @@ sets.precast.WS['Wildfire'] = {
 	left_ear="Friomisi Earring",
 	right_ear="Moonshade Earring",
 	left_ring="Dingir Ring",
-	right_ring="Rufescent Ring",
+	right_ring="Medada's Ring",
 	back=gear.jse_mab_back,
 }
 

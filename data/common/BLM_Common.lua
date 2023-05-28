@@ -15,6 +15,8 @@ end
 sets.weapons.Khatvanga = {main="Khatvanga",sub="Khonsu"}
 sets.weapons.Marin = {main="Marin Staff +1",sub="Khonsu"}
 sets.weapons.Xoanon = {main="Xoanon",sub="Khonsu"}
+sets.weapons.Opashoro = {main="Opashoro",sub="Khonsu"}
+
 
 sets.buff.Sublimation = {waist="Embla Sash"}
 sets.buff.DTSublimation = {waist="Embla Sash"}	
@@ -120,7 +122,7 @@ sets.MagicBurst = {
     waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
-	left_ring="Metamor. Ring +1",
+	left_ring="Medada's Ring",
 	right_ring="Freke Ring",
 	back=gear.jse_mab_back,				-- 5													
 }
@@ -268,7 +270,7 @@ sets.midcast['Elemental Magic'] = {
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
-	left_ring="Metamor. Ring +1",
+	left_ring="Medada's Ring",
 	right_ring="Freke Ring",
 	back=gear.jse_mab_back,
 }
