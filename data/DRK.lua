@@ -521,10 +521,6 @@ function check_zerg_sp()
 			windower.chat.input('/ja "Soul Enslavement" <me>')
 			tickdelay = os.clock() + 1.1
 			return true		
-		-- elseif not buffactive['Mighty Strikes'] and abil_recasts[0] < latency then
-			-- windower.chat.input('/ja "Mighty Strikes" <me>')
-			-- tickdelay = os.clock() + 1.1
-			-- return true
 		else
 			return false
 		end
