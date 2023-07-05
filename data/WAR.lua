@@ -378,7 +378,7 @@ function job_aftercast(spell, spellMap, eventArgs)
 		if spell.type == 'WeaponSkill' and not spell.interrupted then
 			if spell.english == 'Armor Break' then
 				windower.chat.input('/p '..str_using..' '..auto_translate('Armor Break').. ' -<t>-')
-				windower.send_command('gs c set weapons '..original_weapon..'; gs c autows tp 1000; gs c autows ' ..original_autows)	
+				windower.send_command('gs c autows tp 1000; gs c autows ' ..__autows)	
 				update_melee_groups()
 			end
 		end

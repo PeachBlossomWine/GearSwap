@@ -14,7 +14,7 @@ autows = "Upheaval"
 state.AutoZergMode = M(false, 'Auto Zerg Mode')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 
-state.Weapons:options('Chango','ShiningOne','Nandaka','Drepanum','Dolichenus','Naegling','Loxotic',
+state.Weapons:options('Chango','ShiningOne','Nandaka','Drepanum','Laphria','Helheim','Dolichenus','Naegling','Loxotic',
 	'ProcKatana','ProcScythe','ProcDagger','ProcGreatKatana','ProcSword','ProcStaff','ProcClub','ProcGreatSword','ProcPolearm','None')
 
 gear.jse_str_back ={ name="Cichol's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}

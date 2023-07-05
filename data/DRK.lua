@@ -350,6 +350,7 @@ end
 
 function job_tick()
 	if check_hasso() then return true end
+	if check_zerg_sp() then return true end
 	if check_buff() then return true end
 	if check_buffup() then return true end
 	if check_jump() then return true end
@@ -509,6 +510,25 @@ function check_buffup()
 	else
 		return false
 	end
+end
+
+function check_zerg_sp()
+    if state.AutoZergMode.value and player.status == 'Engaged' and player.in_combat and not data.areas.cities:contains(world.area) then
+
+        local abil_recasts = windower.ffxi.get_ability_recasts()
+
+		if not buffactive['Soul Enslavement'] and abil_recasts[254] < latency then
+			windower.chat.input('/ja "Soul Enslavement" <me>')
+			tickdelay = os.clock() + 1.1
+			return true		
+		-- elseif not buffactive['Mighty Strikes'] and abil_recasts[0] < latency then
+			-- windower.chat.input('/ja "Mighty Strikes" <me>')
+			-- tickdelay = os.clock() + 1.1
+			-- return true
+		else
+			return false
+		end
+    end
 end
 
 buff_spell_lists = {

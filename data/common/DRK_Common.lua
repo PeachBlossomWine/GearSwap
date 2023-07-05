@@ -39,13 +39,15 @@ else
 	gear.jse_empy_legs = "Heath. Flanchard +2"
 end
 
-autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Loxotic']='Judgment',['Lycurgos']='Armor Break',['Naegling']='Savage Blade'}
+autows_list = {['Caladbolg']='Torcleaver',['Liberator']='Insurgency',['Apocalypse']='Cross Reaper',['Anguta']='Shadow of Death',['Foenaria']='Origin',['Helheim']='Fimbulvetr',['Loxotic']='Judgment',['Lycurgos']='Armor Break',['Naegling']='Savage Blade'}
 
 -- Weapons sets
 sets.weapons.Caladbolg = {main="Caladbolg",sub="Utu Grip"}
 sets.weapons.Liberator = {main="Liberator",sub="Utu Grip"}
 sets.weapons.Apocalypse = {main="Apocalypse",sub="Utu Grip"}
 sets.weapons.Anguta = {main="Anguta",sub="Utu Grip"}
+sets.weapons.Helheim = {main="Helheim",sub="Utu Grip"}
+sets.weapons.Foenaria = {main="Foenaria",sub="Utu Grip"}
 sets.weapons.Lycurgos = {main="Lycurgos",sub="Khonsu"}
 sets.weapons.Loxotic = {main="Loxotic Mace +1",sub="Blurred Shield +1"}
 sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield +1"}

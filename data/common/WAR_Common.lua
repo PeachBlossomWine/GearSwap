@@ -14,6 +14,7 @@ else
 	gear.empy_earring = "Cessance Earring"
 end
 
+autows_list = {['Chango']='Upheaval',['Nandaka']='Resolution',['ShiningOne']='Impulse Drive',['Drepanum']='Spiral Hell',['Laphria']='Disaster',['Helheim']='Fimbulvetr',['Loxotic']='Judgment',['Dolichenus']='Decimation',['Naegling']='Savage Blade'}
 
 -- Precast Sets
 sets.Enmity = {}
@@ -23,6 +24,8 @@ sets.weapons.Chango = {main=gear.war_greataxe,sub="Utu Grip"}
 sets.weapons.Nandaka = {main="Nandaka",sub="Utu Grip"}
 sets.weapons.ShiningOne = {main="Shining One",sub="Utu Grip"}
 sets.weapons.Drepanum = {main="Drepanum",sub="Utu Grip"}
+sets.weapons.Laphria = {main="Laphria",sub="Utu Grip"}
+sets.weapons.Helheim = {main="Helheim",sub="Utu Grip"}
 sets.weapons.Dolichenus = {main="Dolichenus",sub="Blurred Shield +1"}
 sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield +1"}
 sets.weapons.Loxotic = {main="Loxotic Mace +1",sub="Blurred Shield +1"}

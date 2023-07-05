@@ -165,6 +165,7 @@ function init_include()
 	state.EquipStop           = M{['description'] = 'Stop Equipping Gear', 'off', 'precast', 'midcast', 'pet_midcast'}
 	state.CombatWeapon        = M{['description']='Combat Weapon', ['string']=''}
 	state.CombatForm          = M{['description']='Combat Form', ['string']=''}
+	__autows = ""
 	
 	NotifyBuffs = S{}
 	
@@ -2325,6 +2326,7 @@ function state_change(stateField, newValue, oldValue)
 		
 		if autows_list[newValue] then
 			autows = autows_list[newValue]
+			__autows = autows_list[newValue]
 		end
 	elseif stateField == 'Unlock Weapons' then
 		if newValue == true then

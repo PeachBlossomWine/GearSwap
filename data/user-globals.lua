@@ -88,6 +88,10 @@ data.weaponskills.mythic = {
     ["Idris"] = "Exudation",
     ["Epeolatry"] = "Dimidiation",
 	["Armageddon"] = "Wildfire",
+	
+	["Foenaria"] = "Origin",
+	["Laphria"] = "Disaster",
+	["Helheim"] = "Fimbulvetr",
 }
 
 --table.vprint({data.weaponskills.empyrean})
@@ -109,7 +113,7 @@ data.weaponskills.empyrean = {
 
 data.equipment.mythic_weapons = S{'Conqueror','Glanzfaust','Yagrush','Laevateinn','Murgleis','Vajra','Burtgang','Liberator',
 	'Aymur','Carnwenhan','Gastraphetes','Kogarasumaru','Nagi','Ryunohige','Nirvana','Tizona','Death Penalty','Kenkonken',
-	'Terpsichore','Tupsimati','Idris','Epeolatry','Armageddon'}
+	'Terpsichore','Tupsimati','Idris','Epeolatry','Armageddon','Foenaria','Laphria','Helheim'}
 	
 data.equipment.rema_ranged_weapons = S{'Fomalhaut','Gastraphetes','Death Penalty','Armageddon','Fail-Not','Gandiva','Yoichinoyumi','Annihilator','Anarchy +2'}
 

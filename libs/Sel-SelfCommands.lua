@@ -715,7 +715,9 @@ function handle_autows(cmdParams)
 		autows = table.concat(cmdParams, ' '):ucfirst()
         defense_ws = S{'tachi: ageha','armor break','full break','shell crusher'}
         if not(defense_ws:contains(autows:lower())) then
+			add_to_chat(122,'Saving original WS: '..autows..'.')
             original_autows = autows
+			__autows = autows
         end
 		add_to_chat(122,'Your autows weaponskill is set to '..autows..'.')
 		if state.DisplayMode.value then update_job_states()	end
