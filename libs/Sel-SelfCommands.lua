@@ -421,9 +421,9 @@ function handle_weapons(cmdParams)
 	elseif sets.weapons[weaponSet] then
 		if state.Weapons:contains(weaponSet) and state.Weapons.value ~= weaponSet then
 			if player.main_job == "BRD" then
-				state.UnlockWeapons = false
+				state.UnlockWeapons.value = false
 				state.Weapons:set(weaponSet)
-				state.UnlockWeapons = true
+				state.UnlockWeapons.value = true
 			else
 				state.Weapons:set(weaponSet)
 			end
