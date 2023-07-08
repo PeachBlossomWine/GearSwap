@@ -309,6 +309,7 @@ sets.midcast.SongEffect.Melee = {
 }
 
 sets.midcast.SongEffect.Pianissimo = {
+	main=gear.song_dagger,
 	range="Gjallarhorn",
 	head=gear.jse_empy_head,
 	body=gear.jse_empy_body,

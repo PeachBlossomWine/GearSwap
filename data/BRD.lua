@@ -115,7 +115,7 @@ function job_filtered_action(spell, eventArgs)
 	end
 end
 
-weapon_castingmode = {['None']='Normal',['Carnwenhan']='Melee',['Aeneas']='Normal',['Naegling']='Normal',['DualCarn']='Melee',['DualAeneas']='Normal',['DualSavage']='Normal',}
+weapon_castingmode = {['None']='Normal',['Carnwenhan']='Melee',['Aeneas']='Melee',['MpuGandring']='Melee',['Naegling']='Melee',['DualCarn']='Melee',['DualAeneas']='Melee',['DualSavage']='Melee',}
 
 function user_job_state_change(stateField, newValue, oldValue)
 	if stateField == 'Weapons' then
