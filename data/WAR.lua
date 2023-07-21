@@ -215,12 +215,6 @@ function job_precast(spell, spellMap, eventArgs)
 			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
 			tickdelay = os.clock() + 1.25
 			return
-		elseif player.sub_job == 'SAM' and not buffactive['SJ Restriction'] and player.tp > 1850 and abil_recasts[140] < latency then
-			eventArgs.cancel = true
-			windower.chat.input('/ja "Sekkanoki" <me>')
-			windower.chat.input:schedule(1,'/ws "'..spell.english..'" '..spell.target.raw..'')
-			tickdelay = os.clock() + 1.25
-			return
 		elseif player.sub_job == 'SAM' and not buffactive['SJ Restriction'] and abil_recasts[134] < latency then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Meditate" <me>')
