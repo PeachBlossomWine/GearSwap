@@ -115,7 +115,7 @@ end
 
 function job_precast(spell, spellMap, eventArgs)
     local abil_recasts = windower.ffxi.get_ability_recasts()
-    local accession_spells = S{'Regen II','Sneak','Invisible','Aquaveil','Stoneskin','Shell V','Protect V','Barblizzard','Barparalyze',}
+    local accession_spells = S{'Regen','Regen II','Regen III','Sneak','Invisible','Aquaveil','Stoneskin','Shell V','Protect V','Barblizzard','Barparalyze',}
     
 	if spell.action_type == 'Magic' then
 		if state.Buff.Chainspell then
