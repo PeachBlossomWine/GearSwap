@@ -923,13 +923,13 @@ function default_filtered_action(spell, eventArgs)
             add_to_chat(217,"You can't cast Retrace, attempting to use a Retrace Scroll instead, /heal to cancel.")
             cancel_spell()
             eventArgs.cancel = true
-        elseif spell.english == 'Teleport-Holla' then
-            useItem = true
-            useItemName = 'Dim. Ring (Holla)'
-            useItemSlot = 'ring2'
-            add_to_chat(217,"You can't cast Teleport-Holla, attempting to use Dimensional Ring instead, /heal to cancel.")
-            cancel_spell()
-            eventArgs.cancel = true
+        -- elseif spell.english == 'Teleport-Holla' then
+            -- useItem = true
+            -- useItemName = 'Dim. Ring (Holla)'
+            -- useItemSlot = 'ring2'
+            -- add_to_chat(217,"You can't cast Teleport-Holla, attempting to use Dimensional Ring instead, /heal to cancel.")
+            -- cancel_spell()
+            -- eventArgs.cancel = true
         elseif spell.english == 'Reraise' and not(player.main_job == 'SCH' or player.sub_job == 'SCH') then 
             useItem = true
             useItemName = 'Dusty Reraise'
@@ -937,20 +937,20 @@ function default_filtered_action(spell, eventArgs)
             add_to_chat(217,"You can't cast Reraise, attempting to use Instant Reraise instead, /heal to cancel.")
             cancel_spell()
             eventArgs.cancel = true
-        elseif spell.english == 'Teleport-Dem' then
-            useItem = true
-            useItemName = 'Dim. Ring (Dem)'
-            useItemSlot = 'ring2'
-            add_to_chat(217,"You can't cast Teleport-Dem, attempting to use Dimensional Ring instead, /heal to cancel.")
-            cancel_spell()
-            eventArgs.cancel = true
-        elseif spell.english == 'Teleport-Mea' then
-            useItem = true
-            useItemName = 'Dim. Ring (Mea)'
-            useItemSlot = 'ring2'
-            add_to_chat(217,"You can't cast Teleport-Mea, attempting to use Dimensional Ring instead, /heal to cancel.")
-            cancel_spell()
-            eventArgs.cancel = true
+        -- elseif spell.english == 'Teleport-Dem' then
+            -- useItem = true
+            -- useItemName = 'Dim. Ring (Dem)'
+            -- useItemSlot = 'ring2'
+            -- add_to_chat(217,"You can't cast Teleport-Dem, attempting to use Dimensional Ring instead, /heal to cancel.")
+            -- cancel_spell()
+            -- eventArgs.cancel = true
+        -- elseif spell.english == 'Teleport-Mea' then
+            -- useItem = true
+            -- useItemName = 'Dim. Ring (Mea)'
+            -- useItemSlot = 'ring2'
+            -- add_to_chat(217,"You can't cast Teleport-Mea, attempting to use Dimensional Ring instead, /heal to cancel.")
+            -- cancel_spell()
+            -- eventArgs.cancel = true
         elseif spell.english == 'Invisible' and not (data.areas.cities:contains(world.area)) then
             if player.main_job == 'DNC' or player.sub_job == 'DNC' then
                 windower.chat.input('/ja "Spectral Jig" <me>')

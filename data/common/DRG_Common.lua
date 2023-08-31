@@ -37,6 +37,7 @@ sets.weapons.Trishula = {main="Trishula",sub="Utu Grip"}
 sets.weapons.ShiningOne = {main="Shining One",sub="Utu Grip"}
 sets.weapons.Malignance = {main="Malignance Pole",sub="Utu Grip"}
 sets.weapons.Naegling = {main="Naegling",sub="Legion Scutum"}
+sets.weapons.DualSavage = {main="Naegling",sub="Kraken Club"}
 
 
 -- Precast Sets
@@ -306,3 +307,6 @@ sets.engaged.DT = {
 
 sets.engaged.AM = sets.engaged
 sets.engaged.AM.DT = sets.engaged.DT
+
+sets.engaged.DW = set_combine(sets.engaged, {waist="Reiki Yotai", left_ear="Suppanomimi"})
+sets.engaged.DW.DT = set_combine(sets.engaged.DT, {waist="Reiki Yotai", left_ear="Suppanomimi"})

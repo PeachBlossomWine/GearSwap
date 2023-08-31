@@ -458,7 +458,7 @@ function check_repair()
 end
 
 function check_maneuver()
-    if state.AutoBuffMode.value ~= 'Off' and pet.isvalid and pet.status == 'Engaged' and windower.ffxi.get_ability_recasts()[210] < latency then
+    if state.AutoBuffMode.value ~= 'Off' and pet.isvalid and windower.ffxi.get_ability_recasts()[210] < latency then -- and pet.status == 'Engaged'
         for i = 1,8 do
 			local maneuver
 			if state.AutoManeuvers.value == 'Default' then
