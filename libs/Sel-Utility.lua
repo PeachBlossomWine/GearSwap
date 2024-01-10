@@ -48,6 +48,7 @@
 -- Buff utility functions.
 -------------------------------------------------------------------------------------------------------------------
 local lastwstimestamp = 0
+local __invLoaded = false
 local cancel_spells_to_check = S{'Sneak','Stoneskin','Spectral Jig','Trance','Monomi: Ichi','Utsusemi: Ichi','Utsusemi: Ni','Diamondhide','Magic Barrier','Valiance'}
 local cancel_types_to_check = S{'Waltz', 'Samba'}
 job_registry = T{}
@@ -2222,10 +2223,10 @@ function check_ammo()
 		end
 	end
 	if player.main_job == 'COR' and state.AutoAmmoMode.value and not world.in_mog_house and not useItem then
-		if not player.inventory['Trump Card'] then
+		if not player.inventory['Trump Card'] and __invLoaded then
 			if player.inventory['Trump Card Case'] or player.sack['Trump Card Case'] or player.case['Trump Card Case'] or player.satchel['Trump Card Case'] then
 				send_command('input /item "Trump Card Case" <me>')
-				tickdelay = os.clock() + 7
+				tickdelay = os.clock() + 10
 				return true
 			else
 				return false
@@ -2781,5 +2782,18 @@ windower.raw_register_event('incoming chunk', function(id, data)
 				set_registry(packet['ID'], packet['Main job'])
 			end
 		end
+	elseif id == 0x01D then
+		local packet = packets.parse('incoming', data)
+		if packet then
+			if packet['Flag'] == 1 then
+				--Finish loading inv
+				__invLoaded = true
+			end
+		end
 	end
 end)
+
+windower.raw_register_event('zone change', function(new_id, old_id)
+	__invLoaded = false
+end)
+	
