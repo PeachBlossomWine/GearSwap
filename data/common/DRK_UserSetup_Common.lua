@@ -11,6 +11,7 @@ state.Passive = M{['description'] = 'Passive Mode','None'}
 state.DrainAbsSwapMode = M{'300','Always','Never'}
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
+state.AutoZergMode = M(false, 'Auto Zerg Mode')
 
 autows = 'Torcleaver'
 autofood = 'Grape Daifuku'
