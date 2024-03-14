@@ -180,7 +180,7 @@ function job_pretarget(spell, spellMap, eventArgs)
 end
 
 function job_precast(spell, spellMap, eventArgs)
-    local accession_spells = S{'Regen IV','Sneak','Invisible','Shell V','Protect V','Aquaveil','Stoneskin'}
+    local accession_spells = S{'Regen IV','Sneak','Invisible','Shell V','Protect V','Stoneskin'}
 	if spell.action_type == 'Magic' then
 		if spellMap == 'StatusRemoval' and not (spell.english == "Erase" or spell.english == "Esuna" or spell.english == "Sacrifice") then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
