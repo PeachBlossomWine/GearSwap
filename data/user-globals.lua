@@ -87,8 +87,9 @@ data.weaponskills.mythic = {
     ["Tupsimati"] = "Omniscience",
     ["Idris"] = "Exudation",
     ["Epeolatry"] = "Dimidiation",
-	["Armageddon"] = "Wildfire",
 	
+	["Armageddon"] = "Wildfire",
+	["Verethragna"] = "Victory Smite",
 	["Foenaria"] = "Origin",
 	["Laphria"] = "Disaster",
 	["Helheim"] = "Fimbulvetr",
@@ -96,7 +97,7 @@ data.weaponskills.mythic = {
 
 --table.vprint({data.weaponskills.empyrean})
 data.weaponskills.empyrean = {
-    ["Verethragna"] = "Victory Smite",
+    --["Verethragna"] = "Victory Smite",
     ["Twashtar"] = "Rudra's Storm",
     ["Almace"] = "Chant du Cygne",
     ["Caladbolg"] = "Torcleaver",
@@ -113,7 +114,7 @@ data.weaponskills.empyrean = {
 
 data.equipment.mythic_weapons = S{'Conqueror','Glanzfaust','Yagrush','Laevateinn','Murgleis','Vajra','Burtgang','Liberator',
 	'Aymur','Carnwenhan','Gastraphetes','Kogarasumaru','Nagi','Ryunohige','Nirvana','Tizona','Death Penalty','Kenkonken',
-	'Terpsichore','Tupsimati','Idris','Epeolatry','Armageddon','Foenaria','Laphria','Helheim'}
+	'Terpsichore','Tupsimati','Idris','Epeolatry','Armageddon','Verethragna','Foenaria','Laphria','Helheim'}
 	
 data.equipment.rema_ranged_weapons = S{'Fomalhaut','Gastraphetes','Death Penalty','Armageddon','Fail-Not','Gandiva','Yoichinoyumi','Annihilator','Anarchy +2'}
 
