@@ -539,6 +539,10 @@ function check_zerg_sp()
 	return false
 end
 
+function job_zone_change(new_id,old_id)
+	wildcard_failsafe = os.clock() + 9000000
+end
+
 function job_tick()
 	if check_ammo() then return true end
 	if check_buff() then return true end
