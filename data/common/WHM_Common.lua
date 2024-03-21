@@ -2,16 +2,20 @@
 -- Gear selection
 --------------------------------------
 
-if item_available('Shamash Robe') then
-	gear.whm_body_idle = 'Shamash Robe'
-	gear.whm_dt_ring = 'Inyanga Ring'
-	gear.whm_dt_hands = 'Inyanga Dastanas +2'
-else
-	gear.whm_body_idle = 'Piety Bliaut +3'
-	gear.whm_dt_ring = 'Gelatinous Ring +1'
-	gear.whm_dt_hands = 'Nyame Gauntlets'
-end
+-- if item_available('Shamash Robe') then
+	-- gear.whm_body_idle = 'Shamash Robe'
+	-- gear.whm_dt_ring = 'Inyanga Ring'
+	-- gear.whm_dt_hands = 'Inyanga Dastanas +2'
+-- else
+	-- gear.whm_body_idle = 'Ebers Bliaut +3'
+	-- gear.whm_dt_ring = 'Gelatinous Ring +1'
+	-- gear.whm_dt_hands = 'Nyame Gauntlets'
+-- end
 
+gear.whm_body_idle = 'Ebers Bliaut +3'
+gear.whm_dt_ring = 'Inyanga Ring'
+gear.whm_dt_hands = 'Nyame Gauntlets'
+	
 if item_available('Regal Cuffs') then
 	gear.whm_hands_enfeebling = 'Regal Cuffs'
 else
@@ -697,7 +701,7 @@ sets.idle.Town = set_combine(sets.idle, {
 sets.idle.DT = {
 	main="Daybreak",								-- 			/		/	1 MP
 	sub="Genmei Shield",							-- 10 PDT	/		/
-	ammo=gear.dt_ammo,							-- 			/ 3 DT	/
+	ammo=gear.dt_ammo,								-- 			/ 3 DT	/
 	head="Inyanga Tiara +2",						--			/		/	1 MP
 	body=gear.whm_body_idle,						--			/		/	3 MP
 	hands=gear.whm_dt_hands,						--			/ 3 DT	/
