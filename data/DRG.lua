@@ -304,7 +304,7 @@ function check_jump()
             windower.chat.input('/ja "High Jump" <t>')
             tickdelay = os.clock() + 1.1
             return true
-		elseif abil_recasts[160] < latency and (player.hpp < 70 or state.AutoZergMode.value) then
+		elseif abil_recasts[160] < latency and (player.hpp < 70 or state.AutoZergMode.value == 'On') then
             windower.chat.input('/ja "Super Jump" <t>')
             tickdelay = os.clock() + 1.1
             return true
@@ -372,8 +372,8 @@ function find_breath_hpp()
 end
 
 function check_zerg_sp()
-    if state.AutoZergMode.value and player.status == 'Engaged' and player.in_combat and not data.areas.cities:contains(world.area) then
-
+    if state.AutoZergMode.value == 'On' and player.status == 'Engaged' and player.in_combat and not data.areas.cities:contains(world.area) then
+		add_to_chat(123, 'Zerg Mode ACTIVATION')
         local abil_recasts = windower.ffxi.get_ability_recasts()
 
         if abil_recasts[165] < latency then

@@ -7,7 +7,7 @@ state.IdleMode:options('Normal','Refresh')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
 state.Weapons:options('DualLeaden','DualLeadenRanged','DualSavage','DualWildfire','DualWildfireRanged','DualLastStand','DualLastStandRanged','DualEarp','DeathPenalty','Armageddon','Fomalhaut','Naegling','Earp','None')
 state.CompensatorMode = M{'Never','Always'}
-state.AutoZergMode = M(false, 'Auto Zerg Mode')
+state.AutoZergMode:reset()
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
 
 ammostock = 198

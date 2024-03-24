@@ -8,6 +8,7 @@ state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('Normal')
 state.Weapons:options('Masamune','Dojikiri','ShiningOne','MaficCudgel','Yoichinoyumi','Norifusa','None')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
+state.AutoZergMode:reset()
 autofood = 'Grape Daifuku'
 
 gear.ws_jse_back = { name="Smertrios's Mantle", augments={'STR+20','Accuracy+20 Attack+20','Weapon skill damage +10%','STR+10','Phys. dmg. taken-10%',}} 

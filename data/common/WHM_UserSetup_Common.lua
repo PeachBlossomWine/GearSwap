@@ -5,6 +5,7 @@ state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.Weapons:options('None','Yagrush','Tishtrya','Maxentius','LorgMor','DualYag','DualTish','DualMaxen')
+state.AutoZergMode:reset()
 
 autows="Judgment"
 autowstp=1250

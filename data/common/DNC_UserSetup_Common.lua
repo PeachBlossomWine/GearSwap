@@ -9,6 +9,7 @@ state.Weapons:options('Terpsichore','Aeneas','Karambit','None')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
+state.AutoZergMode:reset()
 autows = 'Pyrrhic Kleos'
 
 state.MainStep = M{['description']='Main Step', 'Box Step','Quickstep','Stutter Step','Feather Step'}

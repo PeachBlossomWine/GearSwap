@@ -199,7 +199,7 @@ function job_buff_change(buff, gain)
 	end
 
 	-- Gain
-	if buff == 'Warcry' and gain and state.AutoZergMode.value then
+	if buff == 'Warcry' and gain and state.AutoZergMode.value == 'On' then
 		if abil_recasts[196] > latency then
 			wc_status = true
 		else
@@ -207,7 +207,7 @@ function job_buff_change(buff, gain)
 		end
 	end
 	-- Loss
-	if buff == 'Warcry' and not gain and state.AutoZergMode.value then
+	if buff == 'Warcry' and not gain and state.AutoZergMode.value == 'On' then
 		rd_status = false
 		wc_status = false
 		wildcard_failsafe = os.clock() + 20
@@ -500,8 +500,8 @@ function check_buff()
 end
 
 function check_zerg_sp()
-	if state.AutoZergMode.value and player.status == 'Engaged' and player.in_combat and not data.areas.cities:contains(world.area) then
-	
+	if state.AutoZergMode.value == 'On' and player.status == 'Engaged' and player.in_combat and not data.areas.cities:contains(world.area) then
+		add_to_chat(123, 'Zerg Mode ACTIVATION')
 		local now = os.clock()
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 

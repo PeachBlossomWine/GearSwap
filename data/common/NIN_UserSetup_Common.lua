@@ -7,6 +7,7 @@ state.IdleMode:options('Normal')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
+state.AutoZergMode:reset()
 --state.Weapons:options('Kikoku','Heishi','Naegling','Tauret','None')
 state.Weapons:options('Kikoku','Heishi','Naegling','Tauret',
 	'ProcKatana','ProcScythe','ProcDagger','ProcGreatKatana','ProcSword',

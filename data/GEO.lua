@@ -657,7 +657,7 @@ function check_geo()
                 return true
 			elseif state.AutoGeoAbilities.value and abil_recasts[244] < latency and not used_ecliptic and not buffactive.Bolster then
 				-- ZergMode is ON
-				if state.AutoZergMode.value then 
+				if state.AutoZergMode.value == 'On' then 
 					-- Bolster has been used.
 					if not (abil_recasts[0] < latency) then
 						windower.chat.input('/ja "Ecliptic Attrition" <me>;')
@@ -679,7 +679,7 @@ function check_geo()
 			if player.in_combat and state.AutoGeoAbilities.value and abil_recasts[247] < latency and not buffactive.Bolster then
 			
 				-- ZergMode is ON
-				if state.AutoZergMode.value then 
+				if state.AutoZergMode.value == 'On' then 
 					-- Bolster has been used.
 					if not (abil_recasts[0] < latency) then
 						windower.chat.input('/ja "Blaze of Glory" <me>;')
@@ -884,8 +884,8 @@ function check_buffup()
 end
 
 function check_zerg_sp()
-    if state.AutoZergMode.value and player.in_combat and not data.areas.cities:contains(world.area) then
-
+    if state.AutoZergMode.value == 'On' and player.in_combat and not data.areas.cities:contains(world.area) then
+		add_to_chat(123, 'Zerg Mode ACTIVATION')
         local abil_recasts = windower.ffxi.get_ability_recasts()
 		local battle_target = windower.ffxi.get_mob_by_target('bt') or false
 

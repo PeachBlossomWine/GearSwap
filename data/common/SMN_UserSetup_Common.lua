@@ -7,6 +7,7 @@ state.BPWardToggle = M(false, 'BPWardToggle')
 state.AutoAvatarMode = M(false, 'AutoAvatarMode')
 state.AutoSMNSCMode = M(false, 'AutoSMNSCMode')
 state.AutoWardMode =  M{['description']='AutoWardMode','Off','Ward_Defense','Ward_Offense','Ward_Full'}
+state.AutoZergMode:reset()
 
 state.Avatar = M{['description']='Avatar','Carbuncle','Fenrir','Ifrit','Titan','Leviathan','Garuda','Shiva','Ramuh','Diabolos','Cait Sith','Siren'}
 

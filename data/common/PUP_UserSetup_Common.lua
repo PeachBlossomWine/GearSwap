@@ -5,6 +5,7 @@ state.PhysicalDefenseMode:options('PDT')
 state.IdleMode:options('Normal','Refresh')
 state.Weapons:options('Verethragna','Godhands','Xiucoatl','Sakpata','Midnights','DivinatorII','None')
 state.PetWSGear = M(true, 'Pet WS Gear')
+state.AutoZergMode:reset()
 
 --state.AutoBuffMode:options('auto')
 state.PetMode = M{['description']='Pet Mode', 'Tank','TankMEVA','Melee','Ranged','Heal','Nuke'}

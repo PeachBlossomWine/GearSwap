@@ -3,6 +3,7 @@ state.HybridMode:options('DT','Normal')
 state.RangedMode:options('Normal')
 state.WeaponskillMode:options('Normal')
 state.IdleMode:options('Normal')
+state.AutoZergMode:reset()
 if player.sub_job == 'NIN' or player.sub_job == 'DNC' then
 	state.Weapons:options('DualGastra','DualArma','DualFoma','DualAnni','DualYoichi','DualFailNot','DualSavage','DualAeolian','DualKCSavage','DualKCTrueFlight','None')
 else

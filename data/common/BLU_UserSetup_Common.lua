@@ -11,6 +11,7 @@ state.AutoWSRestore = M(false, 'AutoWSRestore')
 state.AutoBLUSpam = M(false, 'AutoBLUSpam')
 state.AutoJumpMode = M(false, 'AutoJumpMode')
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
+state.AutoZergMode:reset()
 
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 

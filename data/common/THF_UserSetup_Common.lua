@@ -1,4 +1,4 @@
-	state.OffenseMode:options('Normal')
+state.OffenseMode:options('Normal')
 state.HybridMode:options('DT','Normal')
 state.RangedMode:options('Normal')
 state.WeaponskillMode:options('Normal')
@@ -7,6 +7,7 @@ state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.Weapons:options('Aeneas','TH','Naegling','KajaKnuckles','None')
+state.AutoZergMode:reset()
 
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 state.AmbushMode = M(false, 'Ambush Mode')

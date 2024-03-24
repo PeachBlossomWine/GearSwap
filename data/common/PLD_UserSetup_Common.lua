@@ -9,6 +9,7 @@ state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('DT','Normal')
 state.Weapons:options('Duban','Aegis','Ochain','Srivatsa','Sakpata','Naegling','None')
 
+state.AutoZergMode:reset()
 state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None'}
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
 state.AutoEmblem = M(true, 'Auto Emblem')

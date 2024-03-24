@@ -5,7 +5,7 @@ state.PhysicalDefenseMode:options('PDT', 'NukeLock', 'GeoLock', 'PetPDT')
 state.MagicalDefenseMode:options('MDT', 'NukeLock')
 state.ResistDefenseMode:options('MEVA')
 state.Weapons:options('None','Idris','LorgMor','DualClub')
-state.AutoZergMode = M(false, 'Auto Zerg Mode')
+state.AutoZergMode:reset()
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
 
 gear.obi_cure_waist = "Porous Rope"

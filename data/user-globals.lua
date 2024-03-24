@@ -46,7 +46,6 @@ send_command('bind ^@!backspace gs c buffup') --Buffup macro because buffs are l
 send_command('bind ^o fillmode') --Lets you see through walls
 
 state.AutoSubMode = M{['description'] = 'Auto Sublimation Mode','Off','On','Sleep'}
-state.AutoZergMode = M{['description'] = 'Auto Zerg Mode','Off','On'}
 state.AutoBPMode = M(false, 'AutoBPMode')
 state.BPWardToggle = M(false, 'BPWardToggle')
 state.AutoWardMode =  M{['description']='AutoWardMode','Off','Ward_Defense','Ward_Offense','Ward_Full'}

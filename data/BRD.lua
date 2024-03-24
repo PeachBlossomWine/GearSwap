@@ -533,8 +533,8 @@ function check_buffup()
 end
 
 function check_zerg_sp()
-	if state.AutoZergMode.value and not data.areas.cities:contains(world.area) then
-		
+	if state.AutoZergMode.value == 'On' and not data.areas.cities:contains(world.area) then
+		add_to_chat(123, 'Zerg Mode ACTIVATION')
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
 		if (not buffactive['Soul Voice'] and abil_recasts[0] < latency) or (not buffactive['Clarion Call'] and abil_recasts[254] < latency) then

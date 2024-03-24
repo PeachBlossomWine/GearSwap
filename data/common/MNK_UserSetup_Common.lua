@@ -8,6 +8,7 @@ state.IdleMode:options('Normal')
 state.Weapons:options('Verethragna','Godhands','Malignance','None')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
+state.AutoZergMode:reset()
 
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
 

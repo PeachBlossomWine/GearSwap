@@ -11,7 +11,7 @@ state.AutoTomahawkMode = M(false, 'AutoTomahawkMode')
 state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
 
 autows = "Upheaval"
-state.AutoZergMode = M(false, 'Auto Zerg Mode')
+state.AutoZergMode:reset()
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 
 state.Weapons:options('Chango','ShiningOne','Nandaka','Drepanum','Laphria','Helheim','Dolichenus','Naegling','Loxotic',

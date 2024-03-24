@@ -4,6 +4,7 @@ state.CastingMode:options('Normal','Melee','Tank')
 state.IdleMode:options('DT', 'Normal','Tank')
 state.WeaponskillMode:options('Normal','SubtleBlow')
 state.Weapons:options('None','Carnwenhan','Aeneas','MpuGandring','Naegling','DualCarn','DualAeneas','DualSavage')
+state.AutoZergMode:reset()
 
 -- Adjust this if using the Terpander (new +song instrument)
 info.ExtraSongInstrument = 'Daurdabla'

@@ -9,6 +9,7 @@ state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.Weapons:options('Agwu','Dolichenus','None')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
+state.AutoZergMode:reset()
 
 gear.jse_tp_back = { name="Artio's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 gear.jse_petmacc_back = { name="Artio's Mantle", augments={'Pet: M.Acc.+20 Pet: M.Dmg.+20','Eva.+20 /Mag. Eva.+20','Pet: Mag. Acc.+10','Pet: "Regen"+10','System: 1 ID: 1246 Val: 4',}}

@@ -8,6 +8,7 @@ state.AutoAPMode = M(true, 'AutoAPMode')
 state.AutoAOE = M(false, 'AutoAOE')
 state.AutoBuffMode = M{['description'] = 'Auto Buff Mode','Off','Auto','Healing','Nuking'}
 state.AutoArts = M{['description'] = 'Auto Arts Mode','Off','On','Light','Dark'}
+state.AutoZergMode:reset()
 
 gear.jse_mab_back = { name="Lugh's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
 

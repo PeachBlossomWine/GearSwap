@@ -464,7 +464,7 @@ function check_buff()
 		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		if not buffactive.Restraint and abil_recasts[9] < latency and not state.AutoZergMode.value then
+		if not buffactive.Restraint and abil_recasts[9] < latency and state.AutoZergMode.value == 'Off' then
 			windower.chat.input('/ja "Restraint" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
@@ -472,7 +472,7 @@ function check_buff()
 			windower.chat.input('/ja "Berserk" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
-		elseif not buffactive.Aggressor and abil_recasts[4] < latency and not state.AutoZergMode.value then
+		elseif not buffactive.Aggressor and abil_recasts[4] < latency and state.AutoZergMode.value == 'Off' then
 			windower.chat.input('/ja "Aggressor" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
@@ -489,8 +489,8 @@ function check_buff()
 end
 
 function check_zerg_sp()
-	if state.AutoZergMode.value and player.status == 'Engaged' and player.in_combat and not data.areas.cities:contains(world.area) then
-		
+	if state.AutoZergMode.value == 'On' and player.status == 'Engaged' and player.in_combat and not data.areas.cities:contains(world.area) then
+		add_to_chat(123, 'Zerg Mode ACTIVATION')
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
 		if not buffactive['Brazen Rush'] and abil_recasts[254] < latency then

@@ -153,6 +153,8 @@ function init_include()
 	state.SelfWarp2Block 	  = M(true, 'Block Warp2 on Self')
 	state.MiniQueue		 	  = M(true, 'MiniQueue')
 
+	state.AutoZergMode 		  = M{['description'] = 'Auto Zerg Mode','Off','On'}
+
 	state.AutoBuffMode 		  = M{['description'] = 'Auto Buff Mode','Off','Auto'}
 	state.RuneElement 		  = M{['description'] = 'Rune Element','Ignis','Gelus','Flabra','Tellus','Sulpor','Unda','Lux','Tenebrae'}
 	state.ElementalMode 	  = M{['description'] = 'Elemental Mode', 'Fire','Ice','Wind','Earth','Lightning','Water','Light','Dark'}
