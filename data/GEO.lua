@@ -71,7 +71,7 @@ function job_setup()
 	last_geo = nil
 	blazelocked = false
 	used_ecliptic = false
-    autogeotar = 'none'
+    autogeotar = windower.ffxi.get_player().name
 
 	state.ShowDistance = M(true, 'Show Geomancy Buff/Debuff distance')
 	state.AutoEntrust = M(false, 'AutoEntrust Mode')
@@ -702,6 +702,10 @@ function check_geo()
                     local bubble_target = windower.ffxi.get_mob_by_name(autogeotar) or false
 					if PlayerBubbles:contains(autogeo) and autogeotar:lower() ~= 'none' and (bubble_target and bubble_target.distance:sqrt() < 20.4 and bubble_target.valid_target) then
 						windower.chat.input('/ma "Geo-'..autogeo..'" '..autogeotar..'')
+						tickdelay = os.clock() + 3.1
+						return true
+					elseif autogeotar:lower() == 'none' then
+						windower.chat.input('/ma "Geo-'..autogeo..'" <me>')
 						tickdelay = os.clock() + 3.1
 						return true
 					else
