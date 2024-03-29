@@ -534,10 +534,11 @@ end
 
 function check_zerg_sp()
 	if state.AutoZergMode.value == 'On' and not data.areas.cities:contains(world.area) then
-		add_to_chat(123, 'Zerg Mode ACTIVATION')
+		
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 
 		if (not buffactive['Soul Voice'] and abil_recasts[0] < latency) or (not buffactive['Clarion Call'] and abil_recasts[254] < latency) then
+			add_to_chat(123, 'Zerg Mode ACTIVATION Stage 1')
 			send_command('sing off; sing n off')
 			singeron = false
 			if not buffactive['Soul Voice'] and abil_recasts[0] < latency then
@@ -548,6 +549,7 @@ function check_zerg_sp()
 			tickdelay = os.clock() + 1.8
 			return true		
 		elseif buffactive['Soul Voice'] and buffactive['Clarion Call'] and singeron == false then
+			add_to_chat(123, 'Zerg Mode ACTIVATION Stage 2 Nitro')
 			singeron = true
             windower.send_command('sing on;')
             windower.send_command:schedule(110,'mc brd nitro; sing n on; gs c set autozergmode off;')

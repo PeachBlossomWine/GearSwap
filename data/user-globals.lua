@@ -1,6 +1,7 @@
 OurReso = windower.get_windower_settings()
 X_pos_view = OurReso.x_res - 305
 X_pos_ffxidb = OurReso.x_res - 370
+send_command('exec SI.txt')
 send_command('lua l equipviewer; wait 2; equipviewer pos ' .. X_pos_view .. ' 280')
 send_command('wait 3; ffxidb map pos ' .. X_pos_ffxidb .. ' 40')
 send_command('wait 5; input /cm party')
@@ -11,7 +12,6 @@ send_command('bind ^end mc wsall')
 send_command('bind !f3 mc cc')
 send_command('bind @f2 mc dispelga')
 send_command('bind ^pagedown sa fullcircle')
-send_command('exec SI.txt')
 send_command('wait 5; lua r healbot')
 autofood = 'Grape Daifuku'
 --Binds
