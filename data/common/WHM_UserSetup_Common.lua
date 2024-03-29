@@ -36,6 +36,6 @@ send_command('bind ^\\\\ input /ma "Protectra V" <me>')
 send_command('bind @\\\\ input /ma "Shellra V" <me>')
 send_command('bind !\\\\ input /ma "Reraise IV" <me>')
 
-send_command('wait 15; hb enable cure; hb enable curaga; hb enable na;')
+send_command('wait 15; hb enable cure; hb enable curaga; hb enable na; input /lockstyleset 3; wait 3; lua load dressup')
 
 select_default_macro_book()
