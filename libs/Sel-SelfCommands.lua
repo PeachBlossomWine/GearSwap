@@ -695,7 +695,7 @@ function handle_othertargetws(cmdParams)
 		add_to_chat(122,'You must specify a mob name to smart-weaponskill with.')
 	else
 		othertargetws = table.concat(cmdParams, ' '):ucfirst()
-		add_to_chat(122,'Your smartws target is set to '..othertargetws..'.')
+		add_to_chat(122,'Your smartws other target is set to '..othertargetws..'.')
 		if state.DisplayMode.value then update_job_states()	end
 	end
 end
