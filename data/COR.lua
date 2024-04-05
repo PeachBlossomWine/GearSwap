@@ -51,9 +51,9 @@
     
     Weaponskill mode, if set to 'Normal', is handled separately for melee and ranged weaponskills.
 --]]
-rd_status = false
-wc_status = false
-wildcard_failsafe = os.clock() + 9000000
+--rd_status = false
+--wc_status = false
+--wildcard_failsafe = os.clock() + 9000000
 dia_applied = false
 shot_mob_id = 0
 
@@ -198,20 +198,20 @@ function job_buff_change(buff, gain)
 		end
 	end
 
-	-- Gain
-	if buff == 'Warcry' and gain and state.AutoZergMode.value == 'On' then
-		if abil_recasts[196] > latency then
-			wc_status = true
-		else
-			rd_status = true
-		end
-	end
-	-- Loss
-	if buff == 'Warcry' and not gain and state.AutoZergMode.value == 'On' then
-		rd_status = false
-		wc_status = false
-		wildcard_failsafe = os.clock() + 20
-	end
+	-- -- Gain
+	-- if buff == 'Warcry' and gain and state.AutoZergMode.value == 'On' then
+		-- if abil_recasts[196] > latency then
+			-- wc_status = true
+		-- else
+			-- rd_status = true
+		-- end
+	-- end
+	-- -- Loss
+	-- if buff == 'Warcry' and not gain and state.AutoZergMode.value == 'On' then
+		-- rd_status = false
+		-- wc_status = false
+		-- wildcard_failsafe = os.clock() + 20
+	-- end
 end
 
 -- Modify the default melee set after it was constructed.
@@ -474,12 +474,12 @@ function check_buff()
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
 
-        if state.AutoShot.value ~= 'Off' and (dia_applied and shot_mob_id and windower.ffxi.get_mob_by_id(shot_mob_id).valid_target and math.sqrt(windower.ffxi.get_mob_by_id(shot_mob_id).distance) <= 22) then
-            windower.add_to_chat('[AutoShot] Attemping to use Light Shot for -DIA- upgrade.')
-            windower.send_command('input /ja "Light Shot" '..shot_mob_id)
-            tickdelay = os.clock() + 2.8
-            return true
-		elseif player.sub_job == 'WAR' and not state.Buff['SJ Restriction'] and not buffactive.Berserk and abil_recasts[1] < latency then
+        -- if state.AutoShot.value ~= 'Off' and (dia_applied and shot_mob_id and windower.ffxi.get_mob_by_id(shot_mob_id).valid_target and math.sqrt(windower.ffxi.get_mob_by_id(shot_mob_id).distance) <= 22) then
+            -- windower.add_to_chat('[AutoShot] Attemping to use Light Shot for -DIA- upgrade.')
+            -- windower.send_command('input /ja "Light Shot" '..shot_mob_id)
+            -- tickdelay = os.clock() + 2.8
+            -- return true
+		if player.sub_job == 'WAR' and not state.Buff['SJ Restriction'] and not buffactive.Berserk and abil_recasts[1] < latency then
 			windower.chat.input('/ja "Berserk" <me>')
 			tickdelay = os.clock() + 5.1
 			return true
@@ -499,53 +499,53 @@ function check_buff()
 	return false
 end
 
-function check_zerg_sp()
-	if state.AutoZergMode.value == 'On' and player.status == 'Engaged' and player.in_combat and not data.areas.cities:contains(world.area) then
-		local now = os.clock()
-		local abil_recasts = windower.ffxi.get_ability_recasts()
+-- function check_zerg_sp()
+	-- if state.AutoZergMode.value == 'On' and player.status == 'Engaged' and player.in_combat and not data.areas.cities:contains(world.area) then
+		-- local now = os.clock()
+		-- local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		if buffactive['Warcry'] and abil_recasts[196] < latency and rd_status == true then
-			windower.chat.input('/p Random Deal! <scall20>')
-			windower.chat.input('/ja "Random Deal" <me>')
-			if abil_recasts[196] > latency then
-				rd_status = false
-			end
-			tickdelay = os.clock() + 4.5
-			return true		
-		elseif buffactive['Warcry'] and abil_recasts[196] > latency and abil_recasts[0] < latency and wc_status == true then
-			windower.chat.input('/p Wild Card! <scall20>')
-			windower.chat.input('/ja "Wild Card" <me>')
-			if abil_recasts[0] > latency then
-				wc_status = false
-			end
-			tickdelay = os.clock() + 4.5
-			return true		
-		-- If RD fails, to force WC
-		elseif not buffactive['Warcry'] and abil_recasts[196] > latency and abil_recasts[0] < latency and rd_status == false then
-			if now > wildcard_failsafe then
-				wildcard_failsafe = os.clock() + 9000000
-				windower.chat.input('/p Wild Card - Failsafe! <scall20>')
-				windower.chat.input('/ja "Wild Card" <me>')
-				tickdelay = os.clock() + 4.5
-				return true
-			end
-			return false
-		else
-			return false
-		end
-	end
+		-- if buffactive['Warcry'] and abil_recasts[196] < latency and rd_status == true then
+			-- windower.chat.input('/p Random Deal! <scall20>')
+			-- windower.chat.input('/ja "Random Deal" <me>')
+			-- if abil_recasts[196] > latency then
+				-- rd_status = false
+			-- end
+			-- tickdelay = os.clock() + 4.5
+			-- return true		
+		-- elseif buffactive['Warcry'] and abil_recasts[196] > latency and abil_recasts[0] < latency and wc_status == true then
+			-- windower.chat.input('/p Wild Card! <scall20>')
+			-- windower.chat.input('/ja "Wild Card" <me>')
+			-- if abil_recasts[0] > latency then
+				-- wc_status = false
+			-- end
+			-- tickdelay = os.clock() + 4.5
+			-- return true		
+		-- -- If RD fails, to force WC
+		-- elseif not buffactive['Warcry'] and abil_recasts[196] > latency and abil_recasts[0] < latency and rd_status == false then
+			-- if now > wildcard_failsafe then
+				-- wildcard_failsafe = os.clock() + 9000000
+				-- windower.chat.input('/p Wild Card - Failsafe! <scall20>')
+				-- windower.chat.input('/ja "Wild Card" <me>')
+				-- tickdelay = os.clock() + 4.5
+				-- return true
+			-- end
+			-- return false
+		-- else
+			-- return false
+		-- end
+	-- end
 		
-	return false
-end
+	-- return false
+-- end
 
-function job_zone_change(new_id,old_id)
-	wildcard_failsafe = os.clock() + 9000000
-end
+-- function job_zone_change(new_id,old_id)
+	-- wildcard_failsafe = os.clock() + 9000000
+-- end
 
 function job_tick()
 	if check_ammo() then return true end
 	if check_buff() then return true end
-	if check_zerg_sp() then return true end
+	--if check_zerg_sp() then return true end
 	if check_steps_subjob() then return true end
 	return false
 end
