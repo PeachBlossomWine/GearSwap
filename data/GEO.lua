@@ -442,6 +442,9 @@ function job_self_command(commandArgs, eventArgs)
 	elseif lowerCommand == 'autogeo' and commandArgs[2] then
 		autogeo = commandArgs[2]:ucfirst()
 		add_to_chat(122,'Your Auto Geo- spell is set to '..autogeo..'.')
+		if pet.isvalid then
+			windower.chat.input('/ja "Full Circle" <me>')
+		end
 		if state.DisplayMode.value then update_job_states()	end
 	elseif lowerCommand == 'autoentrust' and commandArgs[2] then
 		autoentrust = commandArgs[2]:ucfirst()
@@ -675,7 +678,7 @@ function check_geo()
 			else
 				return false
 			end
-		elseif autogeo ~= 'None' and player.mp > geo_spell_data.mp_cost and (windower.ffxi.get_mob_by_target('bt') or data.spells.geo_buffs:contains(autogeo)) and (battle_target and battle_target.distance:sqrt() < (battle_target.model_size + 20.4) and battle_target.valid_target) then
+		elseif autogeo:lower() ~= 'None' and player.mp > geo_spell_data.mp_cost and (windower.ffxi.get_mob_by_target('bt') or data.spells.geo_buffs:contains(autogeo)) and (battle_target and battle_target.distance:sqrt() < (battle_target.model_size + 20.4) and battle_target.valid_target) then
 			if player.in_combat and state.AutoGeoAbilities.value and abil_recasts[247] < latency and not buffactive.Bolster then
 			
 				-- ZergMode is ON
@@ -694,7 +697,7 @@ function check_geo()
 					return true
 				end
 			elseif player.in_combat then
-				if (not (PlayerBubbles:contains(autogeo))) and (((state.AutoZergMode.value and buffactive.Bolster) or (state.AutoZergMode.value and (abil_recasts[0] > latency))) or (not state.AutoZergMode.value)) then
+				if not PlayerBubbles:contains(autogeo) and (((state.AutoZergMode.value == 'On' and buffactive.Bolster) or (state.AutoZergMode.value == 'On' and (abil_recasts[0] > latency))) or (state.AutoZergMode.value == 'Off')) then
 					windower.chat.input('/ma "Geo-'..autogeo..'" <bt>')
 					tickdelay = os.clock() + 3.1
 					return true
