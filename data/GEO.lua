@@ -694,7 +694,7 @@ function check_geo()
 					return true
 				end
 			elseif player.in_combat then
-				if (autogeotar:lower() == 'none' or not (PlayerBubbles:contains(autogeo))) and (((state.AutoZergMode.value and buffactive.Bolster) or (state.AutoZergMode.value and (abil_recasts[0] > latency))) or (not state.AutoZergMode.value)) then
+				if (not (PlayerBubbles:contains(autogeo))) and (((state.AutoZergMode.value and buffactive.Bolster) or (state.AutoZergMode.value and (abil_recasts[0] > latency))) or (not state.AutoZergMode.value)) then
 					windower.chat.input('/ma "Geo-'..autogeo..'" <bt>')
 					tickdelay = os.clock() + 3.1
 					return true
@@ -704,7 +704,7 @@ function check_geo()
 						windower.chat.input('/ma "Geo-'..autogeo..'" '..autogeotar..'')
 						tickdelay = os.clock() + 3.1
 						return true
-					elseif autogeotar:lower() == 'none' then
+					elseif autogeotar:lower() == 'none' and PlayerBubbles:contains(autogeo) then
 						windower.chat.input('/ma "Geo-'..autogeo..'" <me>')
 						tickdelay = os.clock() + 3.1
 						return true
