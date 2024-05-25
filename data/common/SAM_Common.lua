@@ -152,7 +152,7 @@ sets.precast.WS['Tachi: Kasha'].Enmity = set_combine(sets.precast.WS['Tachi: Kas
 
 sets.precast.WS['Tachi: Jinpu'] = {
 	ammo="Knobkierrie",																		
-	head="Mpaca's Cap",
+	head="Nyame Helm",
 	body="Nyame Mail",																
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",																
@@ -173,7 +173,7 @@ sets.precast.WS['Tachi: Jinpu'].KI.SubtleBlow = set_combine(sets.precast.WS['Tac
 --Magical WS
 sets.precast.WS['Tachi: Kagero'] = {
 	ammo="Knobkierrie",																		
-	head="Mpaca's Cap",
+	head="Nyame Helm",
 	body="Nyame Mail",																
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",																
@@ -213,7 +213,7 @@ sets.precast.WS['Tachi: Ageha'] = {
 	neck="Sanctity Necklace",
 	waist="Eschan Stone",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	right_ear=gear.empy_wsd_earring,														-- 3
+	right_ear=gear.empy_wsd_earring,
 	left_ring={name="Metamor. Ring +1",priority=500},
 	right_ring=gear.weather_ring,
 	back=gear.ws_jse_back,
