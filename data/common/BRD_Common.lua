@@ -1,3 +1,5 @@
+autows_list = {['None']='Rudra\s Storm',['DualCarn']='Mordant Rime',['DualSavage']='Savage Blade',['DualAeneas']='Rudra\s Storm',['MpuGandring']='Rudra\s Storm',['Naegling']='Savage Blade',['Aeneas']='Rudra\s Storm',['Carnwenhan']='Mordant Rime'}
+
 --Weapons
 if item_available("Carnwenhan") then
 	gear.song_dagger = "Carnwenhan"

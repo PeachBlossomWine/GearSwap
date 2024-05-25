@@ -1,3 +1,5 @@
+autows_list = {['Masamune']='Tachi: Fudo',['Dojikiri']='Tachi: Jinpu',['Kusanagi']='Tachi: Mumei'}
+
 if item_available("Kasuga Earring +2") then
 	gear.empy_earring = "Kasuga Earring +2"
 	gear.empy_wsd_earring = "Kasuga Earring +2"
@@ -43,6 +45,7 @@ else
 end
 
 -- Weapons sets
+sets.weapons.Kusanagi = {main="Kusanagi",sub="Utu Grip"}
 sets.weapons.Masamune = {main="Masamune",sub="Utu Grip"}
 sets.weapons.Dojikiri = {main="Dojikiri Yasutsuna",sub="Utu Grip"}
 sets.weapons.ShiningOne = {main="Shining One",sub="Utu Grip"}
@@ -156,11 +159,11 @@ sets.precast.WS['Tachi: Jinpu'] = {
 	feet="Nyame Sollerets",
 	neck="Sam. Nodowa +2",
 	waist="Fotia Belt",
-	left_ear="Lugra Earring +1",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	left_ring="Regal Ring",
-	right_ring="Niqmaddu Ring",															
-	back=gear.ws_jse_back,																
+	left_ear="Friomisi Earring",
+	right_ear=gear.empy_wsd_earring,
+	left_ring={name="Regal Ring",priority=500},
+	right_ring="Metamor. Ring +1",															
+	back=gear.mab_jse_back,																
 }
 sets.precast.WS['Tachi: Jinpu'].Enmity = set_combine(sets.precast.WS['Tachi: Jinpu'], {left_ear="Schere Earring"})
 sets.precast.WS['Tachi: Jinpu'].SubtleBlow = set_combine(sets.precast.WS['Tachi: Jinpu'], {})
@@ -177,10 +180,10 @@ sets.precast.WS['Tachi: Kagero'] = {
 	feet="Nyame Sollerets",
 	neck="Sam. Nodowa +2",
 	waist="Fotia Belt",
-	left_ear="Lugra Earring +1",
-	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
-	left_ring="Regal Ring",
-	right_ring="Niqmaddu Ring",
+	left_ear="Friomisi Earring",
+	right_ear=gear.empy_wsd_earring,
+	left_ring={name="Metamor. Ring +1",priority=500},
+	right_ring=gear.weather_ring,
 	back=gear.mab_jse_back,																
 }
 sets.precast.WS['Tachi: Kagero'].Enmity = set_combine(sets.precast.WS['Tachi: Kagero'], {left_ear="Schere Earring"})
@@ -211,7 +214,7 @@ sets.precast.WS['Tachi: Ageha'] = {
 	waist="Eschan Stone",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear=gear.empy_wsd_earring,														-- 3
-	left_ring="Metamor. Ring +1",
+	left_ring={name="Metamor. Ring +1",priority=500},
 	right_ring=gear.weather_ring,
 	back=gear.ws_jse_back,
 }

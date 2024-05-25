@@ -1,4 +1,4 @@
-autows_list = {['Epeolatry']='Dimidiation',['Lionheart']='Resolution',['Lycurgos']='Upheaval',}
+autows_list = {['Epeolatry']='Dimidiation',['Lionheart']='Resolution',['Lycurgos']='Upheaval',['Helheim']='Fimbulvetr',}
 
 if item_available("Eri. Leg Guards +3") then
 	gear.jse_empy_legs = "Eri. Leg Guards +3"
@@ -163,7 +163,7 @@ sets.precast.FC = {
 	head={name="Runeist Bandeau +3",priority=109},																	-- 14
 	body=gear.jse_empy_body,																						-- 13
 	hands={name="Leyline Gloves",priority=25},																		-- 6-8
-	legs={name="Aya. Cosciales +2",priority=45},																	-- 6
+	legs={name="Agwu's Slops",priority=45},																			-- 7
 	feet={name="Carmine Greaves +1",priority=95},																	-- 8
 	neck="Baetyl Pendant",																							-- 4
 	waist={name="Plat. Mog. Belt",priority=500},
