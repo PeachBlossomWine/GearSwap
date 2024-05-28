@@ -14,6 +14,22 @@ else
 	gear.empy_earring = "Cessance Earring"
 end
 
+if item_available("Boii Lorica +3") then
+	gear.jse_empy_body = "Boii Lorica +3"
+elseif item_available("Boii Lorica +2") then
+	gear.jse_empy_body = "Boii Lorica +2"
+else
+	gear.jse_empy_body = "Boii Lorica +1"
+end
+
+if item_available("Boii Cuisses +3") then
+	gear.jse_empy_legs = "Boii Cuisses +3"
+elseif item_available("Boii Cuisses +2") then
+	gear.jse_empy_legs = "Boii Cuisses +2"
+else
+	gear.jse_empy_legs = "Boii Cuisses +1"
+end
+
 autows_list = {['Chango']='Upheaval',['Nandaka']='Resolution',['ShiningOne']='Impulse Drive',['Drepanum']='Spiral Hell',['Laphria']='Disaster',['Helheim']='Fimbulvetr',['Loxotic']='Judgment',['Dolichenus']='Decimation',['Naegling']='Savage Blade'}
 
 -- Precast Sets
@@ -70,7 +86,7 @@ sets.precast.WS = {
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
+	legs=gear.jse_empy_legs,
 	feet="Nyame Sollerets",
 	neck=gear.war_jse_neck,
 	waist={ name="Sailfi Belt +1", augments={'Path: A',}},
@@ -253,7 +269,7 @@ sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 sets.engaged = {
 	ammo="Coiste Bodhar",
 	head="Hjarrandi Helm",
-	body="Sakpata's Plate",
+	body=gear.jse_empy_body,
 	hands="Sakpata's Gauntlets",
 	legs="Sakpata's Cuisses",
 	feet="Sakpata's Leggings",
@@ -269,7 +285,7 @@ sets.engaged = {
 sets.engaged.DT = {
 	ammo="Coiste Bodhar",
 	head="Sakpata's Helm",
-	body="Sakpata's Plate",
+	body=gear.jse_empy_body,
 	hands="Sakpata's Gauntlets",
 	legs="Sakpata's Cuisses",
 	feet="Sakpata's Leggings",

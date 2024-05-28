@@ -44,6 +44,22 @@ else
 	gear.jse_empy_legs = "Kasuga Haidate +1"
 end
 
+if item_available("Kasuga Kote +3") then
+	gear.jse_empy_hands = "Kasuga Kote +3"
+elseif item_available("Kasuga Kote +2") then
+	gear.jse_empy_hands = "Kasuga Kote +2"
+else
+	gear.jse_empy_hands = "Kasuga Kote +1"
+end
+
+if item_available("Kasuga Sune-Ate +3") then
+	gear.jse_empy_feet = "Kasuga Sune-Ate +3"
+elseif item_available("Kasuga Sune-Ate +2") then
+	gear.jse_empy_feet = "Kasuga Sune-Ate +2"
+else
+	gear.jse_empy_feet = "Kasuga Sune-Ate +1"
+end
+
 -- Weapons sets
 sets.weapons.Kusanagi = {main="Kusanagi",sub="Utu Grip"}
 sets.weapons.Masamune = {main="Masamune",sub="Utu Grip"}
@@ -57,7 +73,7 @@ sets.weapons.Yoichinoyumi = {main="Kustawi +1",sub=empty, range="Yoichinoyumi", 
 sets.precast.JA.Meditate = {head="Wakido Kabuto +3", hands="Sakonji Kote +3", back=gear.da_jse_back}
 sets.precast.JA['Warding Circle'] = {head="Wakido Kabuto +3"}
 sets.precast.JA['Blade Bash'] = {hands="Sakonji Kote +3"}
-sets.precast.JA['Sekkanoki'] = {}	--{hands="Kasuga Kote +1"}
+sets.precast.JA['Sekkanoki'] = {hands=gear.jse_empy_hands}
 sets.precast.JA['Sengikori'] = {}	--{feet="Kas. Sune-Ate +1"}
 
 -- Fast cast sets for spells
@@ -102,10 +118,10 @@ sets.precast.Jump = {
 sets.precast.WS = {
 	ammo="Knobkierrie",																		-- 6
 	head="Mpaca's Cap",														
-	body="Sakonji Domaru +3",																-- 10
-	hands="Nyame Gauntlets",
-	legs="Wakido Haidate +3",																-- 10
-	feet="Nyame Sollerets",
+	body="Nyame Mail",																		-- 10
+	hands=gear.jse_empy_hands,
+	legs="Nyame Flanchard",																	-- 10
+	feet=gear.jse_empy_feet,
 	neck="Sam. Nodowa +2",
 	waist="Sailfi Belt +1",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -130,9 +146,9 @@ sets.precast.WS['Tachi: Shoha'] = {
 	ammo="Knobkierrie",
 	head="Mpaca's Cap",
 	body="Nyame Mail",																
-	hands="Nyame Gauntlets",
+	hands=gear.jse_empy_hands,
 	legs="Nyame Flanchard",																
-	feet="Nyame Sollerets",
+	feet=gear.jse_empy_feet,
 	neck="Sam. Nodowa +2",
 	waist="Fotia Belt",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
@@ -154,9 +170,9 @@ sets.precast.WS['Tachi: Jinpu'] = {
 	ammo="Knobkierrie",																		
 	head="Nyame Helm",
 	body="Nyame Mail",																
-	hands="Nyame Gauntlets",
+	hands=gear.jse_empy_hands,
 	legs="Nyame Flanchard",																
-	feet="Nyame Sollerets",
+	feet=gear.jse_empy_feet,
 	neck="Sam. Nodowa +2",
 	waist="Fotia Belt",
 	left_ear="Friomisi Earring",
@@ -175,9 +191,9 @@ sets.precast.WS['Tachi: Kagero'] = {
 	ammo="Knobkierrie",																		
 	head="Nyame Helm",
 	body="Nyame Mail",																
-	hands="Nyame Gauntlets",
+	hands=gear.jse_empy_hands,
 	legs="Nyame Flanchard",																
-	feet="Nyame Sollerets",
+	feet=gear.jse_empy_feet,
 	neck="Sam. Nodowa +2",
 	waist="Fotia Belt",
 	left_ear="Friomisi Earring",
@@ -205,11 +221,11 @@ sets.precast.WS['Tachi: Koki'].KI.SubtleBlow = set_combine(sets.precast.WS['Tach
 
 sets.precast.WS['Tachi: Ageha'] = {
 	ammo="Pemphredo Tathlum",
-	head="Mpaca's Cap",
-	body="Mpaca's Doublet",
-	hands="Mpaca's Gloves",
-	legs="Mpaca's Hose",
-	feet="Mpaca's Boots",
+	head=gear.jse_empy_head,
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
 	neck="Sanctity Necklace",
 	waist="Eschan Stone",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
