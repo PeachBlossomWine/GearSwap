@@ -74,7 +74,7 @@ sets.precast.JA.Meditate = {head="Wakido Kabuto +3", hands="Sakonji Kote +3", ba
 sets.precast.JA['Warding Circle'] = {head="Wakido Kabuto +3"}
 sets.precast.JA['Blade Bash'] = {hands="Sakonji Kote +3"}
 sets.precast.JA['Sekkanoki'] = {hands=gear.jse_empy_hands}
-sets.precast.JA['Sengikori'] = {}	--{feet="Kas. Sune-Ate +1"}
+sets.precast.JA['Sengikori'] = {feet=gear.jse_empy_feet}
 
 -- Fast cast sets for spells
 sets.precast.FC = {
@@ -399,8 +399,8 @@ sets.engaged.SubtleBlow = {
 sets.Cure_Received = {waist="Gishdubar Sash"}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
 sets.buff.Hasso = {}
-sets.buff.LastResort = {hands="Mpaca's Gloves", right_ear="Crep. Earring"}
+sets.buff.LastResort = {hands="Mpaca's Gloves"}
 sets.buff['Third Eye'] = {}
-sets.buff.Sekkanoki = {} --{hands="Kasuga Kote +1"}
-sets.buff.Sengikori = {} --{feet="Kas. Sune-Ate +1"}
+sets.buff.Sekkanoki = {hands=gear.jse_empy_hands}
+sets.buff.Sengikori = {feet=gear.jse_empy_feet}
 sets.buff['Meikyo Shisui'] = {}
