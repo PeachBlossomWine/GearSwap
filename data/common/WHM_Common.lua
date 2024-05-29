@@ -558,9 +558,25 @@ sets.midcast.Auspice.SIRD = set_combine(sets.midcast['Enhancing Magic'].DT,{feet
 		sets.midcast['Elemental Magic'] = {}
 		sets.midcast['Elemental Magic'].Resistant = sets.midcast['Elemental Magic']
 
-		--Light based magic
-		sets.midcast['Divine Magic'] = {}
-		sets.midcast.Holy = {}
+--Light based magic
+sets.midcast['Divine Magic'] = {
+	main="Daybreak",
+    sub="Ammurapi Shield",
+    ammo="Ghastly Tathlum +1",
+    head="",
+    body="Crepuscular Cloak",
+    hands="Bunzi's Gloves",
+    legs="Th. Pant. +3",
+    feet="Bunzi's Sabots",
+    neck="Sanctity Necklace",
+    waist="Eschan Stone",
+    left_ear="Regal Earring",
+    right_ear="Malignance Earring",
+    left_ring="Medada's Ring",
+    right_ring="Metamor. Ring +1",
+    back=gear.jse_macc_fc_back
+}
+sets.midcast.Holy = {}
 
 --Dark based magic
 sets.midcast['Dark Magic'] = {
