@@ -34,6 +34,7 @@ end
 
 -- Weapons sets
 sets.weapons.Trishula = {main="Trishula",sub="Utu Grip"}
+sets.weapons.GaeBuide = {main="Gae Buide",sub="Utu Grip"}
 sets.weapons.ShiningOne = {main="Shining One",sub="Utu Grip"}
 sets.weapons.Malignance = {main="Malignance Pole",sub="Utu Grip"}
 sets.weapons.Naegling = {main="Naegling",sub="Legion Scutum"}

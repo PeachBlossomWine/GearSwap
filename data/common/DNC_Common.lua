@@ -21,6 +21,7 @@ end
 -- Weapons sets
 sets.weapons.Aeneas = {main="Aeneas",sub="Crepuscular Knife"}
 sets.weapons.Terpsichore = {main="Terpsichore",sub="Crepuscular Knife"}
+sets.weapons.MpuGandring = {main="Mpu Gandring",sub="Crepuscular Knife"}
 sets.weapons.Karambit = {main="Karambit",sub=empty}
 
 -- Precast Sets

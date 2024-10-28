@@ -108,6 +108,7 @@ sets.weapons.MpuGandring = {main="Mpu Gandring",sub="Genmei Shield"}
 sets.weapons.DualAeneas = {main="Aeneas",sub="Crepuscular Knife"}
 sets.weapons.DualCarn = {main=gear.song_dagger,sub="Crepuscular Knife"}
 sets.weapons.DualSavage = {main="Naegling", sub="Crepuscular Knife"}
+sets.weapons.DualMpu = {main="Mpu Gandring", sub="Crepuscular Knife"}
 -- Precast Sets
 
 -- 78%

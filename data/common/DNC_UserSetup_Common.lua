@@ -5,7 +5,7 @@ state.IdleMode:options('DT','Normal')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
-state.Weapons:options('Terpsichore','Aeneas','Karambit','None')
+state.Weapons:options('Terpsichore','Aeneas','MpuGandring','Karambit','None')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')

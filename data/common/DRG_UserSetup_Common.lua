@@ -6,7 +6,7 @@ state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('DT','Normal','Refresh','Reraise')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
-state.Weapons:options('Trishula', 'ShiningOne', 'Malignance', 'Naegling', 'DualSavage', 'None')
+state.Weapons:options('Trishula', 'GaeBuide', 'ShiningOne', 'Malignance', 'Naegling', 'DualSavage', 'None')
 state.Passive = M{['description'] = 'Passive Mode','None'}
 state.AutoBondMode = M(false, 'Auto Bond Mode')
 state.AutoZergMode:reset()
