@@ -338,7 +338,7 @@ sets.idle.Town = {
 -- Defense sets
 sets.defense.PDT = {
 	head="Nyame Helm",
-	body="Nyame Mail",
+	body="Adamantite Armor",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",

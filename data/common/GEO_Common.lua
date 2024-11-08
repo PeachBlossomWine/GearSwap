@@ -550,7 +550,7 @@ sets.defense.PDT = {
 	sub="Genmei Shield",
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head="Nyame Helm",
-	body="Nyame Mail",
+	body="Adamantite Armor",
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
