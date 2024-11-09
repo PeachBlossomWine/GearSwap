@@ -215,7 +215,7 @@ sets.precast.WS['Evisceration'] = {
 sets.precast.WS['Exenterator'] = sets.precast.WS
 
 sets.precast.WS['Savage Blade'] = {
-	ammo=gear.RAbullet,
+	ammo="Bayeux Bullet",
 	head="Nyame Helm",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",

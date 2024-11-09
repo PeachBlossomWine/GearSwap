@@ -146,12 +146,23 @@ function job_precast(spell, spellMap, eventArgs)
 			windower.chat.input('/ma "Phalanx II" '..spell.target.raw)
 			cancel_spell()
 			eventArgs.cancel = true
-        elseif (spell.english == 'Silence' or spell.english:contains('Gravity')) and abil_recasts[36] < latency and not buffactive['Saboteur'] and not silent_check_amnesia() then
+        elseif (spell.english == 'Frazzle III' or spell.english == 'Silence' or spell.english:contains('Gravity')) and abil_recasts[36] < latency and not buffactive['Saboteur'] and not silent_check_amnesia() then
             add_to_chat(122,'Using - Saboteur!')
 			windower.chat.input('/ja Saboteur <me>')
             windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
 			eventArgs.cancel = true
             tickdelay = os.clock() + 4.6
+		--force stymie for distract 3
+		-- elseif (spell.english == 'Distract III') and abil_recasts[254] < latency and not buffactive['Stymie'] and not silent_check_amnesia() then
+            -- add_to_chat(122,'Using - Stymie!')
+			-- if abil_recasts[36] < latency and not buffactive['Saboteur'] then
+				-- add_to_chat(122,'Using - Saboteur!')
+				-- windower.chat.input('/ja Saboteur <me>')
+			-- end
+			-- windower.chat.input:schedule(1.6,'/ja Stymie <me>')
+            -- windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
+			-- eventArgs.cancel = true
+            -- tickdelay = os.clock() + 5.6
 		end
 		
         if state.CastingMode.value == 'Proc' then
