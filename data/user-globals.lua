@@ -59,7 +59,7 @@ state.AutoOtherTargetWS = M(false, 'AutoOtherTargetWS')
 state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
 state.AutoTomahawkMode = M(false, 'AutoTomahawkMode')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
-state.AutoShot = M(false, 'Auto Shot Mode')
+--state.AutoShot = M(false, 'Auto Shot Mode')
 state.AutoCallPet = M(false, 'Auto Call Pet')
 state.DelayedWS = M(false, 'WS Wall Delay')
 
