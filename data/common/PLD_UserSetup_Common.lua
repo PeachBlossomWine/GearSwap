@@ -1,13 +1,13 @@
 state.OffenseMode:options('Normal','Acc')
-state.HybridMode:options('Tank','DTLite','Normal')
+state.HybridMode:options('Tank','DTLite','MDB','Normal')
 state.WeaponskillMode:options('Tank','Normal')
 state.CastingMode:options('SIRD','Normal')
-state.AutoBuffMode:options('Off','Auto','Crucial')
+state.AutoBuffMode:options('Off','Auto','Crucial','Aminon')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
-state.IdleMode:options('DT','Normal')
-state.Weapons:options('Duban','Aegis','Ochain','Srivatsa','Sakpata','Naegling','None')
+state.IdleMode:options('DT','MDB','Normal')
+state.Weapons:options('Duban','Aegis','Excalibur','Sakpata','Srivatsa','Naegling','None')
 
 state.AutoZergMode:reset()
 state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None'}

@@ -62,6 +62,7 @@ function job_setup()
 	state.AutoEmblem = M(true, 'Auto Emblem')
 	state.AutoCover = M(false, 'Auto Cover')
 	state.AutoMajesty = M(true, 'Auto Majesty')
+	state.Aminon = M(false, 'Aminon AutoTank')
 	
 	autows = 'Savage Blade'
 	autofood = 'Miso Ramen'
@@ -118,7 +119,8 @@ function job_pretarget(spell, spellMap, eventArgs)
 end
 
 function job_precast(spell, spellMap, eventArgs)
-
+	local accession_spells = S{'Sneak','Invisible'}
+	local celerity_spells = S{'Stoneskin','Raise'}
 	if spell.english == 'Flash' then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 		local spell_recasts = windower.ffxi.get_spell_recasts()
@@ -133,6 +135,46 @@ function job_precast(spell, spellMap, eventArgs)
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Majesty" <me>')
 			windower.chat.input:schedule(1,'/ma ' ..spell.english.. ' ' ..spell.target.raw..'')
+		end
+	elseif accession_spells:contains(spell.english) then -- and not data.areas.cities:contains(world.area) then
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+		if player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia()) and not buffactive['SJ Restriction'] then
+			if state.Buff['Light Arts'] then
+				windower.chat.input('/ja "Accession" <me>')
+				windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
+				add_to_chat(122,'Accession - "'..spell.english..'" !')
+				eventArgs.cancel = true
+				tickdelay = os.clock() + 4.6
+			else
+				if abil_recasts[228] < latency then
+					windower.chat.input('/ja "Light Arts" <me>')
+					windower.chat.input:schedule(1.6,'/ja "Accession" <me>')
+					windower.chat.input:schedule(3.1,'/ma "'..spell.english..'" '..spell.target.raw..'')
+					add_to_chat(122,'Accession - "'..spell.english..'" !')
+					eventArgs.cancel = true
+					tickdelay = os.clock() + 6.2
+				end
+			end
+		end
+	elseif celerity_spells:contains(spell.english) then -- and not data.areas.cities:contains(world.area) then
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+		if player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Celerity or silent_check_amnesia()) and not buffactive['SJ Restriction'] then
+			if state.Buff['Light Arts'] then
+				windower.chat.input('/ja "Celerity" <me>')
+				windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
+				add_to_chat(122,'Celerity - "'..spell.english..'" !')
+				eventArgs.cancel = true
+				tickdelay = os.clock() + 4.6
+			else
+				if abil_recasts[228] < latency then
+					windower.chat.input('/ja "Light Arts" <me>')
+					windower.chat.input:schedule(1.6,'/ja "Celerity" <me>')
+					windower.chat.input:schedule(3.1,'/ma "'..spell.english..'" '..spell.target.raw..'')
+					add_to_chat(122,'Celerity - "'..spell.english..'" !')
+					eventArgs.cancel = true
+					tickdelay = os.clock() + 6.2
+				end
+			end
 		end
 	end
 
@@ -230,7 +272,7 @@ function job_self_command(commandArgs, eventArgs)
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 			local spell_recasts = windower.ffxi.get_spell_recasts()
 
-			if spell_recasts[840] < spell_latency and not silent_check_silence() and player.mp > res.spells[840].mp_cost and silent_can_use(840) then
+			if not state.Aminon.value and spell_recasts[840] < spell_latency and not silent_check_silence() and player.mp > res.spells[840].mp_cost and silent_can_use(840) then
 				windower.chat.input('/ma "Foil" <me>')
 				tickdelay = os.clock() + 3.0
 				return true
@@ -528,7 +570,7 @@ function check_flash()
 	local spell_recasts = windower.ffxi.get_spell_recasts()
 	local abil_recasts = windower.ffxi.get_ability_recasts()
 
-	if spell_recasts[112] < spell_latency and player.mp > res.spells[112].mp_cost then
+	if not state.Aminon.value and spell_recasts[112] < spell_latency and player.mp > res.spells[112].mp_cost then
 		if abil_recasts[80] < latency and not silent_check_amnesia() then
 			windower.chat.input('/ja "Divine Emblem" <me>')
 		end
@@ -713,17 +755,21 @@ end
 
 buff_spell_lists = {
 	Auto = {	
-		{Name='Reprisal',Buff='Reprisal',SpellID=97,When='Combat'},
-		{Name='Cocoon',Buff='Defense Boost',SpellID=547,When='Always'},
-		{Name='Phalanx',Buff='Phalanx',SpellID=106,When='Always'},
-		{Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
-        {Name='Enlight II',Buff='Enlight',SpellID=855,When='Always'},
-        {Name='Protect V',Buff='Protect',SpellID=47,When='Always'},
+		-- {Name='Reprisal',Buff='Reprisal',SpellID=97,When='Combat'},
+		-- {Name='Cocoon',Buff='Defense Boost',SpellID=547,When='Always'},
+		-- {Name='Phalanx',Buff='Phalanx',SpellID=106,When='Always'},
+		-- {Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
+        -- {Name='Enlight II',Buff='Enlight',SpellID=855,When='Always'},
+        -- {Name='Protect V',Buff='Protect',SpellID=47,When='Always'},
 	},
 	Crucial = {	
-		{Name='Reprisal',Buff='Reprisal',SpellID=97,When='Combat'},
-		{Name='Phalanx',Buff='Phalanx',SpellID=106,When='Always'},
-		{Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
+		-- {Name='Reprisal',Buff='Reprisal',SpellID=97,When='Combat'},
+		-- {Name='Phalanx',Buff='Phalanx',SpellID=106,When='Always'},
+		-- {Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
+	},
+	Aminon = {	
+		-- {Name='Stoneskin',Buff='Stoneskin',SpellID=54,When='Always'},
+		-- {Name='Crusade',Buff='Enmity Boost',SpellID=476,When='Always'},
 	},
 	
 	Default = {

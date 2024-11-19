@@ -1,7 +1,11 @@
-sets.weapons.Ochain = {main="Burtgang", sub="Ochain"}
+
+autows_list = {['Aegis']='Atonement',['Duban']='Atonement',['Srivatsa']='Atonement',['Excalibur']='Knights of Round',['Sakpata']='Savage Blade',['Naegling']='Savage Blade',}
+
+--sets.weapons.Ochain = {main="Burtgang", sub="Ochain"}
 sets.weapons.Aegis = {main="Burtgang", sub="Aegis"}
 sets.weapons.Duban = {main="Burtgang", sub="Duban"}
 sets.weapons.Srivatsa = {main="Burtgang", sub="Srivatsa"}
+sets.weapons.Excalibur = {main="Excalibur", sub="Aegis"}
 sets.weapons.Sakpata = {main="Sakpata's Sword",sub="Duban"}
 sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield +1"}
 
@@ -158,7 +162,7 @@ sets.precast.WS.Tank = {
 	ammo="Oshasha's Treatise",
 	head={name="Nyame Helm", priority=91},
 	body={name="Nyame Mail", priority=136},
-	hands={name="Regal Gauntlets", priority=250},
+	hands={name="Nyame Gauntlets", priority=250},
 	legs={name="Nyame Flanchard", priority=114},
 	feet={name="Nyame Sollerets", priority=68},
 	neck={name="Unmoving Collar +1", priority=200},
@@ -199,6 +203,23 @@ sets.precast.WS['Atonement'] = {
 	back=gear.tank_jse_back,
 }
 
+sets.precast.WS['Knights of Round'] = {
+	ammo="Coiste Bodhar",
+	head={name="Nyame Helm", priority=91},
+	body={name="Nyame Mail", priority=136},
+	hands={name="Nyame Gauntlets", priority=250},
+	legs={name="Nyame Flanchard", priority=114},
+	feet={name="Nyame Sollerets", priority=68},
+	neck={name="Unmoving Collar +1", priority=200},
+	waist={name="Plat. Mog. Belt",priority=500},
+	left_ear={name="Telos Earring",priority=50},
+	right_ear={name="Thrud Earring", priority=10},
+	left_ring={name="Moonlight Ring", priority=110},
+	right_ring={name="Regal Ring", priority=65},
+	back=gear.jse_wsd_back,
+}
+
+sets.precast.WS['Knights of Round'].Tank = sets.precast.WS['Knights of Round']
 sets.precast.WS['Atonement'].Tank = sets.precast.WS['Atonement']
 
 sets.precast.WS['Spirits Within'] = sets.precast.WS['Atonement']
@@ -307,8 +328,8 @@ sets.midcast['Enhancing Magic'] = {
 	
 sets.midcast['Enhancing Magic'].SIRD = set_combine(sets.midcast['Enhancing Magic'], {})
 
-sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
-sets.midcast.Stoneskin.SIRD = set_combine(sets.midcast['Enhancing Magic'], {waist="Siegel Sash"})
+sets.midcast.Stoneskin = set_combine(sets.midcast['Enhancing Magic'], {neck="Stone Gorget", waist="Siegel Sash", right_ear={name="Earthcry Earring",priority=500},})
+sets.midcast.Stoneskin.SIRD = set_combine(sets.midcast['Enhancing Magic'], {neck="Stone Gorget", waist="Siegel Sash", right_ear={name="Earthcry Earring",priority=500},})
 sets.midcast['Protect V'] = set_combine(sets.midcast['Enhancing Magic'], {main="Burtgang",sub="Srivatsa",neck="Loricate Torque +1",feet={name="Odyssean Greaves",priority=20},})
 sets.midcast['Protect V'].SIRD = set_combine(sets.midcast['Enhancing Magic'], {main="Burtgang",sub="Srivatsa",neck="Loricate Torque +1",feet={name="Odyssean Greaves",priority=20},})
 sets.midcast.Shell = set_combine(sets.midcast['Enhancing Magic'], {})
@@ -317,8 +338,8 @@ sets.midcast.Shell.SIRD = set_combine(sets.midcast['Enhancing Magic'], {})
 sets.midcast.Phalanx = {
 	ammo="Staunch Tathlum +1",																				-- 11	/	3	/
 	head={name="Souveran Schaller +1",priority=280},														-- 20			/	9
-	body={name="Shab. Cuirass +1",priority=115},															--		/	10	/	20
-	--body={name="Valorous Mail",priority=55},
+--	body={name="Shab. Cuirass +1",priority=115},															--		/	10	/	20
+	body=gear.valorous_phalanx_body,
 	hands={name="Souv. Handsch. +1",priority=239},															-- 10
 	legs={name="Sakpata's Cuisses", priority=114},
 	feet={name="Souveran Schuhs +1",priority=227},
@@ -372,6 +393,22 @@ sets.idle.DT = {
 	right_ear={name="Odnowa Earring +1", priority=500},
 	left_ring={name="Moonlight Ring", priority=500},
 	right_ring={name="Gelatinous Ring +1", priority=500},
+	back=gear.tank_jse_back,
+}
+
+sets.idle.MDB = {
+	ammo="Staunch Tathlum +1",
+	head={name="Sakpata's Helm", priority=5},
+	body={name="Adamantite Armor", priority=300},
+	hands={name="Sakpata's Gauntlets", priority=5},
+	legs={name="Sakpata's Cuisses", priority=300},
+	feet={name="Sakpata's Leggings", priority=5},
+	neck={name="Moonlight Necklace", priority=500},
+	waist={name="Plat. Mog. Belt", priority=500},
+	left_ear={name="Tuisto Earring", priority=500},
+	right_ear={name="Eabani Earring", priority=500},
+	left_ring={name="Moonlight Ring", priority=500},
+	right_ring={name="Apeile Ring +1", priority=500},
 	back=gear.tank_jse_back,
 }
 	
@@ -454,6 +491,22 @@ sets.engaged.Tank = {
 	right_ear={name="Odnowa Earring +1", priority=110},
 	left_ring={name="Moonlight Ring", priority=110},
 	right_ring={name="Gelatinous Ring +1", priority=125},
+	back=gear.tank_jse_back,
+}
+
+sets.engaged.MDB = {
+	ammo="Staunch Tathlum +1",
+	head={name="Sakpata's Helm", priority=5},
+	body={name="Adamantite Armor", priority=300},
+	hands={name="Sakpata's Gauntlets", priority=5},
+	legs={name="Sakpata's Cuisses", priority=300},
+	feet={name="Sakpata's Leggings", priority=5},
+	neck={name="Moonlight Necklace", priority=500},
+	waist={name="Plat. Mog. Belt", priority=500},
+	left_ear={name="Tuisto Earring", priority=500},
+	right_ear={name="Eabani Earring", priority=500},
+	left_ring={name="Moonlight Ring", priority=500},
+	right_ring={name="Apeile Ring +1", priority=500},
 	back=gear.tank_jse_back,
 }
 
