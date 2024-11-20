@@ -73,6 +73,7 @@ sets.precast.JA['Full Circle'] = {head=gear.jse_empy_head,hands="Bagua Mitaines 
 
 sets.weapons.Idris = {main="Idris",sub="Genmei Shield"}
 sets.weapons.LorgMor = {main="Lorg Mor",sub="Genmei Shield"}
+sets.weapons.IdrisAmmurapi = {main="Idris",sub="Ammurapi Shield"}
 sets.weapons.DualClub = {main="Idris",sub="Bunzi's Rod"}
 
 -- Indi Duration in slots that would normally have skill here to make entrust more efficient.
@@ -146,9 +147,16 @@ sets.precast.WS = {
     right_ear="Moonshade Earring",
     left_ring="Vertigo Ring",
     right_ring="Rufescent Ring",
-	back=gear.dt_moon_back,
+	back=gear.jse_ws_back,
 }
 
+-- 20 SB + More ACC
+sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
+	neck="Combatant's Torque",
+    left_ear="Digni. Earring",
+	right_ear="Telos Earring",
+	left_ring="Chirich Ring +1",
+})
 --------------------------------------
 -- Midcast sets
 --------------------------------------
@@ -328,7 +336,7 @@ sets.midcast['Dark Magic'] = {
 	right_ear=gear.empy_earring,
 	left_ring="Evanescence Ring",
 	right_ring="Archon Ring",
-	back=gear.nuke_jse_back,
+	back=gear.jse_mab_back,
 }
 
 sets.midcast['Dark Magic'].DT = set_combine(sets.midcast['Dark Magic'], {})
@@ -337,6 +345,22 @@ sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {waist="Fucho-no-ob
 sets.midcast.Aspir = sets.midcast.Drain
 sets.midcast.Drain.DT = set_combine(sets.midcast['Dark Magic'].DT, {waist="Fucho-no-obi", feet="Agwu's Pigaches"})
 sets.midcast.Aspir.DT = sets.midcast.Drain.DT
+
+sets.midcast['Absorb-TP'] = set_combine(sets.midcast['Dark Magic'], {
+	range="Dunna",
+	head=gear.jse_empy_head,
+	body=gear.jse_empy_body,
+	hands="Agwu's Gages",
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
+	neck="Erra Pendant",
+	waist="Luminary Sash",
+	left_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
+	left_ring=gear.stikini_ring,
+	right_ring="Metamorph Ring +1",
+	back=gear.jse_mab_back,
+})
 	
 sets.midcast['Enfeebling Magic'] = {
 	main="Daybreak",
