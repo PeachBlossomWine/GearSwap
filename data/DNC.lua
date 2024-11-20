@@ -85,6 +85,7 @@ function job_setup()
 	state.Buff['Fan Dance'] = buffactive['Fan Dance'] or false
 	state.Buff['Aftermath: Lv.3'] = buffactive['Aftermath: Lv.3'] or false
 	
+	
     state.MainStep = M{['description']='Main Step', 'Box Step','Quickstep','Feather Step','Stutter Step'}
     state.AltStep = M{['description']='Alt Step', 'Feather Step','Quickstep','Stutter Step','Box Step'}
     state.UseAltStep = M(true, 'Use Alt Step')
@@ -92,7 +93,7 @@ function job_setup()
 
 	state.AutoPrestoMode = M(true, 'Auto Presto Mode')
 	state.DanceStance = M{['description']='Dance Stance','None','Saber Dance','Fan Dance'}
-
+	state.AutoBuilding = M(false, 'Auto Building Flourish Mode')
 
 	autows = "Rudra's Storm"
 	autofood = 'Soy Ramen'
@@ -151,6 +152,7 @@ function job_filtered_action(spell, eventArgs)
 				eventArgs.cancel = true
             end
         end
+		count_weapon_skills()
 	end
 end
 
@@ -164,7 +166,7 @@ function job_precast(spell, spellMap, eventArgs)
 			windower.chat.input:schedule(1.6,'/ws "'..spell.english..'" '..spell.target.raw..'')
 			tickdelay = os.clock() + 2.8
 			return
-		elseif not under3FMs() and not state.Buff['Climactic Flourish'] and not state.Buff['Presto'] and abil_recasts[222] < latency and player.status == 'Engaged' then
+		elseif state.AutoBuilding.value and not under3FMs() and not state.Buff['Climactic Flourish'] and not state.Buff['Presto'] and abil_recasts[222] < latency and player.status == 'Engaged' then
 			eventArgs.cancel = true
 			windower.chat.input('/ja "Building Flourish" <me>')
 			windower.chat.input:schedule(1.6,'/ws "'..spell.english..'" '..spell.target.raw..'')
@@ -315,7 +317,7 @@ function job_tick()
 	if check_dance() then return true end
 	if check_buff() then return true end
 	if check_steps_presto() then return true end
-	if check_jump() then return true end
+	--if check_jump() then return true end
 	return false
 end
 
@@ -409,13 +411,20 @@ function check_steps_presto()
 	if state.AutoBuffMode.value ~= 'off' and state.AutoPrestoMode.value and player.tp > 140 and not silent_check_amnesia() then
 		if (under3FMs() or os.clock() > step_timer) and (abil_recasts[236] < latency or state.Buff['Presto']) and abil_recasts[220] < latency and player.status == 'Engaged' then
 			if player.tp > 140 and state.Buff['Presto'] then
-				windower.add_to_chat('Already have Presto')
-				windower.chat.input('/ja "'..state.MainStep.value..'" <t>')
+				--windower.add_to_chat('Already have Presto')
+				local doStep = ''
+				if state.UseAltStep.value == true then
+					doStep = state[state.CurrentStep.current..'Step'].current
+				else
+					doStep = state.MainStep.current
+				end        
+				
+				windower.chat.input('/ja "'..doStep..'" <t>')
 				tickdelay = os.clock() + 3.5
-				step_timer = os.clock() + 30
+				step_timer = os.clock() + 15 -- why was this 30sec?
 				return true
 			elseif player.tp > 140 and abil_recasts[236] < latency then
-				windower.add_to_chat('Using Presto JA')
+				--windower.add_to_chat('Using Presto JA')
 				windower.chat.input('/ja "Presto" <me>')
 				tickdelay = os.clock() + 3.5
 				return true
@@ -426,24 +435,25 @@ function check_steps_presto()
 	end
 end
 
-function check_jump()
-    if state.AutoJumpMode.value and player.status == 'Engaged' and player.sub_job == 'DRG' and not buffactive['SJ Restriction'] then
-        local abil_recasts = windower.ffxi.get_ability_recasts()
+-- function check_jump()
+    -- if state.AutoJumpMode.value and player.status == 'Engaged' and player.sub_job == 'DRG' and not buffactive['SJ Restriction'] then
+        -- local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		if player.hpp < 65 and abil_recasts[160] < latency then
-			windower.chat.input('/ja "Super Jump" <t>')
-            tickdelay = os.clock() + 1.1
-            return true
-		elseif player.tp < 901 and abil_recasts[158] < latency then
-            windower.chat.input('/ja "Jump" <t>')
-            tickdelay = os.clock() + 1.1
-            return true
-        elseif player.tp < 901 and abil_recasts[159] < latency then
-            windower.chat.input('/ja "High Jump" <t>')
-            tickdelay = os.clock() + 1.1
-            return true
-        else
-            return false
-        end
-    end
-end
+		-- if player.hpp < 65 and abil_recasts[160] < latency then
+			-- windower.chat.input('/ja "Super Jump" <t>')
+            -- tickdelay = os.clock() + 1.1
+            -- return true
+		-- elseif player.tp < 901 and abil_recasts[158] < latency then
+            -- windower.chat.input('/ja "Jump" <t>')
+            -- tickdelay = os.clock() + 1.1
+            -- return true
+        -- elseif player.tp < 901 and abil_recasts[159] < latency then
+            -- windower.chat.input('/ja "High Jump" <t>')
+            -- tickdelay = os.clock() + 1.1
+            -- return true
+        -- else
+            -- return false
+        -- end
+    -- end
+-- end
+

@@ -1,3 +1,5 @@
+autows_list = {['Aeneas']='Rudra\'s Storm',['Terpsichore']='Pyrrhic Kleos',['Mpu']='Ruthless Stroke',['MpuCento']='Ruthless Stroke',['Karambit']='Asuran Fists',}
+
 sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 
 if item_available("Maculele Earring +2") then
@@ -21,7 +23,8 @@ end
 -- Weapons sets
 sets.weapons.Aeneas = {main="Aeneas",sub="Crepuscular Knife"}
 sets.weapons.Terpsichore = {main="Terpsichore",sub="Crepuscular Knife"}
-sets.weapons.MpuGandring = {main="Mpu Gandring",sub="Crepuscular Knife"}
+sets.weapons.Mpu = {main="Mpu Gandring",sub="Crepuscular Knife"}
+sets.weapons.MpuCento = {main="Mpu Gandring",sub="Centovente"}
 sets.weapons.Karambit = {main="Karambit",sub=empty}
 
 -- Precast Sets
@@ -156,7 +159,7 @@ sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {})
 -- Default set for any weaponskill that isn't any more specifically defined
 sets.precast.WS = {
 	ammo="Oshasha's Treatise",
-	head="Nyame Helm",
+	head=gear.jse_empy_head,
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
@@ -173,7 +176,7 @@ sets.precast.WS = {
 -- Specific weaponskill sets.  Uses the base set if an appropriate WSMod version isn't found.
 sets.precast.WS["Rudra's Storm"] = {
 	ammo="Oshasha's Treatise",
-	head="Nyame Helm",
+	head=gear.jse_empy_head,
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
@@ -190,7 +193,7 @@ sets.precast.WS["Rudra's Storm"] = {
 sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS, {})
 sets.precast.WS['Pyrrhic Kleos'] = {
 	ammo="Oshasha's Treatise",
-	head="Nyame Helm",
+	head=gear.jse_empy_head,
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
@@ -204,6 +207,34 @@ sets.precast.WS['Pyrrhic Kleos'] = {
 	back=gear.jse_str_back,	
 }
 
+sets.precast.WS['Ruthless Stroke'] = {
+	ammo="Oshasha's Treatise",
+	head=gear.jse_empy_head,
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
+	neck="Etoile Gorget +2",
+	waist="Fotia Belt",
+	left_ear="Sherida Earring",
+	right_ear=gear.empy_earring,
+	left_ring="Regal Ring",
+	right_ring="Gere Ring",
+	back=gear.jse_str_back,	
+}
+
+-- 20 SB
+sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
+	waist="Sarissapho. Belt",
+    left_ear="Sherida Earring",
+	right_ring="Chirich Ring +1",
+})
+
+sets.precast.WS['Ruthless Stroke'].SubtleBlow = set_combine(sets.precast.WS['Ruthless Stroke'] , {
+	waist="Sarissapho. Belt",
+    left_ear="Sherida Earring",
+	right_ring="Chirich Ring +1",
+})
 -- Swap to these on Moonshade using WS if at 3000 TP
 sets.MaxTP = {ear1="Sherida Earring",ear2="Ishvara Earring"}
 sets.AccMaxTP = {ear1="Sherida Earring",ear2="Telos Earring"}
@@ -240,6 +271,13 @@ sets.idle.DT = set_combine(sets.idle, {
 	head="Nyame Helm",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
+	neck="Loricate Torque +1",
+})
+
+sets.idle.Regain = set_combine(sets.idle, {
+	head="Gleti's Mask",
+	legs="Gleti's Breeches",
+	feet="Gleti's Boots",
 	neck="Loricate Torque +1",
 })
 
@@ -305,6 +343,22 @@ sets.engaged.DT = {
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Nyame Sollerets",
+	neck="Etoile Gorget +2",
+	waist="Windbuffet Belt +1",
+	left_ear="Sherida Earring",
+	right_ear=gear.empy_earring,
+	left_ring="Defending Ring",
+	right_ring="Chirich Ring +1",
+	back=gear.jse_stp_back,
+}
+
+sets.engaged.Regain = {
+	ammo="Coiste Bodhar",
+	head="Gleti's Mask",
+	body="Gleti's Cuirass",
+	hands="Gleti's Gauntlets",
+	legs="Gleti's Breeches",
+	feet="Gleti's Boots",
 	neck="Etoile Gorget +2",
 	waist="Windbuffet Belt +1",
 	left_ear="Sherida Earring",

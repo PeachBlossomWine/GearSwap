@@ -1,11 +1,12 @@
 state.OffenseMode:options('Normal')
-state.HybridMode:options('DT','Normal')
+state.HybridMode:options('DT','Regain','Normal')
 state.WeaponskillMode:options('Normal')
-state.IdleMode:options('DT','Normal')
+state.IdleMode:options('DT','Regain','Normal')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
-state.Weapons:options('Terpsichore','Aeneas','MpuGandring','Karambit','None')
+state.WeaponskillMode:options('Normal','SubtleBlow')
+state.Weapons:options('Terpsichore','Aeneas','Mpu','MpuCento','Karambit','None')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
@@ -14,11 +15,12 @@ autows = 'Pyrrhic Kleos'
 
 state.MainStep = M{['description']='Main Step', 'Box Step','Quickstep','Stutter Step','Feather Step'}
 state.AltStep = M{['description']='Alt Step', 'Quickstep','Box Step','Stutter Step','Feather Step'}
-state.UseAltStep = M(false, 'Use Alt Step')
+state.UseAltStep = M(true, 'Use Alt Step')
 state.CurrentStep = M{['description']='Current Step', 'Main', 'Alt'}
 state.AutoSambaMode = M{['description']= 'Auto Samba Mode', 'Off', 'Haste'}
 state.AutoContradanceMode = M(true, 'Auto Contradance Mode')
 state.AutoPrestoMode = M(true, 'Auto Presto Mode')
+state.AutoBuilding = M(false, 'Auto Building Flourish Mode')
 
 gear.jse_stp_back = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Store TP"+10','Phys. dmg. taken-10%',}}
 gear.jse_wsd_back = {name="Senuna's Mantle",augments={'DEX+20','Accuracy+20 Attack+20','DEX+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
