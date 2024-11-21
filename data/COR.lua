@@ -54,8 +54,6 @@
 --rd_status = false
 --wc_status = false
 --wildcard_failsafe = os.clock() + 9000000
-dia_applied = false
-shot_mob_id = 0
 
 
 -- Initialization function for this job file.
@@ -474,11 +472,6 @@ function check_buff()
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 		local available_ws = S(windower.ffxi.get_abilities().weapon_skills)
 
-        -- if state.AutoShot.value ~= 'Off' and (dia_applied and shot_mob_id and windower.ffxi.get_mob_by_id(shot_mob_id).valid_target and math.sqrt(windower.ffxi.get_mob_by_id(shot_mob_id).distance) <= 22) then
-            -- windower.add_to_chat('[AutoShot] Attemping to use Light Shot for -DIA- upgrade.')
-            -- windower.send_command('input /ja "Light Shot" '..shot_mob_id)
-            -- tickdelay = os.clock() + 2.8
-            -- return true
 		if player.sub_job == 'WAR' and not state.Buff['SJ Restriction'] and not buffactive.Berserk and abil_recasts[1] < latency then
 			windower.chat.input('/ja "Berserk" <me>')
 			tickdelay = os.clock() + 5.1
@@ -553,9 +546,9 @@ end
 buff_spell_lists = {
 	Auto = {	
 		--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
-		{Name='Haste',			Buff='Haste',			SpellID=57,		When='Always'},
-        {Name='Refresh',		Buff='Refresh',			SpellID=109,	When='Always'},
-        {Name='Reraise',	    Buff='Reraise',		    SpellID=135,	When='Always'},
+		-- {Name='Haste',		Buff='Haste',			SpellID=57,		When='Always'},
+        -- {Name='Refresh',		Buff='Refresh',			SpellID=109,	When='Always'},
+        -- {Name='Reraise',	    Buff='Reraise',		    SpellID=135,	When='Always'},
 	},
 	
 	Default = {

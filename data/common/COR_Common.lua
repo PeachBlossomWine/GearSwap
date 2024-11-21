@@ -1,5 +1,5 @@
 
-autows_list = {['DualSavage']='Savage Blade',['DualLeaden']='Leaden Salute',['DualLeadenRanged']='Leaden Salute',['DualWildfire']='Wildfire',['DualWildfireRanged']='Wildfire',['DualLastStand']='Last Stand',['DualLastStandRanged']='Last Stand',['DeathPenalty']='Leaden Salute',['Armageddon']='Wildfire',['Fomalhaut']='Last Stand',['Naegling']='Savage Blade',}
+autows_list = {['DualSavage']='Savage Blade',['DualLeaden']='Leaden Salute',['DualLeadenRanged']='Leaden Salute',['DualWildfire']='Wildfire',['DualWildfireRanged']='Wildfire',['DualLastStand']='Last Stand',['DualLastStandRanged']='Last Stand',['DeathPenalty']='Leaden Salute',['Armageddon']='Wildfire',['Fomalhaut']='Last Stand',['Naegling']='Savage Blade',['Aminon']='Savage Blade',}
 
 if item_available("Chas. Earring +2") then
 	gear.empy_earring = "Chas. Earring +2"
@@ -54,6 +54,7 @@ sets.weapons.Armageddon =				{main="Rostam",sub="Nusku Shield",range="Armageddon
 sets.weapons.Fomalhaut = 				{main="Rostam",sub="Nusku Shield",range="Fomalhaut"}
 sets.weapons.Naegling = 				{main="Naegling",sub="Nusku Shield",range="Anarchy +2"}
 sets.weapons.Earp = 					{main="Rostam",sub="Nusku Shield",range="Earp"}
+sets.weapons.Aminon = 					{main="Naegling",sub="Nusku Shield",range="Fomalhaut"}
 
 -- Precast sets to enhance JAs
 
@@ -190,7 +191,7 @@ sets.precast.WS.STP = {
 	back=gear.jse_midshot_back,
 }
 
--- 31 SB
+-- 20 SB
 sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
 	waist="Sarissapho. Belt",
     left_ear="Digni. Earring",
@@ -229,6 +230,13 @@ sets.precast.WS['Savage Blade'] = {
 	right_ring="Rufescent Ring",
 	back=gear.jse_str_back,
 }
+
+-- 20 SB
+sets.precast.WS['Savage Blade'].SubtleBlow = set_combine(sets.precast.WS['Savage Blade'] , {
+	waist="Sarissapho. Belt",
+    left_ear="Digni. Earring",
+	right_ring="Chirich Ring +1",
+})
 
 sets.precast.WS['Last Stand'] = {
 	ammo=gear.WSbullet,
@@ -319,6 +327,24 @@ sets.midcast.Cure = {
 	right_ring={ name="Metamor. Ring +1", augments={'Path: A',}},
 	back="Solemnity Cape",																	-- 7%
 }
+
+sets.midcast['Enfeebling Magic'] = {
+	ammo=gear.MACCbullet,
+	head="Ikenga's Hat",
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs="Ikenga's Trousers",
+	feet=gear.jse_empy_feet,
+	neck=gear.cor_jse_neck,
+	waist="K. Kachina Belt +1",
+	left_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
+	left_ring=gear.stikini_ring,
+	right_ring="Metamorph Ring +1",
+	back=gear.jse_mab_back,
+}
+
+sets.midcast['Dark Magic'] = set_combine(sets.midcast['Enfeebling Magic'])
 
 sets.Self_Healing = {}
 sets.Cure_Received = {}

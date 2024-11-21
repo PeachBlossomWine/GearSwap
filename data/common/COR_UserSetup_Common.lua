@@ -5,7 +5,7 @@ state.WeaponskillMode:options('Normal','SubtleBlow','STP')
 state.CastingMode:options('Normal','Resistant')
 state.IdleMode:options('Normal','Refresh')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
-state.Weapons:options('DualLeaden','DualLeadenRanged','DualSavage','DualWildfire','DualWildfireRanged','DualLastStand','DualLastStandRanged','DualEarp','DeathPenalty','Armageddon','Fomalhaut','Naegling','Earp','None')
+state.Weapons:options('DualLeaden','DualLeadenRanged','DualSavage','DualWildfire','DualWildfireRanged','DualLastStand','DualLastStandRanged','DualEarp','DeathPenalty','Armageddon','Fomalhaut','Naegling','Earp','Aminon','None')
 state.CompensatorMode = M{'Never','Always'}
 state.AutoZergMode:reset()
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
@@ -18,6 +18,7 @@ gear.RAbullet = "Chrono Bullet"
 gear.WSbullet = "Chrono Bullet"
 gear.MAbullet = "Living Bullet"
 gear.QDbullet = "Animikii Bullet" -- Single bullet here.
+gear.MACCbullet = "Devastating Bullet"
 options.ammo_warning_limit = 15
 
 -- Additional local binds
