@@ -132,7 +132,7 @@ sets.precast.WS = {
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	feet=gear.jse_empy_feet,
 	neck="Fotia Gorget",
 	waist="Fotia Belt",
 	left_ear="Ishvara Earring",
@@ -141,6 +141,12 @@ sets.precast.WS = {
 	right_ring="Rufescent Ring",
 	back=gear.jse_str_back,
 }
+
+sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
+	waist="Sarissapho. Belt",
+    left_ear="Digni. Earring",
+	right_ring="Chirich Ring +1",
+})
 
 sets.precast.WS['Death Blossom'] = set_combine(sets.precast.WS, {
 	neck="Dls. Torque +2",
@@ -160,7 +166,7 @@ sets.precast.WS['Savage Blade'] = {
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	feet=gear.jse_empy_feet,
 	neck="Fotia Gorget",
 	waist="Grunfeld Rope",
 	left_ear="Ishvara Earring",
@@ -177,7 +183,7 @@ sets.precast.WS['Seraph Blade'] = {
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
+	feet=gear.jse_empy_feet,
 	neck="Baetyl Pendant",
 	waist="Sacro Cord",
 	left_ear="Regal Earring",
@@ -186,6 +192,29 @@ sets.precast.WS['Seraph Blade'] = {
 	right_ring="Medada's Ring",
 	back=gear.jse_mnd_back,
 }
+
+sets.precast.WS['Black Halo'] = {
+	range=empty,
+	ammo="Crepuscular Pebble",
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet=gear.jse_empy_feet,
+	neck="Combatant's Torque",
+	waist="Sailfi Belt +1",
+	left_ear="Regal Earring",
+	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
+	left_ring="Rufescent Ring",																		
+	right_ring="Metamor. Ring +1",
+	back=gear.jse_str_back,
+}
+
+sets.precast.WS['Black Halo'].SubtleBlow = set_combine(sets.precast.WS, {
+	waist="Sarissapho. Belt",
+    left_ear="Digni. Earring",
+	right_ring="Chirich Ring +1",
+})
 	
 sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS['Seraph Blade'], {head="Pixie Hairpin +1",left_ring="Archon Ring",back=gear.jse_mab_back})
 	
@@ -545,6 +574,24 @@ sets.midcast.Aspir = sets.midcast.Drain
 sets.midcast.Stun = set_combine(sets.midcast['Enfeebling Magic'], {})
 sets.midcast.Stun.Resistant = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {})
 
+sets.midcast['Absorb-TP'] = {
+	main="Bunzi's Rod",
+	sub="Ammurapi Shield",
+	ammo="Pemphredo Tathlum",
+	head=gear.jse_empy_head,
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
+	neck="Erra Pendant",
+	waist="Obstin. Sash",
+	left_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
+	left_ring=gear.stikini_ring,
+	right_ring="Metamor. Ring +1",
+	back=gear.jse_macc_back,
+}
+
 -- Sets for special buff conditions on spells.
 sets.buff.Saboteur = {hands=gear.jse_empy_hands}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
@@ -557,7 +604,7 @@ sets.idle = {
 	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 	body=gear.idle_body,
 	hands=gear.chironic_refresh_hands,
-	legs=gear.jse_empy_legs,
+	legs="Agwu's Slops",
 	feet=gear.chironic_refresh_feet,
 	neck="Sanctity Necklace",
 	waist=gear.dt_waist,
@@ -574,8 +621,8 @@ sets.idle.DT = {
 	ammo="Homiliary",
 	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 	body=gear.idle_body,																		-- 14
-	hands="Nyame Gauntlets",
-	legs=gear.jse_empy_legs,
+	hands=gear.chironic_refresh_hands,
+	legs="Agwu's Slops",
 	feet=gear.chironic_refresh_feet,
 	neck="Sanctity Necklace",
 	waist=gear.dt_waist,																		-- 4
