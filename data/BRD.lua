@@ -138,28 +138,28 @@ function job_pretarget(spell, spellMap, eventArgs)
 end
 
 function job_precast(spell, spellMap, eventArgs)
-	local accession_spells = S{'Regen III','Sneak','Invisible','Aquaveil','Stoneskin'}
+	local accession_spells = S{'Sneak','Invisible'}
 	if spell.action_type == 'Magic' then
 		if not sets.precast.FC[spell.english] and (spell.type == 'BardSong' and spell.targets.Enemy) then
 			classes.CustomClass = 'SongDebuff'
-		end
-	elseif accession_spells:contains(spell.english) then -- and not data.areas.cities:contains(world.area) then
-		local abil_recasts = windower.ffxi.get_ability_recasts()
-		if player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia()) and not buffactive['SJ Restriction'] then
-			if state.Buff['Light Arts'] then
-				windower.chat.input('/ja "Accession" <me>')
-				windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
-				add_to_chat(122,'Accession - "'..spell.english..'" !')
-				eventArgs.cancel = true
-				tickdelay = os.clock() + 4.6
-			else
-				if abil_recasts[228] < latency then
-					windower.chat.input('/ja "Light Arts" <me>')
-					windower.chat.input:schedule(1.6,'/ja "Accession" <me>')
-					windower.chat.input:schedule(3.1,'/ma "'..spell.english..'" '..spell.target.raw..'')
+		elseif accession_spells:contains(spell.english) then -- and not data.areas.cities:contains(world.area) then
+			local abil_recasts = windower.ffxi.get_ability_recasts()
+			if player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia()) and not buffactive['SJ Restriction'] then
+				if state.Buff['Light Arts'] then
+					windower.chat.input('/ja "Accession" <me>')
+					windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
 					add_to_chat(122,'Accession - "'..spell.english..'" !')
 					eventArgs.cancel = true
-					tickdelay = os.clock() + 6.2
+					tickdelay = os.clock() + 4.6
+				else
+					if abil_recasts[228] < latency then
+						windower.chat.input('/ja "Light Arts" <me>')
+						windower.chat.input:schedule(1.6,'/ja "Accession" <me>')
+						windower.chat.input:schedule(3.1,'/ma "'..spell.english..'" '..spell.target.raw..'')
+						add_to_chat(122,'Accession - "'..spell.english..'" !')
+						eventArgs.cancel = true
+						tickdelay = os.clock() + 6.2
+					end
 				end
 			end
 		end
@@ -576,9 +576,9 @@ end
 
 buff_spell_lists = {
 	Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
-		{Name='Refresh',			Buff='Refresh',			SpellID=109,	When='Always'},
-		{Name='Haste',				Buff='Haste',			SpellID=57,		When='Always'},
-        {Name='Reraise',	        Buff='Reraise',		    SpellID=135,	When='Always'},
+		-- {Name='Refresh',			Buff='Refresh',			SpellID=109,	When='Always'},
+		-- {Name='Haste',				Buff='Haste',			SpellID=57,		When='Always'},
+        -- {Name='Reraise',	        Buff='Reraise',		    SpellID=135,	When='Always'},
 	},
 	Default = {
 		{Name='Refresh',			Buff='Refresh',			SpellID=109,	Reapply=false},

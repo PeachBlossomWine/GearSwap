@@ -1,4 +1,4 @@
-autows_list = {['None']='Rudra\s Storm',['DualCarn']='Mordant Rime',['DualSavage']='Savage Blade',['DualAeneas']='Rudra\s Storm',['MpuGandring']='Rudra\s Storm',['Naegling']='Savage Blade',['Aeneas']='Rudra\s Storm',['Carnwenhan']='Mordant Rime'}
+autows_list = {['None']='Rudra\s Storm',['DualCarn']='Mordant Rime',['DualSavage']='Savage Blade',['DualAeneas']='Rudra\s Storm',['MpuGandring']='Rudra\s Storm',['Naegling']='Savage Blade',['Aeneas']='Rudra\s Storm',['Carnwenhan']='Mordant Rime',['CarnAmmurapi']='Mordant Rime'}
 
 --Weapons
 if item_available("Carnwenhan") then
@@ -103,6 +103,7 @@ end
 -- Weapons sets
 sets.weapons.Aeneas = {main="Aeneas",sub="Genmei Shield"}
 sets.weapons.Carnwenhan = {main=gear.song_dagger,sub="Genmei Shield"}
+sets.weapons.CarnAmmurapi = {main=gear.song_dagger,sub="Ammurapi Shield"}
 sets.weapons.Naegling = {main="Naegling",sub="Genmei Shield"}
 sets.weapons.MpuGandring = {main="Mpu Gandring",sub="Genmei Shield"}
 sets.weapons.DualAeneas = {main="Aeneas",sub="Crepuscular Knife"}
@@ -236,6 +237,12 @@ sets.precast.WS['Savage Blade'] = {
 
 sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS)
 sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS)
+sets.precast.WS['Mordant Rime'].SubtleBlow = set_combine(sets.precast.WS['Mordant Rime'] , {
+	waist="Sarissapho. Belt",
+    left_ear="Digni. Earring",
+	right_ring="Chirich Ring +1",
+})
+
 
 sets.precast.WS['Aeolian Edge'] = {
 	range=gear.wsd_linos,
@@ -503,20 +510,22 @@ sets.midcast['Enhancing Magic'].Melee = {
 sets.midcast['Enfeebling Magic'] = {
 	main=gear.song_dagger,
 	sub="Ammurapi Shield",
-	range="Gjallarhorn",
+	range="Nibiru Harp",
 	head="Brioso Roundlet +3",
-	body="Brioso Justaucorps +3",
-	hands="Brioso Cuffs +3",
-	legs="Brioso Cannions +3",
-	feet="Brioso Slippers +3",
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
 	neck=gear.brd_potency_neck,
 	waist="Obstin. Sash",
-	left_ear="Dignitary's Earring",
-	right_ear="Regal Earring",
-	left_ring="Vertigo Ring",
+	left_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
+	left_ring=gear.stikini_ring,
 	right_ring="Metamorph Ring +1",
 	back=gear.jse_back,
 }
+
+sets.midcast['Dark Magic'] = set_combine(sets.midcast['Enfeebling Magic'])
 
 sets.midcast['Enfeebling Magic'].Melee = {
 	range="Gjallarhorn",
