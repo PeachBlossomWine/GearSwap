@@ -152,7 +152,6 @@ function job_filtered_action(spell, eventArgs)
 				eventArgs.cancel = true
             end
         end
-		count_weapon_skills()
 	end
 end
 
@@ -411,20 +410,17 @@ function check_steps_presto()
 	if state.AutoBuffMode.value ~= 'off' and state.AutoPrestoMode.value and player.tp > 140 and not silent_check_amnesia() then
 		if (under3FMs() or os.clock() > step_timer) and (abil_recasts[236] < latency or state.Buff['Presto']) and abil_recasts[220] < latency and player.status == 'Engaged' then
 			if player.tp > 140 and state.Buff['Presto'] then
-				--windower.add_to_chat('Already have Presto')
 				local doStep = ''
 				if state.UseAltStep.value == true then
 					doStep = state[state.CurrentStep.current..'Step'].current
 				else
 					doStep = state.MainStep.current
 				end        
-				
 				windower.chat.input('/ja "'..doStep..'" <t>')
 				tickdelay = os.clock() + 3.5
 				step_timer = os.clock() + 15 -- why was this 30sec?
 				return true
 			elseif player.tp > 140 and abil_recasts[236] < latency then
-				--windower.add_to_chat('Using Presto JA')
 				windower.chat.input('/ja "Presto" <me>')
 				tickdelay = os.clock() + 3.5
 				return true
