@@ -60,7 +60,6 @@ state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
 state.AutoTomahawkMode = M(false, 'AutoTomahawkMode')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 state.AutoCallPet = M(false, 'Auto Call Pet')
-state.DelayedWS = M(false, 'WS Wall Delay')
 
 data.weaponskills.mythic = {
     ["Conqueror"] = "King's Justice",
@@ -93,9 +92,8 @@ data.weaponskills.mythic = {
 	["Helheim"] = "Fimbulvetr",
 }
 
---table.vprint({data.weaponskills.empyrean})
 data.weaponskills.empyrean = {
-    --["Verethragna"] = "Victory Smite",
+    ["Verethragna"] = "Victory Smite",
     ["Twashtar"] = "Rudra's Storm",
     ["Almace"] = "Chant du Cygne",
     ["Caladbolg"] = "Torcleaver",
@@ -119,6 +117,89 @@ data.equipment.rema_ranged_weapons = S{'Fomalhaut','Gastraphetes','Death Penalty
 sets.buff.Doom = {neck="Nicander's Necklace",waist="Gishdubar Sash",right_ring="Purity Ring"}
 sets.precast.Item['Hallowed Water'] = {neck="Nicander's Necklace",waist="Gishdubar Sash",left_ring="Blenmot's Ring +1",right_ring="Purity Ring"}
 sets.precast.Item['Holy Water'] = {neck="Nicander's Necklace",waist="Gishdubar Sash",left_ring="Blenmot's Ring +1",right_ring="Purity Ring"}
+
+data.spells.geo_buffs = S{'Regen','Refresh','Haste','STR','DEX','VIT','AGI','INT','MND','CHR','Str','Dex','Vit','Agi','Int','Mnd','Chr','Fury','Barrier','Acumen','Fend','Precision','Voidance','Focus','Attunement'}
+data.spells.reraise = S{'Reraise II','Reraise III','Reraise'}
+spell_stepdown = {
+    ['Aspir III'] = 'Aspir II',
+    ['Aspir II'] = 'Aspir',
+    ['Sleepga II'] = 'Sleepga',
+    ['Sleep II'] = 'Sleep',
+    ['Arise'] = 'Raise III',
+    ['Raise III'] = 'Raise II',
+    ['Raise II'] = 'Raise',
+    ['Reraise IV'] = 'Reraise III',
+    ['Reraise III'] = 'Reraise II',
+    ['Reraise II'] = 'Reraise',
+    ['Gravity II'] = 'Gravity',
+    ['Horde Lullaby II'] = 'Horde Lullaby',
+    ['Foe Lullaby II'] = 'Foe Lullaby',
+	['Scop\'s Operetta'] = 'Puppet\'s Operetta',
+	['Puppet\'s Operetta'] = 'Goblin Gavotte',
+	['Goblin Gavotte'] = 'Shining Fantasia',
+	['Stoneja'] = 'Stone VI',
+	['Stone VI'] = 'Stone V',
+	['Stone V'] = 'Stone IV',
+	['Stone IV'] = 'Stone III',
+	['Waterja'] = 'Water VI',
+	['Water VI'] = 'Water V',
+	['Water V'] = 'Water IV',
+	['Water IV'] = 'Water III',
+	['Aeroja'] = 'Aero VI',
+	['Aero VI'] = 'Aero V',
+	['Aero V'] = 'Aero IV',
+	['Aero IV'] = 'Aero III',
+	['Firaja'] = 'Fire VI',
+	['Fire VI'] = 'Fire V',
+	['Fire V'] = 'Fire IV',
+	['Fire IV'] = 'Fire III',
+	['Blizzaja'] = 'Blizzard VI',
+	['Blizzard VI'] = 'Blizzard V',
+	['Blizzard V'] = 'Blizzard IV',
+	['Blizzard IV'] = 'Blizzard III',
+	['Thundaja'] = 'Thunder VI',
+	['Thunder VI'] = 'Thunder V',
+	['Thunder V'] = 'Thunder IV',
+	['Thunder IV'] = 'Thunder III',
+	['Spectral Floe'] = 'Tenebral Crush',
+	['Anvil Lightning'] = 'Silent Storm',
+	['Utsusemi: San'] = 'Utsusemi: Ni',
+	['Utsusemi: Ni'] = 'Utsusemi: Ichi',
+	['Tonko: Ni'] = 'Tonko: Ichi',
+	['Katon: San'] = 'Katon: Ni',
+	['Katon: Ni'] = 'Katon: Ichi',
+	['Suiton: San'] = 'Suiton: Ni',
+	['Suiton: Ni'] = 'Suiton: Ichi',
+	['Doton: San'] = 'Doton: Ni',
+	['Doton: Ni'] = 'Doton: Ichi',
+	['Hyoton: San'] = 'Hyoton: Ni',
+	['Hyoton: Ni'] = 'Hyoton: Ichi',
+	['Huton: San'] = 'Huton: Ni',
+	['Huton: Ni'] = 'Huton: Ichi',
+	['Raiton: San'] = 'Raiton: Ni',
+	['Raiton: Ni'] = 'Raiton: Ichi',
+	['Hojo: Ni'] = 'Hojo: Ichi',
+	['Kurayami: Ni'] = 'Kurayami: Ichi',
+}
+
+item_stepdown = {
+	['Warp Ring'] = {'Treat Staff','main'},
+	['Treat Staff'] = {'Warp Cudgel','main'},
+	['Warp Cudgel'] = {'Instant Warp','item'},
+	['Dusty Reraise'] = {'Hi-Reraiser','item'},
+    ['Hi-Reraiser'] = {'Reraiser','item'},
+	['Reraiser'] = {'Instant Reraise','item'},
+	['Instant Reraise'] = {'Scapegoat','item'},
+    ['Scapegoat'] = {'Super Reraiser','item'},
+	['Super Reraiser'] = {'Revive Feather','item'},
+	['Revive Feather'] = {'Rebirth Feather','item'},
+	['Rebirth Feather'] = {'Reraise Ring','ring2'},
+	['Reraise Ring'] = {'Reraise Earring','ear2'},
+	['Reraise Earring'] = {'Reraise Hairpin','head'},
+	['Reraise Hairpin'] = {'Wh. Rarab Cap +1','head'},
+    ['Grape Daifuku'] = {'Oden','item'},
+    ['Oden'] = {'Seafood Gratin','item'},
+}
 
 function user_unload()
 	currentPC=windower.ffxi.get_player()
