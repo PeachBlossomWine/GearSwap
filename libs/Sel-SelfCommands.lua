@@ -116,9 +116,9 @@ function handle_set(cmdParams)
     local state_var = get_state(cmdParams[1])
     
     if state_var then
-
-
-        if cmdParams[3] == nil then
+		local oldVal
+		local newVal
+		if cmdParams[3] == nil then
             oldVal = state_var.value
             state_var:set(cmdParams[2])
             newVal = state_var.value
@@ -134,13 +134,16 @@ function handle_set(cmdParams)
 			handle_reset(cmdParams)
 			return
 		end
-		
+		-------------------------------------------------------
+		-- Switch WS or weapons for defense down stuff
 		local defense_jobs = S{'DRK','WAR','RUN'}
 		if defense_jobs:contains(player.main_job) and (newVal ~= oldVal) then --((state.Weapons.value ~= 'Lycurgos' and state.Weapons.value ~= 'Chango')) then
 			original_weapon = oldVal
 		elseif (newVal == oldVal) then
 			original_weapon = newVal
 		end
+		-------------------------------------------------------
+		-------------------------------------------------------
 		
         local descrip = state_var.description or cmdParams[1]
         if state_change then
@@ -280,13 +283,12 @@ function handle_toggle(cmdParams)
         if state_change then
             state_change(descrip, newVal, oldVal)
         end
-
+		--Other target change
 		if descrip:lower() == 'autoothertargetws' and state_var.current == 'on' then
 			windower.send_command('gaze ap off') 	-- Handling for gazecheck autopoint
 		elseif descrip:lower() == 'autoothertargetws' and state_var.current == 'off' then
 			windower.send_command('gaze ap on') 	-- Handling for gazecheck autopoint
 		end
-		
         add_to_chat(122,descrip..' is now '..state_var.current..'.')
         handle_update({'auto'})
     else
@@ -420,6 +422,7 @@ function handle_weapons(cmdParams)
 		end
 	elseif sets.weapons[weaponSet] then
 		if state.Weapons:contains(weaponSet) and state.Weapons.value ~= weaponSet then
+			-- Why is this here for BRD only?
 			if player.main_job == "BRD" then
 				state.UnlockWeapons.value = false
 				state.Weapons:set(weaponSet)
@@ -442,7 +445,12 @@ function handle_weapons(cmdParams)
 	end
 
 	if autows_list[state.Weapons.value] then
-		autows = autows_list[state.Weapons.value]
+		if type(autows_list[state.Weapons.value]) == "table" then
+			autows 		= autows_list[state.Weapons.value][1]
+			autowstp 	= autows_list[state.Weapons.value][2]
+		else
+			autows 		= autows_list[state.Weapons.value]
+		end
 	end
 
 	if state.DisplayMode.value then update_job_states()	end
@@ -719,53 +727,13 @@ function handle_autows(cmdParams)
 		if state.DisplayMode.value then update_job_states()	end
 	else
 		autows = table.concat(cmdParams, ' '):ucfirst()
-        defense_ws = S{'tachi: ageha','armor break','full break','shell crusher'}
+		defense_ws = S{'tachi: ageha','armor break','full break','shell crusher'}
         if not(defense_ws:contains(autows:lower())) then
 			add_to_chat(122,'Saving original WS: '..autows..'.')
             original_autows = autows
 			__autows = autows
         end
 		add_to_chat(122,'Your autows weaponskill is set to '..autows..'.')
-		if state.DisplayMode.value then update_job_states()	end
-	end
-end
-
-function handle_autowsone(cmdParams)
-	if #cmdParams == 0 then
-		add_to_chat(122,'You must specify a ws to auto-weaponskill with.')
-	-- elseif state.RngHelper.value then
-		-- if cmdParams[1] == 'tp' then
-			-- rangedautowstp = tonumber(cmdParams[2])
-			-- add_to_chat(122,'Your ranged autows tp value is set to '..rangedautowstp..'.')
-			-- if state.DisplayMode.value then update_job_states()	end
-		-- else
-			-- rangedautows = table.concat(cmdParams, ' '):ucfirst()
-			-- add_to_chat(122,'Your ranged autows weaponskill is set to '..rangedautows..'.')
-			-- if state.DisplayMode.value then update_job_states()	end
-		-- end
-	else
-		autowsone = table.concat(cmdParams, ' '):ucfirst()
-		add_to_chat(122,'Your alternate autows #1 weaponskill is set to '..autowsone..'.')
-		if state.DisplayMode.value then update_job_states()	end
-	end
-end
-
-function handle_autowstwo(cmdParams)
-	if #cmdParams == 0 then
-		add_to_chat(122,'You must specify a ws to auto-weaponskill with.')
-	-- elseif state.RngHelper.value then
-		-- if cmdParams[1] == 'tp' then
-			-- rangedautowstp = tonumber(cmdParams[2])
-			-- add_to_chat(122,'Your ranged autows tp value is set to '..rangedautowstp..'.')
-			-- if state.DisplayMode.value then update_job_states()	end
-		-- else
-			-- rangedautows = table.concat(cmdParams, ' '):ucfirst()
-			-- add_to_chat(122,'Your ranged autows weaponskill is set to '..rangedautows..'.')
-			-- if state.DisplayMode.value then update_job_states()	end
-		-- end
-	else
-		autowstwo = table.concat(cmdParams, ' '):ucfirst()
-		add_to_chat(122,'Your alternate autows #2 weaponskill is set to '..autowstwo..'.')
 		if state.DisplayMode.value then update_job_states()	end
 	end
 end
@@ -1169,8 +1137,6 @@ selfCommandMaps = {
 	['quietdisable']	= handle_quietdisable,
 	['autonuke'] 		= handle_autonuke,
 	['autows'] 			= handle_autows,
-	['autowsone']		= handle_autowsone,
-	['autowstwo']		= handle_autowstwo,
 	['autofood']		= handle_autofood,
 	['facemob']			= handle_facemob,
     ['test']        	= handle_test,

@@ -179,6 +179,7 @@ function update_job_states()
 		AutoNukeMode = "Auto Nuke: "..autonuke.."",
 		AutoSongMode = "Auto Song",
 		AutoJumpMode = "Auto Jump",
+		AutoSuperJumpMode = "Auto SuperJump",
 		AutoWSMode = "Auto WS: "..autows..": "..autowstp.."",
 		AutoShadowMode = "Auto Shadows",
 		AutoFoodMode = "Auto Food: "..autofood.."",
@@ -187,6 +188,7 @@ function update_job_states()
 		Capacity = "Capacity",
 		AutoTankMode = "Auto Tank",
 		CompensatorMode = "Compensator",
+		CarnMode = "Carn Mode",
 		DrainSwapWeaponMode = "Drain Swap",
 		AutoRuneMode = "Auto Rune: "..state.RuneElement.value.."",
 		AutoSambaMode = "Auto Samba: "..state.AutoSambaMode.value.."",
@@ -201,9 +203,10 @@ function update_job_states()
 		PetWSGear = "PetWSGear",
 		DanceStance = "DanceStance",
 		Stance = "Stance",
+		PWUnlock = "PWUnlock"
     }
 
-	stateBox:clear()
+    stateBox:clear()
 	stateBox:append('   ')
 
     -- Construct and append info for boolean states
@@ -265,7 +268,7 @@ function update_job_states()
 					if autoentrust ~= 'None' then
 						stateBox:append(string.format("%sEntrust: "..autoentrust.."  Entrustee: "..autoentrustee.."%s  ", clr.h, clr.n))
 					end
-                    if autogeotar ~= 'None' then
+					if autogeotar ~= 'None' then
                         stateBox:append(string.format("%sGEO Target: "..autogeotar.."%s  ", clr.h, clr.n))
                     end
 				end
@@ -356,6 +359,10 @@ function update_job_states()
 		elseif n == 'CompensatorMode' then
 			if state.CompensatorMode.value ~= 'Never' then
 				stateBox:append(string.format("%sCompensator: %s%s    ", clr.w, clr.h, state.CompensatorMode.value))
+			end
+		elseif n == 'CarnMode' then
+			if state.CarnMode.value ~= 'Never' then
+				stateBox:append(string.format("%sCarn Mode: %s%s    ", clr.w, clr.h, state.CarnMode.value))
 			end
 		elseif n == 'DrainSwapWeaponMode' then
 			if state.DrainSwapWeaponMode.value ~= 'Never' then

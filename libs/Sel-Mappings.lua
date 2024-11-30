@@ -295,12 +295,10 @@ data.spells.storms = S{"Aurorastorm", "Voidstorm", "Firestorm", "Sandstorm", "Ra
 		"Aurorastorm II", "Voidstorm II", "Firestorm II", "Sandstorm II", "Rainstorm II", "Windstorm II", "Hailstorm II", "Thunderstorm II"}
 
 data.spells.geo_debuffs = S{'Frailty','Torpor','Wilt','Fade','Malaise','Slip','Torpor','Vex','Languor','Slow','Paralysis','Gravity','Poison'}
-data.spells.geo_buffs = S{'Regen','Refresh','Haste','STR','DEX','VIT','AGI','INT','MND','CHR','Str','Dex','Vit','Agi','Int','Mnd','Chr','Fury','Barrier','Acumen','Fend','Precision','Voidance','Focus','Attunement'}
+data.spells.geo_buffs = S{'Regen','Refresh','Haste','STR','DEX','VIT','AGI','INT','MND','CHR','Fury','Barrier','Acumen','Fend','Precision','Voidance','Focus','Attunement'}
 
 data.spells.addendum_white = S{'Poisona','Paralyna','Blindna','Silena','Stona','Viruna','Cursna','Erase','Raise II','Raise III',
 	'Reraise II','Reraise III','Reraise'}
-
-data.spells.reraise = S{'Reraise II','Reraise III','Reraise'}
     
 data.spells.addendum_black = S{'Sleep','Sleep II','Dispel','Stone IV','Stone V','Thunder IV','Thunder V','Aero IV','Aero V',
 	'Blizzard IV','Blizzard V','Fire IV','Fire V','Water IV','Water V','Break'}
@@ -359,9 +357,15 @@ data.equipment.aeonic_weapons = S{'Dojikiri Yasutsuna','Chango','Trishula','Sequ
 	'Godhands','Tri-Edge','Anguta','Heishi Shorinken','Tishtrya', 'Fail-Not','Fomalhaut'}
 
 --Only tracking 1-handed weapons for offhanding as they're all that's used in meta.
-data.equipment.magian_tp_bonus_melee_weapons = S{'Sphyras','Barracudas +3','Barracudas +2','Centovente','Fusetto +3','Fusetto +2',
-	'Thibron','Machaera +3','Machaera +2','Fernagu',"Renaud's Axe +3","Renaud's Axe +2",'Hitaki','Uzura +3','Uzura +2',
-	'Ukaldi','Makhila +3','Makhila +2'}
+data.equipment.magian_tp_bonus_melee_weapons = S{
+	'Sphyras','Barracudas +3','Barracudas +2',
+	'Centovente','Fusetto +3','Fusetto +2',
+	'Thibron','Machaera +3','Machaera +2',
+	'Fernagu',"Renaud's Axe +3","Renaud's Axe +2",
+	'Hitaki','Uzura +3','Uzura +2',
+	'Ukaldi','Makhila +3','Makhila +2',
+	'Kantonotachi','Keitonotachi +3','Keitonotachi +2'
+}
 
 data.equipment.magian_tp_bonus_ranged_weapons = S{'Ataktos','Anarchy +3','Anarchy +2','Accipiter','Sparrowhawk +3','Sparrowhawk +2'}
 
@@ -370,27 +374,23 @@ data.equipment.rema_ranged_weapons = S{'Fomalhaut','Gastraphetes','Death Penalty
 data.equipment.rema_ranged_weapons_ammo = {
 	['Fomalhaut'] = 'Chrono Bullet',
 	['Death Penalty'] = 'Living Bullet',
-	['Armageddon'] = 'Chrono Bullet',
+	['Armageddon'] = 'Devastating Bullet',
 	['Fail-Not'] = 'Chrono Arrow',
-	['Gandiva'] = 'Chrono Arrow',
+	['Gandiva'] = "Artemis's Arrow",
 	['Gastraphetes'] = "Quelling Bolt",
-	['Yoichinoyumi'] = 'Chrono Arrow',
-	['Annihilator'] = 'Chrono Bullet',
-	['Anarchy +2'] = 'Chrono Bullet'
-}
+	['Yoichinoyumi'] = "Yoichi's Arrow",
+	['Annihilator'] = 'Eradicating Bullet'}
 
 data.equipment.rema_ranged_weapons_ammo_pouch = {
 	['Fomalhaut'] = 'Chr. Bul. Pouch',
 	['Death Penalty'] = 'Liv. Bul. Pouch',
-	['Armageddon'] = 'Chr. Bul. Pouch',
+	['Armageddon'] = 'Dev. Bul. Pouch',
 	['Fail-Not'] = 'Chrono Quiver',
-	['Gandiva'] = 'Chrono Quiver',
+	['Gandiva'] = "Artemis's Quiver",
 	['Gastraphetes'] = "Quelling B. Quiver",
-	['Yoichinoyumi'] = 'Chrono Quiver',
-	['Annihilator'] = 'Chr. Bul. Pouch',
-	['Anarchy +2'] = 'Chr. Bul. Pouch'
-}
-
+	['Yoichinoyumi'] = "Yoichi's Quiver",
+	['Annihilator'] = 'Era. Bul. Pouch'}
+	
 data.equipment.rema_ammo_weapon_of = {
 	['Chrono Bullet'] = 'Fomalhaut',
 	['Living Bullet'] = 'Death Penalty',
@@ -739,92 +739,35 @@ data.skills.one_handed_combat = S{2,3,5,9,11} --Combat skills for one-handed-wea
 -------------------------------------------------------------------------------------------------------------------
 -- Stepdown Tables.
 -------------------------------------------------------------------------------------------------------------------
--- spell_stepdown = {
-	-- ['Aspir III'] = 'Aspir II',
-	-- ['Aspir II'] = 'Aspir',
-	-- ['Sleepga II'] = 'Sleepga',
-	-- ['Sleep II'] = 'Sleep',
-	-- ['Arise'] = 'Raise III',
-	-- ['Raise III'] = 'Raise II',
-	-- ['Raise II'] = 'Raise',
-	-- ['Reraise IV'] = 'Reraise III',
-	-- ['Reraise III'] = 'Reraise II',
-	-- ['Reraise II'] = 'Reraise',
-	-- ['Gravity II'] = 'Gravity',
-	-- ['Horde Lullaby II'] = 'Horde Lullaby',
-	-- ['Foe Lullaby II'] = 'Foe Lullaby',
--- }
 spell_stepdown = {
-    ['Aspir III'] = 'Aspir II',
-    ['Aspir II'] = 'Aspir',
-    ['Sleepga II'] = 'Sleepga',
-    ['Sleep II'] = 'Sleep',
-    ['Arise'] = 'Raise III',
-    ['Raise III'] = 'Raise II',
-    ['Raise II'] = 'Raise',
-    ['Reraise IV'] = 'Reraise III',
-    ['Reraise III'] = 'Reraise II',
-    ['Reraise II'] = 'Reraise',
-    ['Gravity II'] = 'Gravity',
-    ['Horde Lullaby II'] = 'Horde Lullaby',
-    ['Foe Lullaby II'] = 'Foe Lullaby',
-	['Scop\'s Operetta'] = 'Puppet\'s Operetta',
-	['Puppet\'s Operetta'] = 'Goblin Gavotte',
-	['Goblin Gavotte'] = 'Shining Fantasia',
-	['Stoneja'] = 'Stone VI',
-	['Stone VI'] = 'Stone V',
-	['Stone V'] = 'Stone IV',
-	['Stone IV'] = 'Stone III',
-	['Waterja'] = 'Water VI',
-	['Water VI'] = 'Water V',
-	['Water V'] = 'Water IV',
-	['Water IV'] = 'Water III',
-	['Aeroja'] = 'Aero VI',
-	['Aero VI'] = 'Aero V',
-	['Aero V'] = 'Aero IV',
-	['Aero IV'] = 'Aero III',
-	['Firaja'] = 'Fire VI',
-	['Fire VI'] = 'Fire V',
-	['Fire V'] = 'Fire IV',
-	['Fire IV'] = 'Fire III',
-	['Blizzaja'] = 'Blizzard VI',
-	['Blizzard VI'] = 'Blizzard V',
-	['Blizzard V'] = 'Blizzard IV',
-	['Blizzard IV'] = 'Blizzard III',
-	['Thundaja'] = 'Thunder VI',
-	['Thunder VI'] = 'Thunder V',
-	['Thunder V'] = 'Thunder IV',
-	['Thunder IV'] = 'Thunder III',
-	['Spectral Floe'] = 'Tenebral Crush',
-	['Anvil Lightning'] = 'Silent Storm',
-	['Utsusemi: San'] = 'Utsusemi: Ni',
-	['Utsusemi: Ni'] = 'Utsusemi: Ichi',
-	['Tonko: Ni'] = 'Tonko: Ichi',
-	['Katon: San'] = 'Katon: Ni',
-	['Katon: Ni'] = 'Katon: Ichi',
-	['Suiton: San'] = 'Suiton: Ni',
-	['Suiton: Ni'] = 'Suiton: Ichi',
-	['Doton: San'] = 'Doton: Ni',
-	['Doton: Ni'] = 'Doton: Ichi',
-	['Hyoton: San'] = 'Hyoton: Ni',
-	['Hyoton: Ni'] = 'Hyoton: Ichi',
-	['Huton: San'] = 'Huton: Ni',
-	['Huton: Ni'] = 'Huton: Ichi',
-	['Raiton: San'] = 'Raiton: Ni',
-	['Raiton: Ni'] = 'Raiton: Ichi',
-	['Hojo: Ni'] = 'Hojo: Ichi',
-	['Kurayami: Ni'] = 'Kurayami: Ichi',
+	['Aspir III'] = 'Aspir II',
+	['Aspir II'] = 'Aspir',
+	['Sleepga II'] = 'Sleepga',
+	['Sleep II'] = 'Sleep',
+	['Arise'] = 'Raise III',
+	['Raise III'] = 'Raise II',
+	['Raise II'] = 'Raise',
+	['Reraise IV'] = 'Reraise III',
+	['Reraise III'] = 'Reraise II',
+	['Reraise II'] = 'Reraise',
+	['Gravity II'] = 'Gravity',
+	['Horde Lullaby II'] = 'Horde Lullaby',
+	['Foe Lullaby II'] = 'Foe Lullaby',
 }
 
 item_stepdown = {
 	['Warp Ring'] = {'Treat Staff','main'},
 	['Treat Staff'] = {'Warp Cudgel','main'},
 	['Warp Cudgel'] = {'Instant Warp','item'},
-	['Dusty Reraise'] = {'Hi-Reraiser','item'},
-    ['Hi-Reraiser'] = {'Reraiser','item'},
-	['Reraiser'] = {'Instant Reraise','item'},
-	['Instant Reraise'] = {'Scapegoat','item'},
-    ['Scapegoat'] = {'Super Reraiser','item'},
-    ['Grape Daifuku'] = {'Oden','item'},
-    ['Oden'] = {'Seafood Gratin','item'},
+	['Dusty Reraise'] = {'Instant Reraise','item'},
+	['Instant Reraise'] = {'Reraiser','item'},
+	['Reraiser'] = {'Hi-Reraiser','item'},
+	['Hi-Reraiser'] = {'Scapegoat','item'},
+	['Scapegoat'] = {'Super Reraiser','item'},
+	['Super Reraiser'] = {'Revive Feather','item'},
+	['Revive Feather'] = {'Rebirth Feather','item'},
+	['Rebirth Feather'] = {'Reraise Ring','ring2'},
+	['Reraise Ring'] = {'Reraise Earring','ear2'},
+	['Reraise Earring'] = {'Reraise Hairpin','head'},
+	['Reraise Hairpin'] = {'Wh. Rarab Cap +1','head'},
 }

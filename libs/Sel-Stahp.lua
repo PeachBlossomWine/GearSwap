@@ -71,7 +71,7 @@ RefreshAbility = S{"Refresh","Refresh II", "Refresh III"
 				 
 PhalanxAbility = S{"Phalanx II"
 				 }
-
+				 
 RegenAbility = S{"Regen","Regen II","Regen III","Regen IV","Regen V"
 				 }
 				 
@@ -164,7 +164,7 @@ function check_reaction(act)
 	-- Track buffs locally
 	if curact.category == 4 then
 		act_info = res.spells[curact.param]
-		if curact.targets[1].actions[1].message == 230 then
+		if curact.targets[1].actions[1].message == 230 and targetsMe then
 			if EnhancingAbility:contains(act_info.name) then
 				if act_info.name:endswith('II') then
 					if act_info.name:startswith('Haste') then
@@ -262,7 +262,7 @@ function check_reaction(act)
 				do_equip('sets.midcast.Phalanx')
 			end
 			return
-       	elseif RegenAbility:contains(act_info.name) then
+		elseif RegenAbility:contains(act_info.name) then
 			if sets.Regen_Received then
 				do_equip('sets.Regen_Received')
 			elseif sets.midcast.Regen then
@@ -351,7 +351,7 @@ function check_reaction(act)
 				local defensive_action = false
 				if not midaction() then
 					local abil_recasts = windower.ffxi.get_ability_recasts()
-					if player.main_job == 'DRG' and state.AutoJumpMode.value and abil_recasts[160] < latency then
+					if state.AutoSuperJumpMode.value and  abil_recasts[160] and abil_recasts[160] < latency then
 						windower.chat.input('/ja "Super Jump" <t>')
 						defensive_action = true
 					elseif (player.main_job == 'SAM' or player.sub_job == 'SAM') and ability_type == 'Physical' and abil_recasts[133] < latency then
