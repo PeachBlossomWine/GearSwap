@@ -63,7 +63,7 @@ function job_setup()
 	state.AutoCover = M(false, 'Auto Cover')
 	state.AutoMajesty = M(true, 'Auto Majesty')
 	state.Aminon = M(false, 'Aminon AutoTank')
-	
+		
 	autows = 'Savage Blade'
 	autofood = 'Miso Ramen'
 	
@@ -585,7 +585,7 @@ function check_flash()
 		-- send_command('input /ja "Shield Bash" <t>')
 		-- tickdelay = os.clock() + 2.5
 		-- return true
-	elseif state.AutoWSMode.value and player.tp > 1001 and not (player.mpp < 35 and abil_recasts[79] < latency) and player.in_combat and player.target.type == "MONSTER" and not silent_check_amnesia() then
+	elseif not state.Aminon.value and state.AutoWSMode.value and player.tp > 1001 and not (player.mpp < 35 and abil_recasts[79] < latency) and player.in_combat and player.target.type == "MONSTER" and not silent_check_amnesia() then
 		send_command('input /ws "' .. autows .. '" <t>')
 		add_to_chat(262,'WS -> ' .. autows)
 		tickdelay = os.clock() + 2.5
