@@ -892,11 +892,12 @@ end
 
 function check_zerg_sp()
     if state.AutoZergMode.value == 'On' and player.in_combat and not data.areas.cities:contains(world.area) then
-		add_to_chat(123, 'Zerg Mode ACTIVATION')
+		
         local abil_recasts = windower.ffxi.get_ability_recasts()
 		local battle_target = windower.ffxi.get_mob_by_target('bt') or false
 
         if abil_recasts[0] < latency and abil_recasts[243] < latency and not buffactive['Bolster'] and (battle_target and battle_target.distance:sqrt() < (battle_target.model_size + 20.1) and battle_target.valid_target) then
+			add_to_chat(123, 'Zerg Mode ACTIVATION')
 			if pet.isvalid then
 				windower.chat.input('/ja "Bolster" <me>')
 				windower.chat.input:schedule(1.6,'/ja "Full Circle" <me>')

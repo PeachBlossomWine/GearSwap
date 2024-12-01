@@ -738,6 +738,26 @@ function handle_autows(cmdParams)
 	end
 end
 
+function handle_autowsone(cmdParams)
+	if #cmdParams == 0 then
+		add_to_chat(122,'You must specify a WS #1 to auto-weaponskill with.')
+	else
+		autowsone = table.concat(cmdParams, ' '):ucfirst()
+		add_to_chat(122,'Your alternate autows #1 weaponskill is set to '..autowsone..'.')
+		if state.DisplayMode.value then update_job_states()	end
+	end
+end
+
+function handle_autowstwo(cmdParams)
+	if #cmdParams == 0 then
+		add_to_chat(122,'You must specify a WS #2 to auto-weaponskill with.')
+	else
+		autowstwo = table.concat(cmdParams, ' '):ucfirst()
+		add_to_chat(122,'Your alternate autows #2 weaponskill is set to '..autowstwo..'.')
+		if state.DisplayMode.value then update_job_states()	end
+	end
+end
+
 function handle_autofood(cmdParams)
 	if #cmdParams == 0 then
 		add_to_chat(122,'You must specify a food to automatically eat.')
@@ -1153,4 +1173,6 @@ selfCommandMaps = {
 	['killstatue']		= handle_killstatue,
 	['smartws']			= handle_smartws,
 	['othertargetws']	= handle_othertargetws,
+	['autowsone']		= handle_autowsone,
+	['autowstwo']		= handle_autowstwo,
 	}
