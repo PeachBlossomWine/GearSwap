@@ -408,8 +408,8 @@ end
 function check_steps_presto()
 	local abil_recasts = windower.ffxi.get_ability_recasts()
 	if state.AutoBuffMode.value ~= 'off' and state.AutoPrestoMode.value and player.tp > 140 and not silent_check_amnesia() then
-		if (under3FMs() or os.clock() > step_timer) and (abil_recasts[236] < latency or state.Buff['Presto']) and abil_recasts[220] < latency and player.status == 'Engaged' then
-			if player.tp > 140 and state.Buff['Presto'] then
+		if (abil_recasts[236] < latency or state.Buff['Presto']) and abil_recasts[220] < latency and player.status == 'Engaged' then  -- (under3FMs() or os.clock() > step_timer) and 
+			if player.tp > 140 and (state.Buff['Presto']) then
 				local doStep = ''
 				if state.UseAltStep.value == true then
 					doStep = state[state.CurrentStep.current..'Step'].current
@@ -417,12 +417,12 @@ function check_steps_presto()
 					doStep = state.MainStep.current
 				end        
 				windower.chat.input('/ja "'..doStep..'" <t>')
-				tickdelay = os.clock() + 3.5
-				step_timer = os.clock() + 15 -- why was this 30sec?
+				tickdelay = os.clock() + 1.2
+				step_timer = os.clock() + 15
 				return true
 			elseif player.tp > 140 and abil_recasts[236] < latency then
 				windower.chat.input('/ja "Presto" <me>')
-				tickdelay = os.clock() + 3.5
+				tickdelay = os.clock() + 1.2
 				return true
 			else
 				return false
