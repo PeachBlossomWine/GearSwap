@@ -57,7 +57,7 @@ end
 if item_available("Azimuth Earring +2") then
 	gear.empy_earring = "Azimuth Earring +2"
 else
-	gear.empy_earring = "Malignance Earring"
+	gear.empy_earring = "Azimuth Earring +1"
 end
 
 --------------------------------------
