@@ -63,6 +63,7 @@ function job_setup()
 	state.AutoCover = M(false, 'Auto Cover')
 	state.AutoMajesty = M(true, 'Auto Majesty')
 	state.Aminon = M(false, 'Aminon AutoTank')
+	state.KiteTank = M(false, 'Kite AutoTank')
 		
 	autows = 'Savage Blade'
 	autofood = 'Miso Ramen'
@@ -549,6 +550,19 @@ function update_defense_mode()
         end
     end
 end
+function job_tick_moving()
+	if state.KiteTank.value then
+		if check_majesty() then return true end
+		if state.AutoTankMode.value and player.in_combat and player.target.type == "MONSTER" then
+			if check_flash() then return true
+			else 
+				windower.send_command('gs c SubJobEnmity')
+				tickdelay = os.clock() + 1
+				return true
+			end
+		end
+	end
+end
 
 function job_tick()
 	if check_majesty() then return true end
@@ -581,10 +595,6 @@ function check_flash()
 		windower.chat.input('/ma "Crusade" <me>')
 		tickdelay = os.clock() + 2.5
 		return true
-	-- elseif abil_recasts[73] < latency and not silent_check_amnesia() then
-		-- send_command('input /ja "Shield Bash" <t>')
-		-- tickdelay = os.clock() + 2.5
-		-- return true
 	elseif not state.Aminon.value and state.AutoWSMode.value and player.tp > 1001 and not (player.mpp < 35 and abil_recasts[79] < latency) and player.in_combat and player.target.type == "MONSTER" and not silent_check_amnesia() then
 		send_command('input /ws "' .. autows .. '" <t>')
 		add_to_chat(262,'WS -> ' .. autows)

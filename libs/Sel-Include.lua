@@ -443,7 +443,11 @@ function init_include()
 			if extra_user_tick then
 				if extra_user_tick() then return end
 			end
-			
+		end
+		if (player ~= nil) and (player.status == 'Idle' or player.status == 'Engaged') and not (delayed_cast ~= '' or check_midaction() or buffactive['Sneak'] or buffactive['Invisible'] or silent_check_disable()) then
+			if job_tick_moving then
+				if job_tick_moving() then return end
+			end
 		end
 
 		tickdelay = os.clock() + .5
