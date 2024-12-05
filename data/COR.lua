@@ -535,6 +535,15 @@ end
 	-- wildcard_failsafe = os.clock() + 9000000
 -- end
 
+function job_tick_moving()
+	if state.AutoMovingMode.value then
+		if check_ammo() then return true end
+		if check_buff() then return true end
+		--if check_zerg_sp() then return true end
+		if check_steps_subjob() then return true end
+	end
+end
+
 function job_tick()
 	if check_ammo() then return true end
 	if check_buff() then return true end

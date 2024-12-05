@@ -152,6 +152,7 @@ function init_include()
 	state.UnlockWeapons		  = M(false, 'Unlock Weapons')
 	state.SelfWarp2Block 	  = M(true, 'Block Warp2 on Self')
 	state.MiniQueue		 	  = M(true, 'MiniQueue')
+	state.AutoMovingMode 	  = M(false, 'Auto While Moving Mode')
 
 	state.AutoZergMode 		  = M{['description'] = 'Auto Zerg Mode','Off','On'}
 
@@ -448,6 +449,9 @@ function init_include()
 			if job_tick_moving then
 				if job_tick_moving() then return end
 			end
+			if default_tick_moving and state.AutoMovingMode.value then
+				if default_tick_moving() then return end
+			end	
 		end
 
 		tickdelay = os.clock() + .5

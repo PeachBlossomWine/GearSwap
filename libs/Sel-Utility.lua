@@ -1488,7 +1488,7 @@ function check_trust()
 end
 
 function check_auto_tank_ws()
-	if state.AutoWSMode.value and state.AutoTankMode.value and player.target.type == "MONSTER" and not moving and player.status == 'Engaged' and not silent_check_amnesia() then
+	if state.AutoWSMode.value and state.AutoTankMode.value and player.target.type == "MONSTER" and player.status == 'Engaged' and not silent_check_amnesia() then
 		if player.tp > 999 and data.equipment.relic_weapons:contains(player.equipment.main) and state.MaintainAftermath.value and (not buffactive['Aftermath']) then
 			windower.chat.input('/ws "'..data.weaponskills.relic[player.equipment.main]..'" <t>')
 			tickdelay = os.clock() + 2

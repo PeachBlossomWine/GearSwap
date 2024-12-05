@@ -312,6 +312,16 @@ function job_self_command(commandArgs, eventArgs)
     end
 end
 
+function job_tick_moving()
+	if state.AutoMovingMode.value then
+		if check_dance() then return true end
+		if check_buff() then return true end
+		if check_steps_presto() then return true end
+		return false
+	end
+end
+
+
 function job_tick()
 	if check_dance() then return true end
 	if check_buff() then return true end

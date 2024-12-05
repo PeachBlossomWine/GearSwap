@@ -563,6 +563,17 @@ function handle_elemental(cmdParams)
     end
 end
 
+
+function job_tick_moving()
+	if state.AutoMovingMode.value then
+		if check_arts() then return true end
+		if check_buff() then return true end
+		if check_buffup() then return true end
+		if check_zerg_sp() then return true end
+		return false
+	end
+end
+	
 function job_tick()
 	if check_arts() then return true end
 	if check_buff() then return true end
