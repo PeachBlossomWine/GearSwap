@@ -235,6 +235,12 @@ sets.precast.WS['Ruthless Stroke'].SubtleBlow = set_combine(sets.precast.WS['Rut
     left_ear="Sherida Earring",
 	right_ring="Chirich Ring +1",
 })
+
+sets.precast.WS['Rudra\'s Storm'].SubtleBlow = set_combine(sets.precast.WS['Rudra\'s Storm'] , {
+	waist="Sarissapho. Belt",
+    left_ear="Sherida Earring",
+	right_ring="Chirich Ring +1",
+})
 -- Swap to these on Moonshade using WS if at 3000 TP
 sets.MaxTP = {ear1="Sherida Earring",ear2="Ishvara Earring"}
 sets.AccMaxTP = {ear1="Sherida Earring",ear2="Telos Earring"}
