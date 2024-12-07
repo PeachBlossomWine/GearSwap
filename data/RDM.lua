@@ -115,7 +115,7 @@ end
 
 function job_precast(spell, spellMap, eventArgs)
     local abil_recasts = windower.ffxi.get_ability_recasts()
-    local accession_spells = S{'Regen','Regen II','Regen III','Sneak','Invisible','Aquaveil','Stoneskin','Shell V','Protect V','Barblizzard','Barparalyze',}
+    local accession_spells = S{'Regen','Regen II','Regen III','Sneak','Invisible','Aquaveil','Shell V','Protect V',}
     
 	if spell.action_type == 'Magic' then
 		if state.Buff.Chainspell then
@@ -124,7 +124,7 @@ function job_precast(spell, spellMap, eventArgs)
         
         if accession_spells:contains(spell.english) then -- and not data.areas.cities:contains(world.area) then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
-			if player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia()) and not buffactive['SJ Restriction'] then
+			if not buffactive['SJ Restriction'] and (player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia())) then
 				if state.Buff['Light Arts'] then
 					windower.chat.input('/ja "Accession" <me>')
 					windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
@@ -146,23 +146,6 @@ function job_precast(spell, spellMap, eventArgs)
 			windower.chat.input('/ma "Phalanx II" '..spell.target.raw)
 			cancel_spell()
 			eventArgs.cancel = true
-        -- elseif (spell.english == 'Frazzle III' or spell.english == 'Silence' or spell.english:contains('Gravity')) and abil_recasts[36] < latency and not buffactive['Saboteur'] and not silent_check_amnesia() then
-            -- add_to_chat(122,'Using - Saboteur!')
-			-- windower.chat.input('/ja Saboteur <me>')
-            -- windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
-			-- eventArgs.cancel = true
-            -- tickdelay = os.clock() + 4.6
-		--force stymie for distract 3
-		-- elseif (spell.english == 'Distract III') and abil_recasts[254] < latency and not buffactive['Stymie'] and not silent_check_amnesia() then
-            -- add_to_chat(122,'Using - Stymie!')
-			-- if abil_recasts[36] < latency and not buffactive['Saboteur'] then
-				-- add_to_chat(122,'Using - Saboteur!')
-				-- windower.chat.input('/ja Saboteur <me>')
-			-- end
-			-- windower.chat.input:schedule(1.6,'/ja Stymie <me>')
-            -- windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
-			-- eventArgs.cancel = true
-            -- tickdelay = os.clock() + 5.6
 		end
 		
         if state.CastingMode.value == 'Proc' then
