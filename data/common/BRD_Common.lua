@@ -285,7 +285,8 @@ sets.midcast["Shining Fantasia"] = sets.DummySong
 -- For song buffs (duration and AF3 set bonus)
 sets.midcast.SongEffect = {
 	main=gear.song_dagger,
-	sub="Genmei Shield",					-- 10
+	--sub="Genmei Shield",					-- 10
+	sub="Ammurapi Shield",					-- 10
 	range="Gjallarhorn",
 	head=gear.jse_empy_head,
 	body=gear.jse_empy_body,
