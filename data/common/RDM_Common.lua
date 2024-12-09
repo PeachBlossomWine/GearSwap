@@ -210,7 +210,7 @@ sets.precast.WS['Black Halo'] = {
 	back=gear.jse_str_back,
 }
 
-sets.precast.WS['Black Halo'].SubtleBlow = set_combine(sets.precast.WS, {
+sets.precast.WS['Black Halo'].SubtleBlow = set_combine(sets.precast.WS['Black Halo'], {
 	waist="Sarissapho. Belt",
     left_ear="Digni. Earring",
 	right_ring="Chirich Ring +1",
