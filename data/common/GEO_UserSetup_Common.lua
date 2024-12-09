@@ -48,4 +48,4 @@ else
 	send_command('wait 5; hb mincure 4')
 end
 
-send_command('wait 15; input /lockstyleset 21')
+send_command('wait 15; input /lockstyleset 21; wait 3; lua load dressup')
