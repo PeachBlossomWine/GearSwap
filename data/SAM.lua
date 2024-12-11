@@ -63,8 +63,8 @@ function job_setup()
 	state.Stance = M{['description']='Stance','Hasso','Seigan','None'}
 
 	autows = 'Tachi: Fudo'
-	autowsone = 'Tachi: Fudo'
-	autowstwo = 'Tachi: Shoha'
+	autowsone = 'Tachi: Mumei'
+	autowstwo = 'Tachi: Fudo'
     original_autows = autows
 	rangedautows = "Apex Arrow"
 	autofood = 'Soy Ramen'
