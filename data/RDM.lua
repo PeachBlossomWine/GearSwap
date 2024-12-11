@@ -116,6 +116,7 @@ end
 function job_precast(spell, spellMap, eventArgs)
     local abil_recasts = windower.ffxi.get_ability_recasts()
     local accession_spells = S{'Regen','Regen II','Regen III','Sneak','Invisible','Aquaveil','Shell V','Protect V',}
+	local manifestation_spells = S{'Break','Sleep','Sleep II',}
     
 	if spell.action_type == 'Magic' then
 		if state.Buff.Chainspell then
@@ -137,6 +138,26 @@ function job_precast(spell, spellMap, eventArgs)
 						windower.chat.input:schedule(1.6,'/ja "Accession" <me>')
 						windower.chat.input:schedule(3.1,'/ma "'..spell.english..'" '..spell.target.raw..'')
 						add_to_chat(122,'Accession - "'..spell.english..'" !')
+						eventArgs.cancel = true
+						tickdelay = os.clock() + 6.2
+					end
+				end
+			end
+		elseif manifestation_spells:contains(spell.english) then -- and not data.areas.cities:contains(world.area) then
+			local abil_recasts = windower.ffxi.get_ability_recasts()
+			if not buffactive['SJ Restriction'] and (player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Manifestation or silent_check_amnesia())) then
+				if state.Buff['Dark Arts'] then
+					windower.chat.input('/ja "Manifestation" <me>')
+					windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
+					add_to_chat(122,'Manifestation - "'..spell.english..'" !')
+					eventArgs.cancel = true
+					tickdelay = os.clock() + 4.6
+				else
+					if abil_recasts[228] < latency then
+						windower.chat.input('/ja "Dark Arts" <me>')
+						windower.chat.input:schedule(1.6,'/ja "Manifestation" <me>')
+						windower.chat.input:schedule(3.1,'/ma "'..spell.english..'" '..spell.target.raw..'')
+						add_to_chat(122,'Manifestation - "'..spell.english..'" !')
 						eventArgs.cancel = true
 						tickdelay = os.clock() + 6.2
 					end
@@ -565,30 +586,71 @@ function job_tick()
 	return false
 end
 
-function check_arts()	
-	if buffup ~= '' or (not data.areas.cities:contains(world.area) and ((state.AutoArts.value and player.in_combat) or state.AutoBuffMode.value ~= 'Off')) then
-
- 		local abil_recasts = windower.ffxi.get_ability_recasts()	
-
- 		if not buffactive.Composure then	
+function check_arts()
+	if not data.areas.cities:contains(world.area) and ((state.AutoArts.value and player.in_combat) and state.AutoBuffMode.value ~= 'Off') then
+		local abil_recasts = windower.ffxi.get_ability_recasts()
+		
+		if not buffactive.Composure then	
 			local abil_recasts = windower.ffxi.get_ability_recasts()	
 			if abil_recasts[50] < latency then	
 				tickdelay = os.clock() + 1.1
 				windower.chat.input('/ja "Composure" <me>')	
-				return true	
+				return true
 			end	
 		end	
 
- 		if player.sub_job == 'SCH' and not (state.Buff['SJ Restriction'] or arts_active()) and abil_recasts[228] < latency then	
-			windower.chat.input('/ja "Light Arts" <me>')	
-			tickdelay = os.clock() + 1.1
-			return true	
-		end	
-
- 	end	
-
- 	return false	
+		if player.sub_job == 'SCH' and not (state.Buff['SJ Restriction']) then
+			if state.AutoArtsType.value == 'Light' then
+				if not state.Buff['Addendum: White'] then
+					if not state.Buff['Light Arts'] and abil_recasts[228] < latency and not state.Buff['Addendum: White'] then
+						windower.chat.input('/ja "Light Arts" <me>')
+					elseif state.Buff['Light Arts'] and abil_recasts[233] < latency and not state.Buff['Addendum: White'] and get_current_stratagem_count() > 0 then
+						windower.chat.input('/ja "Addendum: White" <me>')
+					end
+					tickdelay = os.clock() + 2.1
+					return true
+				end		
+			elseif state.AutoArtsType.value == 'Dark' then
+				if not state.Buff['Addendum: Black'] then
+					if not state.Buff['Dark Arts'] and abil_recasts[232] < latency and not state.Buff['Addendum: Black'] then
+						windower.chat.input('/ja "Dark Arts" <me>')
+					elseif state.Buff['Dark Arts'] and abil_recasts[233] < latency and not state.Buff['Addendum: Black'] and get_current_stratagem_count() > 0 then
+						windower.chat.input('/ja "Addendum: Black" <me>')
+					end
+					tickdelay = os.clock() + 2.1
+					return true
+				end
+			end
+		end
+	end
+	
+	return false
 end
+
+-- function check_arts()	
+	-- if buffup ~= '' or (not data.areas.cities:contains(world.area) and ((state.AutoArts.value and player.in_combat) or state.AutoBuffMode.value ~= 'Off')) then
+
+ 		-- local abil_recasts = windower.ffxi.get_ability_recasts()	
+
+ 		-- if not buffactive.Composure then	
+			-- local abil_recasts = windower.ffxi.get_ability_recasts()	
+			-- if abil_recasts[50] < latency then	
+				-- tickdelay = os.clock() + 1.1
+				-- windower.chat.input('/ja "Composure" <me>')	
+				-- return true	
+			-- end	
+		-- end	
+
+ 		-- if player.sub_job == 'SCH' and not (state.Buff['SJ Restriction'] or arts_active()) and abil_recasts[228] < latency then	
+			-- windower.chat.input('/ja "Light Arts" <me>')	
+			-- tickdelay = os.clock() + 1.1
+			-- return true	
+		-- end	
+
+ 	-- end	
+
+ 	-- return false	
+-- end
 
 function check_buff()
 	if state.AutoBuffMode.value ~= 'Off' and not data.areas.cities:contains(world.area) then

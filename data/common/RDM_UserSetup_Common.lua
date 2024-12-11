@@ -9,7 +9,7 @@ state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.WeaponskillMode:options('Normal','SubtleBlow')
 state.Weapons:options('None','DualMurCea','DualMurgleis','DualCrocea','DualCroDay','DualSequence','DualSavage','DualEvis','DualClubs','Murgleis','Crocea','Sequence','Naegling','Maxentius')
-state.AutoArts = M(false, 'AutoArts') 
+state.AutoArts = M(true, 'AutoArts') 
 state.AutoZergMode:reset()
 
 gear.jse_str_back = {name="Sucellos's Cape",augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}

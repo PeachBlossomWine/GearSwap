@@ -120,6 +120,7 @@ function init_include()
 	state.Capacity 			  = M(false, 'Capacity Mode')
 	state.ReEquip 			  = M(false, 'ReEquip Mode')
 	state.AutoArts	 		  = M(false, 'AutoArts Mode')
+	state.AutoArtsType 		  = M{['description'] = 'Auto Arts Type [Light/Dark]', 'Light', 'Dark'}
 	state.AutoLockstyle	 	  = M(false, 'AutoLockstyle Mode')
 	state.AutoTrustMode 	  = M(false, 'Auto Trust Mode')
 	state.RngHelper		 	  = M(false, 'RngHelper')
