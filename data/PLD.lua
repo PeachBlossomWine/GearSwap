@@ -140,7 +140,7 @@ function job_precast(spell, spellMap, eventArgs)
 	elseif accession_spells:contains(spell.english) then -- and not data.areas.cities:contains(world.area) then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
 		if player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Accession or silent_check_amnesia()) and not buffactive['SJ Restriction'] then
-			if state.Buff['Light Arts'] then
+			if state.Buff['Light Arts'] or buffactive['Addendum: White'] then
 				windower.chat.input('/ja "Accession" <me>')
 				windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
 				add_to_chat(122,'Accession - "'..spell.english..'" !')
@@ -157,26 +157,6 @@ function job_precast(spell, spellMap, eventArgs)
 				end
 			end
 		end
-	-- elseif celerity_spells:contains(spell.english) then -- and not data.areas.cities:contains(world.area) then
-		-- local abil_recasts = windower.ffxi.get_ability_recasts()
-		-- if player.sub_job == "SCH" and get_current_stratagem_count() > 0 and not(buffactive.Celerity or silent_check_amnesia()) and not buffactive['SJ Restriction'] then
-			-- if state.Buff['Light Arts'] then
-				-- windower.chat.input('/ja "Celerity" <me>')
-				-- windower.chat.input:schedule(1.6,'/ma "'..spell.english..'" '..spell.target.raw..'')
-				-- add_to_chat(122,'Celerity - "'..spell.english..'" !')
-				-- eventArgs.cancel = true
-				-- tickdelay = os.clock() + 4.6
-			-- else
-				-- if abil_recasts[228] < latency then
-					-- windower.chat.input('/ja "Light Arts" <me>')
-					-- windower.chat.input:schedule(1.6,'/ja "Celerity" <me>')
-					-- windower.chat.input:schedule(3.1,'/ma "'..spell.english..'" '..spell.target.raw..'')
-					-- add_to_chat(122,'Celerity - "'..spell.english..'" !')
-					-- eventArgs.cancel = true
-					-- tickdelay = os.clock() + 6.2
-				-- end
-			-- end
-		-- end
 	end
 
 end

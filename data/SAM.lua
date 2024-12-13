@@ -112,7 +112,7 @@ function job_precast(spell, spellMap, eventArgs)
 			return
 		end
 	end
-	if spell.type == 'WeaponSkill' and not spell.interrupted and state.AutoSwitchWS.value and autoaltws then
+	if spell.type == 'WeaponSkill' and not spell.interrupted and state.AutoSwitchWS.value then
 		if spell.name == autowstwo then
 			add_to_chat(123,'Swapping to original WS: ' ..autowsone)
 			windower.send_command('gs c autows '..autowsone)
