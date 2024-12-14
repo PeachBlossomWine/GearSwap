@@ -35,7 +35,7 @@ send_command('bind @f7 gs c toggle RngHelper')
 send_command('bind @f8 gs c toggle CompensatorMode')
 send_command('bind @pause gs c toggle AutoBuffMode')
 send_command('bind @f6 gs c toggle AutoZergMode')
-send_command('lua r roller')
+send_command('wait 5; lua r roller')
 
 state.LuzafRing = M(true, "Luzaf's Ring")
 
