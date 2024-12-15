@@ -60,6 +60,7 @@ state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
 state.AutoTomahawkMode = M(false, 'AutoTomahawkMode')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 state.AutoCallPet = M(false, 'Auto Call Pet')
+state.AutoEmergencyShadowMode.value = M(false, 'Auto Emergency Shadow Mode')
 
 data.weaponskills.mythic = {
     ["Conqueror"] = "King's Justice",
@@ -249,7 +250,7 @@ function check_shadows()
 				tickdelay = os.clock() + 2
 				return true
 			end
-		elseif player.hpp < 50 and currentshadows < 2 then
+		elseif player.hpp < 50 and currentshadows < 2 and state.AutoEmergencyShadowMode.value then
 			if spell_recasts[340] < spell_latency then
 				windower.chat.input('/ma "Utsusemi: San" <me>')
 				tickdelay = os.clock() + 1.8
@@ -278,7 +279,7 @@ function check_shadows()
 				tickdelay = os.clock() + 2
 				return true
 			end
-		elseif player.hpp < 50 and currentshadows < 1 then
+		elseif player.hpp < 50 and currentshadows < 1 and state.AutoEmergencyShadowMode.value then
 			if spell_recasts[339] < spell_latency then
 				windower.chat.input('/ma "Utsusemi: Ni" <me>')
 				tickdelay = os.clock() + 1.8
@@ -316,7 +317,7 @@ function check_shadows()
 				windower.chat.input('/ja "Third Eye" <me>')
 				tickdelay = os.clock() + 1.1
 				return true
-			elseif silent_can_use(679) and spell_recasts[679] < spell_latency and not buffactive['Blink'] and player.mp > res.spells[679].mp_cost then
+			elseif silent_can_use(679) and spell_recasts[679] < spell_latency and not buffactive['Blink'] and player.mp > res.spells[679].mp_cost and state.AutoEmergencyShadowMode.value then
 				windower.chat.input('/ma "Occultation" <me>')
 				tickdelay = os.clock() + 2
 				return true
