@@ -60,7 +60,7 @@ state.AutoTPReductionMode = M(false, 'Auto TP Reduction Mode')
 state.AutoTomahawkMode = M(false, 'AutoTomahawkMode')
 state.AutoJumpMode = M(false, 'Auto Jump Mode')
 state.AutoCallPet = M(false, 'Auto Call Pet')
-state.AutoEmergencyShadowMode.value = M(false, 'Auto Emergency Shadow Mode')
+state.AutoEmergencyShadowMode = M(false, 'Auto Emergency Shadow Mode')
 
 data.weaponskills.mythic = {
     ["Conqueror"] = "King's Justice",
