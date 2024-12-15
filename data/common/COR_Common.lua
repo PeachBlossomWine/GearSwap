@@ -121,7 +121,7 @@ sets.Self_Waltz = {}
 sets.precast.Waltz['Healing Waltz'] = {}
 
 -- Fast cast sets for spells
--- 65% FC
+-- 78% FC
 
 sets.precast.FC = {
 	head="Carmine Mask +1", 								-- 14
@@ -135,6 +135,7 @@ sets.precast.FC = {
 	right_ear="Etiolation Earring",							-- 1
 	left_ring=gear.weather_ring,							-- 6
 	right_ring="Medada's Ring",
+	back=gear.jse_fc_back,									-- 10
 }
 
 sets.precast.FC.Utsusemi = set_combine(sets.precast.FC, {body="Passion Jacket", neck="Magoraga Beads"})

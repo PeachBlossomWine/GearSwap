@@ -46,6 +46,7 @@ gear.jse_mab_back = { name="Camulus's Mantle", augments={'AGI+20','Mag. Acc+20 /
 gear.jse_tp_back = { name="Camulus's Mantle", augments={'DEX+20','Accuracy+20 Attack+20','Accuracy+10','"Dbl.Atk."+10','Phys. dmg. taken-10%',}}
 gear.jse_str_back = { name="Camulus's Mantle", augments={'STR+20','Accuracy+20 Attack+20','STR+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
 gear.jse_crit_back = { name="Camulus's Mantle", augments={'AGI+20','Rng.Acc.+20 Rng.Atk.+20','Rng.Acc.+10','Crit.hit rate+10','Phys. dmg. taken-10%',}}
+gear.jse_fc_back = { name="Camulus's Mantle", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','"Fast Cast"+10','Phys. dmg. taken-10%',}}
 
 --Lockstyle
 send_command('wait 15; input /lockstyleset 17')
