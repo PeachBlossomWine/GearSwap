@@ -533,7 +533,7 @@ end
 function job_tick_moving()
 	if state.KiteTank.value then
 		if check_majesty() then return true end
-		if state.AutoTankMode.value and player.in_combat and player.target.type == "MONSTER" then
+		if state.AutoTankMode.value and player.in_combat then
 			if check_flash() then return true
 			else 
 				windower.send_command('gs c SubJobEnmity')
