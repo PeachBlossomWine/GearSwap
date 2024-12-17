@@ -12,7 +12,6 @@ send_command('bind ^end mc wsall')
 send_command('bind !f3 mc cc')
 send_command('bind @f2 mc dispelga')
 send_command('bind ^pagedown sa fullcircle')
-send_command('wait 5; lua r healbot')
 autofood = 'Grape Daifuku'
 --Binds
 send_command('bind !@^f7 gs c toggle AutoWSMode') --Turns auto-ws mode on and off.
@@ -223,7 +222,6 @@ function user_unload()
 	end
 
 	send_command('lua u dressup')
-	send_command('lua u healbot')
 end
 
 function check_shadows()
