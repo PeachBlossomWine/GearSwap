@@ -287,8 +287,14 @@ sets.midcast.Cure.SIRD = {
 	back=gear.tank_cure_back,									--		/ 	10%
 }
 
+sets.midcast.LightWeatherCure = set_combine(sets.midcast.Cure, {waist="Korin Obi"})
+sets.midcast.LightDayCure = set_combine(sets.midcast.Cure, {waist="Korin Obi"})
+
 sets.Self_Healing = set_combine(sets.midcast.Cure, {})
 sets.Self_Healing.SIRD = set_combine(sets.midcast.Cure.SIRD, {})	
+
+sets.Self_Healing.LightWeatherCure = set_combine(sets.midcast.Cure, {waist="Korin Obi"})
+sets.Self_Healing.LightDayCure = set_combine(sets.midcast.Cure, {waist="Korin Obi"})
 
 sets.midcast.Reprisal = {
 	ammo="Staunch Tathlum +1",	

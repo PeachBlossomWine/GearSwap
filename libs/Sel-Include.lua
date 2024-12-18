@@ -1173,7 +1173,14 @@ function default_post_midcast(spell, spellMap, eventArgs)
 					if sets.Self_Healing.SIRD and state.CastingMode.value:contains('SIRD') and (player.in_combat or being_attacked) then
 						equip(sets.Self_Healing.SIRD)
 					else
-						equip(sets.Self_Healing)
+						if world.weather_element == 'Light' and state.CastingMode.value:contains('Normal') then
+							equip(sets.Self_Healing.LightWeatherCure)
+						elseif world.day_element == 'Light' and state.CastingMode.value:contains('Normal') then
+							equip(sets.Self_Healing.LightDayCure)
+						else
+							equip(sets.Self_Healing)
+						end
+						
 					end
 				end
 			elseif spellMap == 'Refresh' and sets.Self_Refresh then

@@ -620,7 +620,7 @@ function check_geo()
 	local PlayerBubbles = S{'Fury','Refresh','Regen','Haste','Barrier','Acumen','Fend','Precision','Voidance','Focus','Attunement','STR','DEX','VIT','AGI','INT','MND','CHR'}
     local battle_target = windower.ffxi.get_mob_by_target('bt') or false
     local myluopan = windower.ffxi.get_mob_by_target('pet') or false
-	local entrust_target = windower.ffxi.get_mob_by_name(autoentrustee) or false
+	local entrust_target = autoentrustee and windower.ffxi.get_mob_by_name(autoentrustee) or false
     
     if autogeotar:lower() ~= 'none' then
         local geo_target = windower.ffxi.get_mob_by_name(autogeotar)    

@@ -217,6 +217,18 @@ function job_aftercast(spell, spellMap, eventArgs)
 	end
 end
 
+function job_get_spell_map(spell, default_spell_map)
+    if spell.action_type == 'Magic' then
+		if default_spell_map == 'Cure' and state.CastingMode.value == 'Normal' then
+			if world.weather_element == 'Light' then
+                return 'LightWeatherCure'
+			elseif world.day_element == 'Light' then
+                return 'LightDayCure'
+			end
+        end
+    end
+end
+
 function job_buff_change(buff, gain)
 	update_melee_groups()
 end
