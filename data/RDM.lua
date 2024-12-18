@@ -676,7 +676,7 @@ function check_buff()
 		end
 
 		-- Convert
-		if abil_recasts[49] < latency and player.mpp < 15 and not silent_check_amnesia() and player.in_combat and (battle_target and battle_target.distance:sqrt() < (battle_target.model_size + 20.1) and battle_target.valid_target) then
+		if abil_recasts[49] < latency and player.mpp < 25 and not silent_check_amnesia() and player.in_combat and (battle_target and battle_target.distance:sqrt() < (battle_target.model_size + 20.1) and battle_target.valid_target) then
 			add_to_chat(122,'MP low, Converting!')
 			windower.chat.input('/ja Convert <me>')
 			tickdelay = os.clock() + 2
