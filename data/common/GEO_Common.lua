@@ -119,12 +119,12 @@ sets.precast.FC.Curaga.DT = sets.precast.FC.Cure.DT
 sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {left_ring="Kishar Ring",})
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})
 sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {})
-sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body})
+sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body, right_ring="Medada's Ring", back=gear.jse_fc_back})
 
 sets.precast.FC['Elemental Magic'].DT = set_combine(sets.precast.FC.DT, {left_ring="Kishar Ring",})
 sets.precast.FC['Enhancing Magic'].DT = set_combine(sets.precast.FC.DT, {})
 sets.precast.FC.Stoneskin.DT = set_combine(sets.precast.FC['Enhancing Magic'].DT, {})
-sets.precast.FC.Impact.DT = set_combine(sets.precast.FC.DT, {head=empty,body=gear.impact_body})
+sets.precast.FC.Impact.DT = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body})
 
 sets.precast.FC['Dispelga'] = set_combine(sets.precast.FC, {main="Daybreak",sub="Genmei Shield"})
 
@@ -401,8 +401,19 @@ sets.midcast['Dispelga'].DT = set_combine(sets.midcast['Enfeebling Magic'].DT, {
 
 sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'], {
 	main="Bunzi's Rod",
+	sub="Ammurapi Shield",
 	head=empty,
 	body=gear.impact_body,
+		hands="Agwu's Gages",
+	legs="Perdition Slops",
+		feet=gear.jse_empy_feet,
+	neck="Erra Pendant",
+		waist="Shinjutsu-no-Obi +1",
+	left_ear="Dedition Earring",
+	right_ear="Crepuscular Earring",
+	left_ring=gear.stikini_ring,
+    right_ring="Chirich Ring +1",
+	back=gear.jse_mab_back,
 })
 
 sets.midcast.Stun = sets.midcast['Enfeebling Magic']

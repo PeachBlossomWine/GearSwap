@@ -37,6 +37,7 @@ send_command('gs c set MagicBurstMode Lock')
 gear.jse_mab_back = { name="Nantosuelta's Cape", augments={'INT+20','Mag. Acc+20 /Mag. Dmg.+20','INT+10','"Mag.Atk.Bns."+10','Phys. dmg. taken-10%',}}
 gear.jse_pet_back = { name="Nantosuelta's Cape", augments={'HP+60','Eva.+20 /Mag. Eva.+20','Mag. Evasion+10','Pet: "Regen"+10','Pet: "Regen"+5',}}
 gear.jse_ws_back  = { name="Nantosuelta's Cape", augments={'STR+20','Accuracy+20 Attack+20','Accuracy+10','Weapon skill damage +10%','Phys. dmg. taken-10%',}}
+gear.jse_fc_back = { name="Nantosuelta's Cape", augments={'"Fast Cast"+10'}}
 
 indi_duration = 326
 
