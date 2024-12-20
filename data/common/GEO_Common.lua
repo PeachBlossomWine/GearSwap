@@ -60,12 +60,22 @@ else
 	gear.empy_earring = "Azimuth Earring +1"
 end
 
+if item_available("Bagua Tunic +3") then
+	gear.jse_relic_body = "Bagua Tunic +3"
+elseif item_available("Bagua Tunic +2") then
+	gear.jse_relic_body = "Bagua Tunic +2"
+elseif item_available("Bagua Tunic +1") then
+	gear.jse_relic_body = "Bagua Tunic +1"
+else
+	gear.jse_relic_body = "Bagua Tunic"
+end
+
 --------------------------------------
 -- Precast sets
 --------------------------------------
 
 -- Precast sets to enhance JAs
-sets.precast.JA.Bolster = {body="Bagua Tunic"}
+sets.precast.JA.Bolster = {body=gear.jse_relic_body}
 sets.precast.JA['Life Cycle'] = {body="Geomancy Tunic +3", back=gear.jse_pet_back}
 sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +3"}
 sets.precast.JA['Mending Halation'] = {legs="Bagua Pants +3"}
