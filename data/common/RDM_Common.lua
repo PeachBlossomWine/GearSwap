@@ -512,15 +512,15 @@ sets.midcast.Impact = {
 	head=empty,
 	body=gear.impact_body,
 	hands=gear.jse_empy_hands,
-	legs="Perdition Slops",
-		feet=gear.jse_empy_feet,
+	legs="Perdition Slops",				--30
+	feet=gear.merlinic_occult_feet,		--11
 	neck="Erra Pendant",
-	waist="Oneiros Rope",
+	waist="Oneiros Rope",				--20
 	left_ear="Dedition Earring",
 	right_ear="Crepuscular Earring",
 	left_ring=gear.stikini_ring,
 	right_ring="Chirich Ring +1",
-	back=gear.jse_mab_back,
+	back=gear.jse_macc_back,
 }
 
 -- Elemental
@@ -588,18 +588,18 @@ sets.midcast.Drain = {
 	main="Bunzi's Rod",
 	sub="Ammurapi Shield",
 	ammo="Pemphredo Tathlum",
-	head="Pixie Hairpin +1",		-- Dark 28
+	head=gear.jse_empy_head,
 	body=gear.jse_empy_body,
 	hands=gear.jse_empy_hands,
 	legs=gear.jse_empy_legs,
-		feet=gear.jse_empy_feet,
+	feet=gear.jse_empy_feet,
 	neck="Erra Pendant",			-- 5
 	waist="Fucho-no-obi",			-- 8
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Evanescence Ring",	-- 10
-	right_ring="Archon Ring",		-- Dark
-	back=gear.jse_mab_back,
+	right_ring="Metamorph Ring +1",
+	back=gear.jse_macc_back,
 }
 sets.midcast.Aspir = sets.midcast.Drain
 	
