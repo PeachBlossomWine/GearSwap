@@ -505,7 +505,23 @@ sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHu
 sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Bio III'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Viti. Chapeau +3",waist="Chaac Belt",feet=gear.chironic_treasure_feet})
 
-sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {head=empty, body=gear.impact_body})
+sets.midcast.Impact = {
+	main="Bunzi's Rod",
+	sub="Ammurapi Shield",
+	ammo="Ginsen",
+	head=empty,
+	body=gear.impact_body,
+	hands=gear.jse_empy_hands,
+	legs="Perdition Slops",
+		feet=gear.jse_empy_feet,
+	neck="Erra Pendant",
+	waist="Oneiros Rope",
+	left_ear="Dedition Earring",
+	right_ear="Crepuscular Earring",
+	left_ring=gear.stikini_ring,
+	right_ring="Chirich Ring +1",
+	back=gear.jse_mab_back,
+}
 
 -- Elemental
 sets.midcast['Elemental Magic'] = {
@@ -568,7 +584,23 @@ sets.midcast['Dark Magic'] = {
 	back=gear.jse_mab_back,
 }
 
-sets.midcast.Drain = sets.midcast['Dark Magic']
+sets.midcast.Drain = {
+	main="Bunzi's Rod",
+	sub="Ammurapi Shield",
+	ammo="Pemphredo Tathlum",
+	head="Pixie Hairpin +1",		-- Dark 28
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs=gear.jse_empy_legs,
+		feet=gear.jse_empy_feet,
+	neck="Erra Pendant",			-- 5
+	waist="Fucho-no-obi",			-- 8
+	left_ear="Regal Earring",
+	right_ear=gear.empy_earring,
+	left_ring="Evanescence Ring",	-- 10
+	right_ring="Archon Ring",		-- Dark
+	back=gear.jse_mab_back,
+}
 sets.midcast.Aspir = sets.midcast.Drain
 	
 sets.midcast.Stun = set_combine(sets.midcast['Enfeebling Magic'], {})

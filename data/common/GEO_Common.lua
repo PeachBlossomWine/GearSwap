@@ -341,9 +341,26 @@ sets.midcast['Dark Magic'] = {
 
 sets.midcast['Dark Magic'].DT = set_combine(sets.midcast['Dark Magic'], {})
 		
-sets.midcast.Drain = set_combine(sets.midcast['Dark Magic'], {waist="Fucho-no-obi", feet="Agwu's Pigaches"})
+sets.midcast.Drain = {
+	main="Bunzi's Rod",
+	sub="Ammurapi Shield",
+	range="Dunna",
+	head="Pixie Hairpin +1",		-- Dark 28
+	body="Geomancy Tunic +3",		-- Dark
+	hands="Agwu's Gages",
+	legs=gear.jse_empy_legs,		-- Dark
+	feet="Agwu's Pigaches",			-- 15 R30
+	neck="Erra Pendant",			-- 5
+	waist="Fucho-no-obi",			-- 8
+	left_ear="Regal Earring",
+	right_ear=gear.empy_earring,
+	left_ring="Evanescence Ring",	-- 10
+	right_ring="Archon Ring",		-- Dark
+	back=gear.jse_mab_back,
+}
+
 sets.midcast.Aspir = sets.midcast.Drain
-sets.midcast.Drain.DT = set_combine(sets.midcast['Dark Magic'].DT, {waist="Fucho-no-obi", feet="Agwu's Pigaches"})
+sets.midcast.Drain.DT = sets.midcast.Aspir
 sets.midcast.Aspir.DT = sets.midcast.Drain.DT
 
 sets.midcast['Absorb-TP'] = set_combine(sets.midcast['Dark Magic'], {
@@ -399,14 +416,15 @@ sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'], {})
 sets.midcast['Dispelga'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {main="Daybreak"})
 sets.midcast['Dispelga'].DT = set_combine(sets.midcast['Enfeebling Magic'].DT, {main="Daybreak"})
 
-sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'], {
+sets.midcast.Impact = {
 	main="Bunzi's Rod",
 	sub="Ammurapi Shield",
+	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
 	head=empty,
 	body=gear.impact_body,
 	hands="Agwu's Gages",
 	legs="Perdition Slops",
-	feet=gear.jse_empy_feet,
+		feet=gear.jse_empy_feet,
 	neck="Erra Pendant",
 	waist="Oneiros Rope",
 	left_ear="Dedition Earring",
@@ -414,7 +432,7 @@ sets.midcast.Impact = set_combine(sets.midcast['Enfeebling Magic'], {
 	left_ring=gear.stikini_ring,
     right_ring="Chirich Ring +1",
 	back=gear.jse_mab_back,
-})
+}
 
 sets.midcast.Stun = sets.midcast['Enfeebling Magic']
 sets.midcast.Stun.Resistant = sets.midcast['Enfeebling Magic'].Resistant
