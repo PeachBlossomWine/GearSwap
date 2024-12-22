@@ -67,7 +67,7 @@ send_command('bind @f7 gs c toggle RngHelper')
 send_command('bind @` input /ja "Velocity Shot" <me>')
 send_command('wait 15; input /lockstyleset 11;')
 send_command('lua l hovershot')
-ammostock = 198
+ammostock = 98
 --rangedautows = 'Last Stand'
 state.MaintainAftermath	= M(true, 'Maintain Aftermath')
 select_default_macro_book()
