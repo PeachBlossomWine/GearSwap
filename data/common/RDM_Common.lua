@@ -505,6 +505,7 @@ sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHu
 sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Bio III'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Viti. Chapeau +3",waist="Chaac Belt",feet=gear.chironic_treasure_feet})
 
+-- Store TP + Occult Acumen
 sets.midcast.Impact = {
 	main="Bunzi's Rod",
 	sub="Ammurapi Shield",
@@ -518,7 +519,7 @@ sets.midcast.Impact = {
 	waist="Oneiros Rope",				--20
 	left_ear="Dedition Earring",
 	right_ear="Crepuscular Earring",
-	left_ring=gear.stikini_ring,
+	left_ring="Petrov Ring",
 	right_ring="Chirich Ring +1",
 	back=gear.jse_macc_back,
 }

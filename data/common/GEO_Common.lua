@@ -129,7 +129,7 @@ sets.precast.FC.Curaga.DT = sets.precast.FC.Cure.DT
 sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {left_ring="Kishar Ring",})
 sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {})
 sets.precast.FC.Stoneskin = set_combine(sets.precast.FC['Enhancing Magic'], {})
-sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body, right_ring="Medada's Ring", back=gear.jse_fc_back})
+sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body, left_ring="Kishar Ring", right_ring="Medada's Ring", back=gear.jse_fc_back})
 
 sets.precast.FC['Elemental Magic'].DT = set_combine(sets.precast.FC.DT, {left_ring="Kishar Ring",})
 sets.precast.FC['Enhancing Magic'].DT = set_combine(sets.precast.FC.DT, {})
@@ -426,6 +426,7 @@ sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'], {})
 sets.midcast['Dispelga'] = set_combine(sets.midcast['Enfeebling Magic'].Resistant, {main="Daybreak"})
 sets.midcast['Dispelga'].DT = set_combine(sets.midcast['Enfeebling Magic'].DT, {main="Daybreak"})
 
+-- Store TP + Occult Acumen
 sets.midcast.Impact = {
 	main="Bunzi's Rod",
 	sub="Ammurapi Shield",
@@ -439,7 +440,7 @@ sets.midcast.Impact = {
 	waist="Oneiros Rope",				-- 20
 	left_ear="Dedition Earring",
 	right_ear="Crepuscular Earring",
-	left_ring=gear.stikini_ring,
+	left_ring="Petrov Ring",
     right_ring="Chirich Ring +1",
 	back=gear.jse_mab_back,
 }
