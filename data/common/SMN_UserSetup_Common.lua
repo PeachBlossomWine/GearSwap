@@ -65,7 +65,7 @@ send_command('bind @f7 gs c toggle AutoWardMode;')
 send_command('bind @f6 gs c toggle AutoAvatarMode;')
 
 --Lockstyle + Dressup
-send_command('wait 5; hb disable cure')
+send_command('wait 5; hb disable allcure')
 send_command('wait 15; input /lockstyleset 15; wait 3; lua load dressup')
 
 select_default_macro_book()

@@ -43,7 +43,7 @@ send_command('bind @\\\\ input /ma "Shell V" <t>')
 send_command('bind !\\\\ input /ma "Reraise III" <me>')
 
 send_command('gs c set MagicBurstMode Lock')
-send_command('wait 15; hb disable cure; hb disable curaga; hb disable na;')
+send_command('wait 15; hb disable allcure; hb disable curaga; hb disable na;')
 
 --Lockstyle
 send_command('wait 15; input /lockstyleset 20; wait 3; lua load dressup')
