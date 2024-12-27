@@ -5,7 +5,7 @@ state.WeaponskillMode:options('Normal','SubtleBlow','STP')
 state.CastingMode:options('Normal','Resistant')
 state.IdleMode:options('Normal','Refresh')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode', 'None'}
-state.Weapons:options('DualLeaden','DualLeadenRanged','DualSavage','DualWildfire','DualWildfireRanged','DualLastStand','DualLastStandRanged','DualEarp','DeathPenalty','Armageddon','Fomalhaut','Naegling','Earp','Aminon','None')
+state.Weapons:options('DualLeaden','DualLeadenRanged','DualSavage','DualWildfire','DualWildfireRanged','DualLastStand','DualLastStandRanged','DualEarp','DeathPenalty','Armageddon','Fomalhaut','Naegling','Earp','Aminon','RostamComp','None')
 state.CompensatorMode = M{'Never','Always'}
 state.AutoZergMode:reset()
 state.MaintainAftermath	= M(false, 'Maintain Aftermath')
