@@ -529,20 +529,22 @@ sets.midcast['Enfeebling Magic'] = {
 sets.midcast['Dark Magic'] = set_combine(sets.midcast['Enfeebling Magic'])
 
 sets.midcast['Enfeebling Magic'].Melee = {
-	range="Gjallarhorn",
+	range="Nibiru Harp",
 	head="Brioso Roundlet +3",
-	body="Brioso Justaucorps +3",
-	hands="Brioso Cuffs +3",
-	legs="Brioso Cannions +3",
-	feet="Brioso Slippers +3",
+	body=gear.jse_empy_body,
+	hands=gear.jse_empy_hands,
+	legs=gear.jse_empy_legs,
+	feet=gear.jse_empy_feet,
 	neck=gear.brd_potency_neck,
 	waist="Obstin. Sash",
-	left_ear="Dignitary's Earring",
-	right_ear="Regal Earring",
-	left_ring="Vertigo Ring",
+	left_ear="Crep. Earring",
+	right_ear=gear.empy_earring,
+	left_ring=gear.stikini_ring,
 	right_ring="Metamorph Ring +1",
 	back=gear.jse_back,
 }
+
+sets.midcast['Dark Magic'].Melee = set_combine(sets.midcast['Enfeebling Magic'].Melee)
 
 -- 53% Cure Potency
 -- +20 Skill
