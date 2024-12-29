@@ -19,8 +19,8 @@ sets.weapons.Agwu =         {main="Agwu's Axe", sub="Adapa Shield"}
 sets.weapons.Dolichenus =   {main="Dolichenus", sub="Adapa Shield"}
 
 -- PRECAST SETS
-sets.precast.JA['Killer Instinct'] = {head="Ankusa Helm +1"}
-sets.precast.JA['Bestial Loyalty'] = {hands="Ankusa Gloves +1",feet="Gleti's Boots",right_ear=gear.empy_earring}
+sets.precast.JA['Killer Instinct'] = {head="Ankusa Helm +3"}
+sets.precast.JA['Bestial Loyalty'] = {hands="Ankusa Gloves +3",feet="Gleti's Boots",right_ear=gear.empy_earring}
 sets.precast.JA['Call Beast'] = sets.precast.JA['Bestial Loyalty']
 sets.precast.JA.Familiar = {legs="Ankusa Trousers +3"}
 sets.precast.JA.Tame = {}						 	-- head="Totemic Helm +1"
