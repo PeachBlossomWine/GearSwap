@@ -517,9 +517,9 @@ sets.midcast.Impact = {
 	feet=gear.merlinic_occult_feet,		--11
 	neck="Erra Pendant",
 	waist="Oneiros Rope",				--20
-	left_ear="Dedition Earring",
+	left_ear="Digni. Earring",
 	right_ear="Crepuscular Earring",
-	left_ring="Petrov Ring",
+	left_ring="Chirich Ring +1",
 	right_ring="Chirich Ring +1",
 	back=gear.jse_macc_back,
 }
