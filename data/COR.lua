@@ -319,11 +319,13 @@ function job_post_precast(spell, spellMap, eventArgs)
 			if item_available("Compensator") then
 				enable('range')
 				equip({range="Compensator"})
-			end
-			if sets.precast.CorsairRoll.main and sets.precast.CorsairRoll.main ~= player.equipment.main then
 				enable('main')
-				equip({main=sets.precast.CorsairRoll.main})
+				equip({main=gear.cor_roll_rostam})
 			end
+			-- if sets.precast.CorsairRoll.main and sets.precast.CorsairRoll.main ~= player.equipment.main then
+				-- enable('main')
+				-- equip({main=sets.precast.CorsairRoll.main})
+			-- end
 		end
     elseif spell.english == 'Fold' and buffactive['Bust'] == 2 and sets.precast.FoldDoubleBust then
 		equip(sets.precast.FoldDoubleBust)
