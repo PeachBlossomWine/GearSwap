@@ -519,8 +519,8 @@ sets.midcast.Impact = {
 	waist="Oneiros Rope",				--20
 	left_ear="Digni. Earring",
 	right_ear="Crepuscular Earring",
-	left_ring="Chirich Ring +1",
-	right_ring="Chirich Ring +1",
+	left_ring={name="Chirich Ring +1", bag="wardrobe3"},
+	right_ring={name="Chirich Ring +1", bag="wardrobe4"},
 	back=gear.jse_macc_back,
 }
 
