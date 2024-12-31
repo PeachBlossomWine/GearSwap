@@ -711,6 +711,7 @@ sets.TPEat = {}
 sets.DayIdle = {}
 sets.NightIdle = {}
 
+sets.rollerRing = {left_ring="Roller's Ring"}
 sets.buff.Sublimation = {waist="Embla Sash"}
 sets.buff.DTSublimation = {waist="Embla Sash"}
 

@@ -382,6 +382,10 @@ function job_customize_idle_set(idleSet)
             idleSet = set_combine(idleSet, sets.buff.DTSublimation)
         end
     end
+	
+	if buffactive['Tactician\'s Roll'] and __rollNum == 11 then
+		idleSet = set_combine(idleSet, sets.rollerRing)
+	end
 
     if state.IdleMode.value == 'Normal' or state.IdleMode.value:contains('Sphere') then
 		if player.mpp < 51 then

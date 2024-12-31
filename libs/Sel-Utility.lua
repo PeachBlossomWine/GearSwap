@@ -48,6 +48,7 @@
 -- Buff utility functions.
 -------------------------------------------------------------------------------------------------------------------
 local __invLoaded = false
+__rollNum = 0
 local cancel_spells_to_check = S{'Sneak','Stoneskin','Spectral Jig','Trance','Monomi: Ichi','Utsusemi: Ichi','Utsusemi: Ni','Diamondhide','Magic Barrier','Valiance'}
 local cancel_types_to_check = S{'Waltz', 'Samba'}
 job_registry = T{}
@@ -2804,4 +2805,20 @@ end)
 
 windower.raw_register_event('zone change', function(new_id, old_id)
 	__invLoaded = false
+	__rollNum = 0
+end)
+
+windower.register_event('action', function(act)
+    if act.category == 6 and act.param == 122 then
+        local rollNum = act.targets[1].actions[1].param
+		if rollNum == 11 then
+			__rollNum = rollNum
+		end
+	end
+end)
+
+windower.register_event('lose buff', function(buff_id)
+	if buff_id == 334 then
+		__rollNum = 0
+	end
 end)

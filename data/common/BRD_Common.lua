@@ -698,6 +698,7 @@ sets.idle.Weak = sets.idle.DT
 
 sets.Kiting = {feet=gear.jse_empy_feet}
 sets.latent_refresh = {waist="Fucho-no-obi"}
+sets.rollerRing = {left_ring="Roller's Ring"}
 
 -- Engaged sets
 sets.engaged = {

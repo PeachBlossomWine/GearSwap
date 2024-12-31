@@ -452,6 +452,7 @@ sets.defense.MEVA = sets.defense.PDT
 
 sets.Kiting = {legs="Carmine Cuisses +1"}
 sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
+sets.rollerRing = {left_ring="Roller's Ring"}
 
 -- Engaged sets
 sets.engaged = {

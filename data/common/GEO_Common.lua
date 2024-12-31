@@ -516,6 +516,7 @@ sets.element.Earth = {}
 -- Idle/resting/defense
 --------------------------------------
 
+
 -- Refresh: 7
 -- PDT: 47%
 sets.idle = {
@@ -642,6 +643,10 @@ sets.latent_refresh = {waist="Fucho-no-obi"}
 sets.DayIdle = {}
 sets.NightIdle = {}
 sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
+
+sets.rollerRing = {left_ring="Roller's Ring"}
+sets.buff.Sublimation = {waist="Embla Sash"}
+sets.buff.DTSublimation = {waist="Embla Sash"}
 
 --Removes HP
 sets.HPDown = {}

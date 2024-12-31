@@ -235,6 +235,9 @@ end
 
 
 function job_customize_idle_set(idleSet)
+	if buffactive['Tactician\'s Roll'] and __rollNum == 11 then
+		idleSet = set_combine(idleSet, sets.rollerRing)
+	end
     return idleSet
 end
 

@@ -222,6 +222,13 @@ end
 function job_update(cmdParams, eventArgs)
 end
 
+function job_customize_idle_set(idleSet)
+	if buffactive['Tactician\'s Roll'] and __rollNum == 11 then
+		idleSet = set_combine(idleSet, sets.rollerRing)
+	end
+    return idleSet
+end
+
 function job_post_precast(spell, spellMap, eventArgs)
 	if spell.type == 'WeaponSkill' then
 		local WSset = standardize_set(get_precast_set(spell, spellMap))

@@ -323,6 +323,7 @@ sets.defense.PDT = {
 sets.defense.MDT = sets.defense.PDT
 sets.defense.MEVA = sets.defense.PDT
 sets.Kiting = {feet="Tandava Crackows"}
+sets.rollerRing = {left_ring="Roller's Ring"}
 
 -- Engaged sets
 
@@ -369,7 +370,7 @@ sets.engaged.Regain = {
 	waist="Windbuffet Belt +1",
 	left_ear="Sherida Earring",
 	right_ear=gear.empy_earring,
-	left_ring="Defending Ring",
+	left_ring="Roller's Ring",
 	right_ring="Chirich Ring +1",
 	back=gear.jse_stp_back,
 }
