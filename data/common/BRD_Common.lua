@@ -137,7 +137,7 @@ sets.precast.FC['Enhancing Magic'] = set_combine(sets.precast.FC, {waist="Siegel
 -- 86% Song + FC combined
 sets.precast.FC.BardSong = set_combine(sets.precast.FC, {
 	head=gear.jse_empy_head,   												-- 14
-	body="Brioso Justau. +3",													-- 15
+	body="Brioso Justau. +3",												-- 15
 })
 
 sets.precast.FC.BardSong.Tank = set_combine(sets.precast.FC, {
@@ -160,7 +160,7 @@ sets.precast.FC["Aria of Passion"].Melee = set_combine(sets.precast.FC.BardSong,
 
 sets.precast.JA['Nightingale'] = {feet="Bihu Slippers +3"}
 sets.precast.JA['Troubadour'] = {body="Bihu Justaucorps +3"}
-sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions +2"}
+sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions +3"}
 
 -- Waltz set (chr and vit)
 sets.precast.Waltz = {}

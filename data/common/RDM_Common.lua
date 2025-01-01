@@ -352,7 +352,7 @@ sets.midcast.Aquaveil = {head="Amalric Coif +1",hands=gear.rdm_regal_hands}
 sets.midcast.BarElement = {}
 sets.midcast.Temper = sets.EnhancingSkill
 sets.midcast.Temper.DW = set_combine(sets.midcast.Temper, {})
-sets.midcast.Enspell = set_combine(sets.EnhancingSkill, {legs="Viti. Tights +2"})
+sets.midcast.Enspell = set_combine(sets.EnhancingSkill, {legs="Viti. Tights +3"})
 sets.midcast.Enspell.DW = set_combine(sets.midcast.Enspell, {})
 sets.midcast.BoostStat = {hands="Viti. Gloves +3"}
 sets.midcast.Stoneskin = {neck="Nodens Gorget",waist="Siegel Sash"}
