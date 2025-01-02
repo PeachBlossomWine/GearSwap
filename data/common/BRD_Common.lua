@@ -91,7 +91,7 @@ else
 end
 
 if item_available("Fili Earring +2") then
-	gear.empy_earring = "Fili. Earring +2"
+	gear.empy_earring = "Fili Earring +2"
 elseif item_available("Fili Earring +1") then
 	gear.empy_earring = "Fili Earring +1"
 elseif item_available("Fili Earring") then
