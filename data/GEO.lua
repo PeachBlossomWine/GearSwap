@@ -73,7 +73,7 @@ function job_setup()
 	used_ecliptic = false
     autogeotar = windower.ffxi.get_player().name
 
-	state.ShowDistance = M(true, 'Show Geomancy Buff/Debuff distance')
+	state.ShowDistance = M(false, 'Show Geomancy Buff/Debuff distance')
 	state.AutoEntrust = M(false, 'AutoEntrust Mode')
 	state.CombatEntrustOnly = M(true, 'Combat Entrust Only Mode')
 	state.AutoGeoAbilities = M(true, 'Use Geo Abilities Automatically')
@@ -83,6 +83,8 @@ function job_setup()
 
     indi_timer = ''
     indi_duration = 180
+	__entrustDuration = 345
+	__entrustTime = os.clock() - __entrustDuration
 
 	init_job_states({"Capacity","AutoRuneMode","AutoTrustMode","AutoNukeMode","AutoWSMode","AutoShadowMode","AutoFoodMode","AutoStunMode","AutoDefenseMode"},{"AutoBuffMode","Weapons","OffenseMode","WeaponskillMode","IdleMode","Passive","RuneElement","RecoverMode","ElementalMode","CastingMode","TreasureMode",})
 end
@@ -644,13 +646,19 @@ function check_geo()
 			windower.chat.input('/ma "Indi-'..autoindi..'" <me>')
 			tickdelay = os.clock() + 2.1
 			return true
-		elseif autoentrust ~= 'None' and abil_recasts[93] < latency and (player.in_combat or state.CombatEntrustOnly.value == false) then 
+		elseif os.clock() > __entrustTime + __entrustDuration and autoentrust ~= 'None' and abil_recasts[93] < latency and (player.in_combat or state.CombatEntrustOnly.value == false) then
 			windower.chat.input('/ja "Entrust" <me>')
 			tickdelay = os.clock() + 1.1
 			return true
 		elseif autoentrust ~= 'None' and buffactive["Entrust"] and (player.in_combat or state.CombatEntrustOnly.value == false) then 
 			send_command('@input /ma "Indi-'..autoentrust..'" '..autoentrustee)
 			tickdelay = os.clock() + 2.2
+			if state.Weapons.value == 'None' then -- Full entrust timer.cancel()
+				__entrustDuration = 345
+			else
+				__entrustDuration = 323
+			end
+			__entrustTime = os.clock()
 			return true
 		elseif pet.isvalid then
 			local pet = windower.ffxi.get_mob_by_target("pet")
@@ -777,7 +785,7 @@ windower.raw_register_event('prerender', function()
         bubble_too_far = false
     end
     
-    if myluopan and last_geo then
+    if myluopan and last_geo and state.ShowDistance and state.ShowDistance.value then
         luopan_txtbox = luopan_txtbox..' \\cs(0,255,0)Geo-'..last_geo..':\\cs(255,255,255)\n'
         for i,v in pairs(windower.ffxi.get_mob_array()) do
             local DistanceBetween = ((myluopan.x - v.x)*(myluopan.x-v.x) + (myluopan.y-v.y)*(myluopan.y-v.y)):sqrt()
@@ -801,7 +809,7 @@ windower.raw_register_event('prerender', function()
         end
     end
 
-    if buffactive['Colure Active'] and last_indi then
+    if buffactive['Colure Active'] and last_indi and state.ShowDistance and state.ShowDistance.value then
 		if myluopan then
 			luopan_txtbox = luopan_txtbox..'\n'
 		end
