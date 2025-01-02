@@ -530,7 +530,6 @@ local function reload_settings()
 end
 
 windower.raw_register_event('load', reload_settings)
-windower.raw_register_event('logout', reload_settings)
 windower.raw_register_event('login', reload_settings)
 
 return config
