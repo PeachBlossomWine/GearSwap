@@ -2563,11 +2563,10 @@ function display_breadcrumbs(spell, spellMap, action)
 end
 
 -- Event registers to trigger functions
-local function logout()
+local function handle_logout()
 	windower.send_command('lua unload gearswap')
 end
 
-windower.raw_register_event('load', reload_settings)
 windower.raw_register_event('logout', handle_logout)
 windower.raw_register_event('time change', time_change)
 windower.raw_register_event('zone change', zone_change)
