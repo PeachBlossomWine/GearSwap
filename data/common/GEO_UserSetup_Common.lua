@@ -17,7 +17,7 @@ autogeotar = "None"
 autoindi = "Fury"
 autogeo = "Frailty"
 autoentrust = "None"
-autows = "Black Halo"
+autows = "Judgment"
 
 -- Additional local binds
 send_command('bind ^` gs c cycle ElementalMode')
