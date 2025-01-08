@@ -39,5 +39,5 @@ send_command('bind !` input /pet "Fight" <t>;')
 send_command('bind ^` input /pet "Leave" <me>;')
 send_command('bind @` input /pet "Heel" <me>;')
 
-send_command('hb reload; wait 15; input /lockstyleset 9')
+send_command('input /lockstyleset 9')
 select_default_macro_book()
