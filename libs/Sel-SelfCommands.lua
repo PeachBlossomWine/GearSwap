@@ -285,9 +285,9 @@ function handle_toggle(cmdParams)
         end
 		--Other target change
 		if descrip:lower() == 'autoothertargetws' and state_var.current == 'on' then
-			windower.send_command('gaze ap off') 	-- Handling for gazecheck autopoint
+			windower.send_command('gaze ap off; hb gaze off;') 	-- Handling for gazecheck autopoint
 		elseif descrip:lower() == 'autoothertargetws' and state_var.current == 'off' then
-			windower.send_command('gaze ap on') 	-- Handling for gazecheck autopoint
+			windower.send_command('gaze ap on; hb gaze on;') 	-- Handling for gazecheck autopoint
 		end
         add_to_chat(122,descrip..' is now '..state_var.current..'.')
         handle_update({'auto'})
