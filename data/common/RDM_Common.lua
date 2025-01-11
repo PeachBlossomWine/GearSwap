@@ -211,9 +211,11 @@ sets.precast.WS['Black Halo'] = {
 }
 
 sets.precast.WS['Black Halo'].SubtleBlow = set_combine(sets.precast.WS['Black Halo'], {
-	waist="Sarissapho. Belt",
+	neck="Null Loop",
+	waist="Null Belt",
     left_ear="Digni. Earring",
-	right_ring="Chirich Ring +1",
+	left_ring={name="Chirich Ring +1", bag="wardrobe3"},
+	right_ring={name="Chirich Ring +1", bag="wardrobe4"},
 })
 	
 sets.precast.WS['Sanguine Blade'] = set_combine(sets.precast.WS['Seraph Blade'], {head="Pixie Hairpin +1",left_ring="Archon Ring",back=gear.jse_mab_back})
@@ -515,13 +517,13 @@ sets.midcast.Impact = {
 	hands=gear.jse_empy_hands,
 	legs="Perdition Slops",				--30
 	feet=gear.merlinic_occult_feet,		--11
-	neck="Erra Pendant",
+	neck="Null Loop",
 	waist="Oneiros Rope",				--20
 	left_ear="Digni. Earring",
 	right_ear="Crepuscular Earring",
 	left_ring={name="Chirich Ring +1", bag="wardrobe3"},
 	right_ring={name="Chirich Ring +1", bag="wardrobe4"},
-	back=gear.jse_macc_back,
+	back="Null Shawl",
 }
 
 -- Elemental
@@ -594,13 +596,13 @@ sets.midcast.Drain = {
 	hands=gear.jse_empy_hands,
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
-	neck="Erra Pendant",			-- 5
-	waist="Fucho-no-obi",			-- 8
+	neck="Null Loop",
+	waist="Null Belt",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Evanescence Ring",	-- 10
 	right_ring="Metamorph Ring +1",
-	back=gear.jse_macc_back,
+	back="Null Shawl",
 }
 sets.midcast.Aspir = sets.midcast.Drain
 	
@@ -616,13 +618,13 @@ sets.midcast['Absorb-TP'] = {
 	hands=gear.jse_empy_hands,
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
-	neck="Erra Pendant",
-	waist="Obstin. Sash",
+	neck="Null Loop",
+	waist="Null Belt",
 	left_ear="Crep. Earring",
 	right_ear=gear.empy_earring,
 	left_ring=gear.stikini_ring,
 	right_ring="Metamor. Ring +1",
-	back=gear.jse_macc_back,
+	back="Null Shawl",
 }
 
 -- Sets for special buff conditions on spells.
@@ -637,10 +639,10 @@ sets.idle = {
 	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 	body=gear.idle_body,
 	hands=gear.chironic_refresh_hands,
-	legs="Agwu's Slops",
+	legs="Nyame Flanchard",
 	feet=gear.chironic_refresh_feet,
 	neck="Sanctity Necklace",
-	waist=gear.dt_waist,
+	waist="Null Belt",
 	left_ear="Infused Earring",
 	right_ear="Etiolation Earring",
 	left_ring={name="Defending Ring",priority=50},
@@ -655,10 +657,10 @@ sets.idle.DT = {
 	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 	body=gear.idle_body,																		-- 14
 	hands=gear.chironic_refresh_hands,
-	legs="Agwu's Slops",
+	legs="Nyame Flanchard",
 	feet=gear.chironic_refresh_feet,
 	neck="Sanctity Necklace",
-	waist=gear.dt_waist,																		-- 4
+	waist="Null Belt",
 	left_ear="Infused Earring",
 	right_ear="Etiolation Earring",
 	left_ring={name="Defending Ring",priority=50},												-- 10

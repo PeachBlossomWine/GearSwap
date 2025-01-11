@@ -162,10 +162,12 @@ sets.precast.WS = {
 
 -- 20 SB + More ACC
 sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
-	neck="Combatant's Torque",
+	neck="Null Loop",
+	waist="Null Belt",
     left_ear="Digni. Earring",
 	right_ear="Telos Earring",
-	left_ring="Chirich Ring +1",
+	left_ring={name="Chirich Ring +1", bag="wardrobe3"},
+	right_ring={name="Chirich Ring +1", bag="wardrobe4"},
 })
 --------------------------------------
 -- Midcast sets
@@ -360,13 +362,13 @@ sets.midcast.Drain = {
 	hands="Agwu's Gages",
 	legs=gear.jse_empy_legs,		-- Dark
 	feet="Agwu's Pigaches",			-- 15 R30
-	neck="Erra Pendant",			-- 5
-	waist="Fucho-no-obi",			-- 8
+	neck="Null Loop",
+	waist="Null Belt",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Evanescence Ring",	-- 10
 	right_ring="Metamorph Ring +1",
-	back=gear.jse_mab_back,
+	back="Null Shawl",
 }
 
 sets.midcast.Aspir = sets.midcast.Drain
@@ -380,13 +382,13 @@ sets.midcast['Absorb-TP'] = set_combine(sets.midcast['Dark Magic'], {
 	hands="Agwu's Gages",
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
-	neck="Erra Pendant",
-	waist="Luminary Sash",
+	neck="Null Loop",
+	waist="Null Belt",
 	left_ear="Crep. Earring",
 	right_ear=gear.empy_earring,
 	left_ring=gear.stikini_ring,
 	right_ring="Metamorph Ring +1",
-	back=gear.jse_mab_back,
+	back="Null Shawl",
 })
 	
 sets.midcast['Enfeebling Magic'] = {
@@ -436,13 +438,13 @@ sets.midcast.Impact = {
 	hands="Agwu's Gages",
 	legs="Perdition Slops",				-- 30
 	feet=gear.merlinic_occult_feet,		-- 11
-	neck="Erra Pendant",
+	neck="Null Loop",
 	waist="Oneiros Rope",				-- 20
 	left_ear="Digni. Earring",
 	right_ear="Crepuscular Earring",
 	left_ring={name="Chirich Ring +1", bag="wardrobe3"},
 	right_ring={name="Chirich Ring +1", bag="wardrobe4"},
-	back=gear.jse_mab_back,
+	back="Null Shawl",
 }
 
 sets.midcast.Stun = sets.midcast['Enfeebling Magic']
@@ -529,7 +531,7 @@ sets.idle = {
 	legs="Assid. Pants +1",
 	feet="Geomancy Sandals +3",
 	neck="Sanctity Necklace",
-	waist="Porous Rope",
+	waist="Null Belt",
 	left_ear="Infused Earring",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",															-- 10%
@@ -547,7 +549,7 @@ sets.idle.DT = {
 	legs="Agwu's Slops",																-- 9
 	feet="Geomancy Sandals +3",
 	neck="Loricate Torque +1",															-- 6
-	waist="Porous Rope",
+	waist="Null Belt",
 	left_ear={name="Odnowa Earring +1",priority=500},									-- 3
 	right_ear={name="Etiolation Earring",priority=500},														
 	left_ring="Defending Ring",															-- 10
@@ -665,8 +667,8 @@ sets.engaged = {
     hands="Geomancy Mitaines +3",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck=gear.geo_jse_neck,
-    waist="Grunfeld Rope",
+    neck="Null Loop",
+    waist="Null Belt",
     left_ear="Telos Earring",
     right_ear="Crepuscular Earring",
     left_ring="Chirich Ring +1",

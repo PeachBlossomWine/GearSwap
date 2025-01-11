@@ -188,9 +188,10 @@ sets.precast.WS = {
 
 -- 20 SB
 sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
-	waist="Sarissapho. Belt",
+	waist="Null Belt",
     left_ear="Digni. Earring",
-	right_ring="Chirich Ring +1",
+	left_ring={name="Chirich Ring +1", bag="wardrobe3"},
+	right_ring={name="Chirich Ring +1", bag="wardrobe4"},
 })
 
 sets.precast.WS['Rudra\'s Storm'] = {
@@ -238,9 +239,10 @@ sets.precast.WS['Savage Blade'] = {
 sets.precast.WS['Evisceration'] = set_combine(sets.precast.WS)
 sets.precast.WS['Mordant Rime'] = set_combine(sets.precast.WS)
 sets.precast.WS['Mordant Rime'].SubtleBlow = set_combine(sets.precast.WS['Mordant Rime'] , {
-	waist="Sarissapho. Belt",
+	waist="Null Belt",
     left_ear="Digni. Earring",
-	right_ring="Chirich Ring +1",
+	left_ring={name="Chirich Ring +1", bag="wardrobe3"},
+	right_ring={name="Chirich Ring +1", bag="wardrobe4"},
 })
 
 
@@ -387,7 +389,7 @@ sets.midcast.SongDebuff = {
 	legs=gear.jse_empy_legs,
 	feet="Brioso Slippers +3",
 	neck=gear.brd_potency_neck,
-	waist="Obstin. Sash",
+	waist="Null Belt",
 	left_ear="Regal Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Metamorph Ring +1",
@@ -517,13 +519,13 @@ sets.midcast['Enfeebling Magic'] = {
 	hands=gear.jse_empy_hands,
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
-	neck=gear.brd_potency_neck,
-	waist="Obstin. Sash",
+	neck="Null Loop",
+	waist="Null Belt",
 	left_ear="Crep. Earring",
 	right_ear=gear.empy_earring,
 	left_ring=gear.stikini_ring,
 	right_ring="Metamorph Ring +1",
-	back=gear.jse_back,
+	back="Null Shawl",
 }
 
 sets.midcast['Dark Magic'] = set_combine(sets.midcast['Enfeebling Magic'])
@@ -535,13 +537,13 @@ sets.midcast['Enfeebling Magic'].Melee = {
 	hands=gear.jse_empy_hands,
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
-	neck=gear.brd_potency_neck,
-	waist="Obstin. Sash",
+	neck="Null Loop",
+	waist="Null Belt",
 	left_ear="Crep. Earring",
 	right_ear=gear.empy_earring,
 	left_ring=gear.stikini_ring,
 	right_ring="Metamorph Ring +1",
-	back=gear.jse_back,
+	back="Null Shawl",
 }
 
 sets.midcast['Dark Magic'].Melee = set_combine(sets.midcast['Enfeebling Magic'].Melee)
@@ -608,8 +610,8 @@ sets.idle = {
 	legs=gear.chironic_refresh_legs,		-- 2
 	feet=gear.jse_empy_feet,
 	neck="Sanctity Necklace",
-	waist=gear.dt_waist,
-	left_ear="Infused Earring",
+	waist="Null Belt",
+	left_ear="Odnowa Earring +1",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
 	right_ring="Gelatinous Ring +1",
@@ -626,7 +628,7 @@ sets.idle.Town = {
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck=gear.brd_potency_neck,
-	waist=gear.dt_waist,
+	waist="Null Belt",
 	left_ear="Dignitary's Earring",
 	right_ear="Regal Earring",
 	left_ring="Defending Ring",
@@ -647,8 +649,8 @@ sets.idle.DT = {
 	legs="Inyanga Shalwar +2",
 	feet=gear.jse_empy_feet,
 	neck="Loricate Torque +1",
-	waist=gear.dt_waist,	
-	left_ear="Infused Earring",
+	waist="Null Belt",	
+	left_ear="Odnowa Earring +1",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",
 	right_ring="Inyanga Ring",

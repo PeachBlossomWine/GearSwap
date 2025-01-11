@@ -234,9 +234,10 @@ sets.precast.WS['Savage Blade'] = {
 
 -- 20 SB
 sets.precast.WS['Savage Blade'].SubtleBlow = set_combine(sets.precast.WS['Savage Blade'] , {
-	waist="Sarissapho. Belt",
+	waist="Null Belt",
     left_ear="Digni. Earring",
-	right_ring="Chirich Ring +1",
+	left_ring={name="Chirich Ring +1", bag="wardrobe3"},
+	right_ring={name="Chirich Ring +1", bag="wardrobe4"},
 })
 
 sets.precast.WS['Last Stand'] = {
@@ -336,13 +337,13 @@ sets.midcast['Enfeebling Magic'] = {
 	hands=gear.jse_empy_hands,
 	legs="Ikenga's Trousers",
 	feet=gear.jse_empy_feet,
-	neck=gear.cor_jse_neck,
-	waist="K. Kachina Belt +1",
+	neck="Null Loop",
+	waist="Null Belt",
 	left_ear="Crep. Earring",
 	right_ear=gear.empy_earring,
 	left_ring=gear.stikini_ring,
 	right_ring="Metamorph Ring +1",
-	back=gear.jse_mab_back,
+	back="Null Shawl",
 }
 
 sets.midcast['Dark Magic'] = set_combine(sets.midcast['Enfeebling Magic'])
@@ -394,13 +395,13 @@ sets.buff.Doom = set_combine(sets.buff.Doom, {})
 -- Idle sets
 sets.idle = {
 	ammo=gear.RAbullet,
-	head="Malignance Chapeau",
-	body="Malignance Tabard",
-	hands="Malignance Gloves",																	-- 4%
-	legs="Malignance Tights",																	-- 7%
-	feet="Malignance Boots",																	-- 4%
+	head="Nyame Helm",
+	body="Adamantite Armor",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
 	neck="Sanctity Necklace",
-	waist=gear.dt_waist,																		-- 4%
+	waist="Null Belt",
 	left_ear="Infused Earring",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",																	-- 10%
@@ -416,7 +417,7 @@ sets.idle.Town = {
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck=gear.cor_jse_neck,
-	waist="Yemaya Belt",
+	waist="Null Belt",
 	left_ear="Telos Earring",
 	right_ear="Crep. Earring",
 	left_ring="Regal Ring",
@@ -439,7 +440,7 @@ sets.defense.PDT = {
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Loricate Torque +1",
-	waist=gear.dt_waist,
+	waist="Null Belt",
 	left_ear="Infused Earring",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",

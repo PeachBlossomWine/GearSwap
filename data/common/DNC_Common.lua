@@ -66,7 +66,7 @@ sets.precast.Step = {
 	legs="Malignance Tights",
 	feet={ name="Horos T. Shoes +3", augments={'Enhances "Closed Position" effect',}},
 	neck="Etoile Gorget +2",
-	waist="Grunfeld Rope",
+	waist="Null Belt",
 	left_ear="Digni. Earring",
 	right_ear="Telos Earring",
 	left_ring="Regal Ring",
@@ -265,7 +265,7 @@ sets.idle = {
 	legs="Malignance Tights",
 	feet="Malignance Boots",
 	neck="Sanctity Necklace",
-	waist="Flume Belt +1",				-- 4%
+	waist="Null Belt",
 	left_ear="Infused Earring",
 	right_ear="Etiolation Earring",
 	left_ring="Defending Ring",			-- 10%
