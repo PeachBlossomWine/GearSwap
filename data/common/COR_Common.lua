@@ -395,7 +395,8 @@ sets.buff.Doom = set_combine(sets.buff.Doom, {})
 -- Idle sets
 sets.idle = {
 	ammo=gear.RAbullet,
-	head="Nyame Helm",
+	--head="Nyame Helm",
+	head="Null Masque",
 	body="Adamantite Armor",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
@@ -411,7 +412,7 @@ sets.idle = {
 
 sets.idle.Town = {
 	ammo=gear.RAbullet,
-	head="Nyame Helm",
+	head="Null Masque",
 	body=gear.town_body,
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",

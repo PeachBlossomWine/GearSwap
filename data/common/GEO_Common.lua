@@ -525,7 +525,7 @@ sets.idle = {
 	main="Daybreak",
 	sub="Genmei Shield",																-- 10%
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
-	head=gear.merlinic_refresh_head,
+	head="Null Masque",
 	body=gear.jse_empy_body,
 	hands="Bagua Mitaines +3",
 	legs="Assid. Pants +1",
@@ -543,7 +543,7 @@ sets.idle.DT = {
 	main="Daybreak",
 	sub="Genmei Shield",																-- 10
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},	
-	head=gear.jse_empy_head,
+	head="Null Masque",
 	body=gear.jse_empy_body,
 	hands="Bagua Mitaines +3",															
 	legs="Agwu's Slops",																-- 9
@@ -556,6 +556,8 @@ sets.idle.DT = {
 	right_ring=gear.stikini_ring,
 	back=gear.jse_pet_back,																
 }
+
+sets.idle.Regain = set_combine(sets.idle.DT, {})
 
 sets.idle.Town = set_combine(sets.idle.DT, {
 	main="Idris",
@@ -603,10 +605,17 @@ sets.idle.DT.Pet = {
 	back=gear.jse_pet_back,																								-- 15 / 0
 }
 
+sets.idle.Regain.Pet = set_combine(sets.idle.DT.Pet, {
+	head="Null Masque",
+})
+
 sets.idle.Indi = set_combine(sets.idle, {})
 sets.idle.Pet.Indi = set_combine(sets.idle.Pet, {})
 sets.idle.DT.Indi = set_combine(sets.idle.DT, {}) 
 sets.idle.DT.Pet.Indi = set_combine(sets.idle.DT.Pet, {})
+sets.idle.Regain.Indi = set_combine(sets.idle.Regain, {})
+sets.idle.Regain.Pet.Indi = set_combine(sets.idle.Regain.Pet, {})
+
 
 
 -- Defense sets
