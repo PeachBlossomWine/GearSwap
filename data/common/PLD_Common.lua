@@ -368,7 +368,7 @@ sets.midcast['Divine Magic'].SIRD = sets.midcast['Divine Magic']
 --------------------------------------
 sets.idle = {
 	ammo="Homiliary",												-- 1MP
-	head={name="Crepuscular Helm", priority=114},
+	head={name="Null Masque", priority=114},
 	body=gear.idle_body,
 	hands={name="Regal Gauntlets", priority=205},					-- 1MP
 	legs={name="Sakpata's Cuisses", priority=114},

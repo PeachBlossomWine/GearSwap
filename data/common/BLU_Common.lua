@@ -491,7 +491,7 @@ sets.Learning = {}
 
 sets.idle = {
 	ammo="Staunch Tathlum +1",
-	head="Nyame Helm",
+	head="Null Masque",
 	body=gear.jse_empy_body,		
 	hands="Gleti's Gauntlets",
 	legs="Nyame Flanchard",

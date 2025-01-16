@@ -236,7 +236,7 @@ sets.midcast.RA = {
 
 sets.idle = {
 	ammo="Date Shuriken",
-	head="Malignance Chapeau",
+	head="Null Masque",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
@@ -252,7 +252,7 @@ sets.idle = {
 	
 sets.idle.Town = {
 	ammo="Date Shuriken",
-	head="Nyame Helm",
+	head="Null Masque",
 	body="Nyame Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",

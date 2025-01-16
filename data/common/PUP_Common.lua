@@ -132,7 +132,7 @@ sets.midcast.Pet.PetWSGear.Nuke = set_combine(sets.midcast.Pet.PetWSGear, {})
 
 -- Idle sets
 sets.idle = {
-	head="Malignance Chapeau",
+	head="Null Masque",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
 	legs="Malignance Tights",

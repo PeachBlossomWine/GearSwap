@@ -160,7 +160,7 @@ sets.midcast.Utsusemi = set_combine(sets.midcast.FastRecast, {})
 -- Idle sets
 sets.idle = {
 	ammo=gear.dt_ammo,
-	head="Malignance Chapeau",
+	head="Null Masque",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
@@ -179,7 +179,7 @@ sets.idle.Weak = sets.idle
 	
 sets.idle.Town = {
 	ammo="Coiste Bodhar",
-	head="Mpaca's Cap",
+	head="Null Masque",
 	body="Mpaca's Doublet",
 	hands="Mpaca's Gloves",		
 	legs="Mpaca's Hose",

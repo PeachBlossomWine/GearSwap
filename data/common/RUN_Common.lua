@@ -417,7 +417,7 @@ sets.resting = {}
 
 sets.idle = {
 	ammo="Homiliary",																		-- 			/ 3 DT	/
-	head={name="Nyame Helm",priority=91},													-- 			/		/
+	head={name="Null Masque",priority=100},													-- 			/		/
 	body={name="Runeist Coat +3",priority=218},																
 	hands={name="Regal Gauntlets",priority=205},																
 	legs={name="Nyame Flanchard",priority=114},												-- 		 	/ 9 DT	/

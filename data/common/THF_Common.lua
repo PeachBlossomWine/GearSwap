@@ -152,7 +152,7 @@ sets.midcast.RA = {
 
 sets.idle = {
 	ammo=gear.dt_ammo,
-	head="Malignance Chapeau",
+	head="Null Masque",
 	body="Gleti's Cuirass",
 	hands="Gleti's Gauntlets",
 	legs="Malignance Tights",
@@ -167,7 +167,7 @@ sets.idle = {
 }
 
 sets.idle.DT = set_combine(sets.idle, {
-	head="Nyame Helm",
+	head="Null Masque",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Loricate Torque +1",

@@ -281,7 +281,7 @@ sets.idle.DT = set_combine(sets.idle, {
 })
 
 sets.idle.Regain = set_combine(sets.idle, {
-	head="Gleti's Mask",
+	head="Null Masque",
 	legs="Gleti's Breeches",
 	feet="Gleti's Boots",
 	neck="Loricate Torque +1",
@@ -361,7 +361,7 @@ sets.engaged.DT = {
 
 sets.engaged.Regain = {
 	ammo="Coiste Bodhar",
-	head="Gleti's Mask",
+	head="Null Masque",
 	body="Gleti's Cuirass",
 	hands="Gleti's Gauntlets",
 	legs="Gleti's Breeches",

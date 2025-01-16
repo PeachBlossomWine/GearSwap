@@ -198,7 +198,7 @@ sets.precast.WS['Sonic Thrust'] = set_combine(sets.precast.WS, {
 -- 40% DT/PDT
 sets.idle = {
 	ammo="Staunch Tathlum +1",																		-- 3%
-    head="Crepuscular Helm",
+    head="Null Masque",
     body="Crepuscular Mail",
     hands="Gleti's Gauntlets",
     legs="Nyame Flanchard",

@@ -305,7 +305,7 @@ sets.midcast.Utsusemi = sets.midcast.FastRecast
 
 -- Idle sets
 sets.idle = {
-	head="Malignance Chapeau",
+	head="Null Masque",
 	body="Malignance Tabard",
 	hands="Malignance Gloves",					
 	legs="Malignance Tights",
@@ -321,7 +321,7 @@ sets.idle = {
 sets.resting = sets.idle
 
 sets.idle.Town = {
-	head="Nyame Helm",
+	head="Null Masque",
 	body="Nisroch Jerkin",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",

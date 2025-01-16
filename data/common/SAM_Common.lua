@@ -225,13 +225,13 @@ sets.precast.WS['Tachi: Ageha'] = {
 	hands=gear.jse_empy_hands,
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
-	neck="Sanctity Necklace",
-	waist="Eschan Stone",
+	neck="Null Loop",
+	waist="Null Belt",
 	left_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	right_ear=gear.empy_wsd_earring,
 	left_ring={name="Metamor. Ring +1",priority=500},
 	right_ring=gear.weather_ring,
-	back=gear.ws_jse_back,
+	back="Null Shawl",
 }
 
 sets.precast.WS['Tachi: Ageha'].Enmity = set_combine(sets.precast.WS['Tachi: Ageha'], {left_ear="Schere Earring"})

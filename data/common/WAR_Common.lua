@@ -218,7 +218,7 @@ sets.midcast.RA = {
 -- Idle sets
 sets.idle = {
 	ammo="Staunch Tathlum +1",
-	head="Sakpata's Helm",
+	head="Null Masque",
 	body="Crepuscular Mail",
 	hands="Sakpata's Gauntlets",
 	legs="Sakpata's Cuisses",

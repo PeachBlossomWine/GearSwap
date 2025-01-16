@@ -192,7 +192,7 @@ sets.resting = {}
 
 sets.idle = {
 	ammo="Staunch Tathlum +1",
-	head="Crepuscular Helm",
+	head="Null Masque",
 	body="Crepuscular Mail",
 	hands="Gleti's Gauntlets",
 	legs="Malignance Tights",
@@ -208,7 +208,7 @@ sets.idle = {
 
 sets.idle.DT = {
 	ammo="Staunch Tathlum +1",
-	head="Crepuscular Helm",
+	head="Null Masque",
 	body="Crepuscular Mail",
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
