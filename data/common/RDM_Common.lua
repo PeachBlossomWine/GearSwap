@@ -119,7 +119,7 @@ sets.precast.FC = {
 	back="Perimede Cape",																	-- QC 4
 }
 	
-sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body})
+sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body, left_ring="Medada's Ring", ammo="Sapience Orb",back="Solemnity Cape"})
 sets.precast.FC.Dispelga = set_combine(sets.precast.FC, {main="Daybreak",sub="Genmei Shield"})
 
 sets.precast.FC['Elemental Magic'] = set_combine(sets.precast.FC, {ammo="Sapience Orb", left_ring="Petrov Ring", back=gear.jse_mab_back})

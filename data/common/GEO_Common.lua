@@ -134,7 +134,7 @@ sets.precast.FC.Impact = set_combine(sets.precast.FC, {head=empty,body=gear.impa
 sets.precast.FC['Elemental Magic'].DT = set_combine(sets.precast.FC.DT, {left_ring="Kishar Ring",})
 sets.precast.FC['Enhancing Magic'].DT = set_combine(sets.precast.FC.DT, {})
 sets.precast.FC.Stoneskin.DT = set_combine(sets.precast.FC['Enhancing Magic'].DT, {})
-sets.precast.FC.Impact.DT = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body})
+sets.precast.FC.Impact.DT = set_combine(sets.precast.FC, {head=empty,body=gear.impact_body, left_ring="Kishar Ring", right_ring="Medada's Ring", back=gear.jse_fc_back})
 
 sets.precast.FC['Dispelga'] = set_combine(sets.precast.FC, {main="Daybreak",sub="Genmei Shield"})
 
