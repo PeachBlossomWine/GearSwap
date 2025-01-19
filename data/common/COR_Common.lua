@@ -165,7 +165,7 @@ sets.precast.RA.Flurry2 = set_combine(sets.precast.RA, {})
 sets.precast.WS = {
 	head="Nyame Helm",
 	body="Nyame Mail",
-	hands="Nyame Gauntlets",
+	hands=gear.jse_empy_hands,
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck="Fotia Gorget",
@@ -220,7 +220,7 @@ sets.precast.WS['Savage Blade'] = {
 	ammo="Bayeux Bullet",
 	head="Nyame Helm",
 	body="Nyame Mail",
-	hands="Nyame Gauntlets",
+	hands=gear.jse_empy_hands,
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
 	neck=gear.cor_sav_neck,
@@ -463,7 +463,7 @@ sets.engaged = {
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Malignance Boots",
-	neck="Combatant's Torque",
+	neck="Null Loop",
 	waist=gear.tp_dw_waist,
 	left_ear="Cessance Earring",
 	right_ear=gear.empy_earring,
@@ -479,7 +479,7 @@ sets.engaged.Acc = {
 	hands=gear.jse_empy_hands,
 	legs="Malignance Tights",
 	feet=gear.jse_empy_feet,
-	neck="Combatant's Torque",
+	neck="Null Loop",
 	waist=gear.tp_dw_waist,
 	left_ear="Cessance Earring",
 	right_ear=gear.empy_earring,
@@ -495,11 +495,11 @@ sets.engaged.DT = {
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
-	neck="Combatant's Torque",
+	neck="Null Loop",
 	waist=gear.tp_dw_waist,
-	left_ear="Cessance Earring",
+	left_ear="Telos Earring",
 	right_ear=gear.empy_earring,
-	left_ring="Defending Ring",
+	left_ring="Ilabrat Ring",
 	right_ring="Chirich Ring +1",
 	back=gear.jse_tp_back,
 }
@@ -511,9 +511,9 @@ sets.engaged.Tank = {
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet="Nyame Sollerets",
-	neck="Combatant's Torque",
+	neck="Null Loop",
 	waist=gear.tp_dw_waist,
-	left_ear="Cessance Earring",
+	left_ear="Telos Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Defending Ring",
 	right_ring="Chirich Ring +1",
@@ -526,6 +526,6 @@ sets.engaged.Tank = {
 sets.engaged.DW = set_combine(sets.engaged, {waist="Reiki Yotai", left_ear="Suppanomimi",})
 sets.engaged.Acc.DW = set_combine(sets.engaged.Acc, {waist="Reiki Yotai", left_ear="Suppanomimi",})
 sets.engaged.DW.DT = set_combine(sets.engaged.DT, {waist="Reiki Yotai", left_ear="Suppanomimi",})
-sets.engaged.DW.Tank = set_combine(sets.engaged.DT, {waist="Reiki Yotai", left_ear="Suppanomimi",})
+sets.engaged.DW.Tank = set_combine(sets.engaged.Tank, {waist="Reiki Yotai", left_ear="Suppanomimi",})
 sets.engaged.Acc.DW.DT = set_combine(sets.engaged.DW.DT, {waist="Reiki Yotai", left_ear="Suppanomimi",})
-sets.engaged.Acc.DW.Tank = set_combine(sets.engaged.DW.DT, {waist="Reiki Yotai", left_ear="Suppanomimi",})
+sets.engaged.Acc.DW.Tank = set_combine(sets.engaged.DW.Tank, {waist="Reiki Yotai", left_ear="Suppanomimi",})
