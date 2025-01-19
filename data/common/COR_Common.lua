@@ -490,11 +490,11 @@ sets.engaged.Acc = {
 
 sets.engaged.DT = {
 	ammo=gear.RAbullet,
-	head="Malignance Chapeau",
-	body="Malignance Tabard",		
-	hands="Malignance Gloves",
-	legs="Malignance Tights",
-	feet="Malignance Boots",
+	head="Nyame Helm",
+	body="Nyame Mail",
+	hands="Nyame Gauntlets",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
 	neck="Combatant's Torque",
 	waist=gear.tp_dw_waist,
 	left_ear="Cessance Earring",

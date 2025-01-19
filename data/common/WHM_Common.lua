@@ -300,7 +300,7 @@ sets.midcast['Full Cure'] = sets.midcast.FastRecast
 -- CPII:	6
 
 sets.midcast.Cure = {
-	main="Queller Rod",																											-- 10 / 2
+	main="Raetic Rod +1",
 	sub="Sors Shield",																											-- 3
 	ammo="Hydrocera",
 	head=gear.whm_empy_head,																									-- 19
@@ -329,7 +329,7 @@ sets.midcast.LightDayCuraga = set_combine(sets.midcast.Cure, { main="Chatoyant S
 --	Cure:	52% + 8% II
 -- 	PDT/DT:	-56%
 sets.midcast.Cure.DT = {											-- Cure 	/	PDT/DT
-	main="Queller Rod",												-- 10% / 2%
+	main="Raetic Rod +1",
 	sub="Genmei Shield",											--			/ 	10
 	ammo=gear.dt_ammo,												--			/	3
 	head=gear.whm_empy_head,										-- 22%
@@ -363,7 +363,7 @@ sets.midcast.LightDayCuraga.DT = set_combine(sets.midcast.Cure.DT, { main="Chato
 -- 	PDT/DT:	-50%+
 -- 	SIRD: 10% + 99% = 109%
 sets.midcast.Cure.SIRD = {											-- Cure 	/	PDT/DT	/	SIRD
-	main="Queller Rod",												-- 10% / 2% 
+	main="Raetic Rod +1",
 	sub="Genmei Shield",											--			/ 	10
 	ammo=gear.dt_ammo,												--			/	3			11
 	head=gear.whm_empy_head,										-- 22%
