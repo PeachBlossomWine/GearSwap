@@ -1,3 +1,5 @@
+autows_list = {['DualMurCea']='Savage Blade',['DualMurgleis']='Savage Blade',['DualCrocea']='Seraph Blade',['DualCroDay']='Seraph Blade',['DualSequence']='Savage Blade',['DualSavage']='Savage Blade',['DualEvis']='Evisceration',['DualClubs']='Black Halo',['Murgleis']='Savage Blade',['Crocea']='Seraph Blade',['Sequence']='Savage Blade',['Naegling']='Savage Blade',['Maxentius']='Black Halo',}
+
 --Burst
 if item_available("Ea Hat +1") then
 	gear.BurstHead = 'Ea Hat +1'
