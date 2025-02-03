@@ -444,25 +444,23 @@ function check_steps_presto()
 	end
 end
 
--- function check_jump()
-    -- if state.AutoJumpMode.value and player.status == 'Engaged' and player.sub_job == 'DRG' and not buffactive['SJ Restriction'] then
-        -- local abil_recasts = windower.ffxi.get_ability_recasts()
+function check_zerg_sp()
+    if state.AutoZergMode.value == 'On' and player.in_combat and not data.areas.cities:contains(world.area) then
+		
+		local abil_recasts = windower.ffxi.get_ability_recasts()
 
-		-- if player.hpp < 65 and abil_recasts[160] < latency then
-			-- windower.chat.input('/ja "Super Jump" <t>')
-            -- tickdelay = os.clock() + 1.1
-            -- return true
-		-- elseif player.tp < 901 and abil_recasts[158] < latency then
-            -- windower.chat.input('/ja "Jump" <t>')
-            -- tickdelay = os.clock() + 1.1
-            -- return true
-        -- elseif player.tp < 901 and abil_recasts[159] < latency then
-            -- windower.chat.input('/ja "High Jump" <t>')
-            -- tickdelay = os.clock() + 1.1
-            -- return true
-        -- else
-            -- return false
-        -- end
-    -- end
--- end
-
+		if not buffactive['Trance'] and abil_recasts[0] < latency then
+			add_to_chat(123, 'Zerg Mode ACTIVATION #1 - Trance')
+			windower.chat.input('/ja "Trance" <me>')
+			tickdelay = os.clock() + 1.1
+			return true		
+		elseif not buffactive['Grand Pas'] and abil_recasts[254] < latency then
+			add_to_chat(123, 'Zerg Mode ACTIVATION #2 - Grand Pas')
+			windower.chat.input('/ja "Grand Pas" <me>')
+			tickdelay = os.clock() + 1.1
+			return true
+		else
+			return false
+		end
+    end
+end
