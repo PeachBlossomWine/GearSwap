@@ -648,10 +648,10 @@ end
 
 buff_spell_lists = {
 	Auto = {--Options for When are: Always, Engaged, Idle, OutOfCombat, Combat
-		{Name='Phalanx',	Buff='Phalanx',			SpellID=106,	When='Always'},
-		{Name='Refresh',	Buff='Refresh',			SpellID=109,	When='Always'},
-		{Name='Aquaveil',	Buff='Aquaveil',		SpellID=55,		When='Always'},
-		{Name='Cocoon',		Buff='Defense Boost',	SpellID=547,	When='Always'},
+		-- {Name='Phalanx',	Buff='Phalanx',			SpellID=106,	When='Always'},
+		-- {Name='Refresh',	Buff='Refresh',			SpellID=109,	When='Always'},
+		-- {Name='Aquaveil',	Buff='Aquaveil',		SpellID=55,		When='Always'},
+		-- {Name='Cocoon',		Buff='Defense Boost',	SpellID=547,	When='Always'},
 	},
 
 	Default = {
