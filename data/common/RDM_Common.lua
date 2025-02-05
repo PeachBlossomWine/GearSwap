@@ -395,7 +395,7 @@ sets.midcast['Enfeebling Magic'] = {
 	head="Viti. Chapeau +3",
 	body=gear.jse_empy_body,
 	hands=gear.rdm_regal_hands,
-	legs=gear.chironic_enfeeble_legs,
+	legs=gear.jse_empy_legs,
 	feet="Vitiation Boots +3",
 	neck=gear.rdm_jse_neck,
 	waist="Obstin. Sash",
@@ -414,7 +414,7 @@ sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeeblin
 	ammo=empty,
 	body="Atrophy Tabard +3",
 	hands=gear.jse_empy_hands,
-	legs=gear.chironic_enfeeble_legs,
+	legs=gear.jse_empy_legs,
 	left_ring=gear.stikini_ring,
 	right_ring={name="Metamorph Ring +1", priority=500},
 })
@@ -491,9 +491,7 @@ sets.midcast['Distract III'].Resistant = sets.midcast['Enfeebling Magic'].Resist
 sets.midcast['Gravity II'] = set_combine(sets.midcast['Enfeebling Magic'], {
 	main="Bunzi's Rod",
 })
-
 sets.midcast['Gravity'] = set_combine(sets.midcast['Gravity II'], {})
-
 sets.midcast['Gravity II'].Resistant = set_combine(sets.midcast['Gravity II'], {})
 sets.midcast['Gravity'].Resistant = set_combine(sets.midcast['Gravity II'], {})
 
