@@ -668,7 +668,10 @@ function check_geo()
 				tickdelay = os.clock() + 1.1
 				return true
             --Auto remove party bubbles
-            elseif PlayerBubbles:contains(autogeo) and state.AutoBubble.value and abil_recasts[243] < latency and ((autogeotar:lower() ~= 'none' and target_distance and target_distance > 7) or (autogeotar:lower() == 'none' and pet and pet.distance:sqrt() > 7)) then
+			elseif PlayerBubbles:contains(autogeo) and state.AutoBubble.value and abil_recasts[243] < latency and
+			((autogeotar:lower() ~= 'none' and target_distance and target_distance > (buffactive['Widened Compass'] and 12 or 7)) or 
+			(autogeotar:lower() == 'none' and pet and pet.distance:sqrt() > (buffactive['Widened Compass'] and 12 or 7))) then
+            --elseif PlayerBubbles:contains(autogeo) and state.AutoBubble.value and abil_recasts[243] < latency and ((autogeotar:lower() ~= 'none' and target_distance and target_distance > 7) or (autogeotar:lower() == 'none' and pet and pet.distance:sqrt() > 7)) then
                 local formatted_distance = (target_distance and string.format("%.2f",  target_distance)) or (pet and  string.format("%.2f", pet.distance:sqrt()))
                 windower.add_to_chat(6,'Removing luopan -> Luopan distance: [' ..formatted_distance..']')
                 windower.chat.input('/ja "Full Circle" <me>')
