@@ -1000,7 +1000,7 @@ function check_doom(spell, spellMap, eventArgs)
 					return false
 				end
 			end
-		elseif silent_can_use(20) then
+		elseif player.main_job == "WHM" and silent_can_use(20) then
 			windower.chat.input('/ma "Cursna" <me>')
 			add_to_chat(123,'Abort: You are doomed, using Cursna instead.')
 			eventArgs.cancel = true
