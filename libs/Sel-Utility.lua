@@ -975,7 +975,8 @@ end
 function check_doom(spell, spellMap, eventArgs)
 	if buffactive.doom and state.AutoRemoveDoomMode.value and not cursna_exceptions:contains(spell.english) then
 	
-		if (buffactive.mute or buffactive.Omerta or buffactive.silence) or (player.main_job == "WHM" and not (silent_can_use(20) and windower.ffxi.get_spell_recasts()[20] < spell_latency)) then
+		if buffactive.mute or buffactive.Omerta or buffactive.silence 
+		or (player.main_job == "WHM" and not (silent_can_use(20) and windower.ffxi.get_spell_recasts()[20] < spell_latency)) then
 			if state.AutoHolyWaterMode.value and not buffactive.muddle then
 				if player.inventory['Hallowed Water'] then
 					windower.chat.input('/item "Hallowed Water" <me>')
@@ -1002,6 +1003,7 @@ function check_doom(spell, spellMap, eventArgs)
 			end
 		elseif player.main_job == "WHM" and (silent_can_use(20) and windower.ffxi.get_spell_recasts()[20] < spell_latency) then
 			windower.chat.input('/ma "Cursna" <me>')
+			eventArgs.cancel = true
 			tickdelay = os.clock() + 1.5
 			return true
 		end
@@ -1601,7 +1603,8 @@ end
 function check_doomed()
 	if buffactive.doom and state.AutoRemoveDoomMode.value then 
 	
-		if (buffactive.mute or buffactive.Omerta or buffactive.silence) or (player.main_job == "WHM" and not (silent_can_use(20) and windower.ffxi.get_spell_recasts()[20] < spell_latency)) then
+		if buffactive.mute or buffactive.Omerta or buffactive.silence 
+		or (player.main_job == "WHM" and not (silent_can_use(20) and windower.ffxi.get_spell_recasts()[20] < spell_latency)) then
 			if state.AutoHolyWaterMode.value and not buffactive.muddle then
 				if player.inventory['Hallowed Water'] then
 					windower.chat.input('/item "Hallowed Water" <me>')
