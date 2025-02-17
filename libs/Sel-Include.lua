@@ -1342,7 +1342,6 @@ function filter_precast(spell, spellMap, eventArgs)
 	if check_rnghelper(spell, spellMap, eventArgs) then return end
 	if check_midaction(spell, spellMap, eventArgs) then return end
 	if check_disable(spell, spellMap, eventArgs) then return end
-	--if check_doom(spell, spellMap, eventArgs) then return end
 	
 	if spell.action_type == 'Magic' then
 		if check_silence(spell, spellMap, eventArgs) then return end
@@ -1431,7 +1430,6 @@ function cleanup_pet_aftercast(spell, spellMap, eventArgs)
 end
 
 function pre_tick()
-	--if check_doomed() then return true end
 	if check_trust() then return true end
 	if check_rune() then return true end
 	if check_shadows() then return true end
