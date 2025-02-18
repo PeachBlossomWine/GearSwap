@@ -782,7 +782,7 @@ windower.raw_register_event('prerender', function()
     local battle_target = windower.ffxi.get_mob_by_target('bt') or false
     local AutoBubbleDistance = (myluopan and battle_target) and (((myluopan.x - battle_target.x)*(myluopan.x-battle_target.x) + (myluopan.y-battle_target.y)*(myluopan.y-battle_target.y)):sqrt())
     
-    if battle_target and (AutoBubbleDistance and (AutoBubbleDistance > (6 + battle_target.model_size) and (battle_target.status == 1) and battle_target.valid_target and battle_target.model_size > 0)) then
+    if battle_target and (AutoBubbleDistance and (AutoBubbleDistance > ((buffactive['Widened Compass'] and 12 or 6) + battle_target.model_size) and (battle_target.status == 1) and battle_target.valid_target and battle_target.model_size > 0)) then
         bubble_too_far = true
     else
         bubble_too_far = false
