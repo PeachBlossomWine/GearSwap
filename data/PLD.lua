@@ -544,7 +544,7 @@ function update_defense_mode()
 end
 function job_tick_moving()
 	if state.KiteTank.value then
-		if check_majesty() then return true end
+		--if check_majesty() then return true end
 		if state.AutoTankMode.value and player.in_combat then
 			if check_flash() then return true
 			else 
@@ -557,7 +557,7 @@ function job_tick_moving()
 end
 
 function job_tick()
-	if check_majesty() then return true end
+	--if check_majesty() then return true end
 	if check_buff() then return true end
 	if state.AutoTankMode.value and player.in_combat and player.target.type == "MONSTER" and not moving then
 		if check_flash() then return true
@@ -621,20 +621,20 @@ function update_melee_groups()
 	end	
 end
 
-function check_majesty()
-	if state.AutoMajesty.value and player.in_combat and not buffactive.Majesty and not silent_check_amnesia() then
-		local abil_recasts = windower.ffxi.get_ability_recasts()
+-- function check_majesty()
+	-- if state.AutoMajesty.value and player.in_combat and not buffactive.Majesty and not silent_check_amnesia() then
+		-- local abil_recasts = windower.ffxi.get_ability_recasts()
 		
-		if abil_recasts[150] < latency then
-			windower.chat.input('/ja "Majesty" <me>')
-			tickdelay = os.clock() + 1.1
-			return true
-		else
-			return false
-		end
-	end
-	return false
-end
+		-- if abil_recasts[150] < latency then
+			-- windower.chat.input('/ja "Majesty" <me>')
+			-- tickdelay = os.clock() + 1.1
+			-- return true
+		-- else
+			-- return false
+		-- end
+	-- end
+	-- return false
+-- end
 
 function check_cover(Protectee)
     if state.AutoCover.value and not midaction() and Protectee.hpp < 85 and math.sqrt(Protectee.distance) < 10 and windower.ffxi.get_ability_recasts()[76] < latency then
@@ -678,12 +678,6 @@ function check_buff()
 		if player.in_combat then
 			local abil_recasts = windower.ffxi.get_ability_recasts()
 
-			if not buffactive['Majesty'] and abil_recasts[150] < latency then
-				windower.chat.input('/ja "Majesty" <me>')
-				tickdelay = os.clock() + 2.0
-				return true
-			end
-			
 			if abil_recasts[79] < latency and (player.mpp < 25 and player.tp > 1300) and not silent_check_amnesia() then
 				windower.chat.input('/ja "Chivalry" <me>')
 				tickdelay = os.clock() + 2.0
