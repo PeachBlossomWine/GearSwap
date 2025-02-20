@@ -416,6 +416,14 @@ function init_include()
 		if not (os.clock() > tickdelay) then return end
 		
 		gearswap.refresh_globals(false)
+		if (player ~= nil) and (player.status == 'Idle' or player.status == 'Engaged') and not (delayed_cast ~= '' or check_midaction() or buffactive['Sneak'] or buffactive['Invisible'] or silent_check_disable()) then
+			if job_tick_moving then
+				if job_tick_moving() then return end
+			end
+			if default_tick_moving and state.AutoMovingMode.value then
+				if default_tick_moving() then return end
+			end	
+		end
 		
 		if (player ~= nil) and (player.status == 'Idle' or player.status == 'Engaged') and not (delayed_cast ~= '' or check_midaction() or moving or buffactive['Sneak'] or buffactive['Invisible'] or silent_check_disable()) then
 			if pre_tick then
@@ -446,14 +454,7 @@ function init_include()
 				if extra_user_tick() then return end
 			end
 		end
-		if (player ~= nil) and (player.status == 'Idle' or player.status == 'Engaged') and not (delayed_cast ~= '' or check_midaction() or buffactive['Sneak'] or buffactive['Invisible'] or silent_check_disable()) then
-			if job_tick_moving then
-				if job_tick_moving() then return end
-			end
-			if default_tick_moving and state.AutoMovingMode.value then
-				if default_tick_moving() then return end
-			end	
-		end
+		
 
 		tickdelay = os.clock() + .5
 		
