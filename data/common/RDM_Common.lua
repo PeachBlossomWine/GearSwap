@@ -401,8 +401,8 @@ sets.midcast['Enfeebling Magic'] = {
 	waist="Obstin. Sash",
 	left_ear="Snotra Earring",
 	right_ear=gear.empy_debuff_earring,
-	left_ring={name="Kishar Ring", priority=500},
-	right_ring="Metamorph Ring +1",
+	left_ring="Kishar Ring",
+	right_ring={name="Metamorph Ring +1", priority=500},
 	back=gear.jse_macc_back,				-- E
 }
 	
@@ -502,7 +502,7 @@ sets.midcast.Dia = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHu
 sets.midcast.Diaga = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'])
-sets.midcast['Dia III'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {ammo="Staunch Tathlum +1",neck="Loricate Torque +1",body="Nyame Mail",back="Null Shawl",feet=gear.jse_empy_feet})
+sets.midcast['Dia III'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {ammo="Staunch Tathlum +1",neck="Loricate Torque +1",body="Shamash Robe",back="Null Shawl",feet=gear.jse_empy_feet})
 
 sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
