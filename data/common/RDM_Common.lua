@@ -501,7 +501,8 @@ sets.midcast['Divine Magic'] = set_combine(sets.midcast['Enfeebling Magic'].Resi
 sets.midcast.Dia = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast.Diaga = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Dia II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'], {waist="Chaac Belt"})
+sets.midcast['Dia III'] = set_combine(sets.midcast['Enfeebling Magic'])
+sets.midcast['Dia III'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {ammo="Staunch Tathlum +1",neck="Loricate Torque +1",body="Nyame Mail",back="Null Shawl",feet=gear.jse_empy_feet})
 
 sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
