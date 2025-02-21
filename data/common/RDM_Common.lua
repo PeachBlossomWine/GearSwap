@@ -391,19 +391,19 @@ sets.midcast['Enfeebling Magic'] = {
 	main="Daybreak",
 	sub="Ammurapi Shield",
 	range=empty,
-	ammo={name="Regal Gem", priority=500},
+	ammo={name="Regal Gem", priority=500},	-- E
 	head="Viti. Chapeau +3",
-	body=gear.jse_empy_body,
+	body=gear.jse_empy_body,				-- E
 	hands=gear.rdm_regal_hands,
 	legs=gear.chironic_enfeeble_legs,
-	feet="Vitiation Boots +3",
-	neck=gear.rdm_jse_neck,
+	feet="Vitiation Boots +3",				-- E
+	neck=gear.rdm_jse_neck,					-- E
 	waist="Obstin. Sash",
 	left_ear="Snotra Earring",
 	right_ear=gear.empy_debuff_earring,
 	left_ring={name="Kishar Ring", priority=500},
 	right_ring="Metamorph Ring +1",
-	back=gear.jse_macc_back,
+	back=gear.jse_macc_back,				-- E
 }
 	
 -- -20% Duration
