@@ -287,22 +287,6 @@ sets.idle.Regain = set_combine(sets.idle, {
 	neck="Loricate Torque +1",
 })
 
-sets.idle.Town = {
-	ammo="Coiste Bodhar",
-	head="Nyame Helm",
-	body="Nyame Mail",
-	hands="Nyame Gauntlets",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
-	neck="Etoile Gorget +2",
-	waist="Windbuffet Belt +1",
-	left_ear="Sherida Earring",
-	right_ear="Telos Earring",
-	left_ring="Gere Ring",
-	right_ring="Chirich Ring +1",
-	back=gear.jse_stp_back,
-}	
-
 -- Defense sets
 sets.defense.PDT = {
 	ammo="Staunch Tathlum +1",

@@ -6,6 +6,7 @@ sets.weapons.Aegis = {main="Burtgang", sub="Aegis"}
 sets.weapons.Duban = {main="Burtgang", sub="Duban"}
 sets.weapons.Srivatsa = {main="Burtgang", sub="Srivatsa"}
 sets.weapons.Excalibur = {main="Excalibur", sub="Aegis"}
+sets.weapons.ExcalDuban = {main="Excalibur", sub="Duban"}
 sets.weapons.Sakpata = {main="Sakpata's Sword",sub="Duban"}
 sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield +1"}
 
