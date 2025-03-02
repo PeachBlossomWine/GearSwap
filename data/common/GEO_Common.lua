@@ -575,7 +575,7 @@ sets.idle.Pet = {																										--Regen / Pet DT
 	head=gear.jse_empy_head,																							-- 5
 	body=gear.jse_empy_body,
 	hands="Geomancy Mitaines +3",																						-- 0 / 13
-	legs=gear.telchine_pet_legs,																						-- 3
+	legs="Agwu's Slops",																								-- 3
 	feet="Bagua Sandals +3",																							-- 5
 	neck=gear.geo_jse_neck,
 	waist="Isa Belt",																									-- 1 / 3
@@ -673,7 +673,7 @@ sets.engaged = {
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
     head="Nyame Helm",
     body="Nyame Mail",
-    hands="Geomancy Mitaines +3",
+    hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
     neck="Null Loop",
@@ -682,7 +682,7 @@ sets.engaged = {
     right_ear="Crepuscular Earring",
     left_ring="Chirich Ring +1",
     right_ring="Petrov Ring",
-    back=gear.jse_pet_back,
+    back="Null Shawl",
 }
 
 --------------------------------------
