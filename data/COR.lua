@@ -322,17 +322,15 @@ function job_post_precast(spell, spellMap, eventArgs)
 		if state.LuzafRing.value and item_available("Luzaf's Ring") then
 			equip(sets.precast.LuzafRing)
 		end
-		if spell.type == 'CorsairRoll' and state.CompensatorMode.value ~= 'Never' and (state.CompensatorMode.value == 'Always' or tonumber(state.CompensatorMode.value) > player.tp) then
+		if spell.type == 'CorsairRoll' and (spell.english == "Bolter's Roll" or 
+			(state.CompensatorMode.value ~= 'Never' and 
+			(state.CompensatorMode.value == 'Always' or tonumber(state.CompensatorMode.value) > player.tp))) then
 			if item_available("Compensator") then
 				enable('range')
 				equip({range="Compensator"})
 				enable('main')
 				equip({main=gear.cor_roll_rostam})
 			end
-			-- if sets.precast.CorsairRoll.main and sets.precast.CorsairRoll.main ~= player.equipment.main then
-				-- enable('main')
-				-- equip({main=sets.precast.CorsairRoll.main})
-			-- end
 		end
     elseif spell.english == 'Fold' and buffactive['Bust'] == 2 and sets.precast.FoldDoubleBust then
 		equip(sets.precast.FoldDoubleBust)
