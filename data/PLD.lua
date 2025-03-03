@@ -120,7 +120,7 @@ function job_pretarget(spell, spellMap, eventArgs)
 end
 
 function job_precast(spell, spellMap, eventArgs)
-	local accession_spells = S{'Sneak','Invisible'}
+	local accession_spells = S{'Sneak','Invisible','Stoneskin','Blink'}
 	local celerity_spells = S{'Stoneskin','Raise'}
 	if spell.english == 'Flash' then
 		local abil_recasts = windower.ffxi.get_ability_recasts()
