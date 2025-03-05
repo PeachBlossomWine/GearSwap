@@ -630,6 +630,7 @@ sets.midcast['Absorb-TP'] = {
 
 -- Sets for special buff conditions on spells.
 sets.buff.Saboteur = {hands=gear.jse_empy_hands}
+sets.buff.Stymie = {head=gear.jse_empy_head,legs=gear.jse_empy_legs,feet=gear.jse_empy_feet}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
 -- Idle sets
