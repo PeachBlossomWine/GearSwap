@@ -480,12 +480,12 @@ sets.midcast.SkillBasedEnfeebling = set_combine(sets.midcast['Enfeebling Magic']
 
 sets.midcast['Frazzle II'] = sets.midcast['Enfeebling Magic'].Resistant
 sets.midcast['Frazzle II'].Melee = sets.midcast['Enfeebling Magic']
-sets.midcast['Frazzle III'] = sets.midcast.SkillBasedEnfeebling
+sets.midcast['Frazzle III'] = set_combine(sets.midcast.SkillBasedEnfeebling,{hands=gear.jse_empy_hands})
 sets.midcast['Frazzle III'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
 
 sets.midcast['Distract II'] = sets.midcast['Enfeebling Magic'].Resistant
 sets.midcast['Distract II'].Melee = sets.midcast['Enfeebling Magic']
-sets.midcast['Distract III'] = sets.midcast.SkillBasedEnfeebling
+sets.midcast['Distract III'] = set_combine(sets.midcast.SkillBasedEnfeebling,{hands=gear.jse_empy_hands,legs=gear.jse_empy_legs})
 sets.midcast['Distract III'].Resistant = sets.midcast['Enfeebling Magic'].Resistant
 
 sets.midcast['Gravity II'] = set_combine(sets.midcast['Enfeebling Magic'], {
@@ -630,7 +630,7 @@ sets.midcast['Absorb-TP'] = {
 
 -- Sets for special buff conditions on spells.
 sets.buff.Saboteur = {hands=gear.jse_empy_hands}
-sets.buff.Stymie = {head=gear.jse_empy_head,legs=gear.jse_empy_legs,feet=gear.jse_empy_feet}
+sets.buff.Stymie = {legs=gear.jse_empy_legs}
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
 
 -- Idle sets
