@@ -259,11 +259,11 @@ sets.ExtraRegen = {}
 -- Idle sets
 sets.idle = {
 	ammo="Staunch Tathlum +1",			-- 3%
-	head="Malignance Chapeau",
+	head="Null Masque",
 	body="Gleti's Cuirass",
 	hands="Gleti's Gauntlets",
-	legs="Malignance Tights",
-	feet="Malignance Boots",
+	legs="Nyame Flanchard",
+	feet="Nyame Sollerets",
 	neck="Sanctity Necklace",
 	waist="Null Belt",
 	left_ear="Infused Earring",
@@ -273,12 +273,7 @@ sets.idle = {
 	back=gear.jse_stp_back,				-- 10%
 }
 	
-sets.idle.DT = set_combine(sets.idle, {
-	head="Nyame Helm",
-	legs="Nyame Flanchard",
-	feet="Nyame Sollerets",
-	neck="Loricate Torque +1",
-})
+sets.idle.DT = set_combine(sets.idle, {})
 
 sets.idle.Regain = set_combine(sets.idle, {
 	head="Null Masque",
