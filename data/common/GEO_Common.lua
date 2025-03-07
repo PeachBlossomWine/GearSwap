@@ -160,6 +160,22 @@ sets.precast.WS = {
 	back=gear.jse_ws_back,
 }
 
+sets.precast.WS['Flash Nova'] = {
+	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
+    head="Nyame Helm",
+    body="Nyame Mail",
+    hands="Nyame Gauntlets",
+    legs="Nyame Flanchard",
+    feet="Nyame Sollerets",
+    neck="Baetyl Pendant",
+    waist="Sacro Cord",
+    left_ear="Regal Earring",
+	right_ear="Malignance Earring",
+    left_ring=gear.weather_ring,																		
+	right_ring="Medada's Ring",
+	back=gear.jse_ws_back,
+}
+
 -- 20 SB + More ACC
 sets.precast.WS.SubtleBlow = set_combine(sets.precast.WS, {
 	neck="Null Loop",
