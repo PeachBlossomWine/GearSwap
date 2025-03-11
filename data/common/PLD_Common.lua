@@ -9,6 +9,7 @@ sets.weapons.Excalibur = {main="Excalibur", sub="Aegis"}
 sets.weapons.ExcalDuban = {main="Excalibur", sub="Duban"}
 sets.weapons.Sakpata = {main="Sakpata's Sword",sub="Duban"}
 sets.weapons.Naegling = {main="Naegling",sub="Blurred Shield +1"}
+sets.weapons.Beryllium = {main="Beryllium Mace +1", sub="Duban"}
 
 if item_available("Chevalier's Earring +2") then
 	gear.empy_earring = "Chevalier's Earring +2"

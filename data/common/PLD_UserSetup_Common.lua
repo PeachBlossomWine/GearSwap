@@ -7,7 +7,7 @@ state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
 state.IdleMode:options('DT','MDB','Normal')
-state.Weapons:options('Duban','Aegis','Excalibur','ExcalDuban','Sakpata','Srivatsa','Naegling','None')
+state.Weapons:options('Duban','Aegis','Excalibur','ExcalDuban','Sakpata','Srivatsa','Naegling','Beryllium','None')
 
 state.AutoZergMode:reset()
 state.ExtraDefenseMode = M{['description']='Extra Defense Mode','None'}
