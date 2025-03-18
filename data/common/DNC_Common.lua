@@ -1,4 +1,4 @@
-autows_list = {['Aeneas']='Rudra\'s Storm',['Terpsichore']='Pyrrhic Kleos',['Mpu']='Ruthless Stroke',['MpuCento']='Ruthless Stroke',['Karambit']='Asuran Fists',}
+autows_list = {['Aeneas']='Rudra\'s Storm',['Terpsichore']='Pyrrhic Kleos',['Mpu']='Ruthless Stroke',['MpuCento']='Ruthless Stroke',}--['Karambit']='Asuran Fists',}
 
 sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
 
