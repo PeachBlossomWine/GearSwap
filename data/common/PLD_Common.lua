@@ -541,5 +541,5 @@ sets.engaged.Acc.Reraise = set_combine(sets.engaged.Acc.Tank, sets.Reraise)
 -- Custom buff sets
 --------------------------------------
 sets.buff.Doom = set_combine(sets.buff.Doom, {})
-sets.buff.Sleep = {main="Caliburnus"}
+sets.buff.Sleep = set_combine(sets.buff.Sleep, {main="Caliburnus"})
 sets.buff.Cover = {body="Cab. Surcoat +2"}
