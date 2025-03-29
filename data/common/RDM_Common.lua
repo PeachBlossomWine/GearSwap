@@ -203,13 +203,13 @@ sets.precast.WS['Black Halo'] = {
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet=gear.jse_empy_feet,
-	neck="Combatant's Torque",
+	neck=gear.rdm_jse_neck,
 	waist="Sailfi Belt +1",
 	left_ear="Regal Earring",
 	right_ear={ name="Moonshade Earring", augments={'Accuracy+4','TP Bonus +250',}},
 	left_ring="Rufescent Ring",																		
 	right_ring="Metamor. Ring +1",
-	back=gear.jse_str_back,
+	back=gear.jse_mnd_back,
 }
 
 sets.precast.WS['Black Halo'].SubtleBlow = set_combine(sets.precast.WS['Black Halo'], {
@@ -727,8 +727,8 @@ sets.engaged = {
 	hands="Malignance Gloves",
 	legs="Malignance Tights",
 	feet="Malignance Boots",
-	neck="Combatant's Torque",
-	waist="Windbuffet Belt +1",
+	neck="Null Loop",
+	waist="Null Belt",
 	left_ear="Sherida Earring",
 	right_ear=gear.empy_earring,
 	left_ring="Chirich Ring +1",

@@ -151,12 +151,12 @@ sets.precast.WS = {
     hands="Nyame Gauntlets",
     legs="Nyame Flanchard",
     feet="Nyame Sollerets",
-    neck="Fotia Gorget",
+    neck="Null Loop",
     waist="Fotia Belt",
-    left_ear="Ishvara Earring",
+    left_ear="Regal Earring",
     right_ear="Moonshade Earring",
-    left_ring="Vertigo Ring",
-    right_ring="Rufescent Ring",
+    left_ring="Rufescent Ring",
+	right_ring="Metamor. Ring +1",
 	back=gear.jse_ws_back,
 }
 
@@ -339,8 +339,8 @@ sets.midcast['Elemental Magic'].Proc = {
 	waist="Luminary Sash",
 	left_ear="Regal Earring",
 	right_ear="Malignance Earring",
-	left_ring="Metamor. Ring +1",
-	right_ring=gear.stikini_ring,
+	left_ring="Evanescence Ring",
+	right_ring="Metamor. Ring +1",
 	back=gear.jse_mab_back,
 }
 
