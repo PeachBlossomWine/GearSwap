@@ -18,7 +18,11 @@ else
 	gear.jse_empy_head = "Maculele Tiara +1"
 end
 
-
+if item_available("Skd. Jambeaux +1") then
+    gear.movement_feet = "Skd. Jambeaux +1"
+else
+    gear.movement_feet = "Tandava Crackows"
+end
 
 -- Weapons sets
 sets.weapons.Aeneas = {main="Aeneas",sub="Crepuscular Knife"}
@@ -301,7 +305,7 @@ sets.defense.PDT = {
 
 sets.defense.MDT = sets.defense.PDT
 sets.defense.MEVA = sets.defense.PDT
-sets.Kiting = {feet="Tandava Crackows"}
+sets.Kiting = {feet=gear.movement_feet}
 sets.rollerRing = {left_ring="Roller's Ring"}
 
 -- Engaged sets
