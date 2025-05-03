@@ -1,7 +1,6 @@
 OurReso = windower.get_windower_settings()
 X_pos_view = OurReso.x_res - 305
 X_pos_ffxidb = OurReso.x_res - 370
-send_command('exec SI.txt')
 send_command('lua l equipviewer; wait 2; equipviewer pos ' .. X_pos_view .. ' 280')
 send_command('wait 3; ffxidb map pos ' .. X_pos_ffxidb .. ' 40')
 send_command('wait 5; input /cm party')
