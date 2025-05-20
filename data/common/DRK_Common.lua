@@ -372,19 +372,19 @@ sets.TreasureHunter = set_combine(sets.TreasureHunter, {})
  
 -- Engaged sets
 sets.engaged = {
-	ammo="Coiste Bodhar",
-	head="Flam. Zucchetto +2",
-	body="Hjarrandi Breast.",
-	hands="Sakpata's Gauntlets",
-	legs="Carmine Cuisses +1",
-	feet="Flam. Gambieras +2",
+	ammo="Coiste Bodhar",				-- 3
+	head="Sakpata's Helm",				-- 7
+	body="Sakpata's Plate",				-- 10
+	hands="Sakpata's Gauntlets",		-- 5
+	legs="Sakpata's Cuisses",
+	feet="Sakpata's Leggings",
 	neck=gear.drk_jse_neck,
 	waist="Ioskeha Belt +1",
-	left_ear="Cessance Earring",
+	left_ear="Crep. Earring",
 	right_ear="Telos Earring",
-	left_ring="Chirich Ring +1",
+	left_ring="Chirich Ring +1",		-- 10
 	right_ring="Niqmaddu Ring",
-	back=gear.jse_TP_Back;
+	back=gear.jse_TP_Back;				-- 10
 }
 	
 sets.engaged.DT ={
