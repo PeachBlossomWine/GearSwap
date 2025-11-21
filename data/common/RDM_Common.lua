@@ -636,7 +636,7 @@ sets.buff.Doom = set_combine(sets.buff.Doom, {})
 -- Idle sets
 sets.idle = {
 	main="Daybreak",
-	sub="Genmei Shield",
+	sub="Archduke's Shield",
 	ammo="Homiliary",
 	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
 	body=gear.idle_body,
