@@ -16,10 +16,70 @@ else
 end
 
 -- JSE AF
-if item_available("Atrophy Tights +3") then
+if item_available("Atrophy Tights +4") then
+	gear.jse_af_legs = "Atrophy Tights +4"
+elseif item_available("Atrophy Tights +3") then
 	gear.jse_af_legs = "Atrophy Tights +3"
 else
 	gear.jse_af_legs = "Atrophy Tights +2"
+end
+
+if item_available("Atrophy Tabard +4") then
+	gear.jse_af_body = "Atrophy Tabard +4"
+elseif item_available("Atrophy Tabard +3") then
+	gear.jse_af_body = "Atrophy Tabard +3"
+else
+	gear.jse_af_body = "Atrophy Tabard +2"
+end
+
+if item_available("Atrophy Gloves +4") then
+	gear.jse_af_hands = "Atrophy Gloves +4"
+elseif item_available("Atrophy Gloves +3") then
+	gear.jse_af_hands = "Atrophy Gloves +3"
+else
+	gear.jse_af_hands = "Atrophy Gloves +2"
+end
+
+-- JSE Relic
+
+if item_available("Viti. Chapeau +4") then
+	gear.jse_relic_head = "Viti. Chapeau +4"
+elseif item_available("Viti. Chapeau +3") then
+	gear.jse_relic_head = "Viti. Chapeau +3"
+else
+	gear.jse_relic_head = "Viti. Chapeau +2"
+end
+
+if item_available("Viti. Tights +4") then
+	gear.jse_relic_legs = "Viti. Tights +4"
+elseif item_available("Viti. Tights +3") then
+	gear.jse_relic_legs = "Viti. Tights +3"
+else
+	gear.jse_relic_legs = "Viti. Tights +2"
+end
+
+if item_available("Viti. Tabard +4") then
+	gear.jse_relic_body = "Viti. Tabard +4"
+elseif item_available("Viti. Tabard +3") then
+	gear.jse_relic_body = "Viti. Tabard +3"
+else
+	gear.jse_relic_body = "Viti. Tabard +2"
+end
+
+if item_available("Viti. Gloves +4") then
+	gear.jse_relic_hands = "Viti. Gloves +4"
+elseif item_available("Viti. Gloves +3") then
+	gear.jse_relic_hands = "Viti. Gloves +3"
+else
+	gear.jse_relic_hands = "Viti. Gloves +2"
+end
+
+if item_available("Viti. Boots +4") then
+	gear.jse_relic_feet = "Viti. Boots +4"
+elseif item_available("Viti. Boots +3") then
+	gear.jse_relic_feet = "Viti. Boots +3"
+else
+	gear.jse_relic_feet = "Viti. Boots +2"
 end
 
 -- JSE Empy
@@ -91,7 +151,7 @@ sets.weapons.DualClubs = {main="Maxentius",sub="Bunzi's Rod"}
 
 
 -- Precast Sets
-sets.precast.JA['Chainspell'] = {body="Viti. Tabard +3"}
+sets.precast.JA['Chainspell'] = {body=gear.jse_relic_body}
 sets.precast.JA['Convert'] = {main="Murgleis"}
 
 -- Waltz set (chr and vit)
@@ -108,7 +168,7 @@ sets.precast.FC = {
 	ammo={name="Impatiens", priority=1},													-- QC 2
 	ranged=empty,
 	head="Nyame Helm",
-	body="Viti. Tabard +3",																	-- 15
+	body=gear.jse_relic_body,																	-- 15
 	hands="Leyline Gloves",																	-- 8
 	legs="Psycloth Lappas",																	-- 7
 	feet="Nyame Sollerets",
@@ -306,8 +366,8 @@ sets.midcast['Enhancing Magic'] = {
 	main=gear.colada_enhancing_sword,												-- 4% 	
 	sub="Ammurapi Shield",															-- 10%
 	head=gear.telchine_enhancing_head,												-- 9%
-	body="Viti. Tabard +3",															-- 15%
-	hands="Atrophy Gloves +3",														-- 20%
+	body=gear.jse_relic_body,															-- 15%
+	hands=gear.jse_af_hands,														-- 20%
 	legs=gear.telchine_enhancing_legs,												-- 9%
 	feet=gear.jse_empy_feet,														-- 30%
 	neck=gear.rdm_jse_neck,															-- ?
@@ -325,12 +385,11 @@ sets.buff.ComposureOther = --set_combine(sets.midcast['Enhancing Magic'], {
 	head=gear.jse_empy_head,
 	body=gear.jse_empy_body,
 	--hands=gear.jse_empy_hands,
-	hands="Atrophy Gloves +3",
+	hands=gear.jse_af_hands,
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
 }
 
-	
 --Red Mage enhancing sets are handled in a different way from most, layered on due to the way Composure works
 --Don't set combine a full set with these spells, they should layer on Enhancing Set > Composure (If Applicable) > Spell
 sets.EnhancingSkill = {
@@ -338,8 +397,8 @@ sets.EnhancingSkill = {
 	range=empty,
 	ammo=gear.dt_ammo,
 	head="Befouled Crown",
-	body="Viti. Tabard +3",
-	hands="Viti. Gloves +3",
+	body=gear.jse_relic_body,
+	hands=gear.jse_relic_hands,
 	legs=gear.jse_af_legs,
 	feet=gear.jse_empy_feet,
 	neck="Incanter's Torque",
@@ -351,14 +410,14 @@ sets.EnhancingSkill = {
 	back=gear.jse_skill_back,
 }
 
-sets.midcast.Refresh = {head="Amalric Coif +1",body="Atrophy Tabard +3",hands="Atrophy Gloves +3",legs=gear.jse_empy_legs}
+sets.midcast.Refresh = {head="Amalric Coif +1",body=gear.jse_af_body,hands=gear.jse_af_hands,legs=gear.jse_empy_legs}
 sets.midcast.Aquaveil = {head="Amalric Coif +1",hands=gear.rdm_regal_hands}
 sets.midcast.BarElement = {}
 sets.midcast.Temper = sets.EnhancingSkill
 sets.midcast.Temper.DW = set_combine(sets.midcast.Temper, {})
-sets.midcast.Enspell = set_combine(sets.EnhancingSkill, {legs="Viti. Tights +3"})
+sets.midcast.Enspell = set_combine(sets.EnhancingSkill, {legs=gear.jse_relic_legs})
 sets.midcast.Enspell.DW = set_combine(sets.midcast.Enspell, {})
-sets.midcast.BoostStat = {hands="Viti. Gloves +3"}
+sets.midcast.BoostStat = {hands=gear.jse_relic_hands}
 sets.midcast.Stoneskin = {neck="Nodens Gorget",waist="Siegel Sash"}
 sets.midcast.Protect = {}
 sets.midcast.Shell = {}
@@ -392,11 +451,11 @@ sets.midcast['Enfeebling Magic'] = {
 	sub="Ammurapi Shield",
 	range=empty,
 	ammo={name="Regal Gem", priority=500},	-- E
-	head="Viti. Chapeau +3",
+	head=gear.jse_relic_head,
 	body=gear.jse_empy_body,				-- E
 	hands=gear.rdm_regal_hands,
 	legs=gear.chironic_enfeeble_legs,
-	feet="Vitiation Boots +3",				-- E
+	feet=gear.jse_relic_feet,				-- E
 	neck=gear.rdm_jse_neck,					-- E
 	waist="Obstin. Sash",
 	left_ear="Snotra Earring",
@@ -412,7 +471,7 @@ sets.midcast['Enfeebling Magic'] = {
 sets.midcast['Enfeebling Magic'].Resistant = set_combine(sets.midcast['Enfeebling Magic'], {
 	range={name="Ullr", priority=500},
 	ammo=empty,
-	body="Atrophy Tabard +3",
+	body=gear.jse_af_body,
 	hands=gear.jse_empy_hands,
 	legs=gear.jse_empy_legs,
 	left_ring=gear.stikini_ring,
@@ -506,7 +565,7 @@ sets.midcast['Dia III'].Resistant = set_combine(sets.midcast['Enfeebling Magic']
 
 sets.midcast.Bio = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
 sets.midcast['Bio II'] = set_combine(sets.midcast['Enfeebling Magic'], sets.TreasureHunter)
-sets.midcast['Bio III'] = set_combine(sets.midcast['Enfeebling Magic'], {head="Viti. Chapeau +3",waist="Chaac Belt",feet=gear.chironic_treasure_feet})
+sets.midcast['Bio III'] = set_combine(sets.midcast['Enfeebling Magic'], {head=gear.jse_relic_head,waist="Chaac Belt",feet=gear.chironic_treasure_feet})
 
 -- Store TP + Occult Acumen
 sets.midcast.Impact = {
@@ -575,7 +634,7 @@ sets.midcast['Dark Magic'] = {
 	sub="Ammurapi Shield",
 	ammo="Pemphredo Tathlum",
 	head="Pixie Hairpin +1",
-	body="Atrophy Tabard +3",
+	body=gear.jse_af_body,
 	hands=gear.rdm_regal_hands,
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
@@ -638,7 +697,7 @@ sets.idle = {
 	main="Daybreak",
 	sub="Archduke's Shield",
 	ammo="Homiliary",
-	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+	head=gear.jse_relic_head,
 	body=gear.idle_body,
 	hands=gear.chironic_refresh_hands,
 	legs="Nyame Flanchard",
@@ -656,7 +715,7 @@ sets.idle.DT = {
 	main="Daybreak",
 	sub="Genmei Shield",																		-- 10
 	ammo="Homiliary",
-	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+	head=gear.jse_relic_head,
 	body=gear.idle_body,																		-- 14
 	hands=gear.chironic_refresh_hands,
 	legs="Nyame Flanchard",
@@ -674,7 +733,7 @@ sets.idle.Town = {
 	main="Murgleis",
 	sub="Crocea Mors",
 	ammo="Homiliary",
-	head={ name="Viti. Chapeau +3", augments={'Enfeebling Magic duration','Magic Accuracy',}},
+	head=gear.jse_relic_head,
 	body="Shamash Robe",
 	hands="Nyame Gauntlets",
 	legs="Carmine Cuisses +1",
