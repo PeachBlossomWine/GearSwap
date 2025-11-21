@@ -687,7 +687,7 @@ sets.midcast.Stun.SIRD = sets.midcast['Enfeebling Magic'].DT
 --
 sets.idle = {
 	main="Daybreak",								-- 			/		/	1 MP
-	sub="Genmei Shield",							--	10 PDT 	/		/
+	sub="Archduke's Shield",						--	10 PDT 	/		/
 	ammo="Homiliary",
 	head="Null Masque",								--			/		/	1 MP
 	body=gear.whm_body_idle,						--			/		/	3 MP
