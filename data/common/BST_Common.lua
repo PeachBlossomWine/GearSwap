@@ -12,11 +12,19 @@ else
 	gear.jse_empy_hands = "Nukumi Manoplas +2"
 end
 
+if item_available("Nukumi Quijotes +3") then
+	gear.jse_empy_legs = "Nukumi Quijotes +3"
+else
+	gear.jse_empy_legs = "Nukumi Quijotes +2"
+end
+
 -- Weapons sets
 sets.weapons.Aymur =      	{main="Aymur", sub="Adapa Shield"}
 sets.weapons.Guttler =      {main="Guttler", sub="Adapa Shield"}
 sets.weapons.Agwu =         {main="Agwu's Axe", sub="Adapa Shield"}
 sets.weapons.Dolichenus =   {main="Dolichenus", sub="Adapa Shield"}
+sets.weapons.DualAxe =   	{main="Dolichenus", sub="Ikenga's Axe"}
+sets.weapons.Pangu =   		{main="Pangu", sub="Sacro Bulwark"}
 
 -- PRECAST SETS
 sets.precast.JA['Killer Instinct'] = {head="Ankusa Helm +3"}
@@ -225,22 +233,22 @@ sets.idle.DT = {
 sets.idle.Refresh = set_combine(sets.idle, {})
 sets.idle.Reraise = set_combine(sets.idle, {})
 
---Master 43
---Pet 43
+--Master 43% + Pangu Patch C 25% + Adapa Shield 5% or Sacro Bulwark 10%, caps at 50%
+--Pet 43% + Pangu Path C 15% + Stout Servent 9% = 67%, caps at -87.5%
 sets.idle.Pet = {                       -- Master   -- Pet
 	ammo="Staunch Tathlum +1",          -- 3
-	head="Nyame Helm",                  -- 7
+	head="Nyame Helm",                  -- 7				-- Switch to Empy head? Compare HP/MEVA
 	body="Tot. Jackcoat +3",            --          10
 	hands="Gleti's Gauntlets",          -- 7        8
-	legs="Tali'ah Sera. +2",            --          5
+	legs=gear.jse_empy_legs,            --          8
 	feet="Gleti's Boots",               -- 5
-	neck="Loricate Torque +1",          -- 6
+	neck="Loricate Torque +1",          -- 6				-- Switch to Shepherd's Chain for -2% DT for pet
 	waist="Isa Belt",                   --          3
-	left_ear="Handler's Earring +1",    --          4
-	right_ear=gear.empy_earring,
+	left_ear="Handler's Earring +1",    --          4 
+	right_ear=gear.empy_earring,							-- Switch over for Enmerkar for 3 more DT, better than level+
 	left_ring="Defending Ring",         -- 10
 	right_ring="C. Palug Ring",         -- 5
-	back=gear.jse_petmacc_back,         --          10
+	back=gear.jse_petmacc_back,         --          10		-- Could switch to DT-5% if we hit 87.5% PDT without this at 10
 }
 
 sets.idle.Pet.Engaged = set_combine(sets.idle.Pet , {})
