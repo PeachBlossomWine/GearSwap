@@ -7,7 +7,7 @@ state.RestingMode:options('Normal')
 state.PhysicalDefenseMode:options('PDT')
 state.MagicalDefenseMode:options('MDT')
 state.ResistDefenseMode:options('MEVA')
-state.Weapons:options('Agwu','Dolichenus','None')
+state.Weapons:options('Agwu','Dolichenus','DualAxe','Pangu','None')
 state.ExtraMeleeMode = M{['description']='Extra Melee Mode','None'}
 state.AutoZergMode:reset()
 
