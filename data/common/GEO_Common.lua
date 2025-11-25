@@ -70,6 +70,13 @@ else
 	gear.jse_relic_body = "Bagua Tunic"
 end
 
+--Relic
+if item_available("Bagua Galero +4") then
+	gear.jse_relic_head = "Bagua Galero +4"
+else
+	gear.jse_relic_head = "Bagua Galero +3"
+end
+
 --------------------------------------
 -- Precast sets
 --------------------------------------
@@ -373,7 +380,7 @@ sets.midcast.Drain = {
 	main="Bunzi's Rod",
 	sub="Ammurapi Shield",
 	range="Dunna",
-	head="Bagua Galero +3",			-- 35
+	head=gear.jse_relic_head,		-- 35
 	body="Geomancy Tunic +3",		-- Dark
 	hands="Agwu's Gages",
 	legs=gear.jse_empy_legs,		-- Dark
