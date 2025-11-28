@@ -76,10 +76,10 @@ end
 
 if item_available("Viti. Boots +4") then
 	gear.jse_relic_feet = "Viti. Boots +4"
-elseif item_available("Viti. Boots +3") then
-	gear.jse_relic_feet = "Viti. Boots +3"
+elseif item_available("Vitiation Boots +3") then
+	gear.jse_relic_feet = "Vitiation Boots +3"
 else
-	gear.jse_relic_feet = "Viti. Boots +2"
+	gear.jse_relic_feet = "Vitiation Boots +2"
 end
 
 -- JSE Empy
