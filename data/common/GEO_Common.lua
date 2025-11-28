@@ -77,13 +77,22 @@ else
 	gear.jse_relic_head = "Bagua Galero +3"
 end
 
+--AF
+
+if item_available("Geomancy Tunic +4") then
+	gear.jse_af_body = "Geomancy Tunic +4"
+else item_available("Geomancy Tunic +3") then
+	gear.jse_af_body = "Geomancy Tunic +3"
+end
+
+
 --------------------------------------
 -- Precast sets
 --------------------------------------
 
 -- Precast sets to enhance JAs
 sets.precast.JA.Bolster = {body=gear.jse_relic_body}
-sets.precast.JA['Life Cycle'] = {body="Geomancy Tunic +3", back=gear.jse_pet_back}
+sets.precast.JA['Life Cycle'] = {body=gear.jse_af_body, back=gear.jse_pet_back}
 sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +3"}
 sets.precast.JA['Mending Halation'] = {legs="Bagua Pants +3"}
 sets.precast.JA['Full Circle'] = {head=gear.jse_empy_head,hands="Bagua Mitaines +3"}
@@ -361,7 +370,7 @@ sets.midcast['Dark Magic'] = {
 	sub="Ammurapi Shield",
 	range="Dunna",
 	head="Pixie Hairpin +1",
-	body="Geomancy Tunic +3",
+	body=gear.jse_af_body,
 	hands="Geomancy Mitaines +3",
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
@@ -381,7 +390,7 @@ sets.midcast.Drain = {
 	sub="Ammurapi Shield",
 	range="Dunna",
 	head=gear.jse_relic_head,		-- 35
-	body="Geomancy Tunic +3",		-- Dark
+	body=gear.jse_af_body,		-- Dark
 	hands="Agwu's Gages",
 	legs=gear.jse_empy_legs,		-- Dark
 	feet="Agwu's Pigaches",			-- 15 R30
