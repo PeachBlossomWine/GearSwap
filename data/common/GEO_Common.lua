@@ -84,6 +84,12 @@ else
 	gear.jse_relic_legs = "Bagua Pants +3"
 end
 
+if item_available("Bagua Sandals +4") then
+	gear.jse_relic_feet = "Bagua Sandals +4"
+else
+	gear.jse_relic_feet = "Bagua Sandals +3"
+end
+
 --AF
 
 if item_available("Geomancy Tunic +4") then
@@ -100,7 +106,7 @@ end
 -- Precast sets to enhance JAs
 sets.precast.JA.Bolster = {body=gear.jse_relic_body}
 sets.precast.JA['Life Cycle'] = {body=gear.jse_af_body, back=gear.jse_pet_back}
-sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +3"}
+sets.precast.JA['Radial Arcana'] = {feet=gear.jse_relic_feet}
 sets.precast.JA['Mending Halation'] = {legs=gear.jse_relic_legs}
 sets.precast.JA['Full Circle'] = {head=gear.jse_empy_head,hands="Bagua Mitaines +3"}
 
@@ -615,7 +621,7 @@ sets.idle.Pet = {																										--Regen / Pet DT
 	body=gear.jse_empy_body,
 	hands="Geomancy Mitaines +3",																						-- 0 / 13
 	legs="Agwu's Slops",																								-- 3
-	feet="Bagua Sandals +3",																							-- 5
+	feet=gear.jse_relic_feet,																							-- 5
 	neck=gear.geo_jse_neck,
 	waist="Isa Belt",																									-- 1 / 3
 	left_ear="Odnowa Earring +1",																						
@@ -634,7 +640,7 @@ sets.idle.DT.Pet = {
 	body=gear.jse_empy_body,
 	hands="Geomancy Mitaines +3",														-- 3							-- 0 / 13
 	legs="Agwu's Slops",																-- 9/7		
-	feet="Bagua Sandals +3",																							-- 5
+	feet=gear.jse_relic_feet,																							-- 5
 	neck=gear.geo_jse_neck,
 	waist="Isa Belt",																									-- 1 / 0
 	left_ear={name="Odnowa Earring +1",priority=500},									-- 3
