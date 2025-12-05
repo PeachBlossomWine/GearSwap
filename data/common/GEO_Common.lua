@@ -60,6 +60,14 @@ else
 	gear.empy_earring = "Azimuth Earring +1"
 end
 
+
+--Relic
+if item_available("Bagua Galero +4") then
+	gear.jse_relic_head = "Bagua Galero +4"
+else
+	gear.jse_relic_head = "Bagua Galero +3"
+end
+
 if item_available("Bagua Tunic +3") then
 	gear.jse_relic_body = "Bagua Tunic +3"
 elseif item_available("Bagua Tunic +2") then
@@ -70,18 +78,17 @@ else
 	gear.jse_relic_body = "Bagua Tunic"
 end
 
---Relic
-if item_available("Bagua Galero +4") then
-	gear.jse_relic_head = "Bagua Galero +4"
+if item_available("Bagua Pants +4") then
+	gear.jse_relic_legs = "Bagua Pants +4"
 else
-	gear.jse_relic_head = "Bagua Galero +3"
+	gear.jse_relic_legs = "Bagua Pants +3"
 end
 
 --AF
 
 if item_available("Geomancy Tunic +4") then
 	gear.jse_af_body = "Geomancy Tunic +4"
-else item_available("Geomancy Tunic +3") then
+elseif item_available("Geomancy Tunic +3") then
 	gear.jse_af_body = "Geomancy Tunic +3"
 end
 
@@ -94,7 +101,7 @@ end
 sets.precast.JA.Bolster = {body=gear.jse_relic_body}
 sets.precast.JA['Life Cycle'] = {body=gear.jse_af_body, back=gear.jse_pet_back}
 sets.precast.JA['Radial Arcana'] = {feet="Bagua Sandals +3"}
-sets.precast.JA['Mending Halation'] = {legs="Bagua Pants +3"}
+sets.precast.JA['Mending Halation'] = {legs=gear.jse_relic_legs}
 sets.precast.JA['Full Circle'] = {head=gear.jse_empy_head,hands="Bagua Mitaines +3"}
 
 sets.weapons.Idris = {main="Idris",sub="Genmei Shield"}
@@ -240,7 +247,7 @@ sets.midcast.Geomancy.Indi = {
 	head=gear.jse_empy_head,
 	body="Vedic Coat",
 	hands="Nyame Gauntlets",													
-	legs="Bagua Pants +3", 																-- 15s
+	legs=gear.jse_relic_legs,															-- 15s
 	feet=gear.jse_empy_feet,															-- 30s
 	neck="Incanter's Torque",
 	waist="Shinjutsu-no-Obi +1",														
