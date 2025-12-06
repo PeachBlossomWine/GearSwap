@@ -33,6 +33,13 @@ else
 	gear.idle_refresh_body = "Sakpata's Plate"
 end
 
+--Relic
+if item_available("Cab. Coronet +4") then
+	gear.jse_relic_head = "Cab. Coronet +4"
+else
+	gear.jse_relic_head = "Cab. Coronet +3"
+end
+
 --------------------------------------
 -- Precast sets
 --------------------------------------
@@ -79,7 +86,7 @@ sets.Enmity.SIRD = {																						-- SIRD	/	PDT	/ Enmity
 sets.precast.JA['Invincible'] = set_combine(sets.Enmity,{legs={name="Cab. Breeches +2",priority=52}, left_ear={name="Tuisto Earring",priority=150},})
 sets.precast.JA['Holy Circle'] = set_combine(sets.Enmity,{feet="Rev. Leggings +1"})
 sets.precast.JA['Sentinel'] = set_combine(sets.Enmity,{feet="Cab. Leggings +3", left_ear={name="Tuisto Earring",priority=150},})
-sets.precast.JA['Rampart'] = set_combine(sets.Enmity,{head={name="Cab. Coronet +3",priority=96}, left_ear={name="Tuisto Earring",priority=150},})
+sets.precast.JA['Rampart'] = set_combine(sets.Enmity,{head={name=gear.jse_relic_head,priority=96}, left_ear={name="Tuisto Earring",priority=150},})
 sets.precast.JA['Fealty'] = set_combine(sets.Enmity,{body={name="Cab. Surcoat +2",priority=118}, left_ear={name="Tuisto Earring",priority=150},})
 sets.precast.JA['Divine Emblem'] = set_combine(sets.Enmity,{feet={name="Chev. Sabatons +3",priority=22}, left_ear={name="Tuisto Earring",priority=150},})
 sets.precast.JA['Cover'] = set_combine(sets.Enmity, {body={name="Cab. Surcoat +2",priority=118}, left_ear={name="Tuisto Earring",priority=150},}) 	-- head="Rev. Coronet +1", 

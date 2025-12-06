@@ -64,6 +64,15 @@ else
 	gear.jse_empy_feet = "Fili Cothurnes +1"
 end
 
+--Relic
+
+if item_available("Bihu Just. +4") then
+	gear.jse_relic_body = "Bihu Just. +4"
+else
+	gear.jse_relic_body = "Bihu Justaucorps +3"
+end
+
+
 --JSE
 
 if item_available("Mousai Turban +1") then
@@ -159,7 +168,7 @@ sets.precast.FC["Aria of Passion"].Melee = set_combine(sets.precast.FC.BardSong,
 -- Precast sets to enhance JAs
 
 sets.precast.JA['Nightingale'] = {feet="Bihu Slippers +3"}
-sets.precast.JA['Troubadour'] = {body="Bihu Justaucorps +3"}
+sets.precast.JA['Troubadour'] = {body=gear.jse_relic_body}
 sets.precast.JA['Soul Voice'] = {legs="Bihu Cannions +3"}
 
 -- Waltz set (chr and vit)

@@ -78,6 +78,12 @@ else
 	gear.jse_relic_body = "Bagua Tunic"
 end
 
+if item_available("Bagua Mitaines +4") then
+	gear.jse_relic_hands = "Bagua Mitaines +4"
+else
+	gear.jse_relic_hands = "Bagua Mitaines +3"
+end
+
 if item_available("Bagua Pants +4") then
 	gear.jse_relic_legs = "Bagua Pants +4"
 else
@@ -94,10 +100,27 @@ end
 
 if item_available("Geomancy Tunic +4") then
 	gear.jse_af_body = "Geomancy Tunic +4"
-elseif item_available("Geomancy Tunic +3") then
+else
 	gear.jse_af_body = "Geomancy Tunic +3"
 end
 
+if item_available("Geomancy Pants +4") then
+	gear.jse_af_legs = "Geomancy Pants +4"
+else
+	gear.jse_af_legs = "Geomancy Pants +3"
+end
+
+if item_available("Geomancy Mitaines +4") then
+	gear.jse_af_hands = "Geomancy Mitaines +4"
+else
+	gear.jse_af_hands = "Geomancy Mitaines +3"
+end
+
+if item_available("Geomancy Sandals +4") then
+	gear.jse_af_feet = "Geomancy Sandals +4"
+else
+	gear.jse_af_feet = "Geomancy Sandals +3"
+end
 
 --------------------------------------
 -- Precast sets
@@ -108,7 +131,7 @@ sets.precast.JA.Bolster = {body=gear.jse_relic_body}
 sets.precast.JA['Life Cycle'] = {body=gear.jse_af_body, back=gear.jse_pet_back}
 sets.precast.JA['Radial Arcana'] = {feet=gear.jse_relic_feet}
 sets.precast.JA['Mending Halation'] = {legs=gear.jse_relic_legs}
-sets.precast.JA['Full Circle'] = {head=gear.jse_empy_head,hands="Bagua Mitaines +3"}
+sets.precast.JA['Full Circle'] = {head=gear.jse_empy_head,hands=gear.jse_relic_hands}
 
 sets.weapons.Idris = {main="Idris",sub="Genmei Shield"}
 sets.weapons.LorgMor = {main="Lorg Mor",sub="Genmei Shield"}
@@ -132,7 +155,7 @@ sets.precast.FC = {
 	head=gear.merlinic_fc_head,																						-- 15
 	body="Shango Robe",																								-- 8
 	hands=gear.merlinic_fc_hands,																					-- 6
-	legs="Geomancy Pants +3",																						-- 15
+	legs=gear.jse_af_legs,																						-- 15
 	feet=gear.merlinic_fc_feet,																						-- 11
 	neck="Baetyl Pendant",	    																					-- 4
 	waist="Embla Sash",																								-- 5
@@ -384,7 +407,7 @@ sets.midcast['Dark Magic'] = {
 	range="Dunna",
 	head="Pixie Hairpin +1",
 	body=gear.jse_af_body,
-	hands="Geomancy Mitaines +3",
+	hands=gear.jse_af_hands,
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
 	neck="Erra Pendant",
@@ -442,7 +465,7 @@ sets.midcast['Enfeebling Magic'] = {
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
 	head=gear.jse_empy_head,
 	body=gear.jse_empy_body,
-	hands="Geomancy Mitaines +3",
+	hands=gear.jse_af_hands,
 	legs=gear.jse_empy_legs,
 	feet=gear.jse_empy_feet,
 	neck=gear.geo_jse_neck,
@@ -572,9 +595,9 @@ sets.idle = {
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},
 	head="Null Masque",
 	body=gear.jse_empy_body,
-	hands="Bagua Mitaines +3",
+	hands=gear.jse_relic_hands,
 	legs="Assid. Pants +1",
-	feet="Geomancy Sandals +3",
+	feet=gear.jse_af_feet,
 	neck="Sanctity Necklace",
 	waist="Null Belt",
 	left_ear="Infused Earring",
@@ -590,9 +613,9 @@ sets.idle.DT = {
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},	
 	head="Null Masque",
 	body=gear.jse_empy_body,
-	hands="Bagua Mitaines +3",															
+	hands=gear.jse_relic_hands,															
 	legs="Agwu's Slops",																-- 9
-	feet="Geomancy Sandals +3",
+	feet=gear.jse_af_feet,
 	neck="Loricate Torque +1",															-- 6
 	waist="Null Belt",
 	left_ear={name="Odnowa Earring +1",priority=500},									-- 3
@@ -619,7 +642,7 @@ sets.idle.Pet = {																										--Regen / Pet DT
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},											-- 0 / 5
 	head=gear.jse_empy_head,																							-- 5
 	body=gear.jse_empy_body,
-	hands="Geomancy Mitaines +3",																						-- 0 / 13
+	hands=gear.jse_af_hands,																						-- 0 / 13
 	legs="Agwu's Slops",																								-- 3
 	feet=gear.jse_relic_feet,																							-- 5
 	neck=gear.geo_jse_neck,
@@ -638,7 +661,7 @@ sets.idle.DT.Pet = {
 	range={ name="Dunna", augments={'MP+20','Mag. Acc.+10','"Fast Cast"+3',}},	
 	head=gear.jse_empy_head,															-- 12							-- 5
 	body=gear.jse_empy_body,
-	hands="Geomancy Mitaines +3",														-- 3							-- 0 / 13
+	hands=gear.jse_af_hands,														-- 3							-- 0 / 13
 	legs="Agwu's Slops",																-- 9/7		
 	feet=gear.jse_relic_feet,																							-- 5
 	neck=gear.geo_jse_neck,
@@ -694,7 +717,7 @@ sets.defense.PetPDT = sets.idle.DT.Pet
 sets.defense.NukeLock = sets.midcast['Elemental Magic']
 sets.defense.GeoLock = sets.midcast.Geomancy.Indi
 
-sets.Kiting = {feet="Geomancy Sandals +3"}
+sets.Kiting = {feet=gear.jse_af_feet}
 sets.latent_refresh = {waist="Fucho-no-obi"}
 sets.DayIdle = {}
 sets.NightIdle = {}

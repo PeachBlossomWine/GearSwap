@@ -41,6 +41,14 @@ else
 	gear.town_body = "Ikenga's Vest"
 end
 
+--Relic
+
+if item_available("Lanun Frac +4") then
+	gear.jse_relic_body = "Lanun Frac +4"
+else
+	gear.jse_relic_body = "Lanun Frac +3"
+end
+
 sets.weapons.DualSavage = 				{main="Naegling",sub="Gleti's Knife",range="Anarchy +2"}
 sets.weapons.DualLeaden = 				{main=gear.cor_leaden_rostam,sub="Gleti's Knife",range="Death Penalty"}
 sets.weapons.DualLeadenRanged = 		{main=gear.cor_leaden_rostam,sub="Tauret",range="Death Penalty"}
@@ -62,7 +70,7 @@ sets.weapons.RostamComp = 				{main=gear.cor_roll_rostam,sub="Nusku Shield",rang
 sets.precast.JA['Triple Shot'] = {body=gear.jse_empy_body}
 sets.precast.JA['Snake Eye'] = {legs="Lanun Trews"}
 sets.precast.JA['Wild Card'] = {feet="Lanun Bottes +3"}
-sets.precast.JA['Random Deal'] = {body="Lanun Frac +3"}
+sets.precast.JA['Random Deal'] = {body=gear.jse_relic_body}
 sets.precast.FoldDoubleBust = {hands="Lanun Gants +3"}
 
 sets.precast.CorsairRoll = {head=gear.jse_relic_head,back="Camulus's Mantle",neck="Regal Necklace",hands=gear.jse_empy_hands}
@@ -79,7 +87,7 @@ sets.precast.LuzafRing = {ring2="Luzaf's Ring"}
 sets.precast.CorsairShot = {
 	ammo=gear.QDbullet,
 	head="Nyame Helm",
-	body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+	body=gear.jse_relic_body,
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet=gear.jse_empy_feet,
@@ -267,7 +275,7 @@ sets.precast.WS['Last Stand'].SubtleBlow = set_combine(sets.precast.WS['Last Sta
 sets.precast.WS['Wildfire'] = {
 	ammo=gear.MAbullet,
 	head="Nyame Helm",
-	body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+	body=gear.jse_relic_body,
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
@@ -287,7 +295,7 @@ sets.precast.WS['Wildfire'].STP = set_combine(sets.precast.WS.STP, {
 sets.precast.WS['Leaden Salute'] = {
 	ammo=gear.MAbullet,
 	head="Pixie Hairpin +1",
-	body={ name="Lanun Frac +3", augments={'Enhances "Loaded Deck" effect',}},
+	body=gear.jse_relic_body,
 	hands="Nyame Gauntlets",
 	legs="Nyame Flanchard",
 	feet={ name="Lanun Bottes +3", augments={'Enhances "Wild Card" effect',}},
